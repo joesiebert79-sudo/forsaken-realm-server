@@ -1,0 +1,5 @@
+import {ownedHousing} from './housing.mjs';
+import {homeRoom} from './housing-catalog.mjs';
+import {maxHealth,maxStamina} from './skill-balance.mjs';
+export function restAtHome(r,p){const home=ownedHousing(r.state,p);if(!home||p.interior!==home.buildingId)throw Error('Rest beside the bed in your own home');const bed=homeRoom(home.buildingId,home.design).fixtures.find(f=>f.kind==='bed');if(!bed||Math.hypot(p.x-bed.x-bed.w/2,p.y-bed.y-bed.h/2)>100)throw Error('Move closer to your bed');if(p.hp<=0||p.lastHitAt&&r.clock()-p.lastHitAt<10000)throw Error('You cannot rest during combat');if(p.hunger<=0||p.thirst<=0)throw Error('Eat and drink before resting');if(p.homeRest)throw Error('You are already resting');p.homeRest={room:p.interior,x:p.x,y:p.y,startedAt:r.clock(),readyAt:r.clock()+10000};}
+export function tickHomeRest(r,p){const rest=p.homeRest;if(!rest)return;if(p.hp<=0||p.interior!==rest.room||Math.hypot(p.x-rest.x,p.y-rest.y)>5||p.lastHitAt>=rest.startedAt){delete p.homeRest;return;}if(r.clock()<rest.readyAt)return;p.hp=Math.min(maxHealth(p),p.hp+10);p.stamina=Math.min(maxStamina(p),p.stamina+25);delete p.homeRest;}

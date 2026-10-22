@@ -8,3 +8,10 @@ CONNECTION-INFO.txt
 .env
 .env.*
 !.env.example
+
+**/app-build-*/
+*.apk
+*.idsig
+*.p12
+*.keystore
+*key-password.json

@@ -1,15 +1,13 @@
 # Forsaken Realm
 
-Matched Android app and Windows server, v0.78.
+[Download the latest Android app and Windows server](https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/latest).
 
-[Download the current release](https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/latest). Both the Android APK and Windows server ZIP are published together. The Source ZIP contains the complete Android artwork and source, plus the server source.
+v0.79 combines combat readability fixes, backpack stacks and Home & Base menus. See [Day 4 status](DAY4-STATUS.md) for implemented features and remaining stronghold work.
 
-The app keeps the original picture and uses the name Forsaken Realm. After initial pairing with your permanent player code, it reconnects on launch. Local server discovery uses UDP 8789. App updates are checked at launch; verified downloads open Android’s installer with your approval. The new app identity is com.morongaming.forsakenrealm.app; its private signing key is kept outside this repository for future updates.
+World: 49,920 × 33,280. Coins: 10 copper = 1 silver; 10 silver = 1 gold. Old saves migrate with a backup; player codes and inventories are preserved.
 
-Gameplay, minimap and world map use server terrain coordinates. World dimensions are 49,920 × 33,280. The server migrates old maps once and creates a before-v077.sqlite backup. Coins combine for payment and change: 10 copper = 1 silver; 10 silver = 1 gold. Stores include all 153 existing items with rarity-based prices.
+The Android app keeps the original picture and name Forsaken Realm. v0.79 updates the v0.78 app in place using the same signing key. Update prompts check app-release.json at launch. Android requires installation approval. Pairing and gameplay use the same local network as the Windows server.
 
-For an existing Windows server, stop it and extract the server ZIP into its folder, allowing replacement. It includes Node.js. Existing player data and player codes are retained. The phone and server must be on the same local network; this release does not provision public Internet hosting.
+Stop the Windows server before extracting the server ZIP over its folder. It includes Node.js; it contains no private player data or signing keys.
 
-Verification: Android compilation, APK signature and alignment checks; server currency, menus, migration, authenticated HTTP and persistent simulation tests. A physical Android device has not been tested.
-
-Use Node.js 24 to run node test-update.mjs and node test-http.mjs. No player identities, databases, signing keys or credentials belong in source control.
+Use Node.js 24 and npm test for the supported regression suite. Android source compilation must explicitly use javac -encoding UTF-8. Signing keys are private and must never be committed.

@@ -1,0 +1,14 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {mkdtempSync,mkdirSync,cpSync,writeFileSync,readFileSync,rmSync} from 'node:fs';import {tmpdir} from 'node:os';import {join} from 'node:path';import {spawn} from 'node:child_process';import {once} from 'node:events';import {DatabaseSync} from 'node:sqlite';
+test('normal development launch prepares full map once and reconnects both original codes',{timeout:30000},async()=>{
+ const root=mkdtempSync(join(tmpdir(),'realm-launch-'));cpSync(new URL('../server',import.meta.url),join(root,'server'),{recursive:true});cpSync(new URL('../windows',import.meta.url),join(root,'windows'),{recursive:true});mkdirSync(join(root,'data'));
+ const codes={['a'.repeat(32)]:'one',['b'.repeat(32)]:'two'},identity=JSON.stringify(codes);writeFileSync(join(root,'data','players.json'),identity);
+ const source=join(root,'data','world.sqlite.day2-compact.sqlite'),db=new DatabaseSync(source);db.exec('CREATE TABLE world(id INTEGER PRIMARY KEY,body TEXT); CREATE TABLE movement(id TEXT PRIMARY KEY,body TEXT)');db.prepare('INSERT INTO world VALUES(1,?)').run(JSON.stringify({players:{one:{id:'one'},two:{id:'two'}},accounts:{}}));db.close();const before=readFileSync(source);
+ try{for(let attempt=0;attempt<2;attempt++){
+ const port=21000+Math.floor(Math.random()*20000);const child=spawn(process.execPath,[join(root,'windows','start.mjs'),'--development'],{env:{...process.env,REALM_DATA_DIR:join(root,'data'),REALM_WORLD_DB:join(root,'data','world.sqlite'),PORT:String(port),REALM_LOOPBACK_TEST:'1'},stdio:['ignore','pipe','pipe']});let errors='';child.stderr.on('data',d=>errors+=d);
+ try{await new Promise((resolve,reject)=>{let output='';const timer=setTimeout(()=>reject(Error('Launch timeout: '+errors)),10000);child.stdout.on('data',d=>{output+=d;if(output.includes('ready on port')){clearTimeout(timer);resolve();}});child.once('exit',code=>{clearTimeout(timer);reject(Error('Launch failed '+code+': '+errors));});});
+ for(const [token,id]of Object.entries(codes)){const res=await fetch('http://127.0.0.1:'+port+'/join',{method:'POST',headers:{Authorization:'Bearer '+token}});assert.equal(res.status,200);const state=await res.json();assert.equal(state.you.id,id);assert.equal(state.worldProfile,'master-reference');assert.deepEqual(state.worldSize,{width:199680,height:133120});assert.equal(state.worldMap.villages.length,14);assert.equal(state.mapBuildings.filter(b=>/^castle-\d$/.test(b.id)).length,5);}
+ }finally{if(child.exitCode===null&&child.signalCode===null){const exited=once(child,'exit');child.kill();await exited;}}
+ }assert.deepEqual(readFileSync(source),before);assert.equal(readFileSync(join(root,'data','players.json'),'utf8'),identity);assert.equal(readFileSync(join(root,'Development-World','players.json'),'utf8'),identity);
+ }finally{rmSync(root,{recursive:true,force:true});}
+});
