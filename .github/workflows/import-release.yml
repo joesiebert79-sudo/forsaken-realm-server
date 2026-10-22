@@ -1,0 +1,33 @@
+name: Import and verify matched release source
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Retrieve verified v0.78 source
+        run: |
+          curl --fail --location --retry 3 -o /tmp/realm-source.zip https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.78/Forsaken-Realm-v0.78-Source.zip
+          echo "b506acac7c66af0b45bc2f468a352e8d879d10d6472c092e3dcf8236fd66c904  /tmp/realm-source.zip" | sha256sum --check
+          mkdir /tmp/realm-source
+          unzip -q /tmp/realm-source.zip -d /tmp/realm-source
+          rsync -a --exclude='.github' /tmp/realm-source/ ./
+      - name: Test matched server
+        run: node test-update.mjs && node test-http.mjs
+      - name: Preserve complete app and server source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add android server windows Start-Server.cmd README.md package.json app-release.json test-http.mjs test-update.mjs .gitignore
+          git diff --cached --quiet || git commit -m "Preserve matched Forsaken Realm v0.78 app and server source"
+          git push origin HEAD:main

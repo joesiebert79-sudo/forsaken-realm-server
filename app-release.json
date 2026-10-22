@@ -1,0 +1,7 @@
+{
+  "versionCode": 78,
+  "versionName": "0.78",
+  "apkUrl": "https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.78/Forsaken-Realm-v0.78.apk",
+  "apkSha256": "1a3d96d1356e28d88f6d8e1217f0eb90685bba8bb1503f1e146cd067d460dc58",
+  "serverVersion": "0.78-matched-app"
+}
