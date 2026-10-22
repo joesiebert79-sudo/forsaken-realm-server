@@ -4,7 +4,7 @@ const cell=p=>`${Math.floor(p.x/256)},${Math.floor(p.y/256)}`;
 export function craftingContainers(r,p){
  if(p.hp<=0)return [];if(p.interior){const home=ownedHousing(r.state,p);if(!home||home.buildingId!==p.interior)return [];return Object.entries(r.state.containers||{}).filter(([id])=>id.startsWith('fixture:'+p.interior+':')).map(([id,c])=>({id,items:c.items||{}}));}
  const here=cell(p);
- return Object.values(r.state.structures).filter(s=>s.kind==='chest'&&!s.interior&&!s.abandonedAt&&s.hp>0&&cell(s)===here&&r.owns(p,s)&&(!s.settlementId||r.state.settlements?.[s.settlementId]?.cell===here)).sort((a,b)=>String(a.id).localeCompare(String(b.id)));
+ return Object.values(r.state.structures).filter(s=>s.kind==='chest'&&!s.interior&&!s.abandonedAt&&s.hp>0&&r.owns(p,s)&&(!s.settlementId?cell(s)===here:(()=>{const land=r.state.settlements?.[s.settlementId];return land?.propertyId?Math.hypot(p.x-land.x,p.y-land.y)<=300&&Math.hypot(p.x-s.x,p.y-s.y)<=150:land?.cell===here&&cell(s)===here;})())).sort((a,b)=>String(a.id).localeCompare(String(b.id)));
 }
 export function craftingStorageView(r,p){const total={};for(const c of craftingContainers(r,p))for(const [id,n] of Object.entries(c.items||{}))total[id]=(total[id]||0)+n;return total;}
 export function consumeCraftMaterials(inventory,stores,needs){
