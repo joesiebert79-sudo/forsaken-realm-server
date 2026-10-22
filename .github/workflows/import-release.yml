@@ -1,5 +1,7 @@
 name: Import and verify matched release source
 on:
+  push:
+    paths: [.github/workflows/import-release.yml]
   release:
     types: [published]
   workflow_dispatch:
@@ -20,7 +22,7 @@ jobs:
           curl --fail --location --retry 3 -o /tmp/realm-source.zip https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.78/Forsaken-Realm-v0.78-Source.zip
           echo "b506acac7c66af0b45bc2f468a352e8d879d10d6472c092e3dcf8236fd66c904  /tmp/realm-source.zip" | sha256sum --check
           mkdir /tmp/realm-source
-          unzip -q /tmp/realm-source.zip -d /tmp/realm-source
+          unzip -oq /tmp/realm-source.zip -d /tmp/realm-source
           rsync -a --exclude='.github' /tmp/realm-source/ ./
       - name: Test matched server
         run: node test-update.mjs && node test-http.mjs
