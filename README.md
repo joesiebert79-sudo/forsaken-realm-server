@@ -1,30 +1,15 @@
-# The Forsaken Realm — server
+# Forsaken Realm
 
-This repository contains The Forsaken Realm v0.77 server, updated from the owner's v0.76 Windows server package.
+Matched Android app and Windows server, v0.78.
 
-## Current update
+[Download the current release](https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/latest). Both the Android APK and Windows server ZIP are published together. The Source ZIP contains the complete Android artwork and source, plus the server source.
 
-- World dimensions: **49,920 × 33,280**, one quarter of v0.76's width and height.
-- Coin conversion: **10 copper = 1 silver; 10 silver = 1 gold**. All carried denominations combine automatically for payment and change.
-- Store: offers for all 153 existing game items, with currency selected from item rarity, plus the existing cosmetics and service menus.
-- Saved-world migration with a `before-v077.sqlite` database backup. Account IDs, inventories, player codes and balances are retained.
-- Version information at `/version.json` and `/health`, and in gameplay snapshots. The server version appears in the shop menu.
-- NPC traders can use neutral towns; unavailable destinations no longer interrupt simulation ticks.
+The app keeps the original picture and uses the name Forsaken Realm. After initial pairing with your permanent player code, it reconnects on launch. Local server discovery uses UDP 8789. App updates are checked at launch; verified downloads open Android’s installer with your approval. The new app identity is com.morongaming.forsakenrealm.app; its private signing key is kept outside this repository for future updates.
 
-The tested overwrite download is [Forsaken-Realm-v0.77-Server-Overwrite.zip](https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/latest/download/Forsaken-Realm-v0.77-Server-Overwrite.zip). Extract its contents into the existing v0.76 server folder while the server is stopped. The ZIP intentionally contains no player data or bundled runtime; the existing installation supplies those.
+Gameplay, minimap and world map use server terrain coordinates. World dimensions are 49,920 × 33,280. The server migrates old maps once and creates a before-v077.sqlite backup. Coins combine for payment and change: 10 copper = 1 silver; 10 silver = 1 gold. Stores include all 153 existing items with rarity-based prices.
 
-## Verification
+For an existing Windows server, stop it and extract the server ZIP into its folder, allowing replacement. It includes Node.js. Existing player data and player codes are retained. The phone and server must be on the same local network; this release does not provision public Internet hosting.
 
-Use Node.js 24:
+Verification: Android compilation, APK signature and alignment checks; server currency, menus, migration, authenticated HTTP and persistent simulation tests. A physical Android device has not been tested.
 
-```sh
-npm test
-```
-
-Tests cover currency conversion, payment/change, item offers, menus, duplicate purchases, map migration, database backup/reopen, authenticated HTTP requests and simulation startup. A separate migration check was also run against a world produced by the original v0.76 package using its bundled Windows runtime.
-
-## Scope
-
-This is the existing authenticated LAN development server, not an Internet-ready game host. Player identities come from the existing private `players.json`. Never commit player codes, databases, connection information or credentials.
-
-The Android client and APK are not part of this update. Adding a server version endpoint does not add an update prompt to an existing Android client. No new APK is built. Server overwrite downloads are published as GitHub release assets. Share the latest-release download link for Discord.
+Use Node.js 24 to run node test-update.mjs and node test-http.mjs. No player identities, databases, signing keys or credentials belong in source control.

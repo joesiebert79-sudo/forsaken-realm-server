@@ -1,0 +1,19 @@
+package com.morongaming.forsakenrealm;
+import android.content.Context;import android.graphics.*;import java.io.InputStream;import java.util.ArrayList;import org.json.*;
+/** Gameplay and both maps use the same server terrain coordinates. */
+final class MasterTerrain {
+ private JSONArray source;private final ArrayList<Path> paths=new ArrayList<>();private final ArrayList<RectF> bounds=new ArrayList<>();private final Paint paint=new Paint(3);private static Bitmap reference,texture;private static int sample=-1;private final WorldMaterials surface=new WorldMaterials();
+ void load(Context context,int quality){int q=quality==0?2:1;if(sample!=q||texture==null){try(InputStream in=context.getAssets().open("terrain-v71.png")){BitmapFactory.Options o=new BitmapFactory.Options();o.inSampleSize=q;texture=BitmapFactory.decodeStream(in,null,o);sample=q;}catch(Exception e){throw new IllegalStateException("Terrain artwork missing",e);}}surface.prepare(texture,256);if(reference==null)try(InputStream in=context.getAssets().open("approved-world-map.png")){reference=BitmapFactory.decodeStream(in);}catch(Exception e){throw new IllegalStateException("Approved map missing",e);}}
+ void map(Canvas c,JSONArray shapes,float width,float height){paint.setStyle(Paint.Style.FILL);paint.setColor(0xff244b59);c.drawRect(0,0,width,height,paint);if(shapes==null)return;Path land=null;for(int i=0;i<shapes.length();i++){JSONObject shape=shapes.optJSONObject(i);if(shape==null)continue;JSONArray points=shape.optJSONArray("points");Path p=new Path();for(int j=0;points!=null&&j<points.length();j++){JSONObject point=points.optJSONObject(j);float x=(float)point.optDouble("x"),y=(float)point.optDouble("y");if(j==0)p.moveTo(x,y);else p.lineTo(x,y);}p.close();String kind=shape.optString("kind");if(kind.equals("land"))land=p;c.save();if(land!=null&&!kind.equals("land"))c.clipPath(land);paint.setColor(kind.equals("water")?0xff2d6374:kind.equals("mountain")?0xff706b55:kind.equals("forest")?0xff344936:kind.equals("marsh")?0xff56664a:0xff526047);c.drawPath(p,paint);c.restore();}}
+ void draw(Canvas c,JSONArray shapes,WorldMaterials materials,int quality,float l,float t,float r,float b){
+  if(shapes==null||shapes.length()==0)return;
+  if(source!=shapes){source=shapes;paths.clear();bounds.clear();for(int i=0;i<shapes.length();i++){Path p=new Path();JSONArray pts=shapes.optJSONObject(i).optJSONArray("points");for(int j=0;pts!=null&&j<pts.length();j++){JSONObject q=pts.optJSONObject(j);float x=(float)q.optDouble("x"),y=(float)q.optDouble("y");if(j==0)p.moveTo(x,y);else p.lineTo(x,y);}p.close();paths.add(p);RectF box=new RectF();p.computeBounds(box,true);bounds.add(box);}}
+  paint.setColor(0xff244b59);c.drawRect(l,t,r,b,paint);
+  for(int i=0;i<shapes.length();i++){String kind=shapes.optJSONObject(i).optString("kind");RectF box=bounds.get(i);if(box.right<l-64||box.left>r+64||box.bottom<t-64||box.top>b+64)continue;Path path=paths.get(i);c.save();if(i>0)c.clipPath(paths.get(0));c.clipPath(path);
+   if(kind.equals("land")){materials.ground(c,0,l,t,r,b);}else if(kind.equals("water")){paint.setColor(0xff2d6374);c.drawRect(l,t,r,b,paint);}else{surface.ground(c,kind.equals("mountain")?0:kind.equals("forest")?1:2,l,t,r,b);}
+   if(quality>0&&!kind.equals("land")&&!kind.equals("water")){paint.setStyle(Paint.Style.STROKE);paint.setStrokeJoin(Paint.Join.ROUND);for(int edge=3;edge>=1;edge--){paint.setStrokeWidth(edge*18);paint.setColor(kind.equals("mountain")?0x126d6757:kind.equals("forest")?0x1259613c:0x125b6852);c.drawPath(path,paint);}paint.setStyle(Paint.Style.FILL);}
+   c.restore();if(kind.equals("land")||kind.equals("water")){paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(32);paint.setColor(kind.equals("land")?0xff91876c:0xff6b887b);c.drawPath(path,paint);paint.setStyle(Paint.Style.FILL);}
+  }
+ }
+}
+

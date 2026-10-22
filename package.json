@@ -1,8 +1,12 @@
 {
   "name": "forsaken-realm-server",
-  "version": "0.77.0",
+  "version": "0.78.0",
   "private": true,
   "type": "module",
-  "engines": {"node": ">=24"},
-  "scripts": {"test": "node test-update.mjs && node test-http.mjs"}
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node test-update.mjs && node test-http.mjs"
+  }
 }

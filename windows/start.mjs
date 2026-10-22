@@ -21,7 +21,7 @@ if(process.argv.includes('--development')){
  process.env.REALM_DATA_DIR=resolve(root,'Development-World');
  process.env.REALM_WORLD_DB=resolve(root,'Development-World','world.sqlite');
  process.env.REALM_WORLD_PROFILE='master-reference';
- console.log('FORSAKEN REALM v0.77 — SMALLER WORLD: 49920 x 33280; 2 Trader Towns, 12 villages, 5 castle landmarks.');
+ console.log('FORSAKEN REALM v0.78 — SMALLER WORLD: 49920 x 33280; 2 Trader Towns, 12 villages, 5 castle landmarks.');
 }
 
 // Only a verified copy-on-rebuild opts this installation into the new world.

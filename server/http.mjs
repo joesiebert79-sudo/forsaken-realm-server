@@ -1,3 +1,4 @@
+import {startDiscovery} from './discovery.mjs';
 import {RELEASE_INFO} from './release.mjs';
 import {sceneTransport} from './scene-transport.mjs';
 import {COMPACT,databasePath} from './world-profile.mjs';
@@ -26,9 +27,10 @@ const server=createServer(async(req,res)=>{
  }catch(error){return send(400,{error:error.message});}
 });
 const tick=setInterval(()=>{try{store.transaction(r=>r.tick(.1));}catch(error){console.error("World tick persistence failed",error.message);}},100);
-server.listen(Number(process.env.PORT||8788),process.env.REALM_BIND_HOST||'127.0.0.1',()=>console.log('Realm server ready on port '+server.address().port));
+let stopDiscovery=()=>{};
+server.listen(Number(process.env.PORT||8788),process.env.REALM_BIND_HOST||'127.0.0.1',()=>{console.log('Realm server ready on port '+server.address().port);stopDiscovery=startDiscovery(server.address().port,RELEASE_INFO.version);});
 server.on('error',error=>{console.error('Server could not start:',error.message);clearInterval(tick);store.close();process.exit(1);});
-function stop(){clearInterval(tick);server.close(()=>{store.transaction(()=>{});store.close();process.exit(0);});}
+function stop(){stopDiscovery();clearInterval(tick);server.close(()=>{store.transaction(()=>{});store.close();process.exit(0);});}
 process.on('SIGTERM',stop);process.on('SIGINT',stop);
 
 

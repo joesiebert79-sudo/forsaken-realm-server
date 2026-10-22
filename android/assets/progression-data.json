@@ -1,0 +1,3882 @@
+{
+  "items": [
+    {
+      "id": "wood",
+      "name": "Timber",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "stone",
+      "name": "Stone",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "ironOre",
+      "name": "Iron ore",
+      "category": "Raw materials",
+      "weight": 2,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "fiber",
+      "name": "Flax fibre",
+      "category": "Raw materials",
+      "weight": 0.1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "hide",
+      "name": "Raw hide",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Hunt animals",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "category": "Raw materials",
+      "weight": 0.2,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "seed",
+      "name": "Grain seed",
+      "category": "Raw materials",
+      "weight": 0.05,
+      "source": "Harvest planted wheat",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "clay",
+      "name": "Clay",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "limestone",
+      "name": "Limestone",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "copperOre",
+      "name": "Copper ore",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "tinOre",
+      "name": "Tin ore",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "salt",
+      "name": "Rock salt",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "flaxSeed",
+      "name": "Flax seed",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather flax seed plants",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "barley",
+      "name": "Barley",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "oats",
+      "name": "Oats",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "peas",
+      "name": "Peas",
+      "category": "Raw materials",
+      "weight": 1,
+      "nutrition": 5,
+      "hydration": 0,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "category": "Raw materials",
+      "weight": 1,
+      "nutrition": 6,
+      "hydration": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "category": "Raw materials",
+      "weight": 1,
+      "nutrition": 8,
+      "hydration": 3,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "berry",
+      "name": "Wild berries",
+      "category": "Raw materials",
+      "weight": 1,
+      "nutrition": 6,
+      "hydration": 3,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "herb",
+      "name": "Kitchen herbs",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "mushroom",
+      "name": "Edible mushrooms",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "rawMeat",
+      "name": "Raw game meat",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Hunt animals",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "rawFish",
+      "name": "Fresh fish",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Fish a fishing spot with a rod",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "fat",
+      "name": "Animal fat",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Hunt animals",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "bone",
+      "name": "Bone",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Hunt animals",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "feather",
+      "name": "Feathers",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Hunt animals",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "wool",
+      "name": "Raw wool",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "category": "Raw materials",
+      "weight": 1,
+      "nutrition": 10,
+      "hydration": 12,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "egg",
+      "name": "Egg",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "category": "Raw materials",
+      "weight": 1,
+      "nutrition": 12,
+      "hydration": 0,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "category": "Raw materials",
+      "weight": 1,
+      "nutrition": 0,
+      "hydration": 25,
+      "source": "Fill waterskin at a well",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "bark",
+      "name": "Oak bark",
+      "category": "Raw materials",
+      "weight": 1,
+      "source": "Gather or harvest countryside nodes",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "charcoal",
+      "name": "Charcoal",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: hearth",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "plank",
+      "name": "Sawn plank",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "rope",
+      "name": "Rope",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "linen",
+      "name": "Linen cloth",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: loom",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "leather",
+      "name": "Tanned leather",
+      "category": "Components",
+      "weight": 0.5,
+      "source": "Craft: tannery",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "iron",
+      "name": "Wrought iron",
+      "category": "Components",
+      "weight": 2,
+      "source": "Craft: forge",
+      "rarity": 3,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "copper",
+      "name": "Copper ingot",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: forge",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "bronze",
+      "name": "Bronze ingot",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: forge",
+      "rarity": 3,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "steel",
+      "name": "Steel billet",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: forge",
+      "rarity": 4,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "nails",
+      "name": "Iron nails",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: forge",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "brick",
+      "name": "Fired brick",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: kiln",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "mortar",
+      "name": "Lime mortar",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: kiln",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "flour",
+      "name": "Flour",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: mill",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "dough",
+      "name": "Dough",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "tallow",
+      "name": "Tallow",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: hearth",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "thread",
+      "name": "Spun thread",
+      "category": "Components",
+      "weight": 1,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "category": "Food",
+      "weight": 0.3,
+      "nutrition": 30,
+      "hydration": 0,
+      "source": "Craft: hearth",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "pottage",
+      "name": "Vegetable pottage",
+      "category": "Food",
+      "weight": 1,
+      "nutrition": 34,
+      "hydration": 12,
+      "source": "Craft: hearth",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "porridge",
+      "name": "Oat porridge",
+      "category": "Food",
+      "weight": 1,
+      "nutrition": 26,
+      "hydration": 8,
+      "source": "Craft: hearth",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "roastMeat",
+      "name": "Roast meat",
+      "category": "Food",
+      "weight": 1,
+      "nutrition": 30,
+      "hydration": 0,
+      "source": "Craft: hearth",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "stew",
+      "name": "Meat stew",
+      "category": "Food",
+      "weight": 1,
+      "nutrition": 45,
+      "hydration": 10,
+      "source": "Craft: hearth",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "saltMeat",
+      "name": "Salted meat",
+      "category": "Food",
+      "weight": 1,
+      "nutrition": 28,
+      "hydration": -4,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "smokedFish",
+      "name": "Smoked fish",
+      "category": "Food",
+      "weight": 1,
+      "nutrition": 28,
+      "hydration": -2,
+      "source": "Craft: smoker",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "cheese",
+      "name": "Fresh cheese",
+      "category": "Food",
+      "weight": 1,
+      "nutrition": 24,
+      "hydration": 0,
+      "source": "Craft: hearth",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "category": "Food",
+      "weight": 1,
+      "nutrition": 15,
+      "hydration": 0,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "honeyCake",
+      "name": "Honey cake",
+      "category": "Food",
+      "weight": 1,
+      "nutrition": 42,
+      "hydration": 0,
+      "source": "Craft: hearth",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "axe",
+      "name": "Stone axe",
+      "category": "Equipment",
+      "weight": 3,
+      "damage": 12,
+      "range": 54,
+      "source": "Craft: by hand",
+      "rarity": 1,
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "spear",
+      "name": "Ash spear",
+      "category": "Equipment",
+      "weight": 3,
+      "damage": 16,
+      "range": 90,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 5
+    },
+    {
+      "id": "bow",
+      "name": "Hunting bow",
+      "category": "Equipment",
+      "weight": 2,
+      "damage": 15,
+      "range": 300,
+      "ammo": "arrow",
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "arrow",
+      "name": "Iron arrow",
+      "category": "Equipment",
+      "weight": 0.05,
+      "source": "Craft: forge",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "sword",
+      "name": "Arming sword",
+      "category": "Equipment",
+      "weight": 3,
+      "damage": 22,
+      "range": 60,
+      "source": "Craft: forge",
+      "rarity": 3,
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "shield",
+      "name": "Round shield",
+      "category": "Equipment",
+      "weight": 4,
+      "source": "Craft: forge",
+      "rarity": 3,
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "tunic",
+      "name": "Leather tunic",
+      "category": "Equipment",
+      "weight": 4,
+      "armour": 0.08,
+      "source": "Craft: tannery",
+      "rarity": 2,
+      "armorSlot": "chest",
+      "armorSet": "hide",
+      "equipmentTier": 2,
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "pickaxe",
+      "name": "Iron pickaxe",
+      "category": "Equipment",
+      "weight": 1,
+      "tool": "mining",
+      "source": "Craft: forge",
+      "rarity": 3,
+      "handheld": true,
+      "damage": 10,
+      "range": 54,
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "sickle",
+      "name": "Iron sickle",
+      "category": "Equipment",
+      "weight": 1,
+      "tool": "farming",
+      "source": "Craft: forge",
+      "rarity": 2,
+      "handheld": true,
+      "damage": 6,
+      "range": 48,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "hammer",
+      "name": "Smith hammer",
+      "category": "Equipment",
+      "weight": 1,
+      "tool": "building",
+      "source": "Craft: forge",
+      "rarity": 3,
+      "handheld": true,
+      "damage": 8,
+      "range": 48,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "fishingRod",
+      "name": "Fishing rod",
+      "category": "Equipment",
+      "weight": 1,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "handheld": true,
+      "inventoryWidth": 1,
+      "inventoryHeight": 5
+    },
+    {
+      "id": "waterskin",
+      "name": "Waterskin",
+      "category": "Equipment",
+      "weight": 1,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "bandage",
+      "name": "Linen bandage",
+      "category": "Equipment",
+      "weight": 1,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "torch",
+      "name": "Pitchless torch",
+      "category": "Equipment",
+      "weight": 1,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "gambeson",
+      "name": "Padded gambeson",
+      "category": "Equipment",
+      "weight": 1,
+      "armour": 0.12,
+      "source": "Craft: loom",
+      "rarity": 3,
+      "armorSlot": "chest",
+      "armorSet": "padded",
+      "equipmentTier": 3,
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "mail",
+      "name": "Mail shirt",
+      "category": "Equipment",
+      "weight": 1,
+      "armour": 0.22,
+      "source": "Craft: forge",
+      "rarity": 4,
+      "armorSlot": "chest",
+      "armorSet": "mailset",
+      "equipmentTier": 4,
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "helmet",
+      "name": "Iron helmet",
+      "category": "Equipment",
+      "weight": 1,
+      "armour": 0.06,
+      "source": "Craft: forge",
+      "rarity": 3,
+      "armorSlot": "helmet",
+      "armorSet": "padded",
+      "equipmentTier": 3,
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "crossbow",
+      "name": "Crossbow",
+      "category": "Equipment",
+      "weight": 1,
+      "damage": 32,
+      "range": 330,
+      "ammo": "bolt",
+      "source": "Craft: forge",
+      "rarity": 5,
+      "inventoryWidth": 3,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "bolt",
+      "name": "Crossbow bolt",
+      "category": "Equipment",
+      "weight": 1,
+      "source": "Craft: by hand",
+      "rarity": 2,
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "longbow",
+      "name": "Yew longbow",
+      "category": "Equipment",
+      "weight": 1,
+      "damage": 25,
+      "range": 360,
+      "ammo": "arrow",
+      "source": "Craft: by hand",
+      "rarity": 4,
+      "inventoryWidth": 2,
+      "inventoryHeight": 4
+    },
+    {
+      "id": "crude_helmet",
+      "name": "Ragged Helm",
+      "category": "Equipment",
+      "weight": 0.6,
+      "armour": 0.08,
+      "armorSlot": "helmet",
+      "armorSet": "crude",
+      "equipmentTier": 1,
+      "rarity": 1,
+      "material": "cloth",
+      "movementPenalty": 0.006,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "crude_chest",
+      "name": "Ragged Chestplate",
+      "category": "Equipment",
+      "weight": 1.5,
+      "armour": 0.08,
+      "armorSlot": "chest",
+      "armorSet": "crude",
+      "equipmentTier": 1,
+      "rarity": 1,
+      "material": "cloth",
+      "movementPenalty": 0.015,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "crude_gloves",
+      "name": "Ragged Gloves",
+      "category": "Equipment",
+      "weight": 0.3,
+      "armour": 0.08,
+      "armorSlot": "gloves",
+      "armorSet": "crude",
+      "equipmentTier": 1,
+      "rarity": 1,
+      "material": "cloth",
+      "movementPenalty": 0.003,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "crude_leggings",
+      "name": "Ragged Leggings",
+      "category": "Equipment",
+      "weight": 1,
+      "armour": 0.08,
+      "armorSlot": "leggings",
+      "armorSet": "crude",
+      "equipmentTier": 1,
+      "rarity": 1,
+      "material": "cloth",
+      "movementPenalty": 0.01,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "crude_boots",
+      "name": "Ragged Boots",
+      "category": "Equipment",
+      "weight": 0.6,
+      "armour": 0.08,
+      "armorSlot": "boots",
+      "armorSet": "crude",
+      "equipmentTier": 1,
+      "rarity": 1,
+      "material": "cloth",
+      "movementPenalty": 0.006,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "hide_helmet",
+      "name": "Hide Helm",
+      "category": "Equipment",
+      "weight": 1.2,
+      "armour": 0.15,
+      "armorSlot": "helmet",
+      "armorSet": "hide",
+      "equipmentTier": 2,
+      "rarity": 2,
+      "material": "leather",
+      "movementPenalty": 0.012,
+      "source": "Craft: tannery",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "hide_chest",
+      "name": "Hide Chestplate",
+      "category": "Equipment",
+      "weight": 3.0,
+      "armour": 0.15,
+      "armorSlot": "chest",
+      "armorSet": "hide",
+      "equipmentTier": 2,
+      "rarity": 2,
+      "material": "leather",
+      "movementPenalty": 0.03,
+      "source": "Craft: tannery",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "hide_gloves",
+      "name": "Hide Gloves",
+      "category": "Equipment",
+      "weight": 0.6,
+      "armour": 0.15,
+      "armorSlot": "gloves",
+      "armorSet": "hide",
+      "equipmentTier": 2,
+      "rarity": 2,
+      "material": "leather",
+      "movementPenalty": 0.006,
+      "source": "Craft: tannery",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "hide_leggings",
+      "name": "Hide Leggings",
+      "category": "Equipment",
+      "weight": 2,
+      "armour": 0.15,
+      "armorSlot": "leggings",
+      "armorSet": "hide",
+      "equipmentTier": 2,
+      "rarity": 2,
+      "material": "leather",
+      "movementPenalty": 0.02,
+      "source": "Craft: tannery",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "hide_boots",
+      "name": "Hide Boots",
+      "category": "Equipment",
+      "weight": 1.2,
+      "armour": 0.15,
+      "armorSlot": "boots",
+      "armorSet": "hide",
+      "equipmentTier": 2,
+      "rarity": 2,
+      "material": "leather",
+      "movementPenalty": 0.012,
+      "source": "Craft: tannery",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "padded_helmet",
+      "name": "Padded Helm",
+      "category": "Equipment",
+      "weight": 1.8,
+      "armour": 0.22,
+      "armorSlot": "helmet",
+      "armorSet": "padded",
+      "equipmentTier": 3,
+      "rarity": 3,
+      "material": "cloth",
+      "movementPenalty": 0.018,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "padded_chest",
+      "name": "Padded Chestplate",
+      "category": "Equipment",
+      "weight": 4.5,
+      "armour": 0.22,
+      "armorSlot": "chest",
+      "armorSet": "padded",
+      "equipmentTier": 3,
+      "rarity": 3,
+      "material": "cloth",
+      "movementPenalty": 0.045,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "padded_gloves",
+      "name": "Padded Gloves",
+      "category": "Equipment",
+      "weight": 0.9,
+      "armour": 0.22,
+      "armorSlot": "gloves",
+      "armorSet": "padded",
+      "equipmentTier": 3,
+      "rarity": 3,
+      "material": "cloth",
+      "movementPenalty": 0.009,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "padded_leggings",
+      "name": "Padded Leggings",
+      "category": "Equipment",
+      "weight": 3,
+      "armour": 0.22,
+      "armorSlot": "leggings",
+      "armorSet": "padded",
+      "equipmentTier": 3,
+      "rarity": 3,
+      "material": "cloth",
+      "movementPenalty": 0.03,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "padded_boots",
+      "name": "Padded Boots",
+      "category": "Equipment",
+      "weight": 1.8,
+      "armour": 0.22,
+      "armorSlot": "boots",
+      "armorSet": "padded",
+      "equipmentTier": 3,
+      "rarity": 3,
+      "material": "cloth",
+      "movementPenalty": 0.018,
+      "source": "Craft: loom",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "mailset_helmet",
+      "name": "Riveted Mail Helm",
+      "category": "Equipment",
+      "weight": 2.4,
+      "armour": 0.3,
+      "armorSlot": "helmet",
+      "armorSet": "mailset",
+      "equipmentTier": 4,
+      "rarity": 4,
+      "material": "metal",
+      "movementPenalty": 0.03,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "mailset_chest",
+      "name": "Riveted Mail Chestplate",
+      "category": "Equipment",
+      "weight": 6.0,
+      "armour": 0.3,
+      "armorSlot": "chest",
+      "armorSet": "mailset",
+      "equipmentTier": 4,
+      "rarity": 4,
+      "material": "metal",
+      "movementPenalty": 0.07500000000000001,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "mailset_gloves",
+      "name": "Riveted Mail Gloves",
+      "category": "Equipment",
+      "weight": 1.2,
+      "armour": 0.3,
+      "armorSlot": "gloves",
+      "armorSet": "mailset",
+      "equipmentTier": 4,
+      "rarity": 4,
+      "material": "metal",
+      "movementPenalty": 0.015,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "mailset_leggings",
+      "name": "Riveted Mail Leggings",
+      "category": "Equipment",
+      "weight": 4,
+      "armour": 0.3,
+      "armorSlot": "leggings",
+      "armorSet": "mailset",
+      "equipmentTier": 4,
+      "rarity": 4,
+      "material": "metal",
+      "movementPenalty": 0.05,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "mailset_boots",
+      "name": "Riveted Mail Boots",
+      "category": "Equipment",
+      "weight": 2.4,
+      "armour": 0.3,
+      "armorSlot": "boots",
+      "armorSet": "mailset",
+      "equipmentTier": 4,
+      "rarity": 4,
+      "material": "metal",
+      "movementPenalty": 0.03,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "brigandine_helmet",
+      "name": "Brigandine Helm",
+      "category": "Equipment",
+      "weight": 3.0,
+      "armour": 0.37,
+      "armorSlot": "helmet",
+      "armorSet": "brigandine",
+      "equipmentTier": 5,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.036,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "brigandine_chest",
+      "name": "Brigandine Chestplate",
+      "category": "Equipment",
+      "weight": 7.5,
+      "armour": 0.37,
+      "armorSlot": "chest",
+      "armorSet": "brigandine",
+      "equipmentTier": 5,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.09,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "brigandine_gloves",
+      "name": "Brigandine Gloves",
+      "category": "Equipment",
+      "weight": 1.5,
+      "armour": 0.37,
+      "armorSlot": "gloves",
+      "armorSet": "brigandine",
+      "equipmentTier": 5,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.018,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "brigandine_leggings",
+      "name": "Brigandine Leggings",
+      "category": "Equipment",
+      "weight": 5,
+      "armour": 0.37,
+      "armorSlot": "leggings",
+      "armorSet": "brigandine",
+      "equipmentTier": 5,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.06,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "brigandine_boots",
+      "name": "Brigandine Boots",
+      "category": "Equipment",
+      "weight": 3.0,
+      "armour": 0.37,
+      "armorSlot": "boots",
+      "armorSet": "brigandine",
+      "equipmentTier": 5,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.036,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "plate_helmet",
+      "name": "Tempered Plate Helm",
+      "category": "Equipment",
+      "weight": 3.6,
+      "armour": 0.44,
+      "armorSlot": "helmet",
+      "armorSet": "plate",
+      "equipmentTier": 6,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.042,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "plate_chest",
+      "name": "Tempered Plate Chestplate",
+      "category": "Equipment",
+      "weight": 9.0,
+      "armour": 0.44,
+      "armorSlot": "chest",
+      "armorSet": "plate",
+      "equipmentTier": 6,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.10500000000000001,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "plate_gloves",
+      "name": "Tempered Plate Gloves",
+      "category": "Equipment",
+      "weight": 1.8,
+      "armour": 0.44,
+      "armorSlot": "gloves",
+      "armorSet": "plate",
+      "equipmentTier": 6,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.021,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "plate_leggings",
+      "name": "Tempered Plate Leggings",
+      "category": "Equipment",
+      "weight": 6,
+      "armour": 0.44,
+      "armorSlot": "leggings",
+      "armorSet": "plate",
+      "equipmentTier": 6,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.07,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "plate_boots",
+      "name": "Tempered Plate Boots",
+      "category": "Equipment",
+      "weight": 3.6,
+      "armour": 0.44,
+      "armorSlot": "boots",
+      "armorSet": "plate",
+      "equipmentTier": 6,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.042,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "royal_helmet",
+      "name": "Royal Plate Helm",
+      "category": "Equipment",
+      "weight": 4.2,
+      "armour": 0.5,
+      "armorSlot": "helmet",
+      "armorSet": "royal",
+      "equipmentTier": 7,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.048,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "royal_chest",
+      "name": "Royal Plate Chestplate",
+      "category": "Equipment",
+      "weight": 10.5,
+      "armour": 0.5,
+      "armorSlot": "chest",
+      "armorSet": "royal",
+      "equipmentTier": 7,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.12,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "royal_gloves",
+      "name": "Royal Plate Gloves",
+      "category": "Equipment",
+      "weight": 2.1,
+      "armour": 0.5,
+      "armorSlot": "gloves",
+      "armorSet": "royal",
+      "equipmentTier": 7,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.024,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "royal_leggings",
+      "name": "Royal Plate Leggings",
+      "category": "Equipment",
+      "weight": 7,
+      "armour": 0.5,
+      "armorSlot": "leggings",
+      "armorSet": "royal",
+      "equipmentTier": 7,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.08,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "royal_boots",
+      "name": "Royal Plate Boots",
+      "category": "Equipment",
+      "weight": 4.2,
+      "armour": 0.5,
+      "armorSlot": "boots",
+      "armorSet": "royal",
+      "equipmentTier": 7,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.048,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "kingslayer_helmet",
+      "name": "Kingslayer Plate Helm",
+      "category": "Equipment",
+      "weight": 4.8,
+      "armour": 0.55,
+      "armorSlot": "helmet",
+      "armorSet": "kingslayer",
+      "equipmentTier": 8,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.054,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "kingslayer_chest",
+      "name": "Kingslayer Plate Chestplate",
+      "category": "Equipment",
+      "weight": 12.0,
+      "armour": 0.55,
+      "armorSlot": "chest",
+      "armorSet": "kingslayer",
+      "equipmentTier": 8,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.135,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "kingslayer_gloves",
+      "name": "Kingslayer Plate Gloves",
+      "category": "Equipment",
+      "weight": 2.4,
+      "armour": 0.55,
+      "armorSlot": "gloves",
+      "armorSet": "kingslayer",
+      "equipmentTier": 8,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.027,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "kingslayer_leggings",
+      "name": "Kingslayer Plate Leggings",
+      "category": "Equipment",
+      "weight": 8,
+      "armour": 0.55,
+      "armorSlot": "leggings",
+      "armorSet": "kingslayer",
+      "equipmentTier": 8,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.09,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "kingslayer_boots",
+      "name": "Kingslayer Plate Boots",
+      "category": "Equipment",
+      "weight": 4.8,
+      "armour": 0.55,
+      "armorSlot": "boots",
+      "armorSet": "kingslayer",
+      "equipmentTier": 8,
+      "rarity": 5,
+      "material": "metal",
+      "movementPenalty": 0.054,
+      "source": "Craft: forge",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "siegeRam",
+      "name": "Iron-shod hand ram",
+      "category": "Weapons",
+      "weight": 12,
+      "rarity": 4,
+      "handheld": true,
+      "damage": 4,
+      "structureDamage": 80,
+      "range": 60,
+      "source": "Forge with Siege engineering",
+      "icon": "hammer",
+      "inventoryWidth": 6,
+      "inventoryHeight": 4
+    },
+    {
+      "id": "driedApples",
+      "name": "Dried apples",
+      "icon": "apple",
+      "category": "Food",
+      "weight": 0.5,
+      "rarity": 2,
+      "nutrition": 18,
+      "hydration": -2,
+      "source": "Craft at smoker",
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "smokedMeat",
+      "name": "Smoked venison",
+      "icon": "saltMeat",
+      "category": "Food",
+      "weight": 0.5,
+      "rarity": 2,
+      "nutrition": 32,
+      "hydration": -3,
+      "source": "Craft at smoker",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "vegetableStew",
+      "name": "Garden vegetable stew",
+      "icon": "stew",
+      "category": "Food",
+      "weight": 0.5,
+      "rarity": 2,
+      "nutrition": 40,
+      "hydration": 15,
+      "source": "Craft at hearth",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "oatcakes",
+      "name": "Honey oatcakes",
+      "icon": "honeyCake",
+      "category": "Food",
+      "weight": 0.5,
+      "rarity": 2,
+      "nutrition": 30,
+      "hydration": 0,
+      "source": "Craft at hearth",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "herbalTea",
+      "name": "Herbal infusion",
+      "icon": "waterskin",
+      "category": "Food",
+      "weight": 0.5,
+      "rarity": 2,
+      "nutrition": 2,
+      "hydration": 25,
+      "source": "Craft at hearth",
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "strongRope",
+      "name": "Braided rope",
+      "icon": "rope",
+      "category": "Materials",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced joinery",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "seasonedPlank",
+      "name": "Seasoned timber",
+      "icon": "plank",
+      "category": "Materials",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced joinery",
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "ironBraces",
+      "name": "Iron braces",
+      "icon": "iron",
+      "category": "Materials",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced joinery",
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "sulfur",
+      "name": "Brimstone",
+      "icon": "salt",
+      "category": "Materials",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "saltpetre",
+      "name": "Nitre crystals",
+      "icon": "salt",
+      "category": "Materials",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "leadOre",
+      "name": "Lead ore",
+      "icon": "ironOre",
+      "category": "Materials",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "lead",
+      "name": "Cast lead",
+      "icon": "iron",
+      "category": "Materials",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "inventoryWidth": 2,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "powderCharge",
+      "name": "Prepared powder charge",
+      "icon": "charcoal",
+      "category": "Materials",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "pistol",
+      "name": "Matchlock pistol",
+      "icon": "crossbow",
+      "category": "Weapons",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "handheld": true,
+      "damage": 35,
+      "range": 300,
+      "ammo": "roundBall",
+      "blackpowder": true,
+      "reloadMs": 3500,
+      "equipmentTier": 4,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "musket",
+      "name": "Matchlock musket",
+      "icon": "crossbow",
+      "category": "Weapons",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "handheld": true,
+      "damage": 55,
+      "range": 650,
+      "ammo": "roundBall",
+      "blackpowder": true,
+      "reloadMs": 6000,
+      "equipmentTier": 4,
+      "inventoryWidth": 2,
+      "inventoryHeight": 4
+    },
+    {
+      "id": "blunderbuss",
+      "name": "Early blunderbuss",
+      "icon": "crossbow",
+      "category": "Weapons",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "handheld": true,
+      "damage": 48,
+      "range": 160,
+      "ammo": "roundBall",
+      "blackpowder": true,
+      "reloadMs": 5000,
+      "equipmentTier": 4,
+      "inventoryWidth": 2,
+      "inventoryHeight": 4
+    },
+    {
+      "id": "roundBall",
+      "name": "Lead ball cartridge",
+      "icon": "bolt",
+      "category": "Ammunition",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "ammoType": "blackpowder",
+      "blackpowderAmmo": true,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "piercingRound",
+      "name": "Hardened cartridge",
+      "icon": "bolt",
+      "category": "Ammunition",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "ammoType": "armorPiercing",
+      "blackpowderAmmo": true,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "fireRound",
+      "name": "Incendiary cartridge",
+      "icon": "bolt",
+      "category": "Ammunition",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "ammoType": "fire",
+      "blackpowderAmmo": true,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "poisonRound",
+      "name": "Venom cartridge",
+      "icon": "bolt",
+      "category": "Ammunition",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "ammoType": "poison",
+      "blackpowderAmmo": true,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "bleedingRound",
+      "name": "Jagged cartridge",
+      "icon": "bolt",
+      "category": "Ammunition",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "ammoType": "bleeding",
+      "blackpowderAmmo": true,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "explosiveRound",
+      "name": "Burst cartridge",
+      "icon": "bolt",
+      "category": "Ammunition",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "ammoType": "explosive",
+      "blackpowderAmmo": true,
+      "inventoryWidth": 1,
+      "inventoryHeight": 1
+    },
+    {
+      "id": "ballistaKit",
+      "name": "Ballista assembly",
+      "icon": "hammer",
+      "category": "Equipment",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "siegeEngine": true,
+      "engineHp": 450,
+      "damage": 140,
+      "structureDamage": 140,
+      "range": 550,
+      "ammo": "siegeBolt",
+      "reloadMs": 6000,
+      "inventoryWidth": 6,
+      "inventoryHeight": 4
+    },
+    {
+      "id": "trebuchetKit",
+      "name": "Trebuchet assembly",
+      "icon": "hammer",
+      "category": "Equipment",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "siegeEngine": true,
+      "engineHp": 700,
+      "damage": 240,
+      "structureDamage": 240,
+      "range": 850,
+      "ammo": "siegeStone",
+      "reloadMs": 12000,
+      "inventoryWidth": 6,
+      "inventoryHeight": 4
+    },
+    {
+      "id": "siegeBolt",
+      "name": "Ballista bolt",
+      "icon": "spear",
+      "category": "Ammunition",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "inventoryWidth": 2,
+      "inventoryHeight": 5
+    },
+    {
+      "id": "siegeStone",
+      "name": "Dressed siege stone",
+      "icon": "stone",
+      "category": "Ammunition",
+      "weight": 1,
+      "rarity": 3,
+      "source": "Advanced medieval workshop",
+      "inventoryWidth": 2,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "oathblade",
+      "name": "Oathkeeper blade",
+      "icon": "sword",
+      "category": "Weapons",
+      "weight": 3,
+      "rarity": 5,
+      "damage": 36,
+      "range": 65,
+      "handheld": true,
+      "source": "Complete a four-chapter legendary mission chain",
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "wardenBow",
+      "name": "Last Warden bow",
+      "icon": "bow",
+      "category": "Weapons",
+      "weight": 3,
+      "rarity": 5,
+      "damage": 31,
+      "range": 360,
+      "handheld": true,
+      "source": "Complete a four-chapter legendary mission chain",
+      "ammo": "arrow",
+      "inventoryWidth": 2,
+      "inventoryHeight": 4
+    },
+    {
+      "id": "founderHammer",
+      "name": "Founders war hammer",
+      "icon": "hammer",
+      "category": "Weapons",
+      "weight": 3,
+      "rarity": 5,
+      "damage": 30,
+      "range": 60,
+      "handheld": true,
+      "source": "Complete a four-chapter legendary mission chain",
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "id": "smallSatchel",
+      "name": "Small Satchel",
+      "backpackSlots": 12,
+      "category": "Equipment",
+      "weight": 0.8,
+      "rarity": 1,
+      "source": "Craft at a loom or buy from a Provisioner",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "travelersPack",
+      "name": "Traveler\u2019s Pack",
+      "backpackSlots": 16,
+      "category": "Equipment",
+      "weight": 1.5,
+      "rarity": 2,
+      "source": "Craft at a loom or buy from a Provisioner",
+      "inventoryWidth": 2,
+      "inventoryHeight": 3
+    },
+    {
+      "id": "largeRucksack",
+      "name": "Large Rucksack",
+      "backpackSlots": 20,
+      "category": "Equipment",
+      "weight": 2.5,
+      "rarity": 3,
+      "source": "Craft at a loom or buy from a Provisioner",
+      "inventoryWidth": 3,
+      "inventoryHeight": 3
+    }
+  ],
+  "recipes": [
+    {
+      "id": "shield",
+      "needs": {
+        "wood": 8,
+        "iron": 2,
+        "leather": 2
+      },
+      "output": {
+        "shield": 1
+      },
+      "profession": "smithing",
+      "level": 1,
+      "station": "forge"
+    },
+    {
+      "id": "axe",
+      "needs": {
+        "wood": 3,
+        "stone": 3
+      },
+      "output": {
+        "axe": 1
+      },
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "spear",
+      "needs": {
+        "wood": 5,
+        "stone": 2,
+        "fiber": 2
+      },
+      "output": {
+        "spear": 1
+      },
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "bow",
+      "needs": {
+        "wood": 6,
+        "fiber": 5
+      },
+      "output": {
+        "bow": 1
+      },
+      "profession": "woodcraft",
+      "level": 2
+    },
+    {
+      "id": "arrow",
+      "needs": {
+        "wood": 2,
+        "iron": 1
+      },
+      "output": {
+        "arrow": 10
+      },
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge"
+    },
+    {
+      "id": "iron",
+      "needs": {
+        "ironOre": 3,
+        "wood": 2
+      },
+      "output": {
+        "iron": 1
+      },
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge"
+    },
+    {
+      "id": "sword",
+      "needs": {
+        "iron": 5,
+        "wood": 2,
+        "leather": 1
+      },
+      "output": {
+        "sword": 1
+      },
+      "profession": "smithing",
+      "level": 2,
+      "station": "forge"
+    },
+    {
+      "id": "leather",
+      "needs": {
+        "hide": 2
+      },
+      "output": {
+        "leather": 1
+      },
+      "profession": "leatherwork",
+      "level": 0,
+      "station": "tannery"
+    },
+    {
+      "id": "tunic",
+      "needs": {
+        "leather": 6,
+        "fiber": 3
+      },
+      "output": {
+        "tunic": 1
+      },
+      "profession": "leatherwork",
+      "level": 2,
+      "station": "tannery"
+    },
+    {
+      "id": "bread",
+      "needs": {
+        "wheat": 3,
+        "wood": 1
+      },
+      "output": {
+        "bread": 2
+      },
+      "profession": "cooking",
+      "level": 0,
+      "station": "hearth"
+    },
+    {
+      "id": "charcoal",
+      "needs": {
+        "wood": 4
+      },
+      "output": {
+        "charcoal": 3
+      },
+      "station": "hearth",
+      "tech": "charcoal",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "plank",
+      "needs": {
+        "wood": 2
+      },
+      "output": {
+        "plank": 3
+      },
+      "station": null,
+      "tech": "campcraft",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "rope",
+      "needs": {
+        "fiber": 4
+      },
+      "output": {
+        "rope": 2
+      },
+      "station": null,
+      "tech": "campcraft",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "thread",
+      "needs": {
+        "fiber": 3
+      },
+      "output": {
+        "thread": 3
+      },
+      "station": null,
+      "tech": "textiles",
+      "profession": "leatherwork",
+      "level": 0
+    },
+    {
+      "id": "linen",
+      "needs": {
+        "thread": 4
+      },
+      "output": {
+        "linen": 2
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "leatherwork",
+      "level": 0
+    },
+    {
+      "id": "copper",
+      "needs": {
+        "copperOre": 3,
+        "charcoal": 2
+      },
+      "output": {
+        "copper": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "bronze",
+      "needs": {
+        "copper": 3,
+        "tinOre": 1,
+        "charcoal": 2
+      },
+      "output": {
+        "bronze": 3
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "steel",
+      "needs": {
+        "iron": 3,
+        "charcoal": 3
+      },
+      "output": {
+        "steel": 2
+      },
+      "station": "forge",
+      "tech": "steelwork",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "nails",
+      "needs": {
+        "iron": 1,
+        "charcoal": 1
+      },
+      "output": {
+        "nails": 8
+      },
+      "station": "forge",
+      "tech": "charcoal",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "brick",
+      "needs": {
+        "clay": 4,
+        "charcoal": 2
+      },
+      "output": {
+        "brick": 4
+      },
+      "station": "kiln",
+      "tech": "masonry",
+      "profession": "masonry",
+      "level": 0
+    },
+    {
+      "id": "mortar",
+      "needs": {
+        "limestone": 3,
+        "stone": 2,
+        "water": 2,
+        "charcoal": 2
+      },
+      "output": {
+        "mortar": 4
+      },
+      "station": "kiln",
+      "tech": "masonry",
+      "profession": "masonry",
+      "level": 0
+    },
+    {
+      "id": "flour",
+      "needs": {
+        "wheat": 2
+      },
+      "output": {
+        "flour": 3
+      },
+      "station": "mill",
+      "tech": "husbandry",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "dough",
+      "needs": {
+        "flour": 2,
+        "water": 1
+      },
+      "output": {
+        "dough": 2
+      },
+      "station": null,
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "tallow",
+      "needs": {
+        "fat": 2
+      },
+      "output": {
+        "tallow": 2
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "pottage",
+      "needs": {
+        "peas": 2,
+        "cabbage": 1,
+        "water": 1,
+        "wood": 1
+      },
+      "output": {
+        "pottage": 2
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "porridge",
+      "needs": {
+        "oats": 2,
+        "water": 1,
+        "wood": 1
+      },
+      "output": {
+        "porridge": 2
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "roastMeat",
+      "needs": {
+        "rawMeat": 1,
+        "wood": 1
+      },
+      "output": {
+        "roastMeat": 1
+      },
+      "station": "hearth",
+      "tech": "campcraft",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "stew",
+      "needs": {
+        "rawMeat": 1,
+        "carrot": 1,
+        "onion": 1,
+        "water": 1
+      },
+      "output": {
+        "stew": 2
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "saltMeat",
+      "needs": {
+        "rawMeat": 2,
+        "salt": 2
+      },
+      "output": {
+        "saltMeat": 2
+      },
+      "station": null,
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "smokedFish",
+      "needs": {
+        "rawFish": 2,
+        "wood": 2,
+        "salt": 1
+      },
+      "output": {
+        "smokedFish": 2
+      },
+      "station": "smoker",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "cheese",
+      "needs": {
+        "milk": 3,
+        "salt": 1
+      },
+      "output": {
+        "cheese": 1
+      },
+      "station": "hearth",
+      "tech": "husbandry",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "butter",
+      "needs": {
+        "milk": 3
+      },
+      "output": {
+        "butter": 1
+      },
+      "station": null,
+      "tech": "husbandry",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "honeyCake",
+      "needs": {
+        "dough": 2,
+        "honey": 1,
+        "egg": 1,
+        "wood": 1
+      },
+      "output": {
+        "honeyCake": 2
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "pickaxe",
+      "needs": {
+        "iron": 3,
+        "plank": 1,
+        "charcoal": 1
+      },
+      "output": {
+        "pickaxe": 1
+      },
+      "station": "forge",
+      "tech": "charcoal",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "sickle",
+      "needs": {
+        "iron": 2,
+        "wood": 1
+      },
+      "output": {
+        "sickle": 1
+      },
+      "station": "forge",
+      "tech": "charcoal",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "hammer",
+      "needs": {
+        "iron": 2,
+        "wood": 1
+      },
+      "output": {
+        "hammer": 1
+      },
+      "station": "forge",
+      "tech": "charcoal",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "fishingRod",
+      "needs": {
+        "wood": 2,
+        "thread": 2,
+        "bone": 1
+      },
+      "output": {
+        "fishingRod": 1
+      },
+      "station": null,
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "waterskin",
+      "needs": {
+        "leather": 2,
+        "thread": 1
+      },
+      "output": {
+        "waterskin": 1
+      },
+      "station": null,
+      "tech": "tanning",
+      "profession": "leatherwork",
+      "level": 0
+    },
+    {
+      "id": "bandage",
+      "needs": {
+        "linen": 1
+      },
+      "output": {
+        "bandage": 3
+      },
+      "station": null,
+      "tech": "textiles",
+      "profession": "leatherwork",
+      "level": 0
+    },
+    {
+      "id": "torch",
+      "needs": {
+        "wood": 1,
+        "linen": 1,
+        "tallow": 1
+      },
+      "output": {
+        "torch": 2
+      },
+      "station": null,
+      "tech": "campcraft",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "gambeson",
+      "needs": {
+        "linen": 5,
+        "wool": 4,
+        "thread": 3
+      },
+      "output": {
+        "gambeson": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "leatherwork",
+      "level": 0
+    },
+    {
+      "id": "mail",
+      "needs": {
+        "iron": 10,
+        "leather": 2,
+        "charcoal": 3
+      },
+      "output": {
+        "mail": 1
+      },
+      "station": "forge",
+      "tech": "armour",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "helmet",
+      "needs": {
+        "iron": 4,
+        "leather": 1,
+        "charcoal": 1
+      },
+      "output": {
+        "helmet": 1
+      },
+      "station": "forge",
+      "tech": "armour",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "crossbow",
+      "needs": {
+        "steel": 3,
+        "plank": 2,
+        "rope": 2,
+        "nails": 4
+      },
+      "output": {
+        "crossbow": 1
+      },
+      "station": "forge",
+      "tech": "crossbows",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "bolt",
+      "needs": {
+        "plank": 1,
+        "iron": 1,
+        "feather": 2
+      },
+      "output": {
+        "bolt": 8
+      },
+      "station": null,
+      "tech": "archery",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "longbow",
+      "needs": {
+        "wood": 6,
+        "rope": 2,
+        "leather": 1
+      },
+      "output": {
+        "longbow": 1
+      },
+      "station": null,
+      "tech": "archery",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "bakedLoaf",
+      "needs": {
+        "dough": 2,
+        "wood": 1
+      },
+      "output": {
+        "bread": 2
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "bloomIron",
+      "needs": {
+        "ironOre": 3,
+        "charcoal": 2
+      },
+      "output": {
+        "iron": 1
+      },
+      "station": "forge",
+      "tech": "charcoal",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "barkTanning",
+      "needs": {
+        "hide": 2,
+        "bark": 2,
+        "water": 1
+      },
+      "output": {
+        "leather": 2
+      },
+      "station": "tannery",
+      "tech": "tanning",
+      "profession": "leatherwork",
+      "level": 0
+    },
+    {
+      "id": "barleyPorridge",
+      "needs": {
+        "barley": 2,
+        "water": 1,
+        "wood": 1
+      },
+      "output": {
+        "porridge": 2
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "herbPottage",
+      "needs": {
+        "mushroom": 2,
+        "herb": 1,
+        "water": 1,
+        "wood": 1
+      },
+      "output": {
+        "pottage": 2
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 0
+    },
+    {
+      "id": "bronzeSickle",
+      "needs": {
+        "bronze": 2,
+        "wood": 1
+      },
+      "output": {
+        "sickle": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 0
+    },
+    {
+      "id": "crude_helmet",
+      "needs": {
+        "fiber": 2,
+        "linen": 1
+      },
+      "output": {
+        "crude_helmet": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "crude_chest",
+      "needs": {
+        "fiber": 6,
+        "linen": 3
+      },
+      "output": {
+        "crude_chest": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "crude_gloves",
+      "needs": {
+        "fiber": 2,
+        "linen": 1
+      },
+      "output": {
+        "crude_gloves": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "crude_leggings",
+      "needs": {
+        "fiber": 4,
+        "linen": 2
+      },
+      "output": {
+        "crude_leggings": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "crude_boots",
+      "needs": {
+        "fiber": 2,
+        "linen": 1
+      },
+      "output": {
+        "crude_boots": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 0
+    },
+    {
+      "id": "hide_helmet",
+      "needs": {
+        "leather": 4,
+        "thread": 2
+      },
+      "output": {
+        "hide_helmet": 1
+      },
+      "station": "tannery",
+      "tech": "tanning",
+      "profession": "leatherwork",
+      "level": 5
+    },
+    {
+      "id": "hide_chest",
+      "needs": {
+        "leather": 9,
+        "thread": 2
+      },
+      "output": {
+        "hide_chest": 1
+      },
+      "station": "tannery",
+      "tech": "tanning",
+      "profession": "leatherwork",
+      "level": 5
+    },
+    {
+      "id": "hide_gloves",
+      "needs": {
+        "leather": 2,
+        "thread": 2
+      },
+      "output": {
+        "hide_gloves": 1
+      },
+      "station": "tannery",
+      "tech": "tanning",
+      "profession": "leatherwork",
+      "level": 5
+    },
+    {
+      "id": "hide_leggings",
+      "needs": {
+        "leather": 6,
+        "thread": 2
+      },
+      "output": {
+        "hide_leggings": 1
+      },
+      "station": "tannery",
+      "tech": "tanning",
+      "profession": "leatherwork",
+      "level": 5
+    },
+    {
+      "id": "hide_boots",
+      "needs": {
+        "leather": 4,
+        "thread": 2
+      },
+      "output": {
+        "hide_boots": 1
+      },
+      "station": "tannery",
+      "tech": "tanning",
+      "profession": "leatherwork",
+      "level": 5
+    },
+    {
+      "id": "padded_helmet",
+      "needs": {
+        "fiber": 7,
+        "linen": 4
+      },
+      "output": {
+        "padded_helmet": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 10
+    },
+    {
+      "id": "padded_chest",
+      "needs": {
+        "fiber": 18,
+        "linen": 9
+      },
+      "output": {
+        "padded_chest": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 10
+    },
+    {
+      "id": "padded_gloves",
+      "needs": {
+        "fiber": 4,
+        "linen": 2
+      },
+      "output": {
+        "padded_gloves": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 10
+    },
+    {
+      "id": "padded_leggings",
+      "needs": {
+        "fiber": 12,
+        "linen": 6
+      },
+      "output": {
+        "padded_leggings": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 10
+    },
+    {
+      "id": "padded_boots",
+      "needs": {
+        "fiber": 7,
+        "linen": 4
+      },
+      "output": {
+        "padded_boots": 1
+      },
+      "station": "loom",
+      "tech": "textiles",
+      "profession": "woodcraft",
+      "level": 10
+    },
+    {
+      "id": "mailset_helmet",
+      "needs": {
+        "iron": 10,
+        "leather": 4,
+        "charcoal": 4
+      },
+      "output": {
+        "mailset_helmet": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "mailset_chest",
+      "needs": {
+        "iron": 24,
+        "leather": 4,
+        "charcoal": 4
+      },
+      "output": {
+        "mailset_chest": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "mailset_gloves",
+      "needs": {
+        "iron": 5,
+        "leather": 4,
+        "charcoal": 4
+      },
+      "output": {
+        "mailset_gloves": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "mailset_leggings",
+      "needs": {
+        "iron": 16,
+        "leather": 4,
+        "charcoal": 4
+      },
+      "output": {
+        "mailset_leggings": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "mailset_boots",
+      "needs": {
+        "iron": 10,
+        "leather": 4,
+        "charcoal": 4
+      },
+      "output": {
+        "mailset_boots": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "brigandine_helmet",
+      "needs": {
+        "iron": 12,
+        "leather": 5,
+        "charcoal": 5,
+        "steel": 6
+      },
+      "output": {
+        "brigandine_helmet": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 20
+    },
+    {
+      "id": "brigandine_chest",
+      "needs": {
+        "iron": 30,
+        "leather": 5,
+        "charcoal": 5,
+        "steel": 15
+      },
+      "output": {
+        "brigandine_chest": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 20
+    },
+    {
+      "id": "brigandine_gloves",
+      "needs": {
+        "iron": 6,
+        "leather": 5,
+        "charcoal": 5,
+        "steel": 3
+      },
+      "output": {
+        "brigandine_gloves": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 20
+    },
+    {
+      "id": "brigandine_leggings",
+      "needs": {
+        "iron": 20,
+        "leather": 5,
+        "charcoal": 5,
+        "steel": 10
+      },
+      "output": {
+        "brigandine_leggings": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 20
+    },
+    {
+      "id": "brigandine_boots",
+      "needs": {
+        "iron": 12,
+        "leather": 5,
+        "charcoal": 5,
+        "steel": 6
+      },
+      "output": {
+        "brigandine_boots": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 20
+    },
+    {
+      "id": "plate_helmet",
+      "needs": {
+        "iron": 14,
+        "leather": 6,
+        "charcoal": 6,
+        "steel": 7,
+        "mailset_helmet": 1
+      },
+      "output": {
+        "plate_helmet": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 25
+    },
+    {
+      "id": "plate_chest",
+      "needs": {
+        "iron": 36,
+        "leather": 6,
+        "charcoal": 6,
+        "steel": 18,
+        "mailset_chest": 1
+      },
+      "output": {
+        "plate_chest": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 25
+    },
+    {
+      "id": "plate_gloves",
+      "needs": {
+        "iron": 7,
+        "leather": 6,
+        "charcoal": 6,
+        "steel": 4,
+        "mailset_gloves": 1
+      },
+      "output": {
+        "plate_gloves": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 25
+    },
+    {
+      "id": "plate_leggings",
+      "needs": {
+        "iron": 24,
+        "leather": 6,
+        "charcoal": 6,
+        "steel": 12,
+        "mailset_leggings": 1
+      },
+      "output": {
+        "plate_leggings": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 25
+    },
+    {
+      "id": "plate_boots",
+      "needs": {
+        "iron": 14,
+        "leather": 6,
+        "charcoal": 6,
+        "steel": 7,
+        "mailset_boots": 1
+      },
+      "output": {
+        "plate_boots": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 25
+    },
+    {
+      "id": "royal_helmet",
+      "needs": {
+        "iron": 17,
+        "leather": 7,
+        "charcoal": 7,
+        "steel": 8,
+        "mailset_helmet": 1
+      },
+      "output": {
+        "royal_helmet": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 30
+    },
+    {
+      "id": "royal_chest",
+      "needs": {
+        "iron": 42,
+        "leather": 7,
+        "charcoal": 7,
+        "steel": 21,
+        "mailset_chest": 1
+      },
+      "output": {
+        "royal_chest": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 30
+    },
+    {
+      "id": "royal_gloves",
+      "needs": {
+        "iron": 8,
+        "leather": 7,
+        "charcoal": 7,
+        "steel": 4,
+        "mailset_gloves": 1
+      },
+      "output": {
+        "royal_gloves": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 30
+    },
+    {
+      "id": "royal_leggings",
+      "needs": {
+        "iron": 28,
+        "leather": 7,
+        "charcoal": 7,
+        "steel": 14,
+        "mailset_leggings": 1
+      },
+      "output": {
+        "royal_leggings": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 30
+    },
+    {
+      "id": "royal_boots",
+      "needs": {
+        "iron": 17,
+        "leather": 7,
+        "charcoal": 7,
+        "steel": 8,
+        "mailset_boots": 1
+      },
+      "output": {
+        "royal_boots": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 30
+    },
+    {
+      "id": "kingslayer_helmet",
+      "needs": {
+        "iron": 19,
+        "leather": 8,
+        "charcoal": 8,
+        "steel": 10,
+        "mailset_helmet": 1
+      },
+      "output": {
+        "kingslayer_helmet": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 35
+    },
+    {
+      "id": "kingslayer_chest",
+      "needs": {
+        "iron": 48,
+        "leather": 8,
+        "charcoal": 8,
+        "steel": 24,
+        "mailset_chest": 1
+      },
+      "output": {
+        "kingslayer_chest": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 35
+    },
+    {
+      "id": "kingslayer_gloves",
+      "needs": {
+        "iron": 10,
+        "leather": 8,
+        "charcoal": 8,
+        "steel": 5,
+        "mailset_gloves": 1
+      },
+      "output": {
+        "kingslayer_gloves": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 35
+    },
+    {
+      "id": "kingslayer_leggings",
+      "needs": {
+        "iron": 32,
+        "leather": 8,
+        "charcoal": 8,
+        "steel": 16,
+        "mailset_leggings": 1
+      },
+      "output": {
+        "kingslayer_leggings": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 35
+    },
+    {
+      "id": "kingslayer_boots",
+      "needs": {
+        "iron": 19,
+        "leather": 8,
+        "charcoal": 8,
+        "steel": 10,
+        "mailset_boots": 1
+      },
+      "output": {
+        "kingslayer_boots": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 35
+    },
+    {
+      "id": "siegeRam",
+      "needs": {
+        "seasonedPlank": 6,
+        "ironBraces": 2,
+        "strongRope": 2,
+        "nails": 6
+      },
+      "output": {
+        "siegeRam": 1
+      },
+      "station": "forge",
+      "tech": "siegecraft",
+      "profession": "masonry",
+      "level": 10
+    },
+    {
+      "id": "driedApples",
+      "needs": {
+        "apple": 3
+      },
+      "output": {
+        "driedApples": 1
+      },
+      "station": "smoker",
+      "tech": "preserving",
+      "profession": "cooking",
+      "level": 5
+    },
+    {
+      "id": "smokedMeat",
+      "needs": {
+        "rawMeat": 2,
+        "salt": 1,
+        "wood": 1
+      },
+      "output": {
+        "smokedMeat": 1
+      },
+      "station": "smoker",
+      "tech": "preserving",
+      "profession": "cooking",
+      "level": 10
+    },
+    {
+      "id": "vegetableStew",
+      "needs": {
+        "carrot": 2,
+        "cabbage": 1,
+        "onion": 1,
+        "water": 1
+      },
+      "output": {
+        "vegetableStew": 1
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 5
+    },
+    {
+      "id": "oatcakes",
+      "needs": {
+        "oats": 3,
+        "honey": 1,
+        "water": 1
+      },
+      "output": {
+        "oatcakes": 1
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 8
+    },
+    {
+      "id": "herbalTea",
+      "needs": {
+        "herb": 2,
+        "water": 2
+      },
+      "output": {
+        "herbalTea": 1
+      },
+      "station": "hearth",
+      "tech": "cookery",
+      "profession": "cooking",
+      "level": 3
+    },
+    {
+      "id": "strongRope",
+      "needs": {
+        "rope": 3,
+        "linen": 1
+      },
+      "output": {
+        "strongRope": 1
+      },
+      "station": "loom",
+      "tech": "joinery",
+      "profession": "woodcraft",
+      "level": 8
+    },
+    {
+      "id": "seasonedPlank",
+      "needs": {
+        "plank": 4,
+        "tallow": 1
+      },
+      "output": {
+        "seasonedPlank": 1
+      },
+      "station": "hearth",
+      "tech": "joinery",
+      "profession": "woodcraft",
+      "level": 8
+    },
+    {
+      "id": "ironBraces",
+      "needs": {
+        "iron": 3,
+        "charcoal": 1
+      },
+      "output": {
+        "ironBraces": 1
+      },
+      "station": "forge",
+      "tech": "joinery",
+      "profession": "smithing",
+      "level": 8
+    },
+    {
+      "id": "lead",
+      "needs": {
+        "leadOre": 2,
+        "charcoal": 1
+      },
+      "output": {
+        "lead": 1
+      },
+      "station": "forge",
+      "tech": "metals",
+      "profession": "smithing",
+      "level": 5
+    },
+    {
+      "id": "powderCharge",
+      "needs": {
+        "sulfur": 1,
+        "saltpetre": 1,
+        "charcoal": 1
+      },
+      "output": {
+        "powderCharge": 4
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "pistol",
+      "needs": {
+        "steel": 4,
+        "seasonedPlank": 2,
+        "ironBraces": 2
+      },
+      "output": {
+        "pistol": 1
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "musket",
+      "needs": {
+        "steel": 4,
+        "seasonedPlank": 2,
+        "ironBraces": 2
+      },
+      "output": {
+        "musket": 1
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "blunderbuss",
+      "needs": {
+        "steel": 4,
+        "seasonedPlank": 2,
+        "ironBraces": 2
+      },
+      "output": {
+        "blunderbuss": 1
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "roundBall",
+      "needs": {
+        "lead": 1,
+        "powderCharge": 1
+      },
+      "output": {
+        "roundBall": 4
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "piercingRound",
+      "needs": {
+        "steel": 1,
+        "powderCharge": 1
+      },
+      "output": {
+        "piercingRound": 4
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "fireRound",
+      "needs": {
+        "lead": 1,
+        "powderCharge": 1,
+        "tallow": 1
+      },
+      "output": {
+        "fireRound": 4
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "poisonRound",
+      "needs": {
+        "lead": 1,
+        "powderCharge": 1,
+        "herb": 2
+      },
+      "output": {
+        "poisonRound": 4
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "bleedingRound",
+      "needs": {
+        "iron": 1,
+        "powderCharge": 1
+      },
+      "output": {
+        "bleedingRound": 4
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "explosiveRound",
+      "needs": {
+        "iron": 1,
+        "powderCharge": 2
+      },
+      "output": {
+        "explosiveRound": 4
+      },
+      "station": "forge",
+      "tech": "blackpowder",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "ballistaKit",
+      "needs": {
+        "seasonedPlank": 16,
+        "ironBraces": 8,
+        "strongRope": 6,
+        "nails": 12
+      },
+      "output": {
+        "ballistaKit": 1
+      },
+      "station": "forge",
+      "tech": "siegeworks",
+      "profession": "masonry",
+      "level": 20
+    },
+    {
+      "id": "trebuchetKit",
+      "needs": {
+        "seasonedPlank": 16,
+        "ironBraces": 8,
+        "strongRope": 6,
+        "nails": 12
+      },
+      "output": {
+        "trebuchetKit": 1
+      },
+      "station": "forge",
+      "tech": "siegeworks",
+      "profession": "masonry",
+      "level": 20
+    },
+    {
+      "id": "siegeBolt",
+      "needs": {
+        "plank": 2,
+        "iron": 1
+      },
+      "output": {
+        "siegeBolt": 2
+      },
+      "station": "forge",
+      "tech": "siegeworks",
+      "profession": "smithing",
+      "level": 15
+    },
+    {
+      "id": "siegeStone",
+      "needs": {
+        "stone": 8
+      },
+      "output": {
+        "siegeStone": 2
+      },
+      "station": "kiln",
+      "tech": "siegeworks",
+      "profession": "masonry",
+      "level": 15
+    },
+    {
+      "id": "smallSatchel",
+      "needs": {
+        "leather": 3,
+        "thread": 2
+      },
+      "output": {
+        "smallSatchel": 1
+      },
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom"
+    },
+    {
+      "id": "travelersPack",
+      "needs": {
+        "leather": 6,
+        "linen": 3,
+        "rope": 2
+      },
+      "output": {
+        "travelersPack": 1
+      },
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom"
+    },
+    {
+      "id": "largeRucksack",
+      "needs": {
+        "leather": 10,
+        "linen": 5,
+        "strongRope": 2
+      },
+      "output": {
+        "largeRucksack": 1
+      },
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom"
+    }
+  ],
+  "technologies": [
+    {
+      "id": "campcraft",
+      "name": "Camp craft",
+      "tier": 0,
+      "requires": [],
+      "cost": 0
+    },
+    {
+      "id": "husbandry",
+      "name": "Field & husbandry",
+      "tier": 0,
+      "requires": [
+        "campcraft"
+      ],
+      "cost": 1
+    },
+    {
+      "id": "textiles",
+      "name": "Spinning & weaving",
+      "tier": 0,
+      "requires": [
+        "campcraft"
+      ],
+      "cost": 1
+    },
+    {
+      "id": "charcoal",
+      "name": "Charcoal burning",
+      "tier": 1,
+      "requires": [
+        "campcraft"
+      ],
+      "cost": 2
+    },
+    {
+      "id": "cookery",
+      "name": "Hearth cookery",
+      "tier": 1,
+      "requires": [
+        "husbandry"
+      ],
+      "cost": 2
+    },
+    {
+      "id": "tanning",
+      "name": "Tanning & leather",
+      "tier": 1,
+      "requires": [
+        "husbandry"
+      ],
+      "cost": 2
+    },
+    {
+      "id": "masonry",
+      "name": "Kilns & masonry",
+      "tier": 2,
+      "requires": [
+        "charcoal"
+      ],
+      "cost": 3
+    },
+    {
+      "id": "metals",
+      "name": "Copper & bronze",
+      "tier": 2,
+      "requires": [
+        "charcoal"
+      ],
+      "cost": 3
+    },
+    {
+      "id": "archery",
+      "name": "Bowyer craft",
+      "tier": 2,
+      "requires": [
+        "textiles"
+      ],
+      "cost": 3
+    },
+    {
+      "id": "steelwork",
+      "name": "Steel working",
+      "tier": 3,
+      "requires": [
+        "metals"
+      ],
+      "cost": 4
+    },
+    {
+      "id": "armour",
+      "name": "Armourer craft",
+      "tier": 3,
+      "requires": [
+        "steelwork",
+        "tanning"
+      ],
+      "cost": 4
+    },
+    {
+      "id": "crossbows",
+      "name": "Crossbow craft",
+      "tier": 3,
+      "requires": [
+        "archery",
+        "steelwork"
+      ],
+      "cost": 4
+    },
+    {
+      "id": "siegecraft",
+      "name": "Siege engineering",
+      "tier": 3,
+      "requires": [
+        "masonry",
+        "steelwork",
+        "joinery"
+      ],
+      "cost": 4
+    },
+    {
+      "id": "preserving",
+      "name": "Food preservation",
+      "tier": 2,
+      "requires": [
+        "cookery"
+      ],
+      "cost": 3
+    },
+    {
+      "id": "joinery",
+      "name": "Advanced joinery",
+      "tier": 2,
+      "requires": [
+        "textiles",
+        "metals"
+      ],
+      "cost": 3
+    },
+    {
+      "id": "blackpowder",
+      "name": "Early black-powder arms",
+      "tier": 3,
+      "requires": [
+        "steelwork"
+      ],
+      "cost": 5
+    },
+    {
+      "id": "siegeworks",
+      "name": "Heavy siege works",
+      "tier": 3,
+      "requires": [
+        "siegecraft"
+      ],
+      "cost": 5
+    }
+  ],
+  "rarities": [
+    {
+      "level": 1,
+      "name": "Common"
+    },
+    {
+      "level": 2,
+      "name": "Uncommon"
+    },
+    {
+      "level": 3,
+      "name": "Rare"
+    },
+    {
+      "level": 4,
+      "name": "Epic"
+    },
+    {
+      "level": 5,
+      "name": "Legendary"
+    }
+  ]
+}

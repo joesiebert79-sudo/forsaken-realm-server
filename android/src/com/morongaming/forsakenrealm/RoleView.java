@@ -1,0 +1,13 @@
+package com.morongaming.forsakenrealm;
+import android.content.Context;import android.graphics.*;import android.view.*;import org.json.*;import java.util.*;
+final class RoleView extends View {
+ interface Host{JSONArray roles();void choose(String id);String status();}
+ final Host host;final MenuArt art;final Paint p=new Paint(3);int selected=-1;float u=1,ox,oy;
+ RoleView(Context c,Host h){super(c);host=h;art=MenuArt.get(c);}
+ void text(Canvas c,String s,float x,float y,float size,int color){p.setTextSize(size);p.setColor(color);c.drawText(s,x,y,p);}
+ protected void onDraw(Canvas canvas){u=Math.min(getWidth()/960f,getHeight()/540f);ox=(getWidth()-960*u)/2;oy=(getHeight()-540*u)/2;MenuArt.get(getContext()).backdrop(canvas);canvas.save();canvas.translate(ox,oy);canvas.scale(u,u);text(canvas,"CHOOSE YOUR ROLE",24,42,28,0xffe8d5ac);text(canvas,"One permanent choice for this player code. Your role's starting kit returns after every death.",24,72,17,0xffbfc5b6);JSONArray roles=host.roles();if(roles==null){text(canvas,"Update the PC server to v0.12 to select a role.",24,140,20,Color.WHITE);canvas.restore();return;}for(int i=0;i<roles.length()&&i<5;i++){JSONObject role=roles.optJSONObject(i);float x=24+i*184;p.setColor(i==selected?0xff685638:0xff29362b);canvas.drawRect(x,96,x+176,422,p);text(canvas,role.optString("name").toUpperCase(),x+10,125,18,0xffead9b9);JSONObject items=role.optJSONObject("items");Iterator<String> it=items.keys();int row=0;while(it.hasNext()&&row<7){String id=it.next();float y=141+row*33;art.item(canvas,id,x+8,y,32);p.setTextSize(12);String name=art.name(id);while(p.measureText(name)>118&&p.getTextSize()>9)p.setTextSize(p.getTextSize()-1);p.setColor(Rarity.color(art.rarity(id)));canvas.drawText(name,x+46,y+13,p);text(canvas,"×"+items.optInt(id),x+46,y+29,12,0xffd5ccb8);row++;}JSONObject pet=role.optJSONObject("companion");if(pet!=null){text(canvas,pet.optString("name"),x+10,391,15,0xffe6c68a);text(canvas,pet.optString("skill"),x+10,412,12,0xffbdc9b7);}}
+ p.setColor(selected<0?0xff3e443b:0xff80683b);canvas.drawRect(310,444,650,496,p);text(canvas,selected<0?"SELECT A ROLE ABOVE":"CONFIRM PERMANENT ROLE",selected<0?365:337,477,18,Color.WHITE);text(canvas,host.status(),24,526,13,0xffc7c9b6);canvas.restore();}
+ public boolean onTouchEvent(MotionEvent e){if(e.getActionMasked()!=MotionEvent.ACTION_UP)return true;float x=(e.getX()-ox)/u,y=(e.getY()-oy)/u;JSONArray roles=host.roles();if(roles==null)return true;if(y>=96&&y<=422&&x>=24&&x<944){int index=(int)((x-24)/184);if(index<roles.length())selected=index;}else if(y>=444&&y<=496&&x>=310&&x<=650&&selected>=0)host.choose(roles.optJSONObject(selected).optString("id"));invalidate();return true;}
+}
+
+
