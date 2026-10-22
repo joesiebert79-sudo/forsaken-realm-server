@@ -1,5 +1,5 @@
 import {offerPrice} from './shop-pricing.mjs';
-import {canAfford,debitCoins,changeWallet} from './currency.mjs';
+import {canAfford,debitCoins,changeWallet,coinValue,validatePouch,isCoin} from './currency.mjs';
 import {COSMETICS,ensureFeatured,BASIC_OFFERS,MAIN_SHOP_IDS} from './cosmetics.mjs';
 import {randomUUID} from 'node:crypto';
 import {whole,positive,addWhole,maxGoldPrice} from './master-rules.mjs';
@@ -7,7 +7,8 @@ import {accountFor} from './accounts.mjs';
 // Catalog is server-owned. There is deliberately no client catalog-edit or cash-fulfillment action.
 export function validateOffer(o){
  if(!o||typeof o.id!=='string'||!/^[a-z0-9-]{1,80}$/.test(o.id))throw Error('Invalid offer ID');
- if(!['cosmetic','supplies'].includes(o.kind))throw Error('Unsupported fulfillment');if(o.kind==='supplies'&&(!o.supplies||!Object.keys(o.supplies).length||Object.entries(o.supplies).some(([id,n])=>!BASIC_OFFERS.some(offer=>Object.hasOwn(offer.supplies,id))||!Number.isSafeInteger(n)||n<1||n>20)))throw Error('Invalid provision bundle');
+ if(!['cosmetic','supplies','coins'].includes(o.kind))throw Error('Unsupported fulfillment');if(o.kind==='supplies'&&(!o.supplies||!Object.keys(o.supplies).length||Object.entries(o.supplies).some(([id,n])=>!BASIC_OFFERS.some(offer=>Object.hasOwn(offer.supplies||{},id))||!Number.isSafeInteger(n)||n<1||n>20)))throw Error('Invalid provision bundle');
+ if(o.kind==='coins'&&(!isCoin(o.coin)||coinValue(o.coinCount,o.coin)!==coinValue(o.gold,o.currency)))throw Error('Invalid coin exchange');
  if(typeof o.item!=='string'||!o.item.length||o.item.length>100)throw Error('Invalid cosmetic');
  if(o.items!=null&&(!Array.isArray(o.items)||!o.items.length||o.items.length>12||o.items.some(id=>!Object.hasOwn(COSMETICS,id))))throw Error('Invalid cosmetic bundle');
  if(o.usdCents!==null&&o.usdCents!==undefined)positive(o.usdCents,'USD cents');
@@ -31,6 +32,7 @@ export function shopCommand(r,p,c){
   const recipient=c.recipient||p.id;if(!Object.hasOwn(r.state.accounts,recipient))throw Error('Recipient account unavailable');
   if(recipient!==p.id&&!o.giftable)throw Error('Offer cannot be gifted');
   const price=offerPrice(o);if(!canAfford(a,price.amount,price.currency))throw Error('Not enough coins');
+  if(o.kind==='coins'){if(recipient!==p.id||p.hp<=0||p.creationRequired)throw Error('Exchange coins on your living character');const next=changeWallet(a,price.amount,price.currency);next[o.coin]=addWhole(next[o.coin]||0,o.coinCount);validatePouch(next,a);Object.assign(a,next);if(o.stock!=null)o.stock--;s.transactions[key]={type:c.type,buyer:p.id,amount:price.amount,currency:price.currency,coin:o.coin,coinCount:o.coinCount,at:now};return;}
   if(o.kind==='supplies'){const target=r.state.players[recipient];if(!target||target.creationRequired||target.hp<=0)throw Error('Recipient must have a living created character');const next={...target.inventory};for(const [item,n]of Object.entries(o.supplies))next[item]=addWhole(next[item]||0,n);debitCoins(a,price.amount,price.currency);if(o.stock!=null)o.stock--;target.inventory=next;s.transactions[key]={type:c.type,buyer:p.id,recipient,amount:price.amount,currency:price.currency,items:{...o.supplies},at:now};return;}
   const grants=(o.items||[o.item]).map(item=>({id:randomUUID(),item,owner:recipient,purchasedAt:now,offerId:o.id}));debitCoins(a,price.amount,price.currency);if(o.stock!=null)o.stock--;for(const item of grants)s.instances[item.id]=item;
   s.transactions[key]={type:c.type,buyer:p.id,recipient,instanceId:grants[0].id,instanceIds:grants.map(i=>i.id),gold:o.gold,at:now};return;

@@ -1,0 +1,32 @@
+name: Preserve approved menu originals
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    if: github.event_name == 'workflow_dispatch' || github.event.release.tag_name == 'v0.80'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Verify and extract original references
+        run: |
+          curl --fail --location --retry 3 -o /tmp/references.zip https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.80/Forsaken-Realm-Approved-Menu-References.zip
+          echo '0edc4810255bfe088805bc98454ce857c7db8dab52577152c085fdd2630942b4  /tmp/references.zip' | sha256sum -c -
+          unzip -q /tmp/references.zip -d /tmp/approved-menus
+          mkdir -p references/day8-approved
+          cp /tmp/approved-menus/references/day8-approved/*.png references/day8-approved/
+          cd references && sha256sum -c SHA256SUMS
+      - name: Preserve verified originals in the repository
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add references/day8-approved
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve approved original menu reference images'
+            git push origin HEAD:main
+          fi

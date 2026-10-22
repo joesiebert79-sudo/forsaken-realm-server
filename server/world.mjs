@@ -171,7 +171,8 @@ export class Realm {
         // Continue into the normal equipment rules within the same transaction.
       }
       case 'use': {const item=ITEMS[command.item];if(!item||!(p.inventory[command.item]>0))fail('Item is not in your backpack');
-       if(item.backpackSlots){p.equippedBackpack=command.item;}
+       if(item.deployKind){buildSettlement(this,p,{kind:item.deployKind,kit:command.item,x:p.x+45,y:p.y});}
+       else if(item.backpackSlots){p.equippedBackpack=command.item;}
        else if(item.siegeEngine){deploySiege(this,p,{item:command.item});}
        else if(item.blackpowderAmmo){p.selectedAmmo=command.item;}
        else if(item.nutrition!==undefined){this.pay(p,{[command.item]:1});p.hunger=Math.min(100,p.hunger+(item.nutrition||0)*(1+skillRank(p,'preservation')*.02));p.thirst=Math.max(0,Math.min(100,p.thirst+(item.hydration||0)));}
