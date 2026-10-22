@@ -8,6 +8,7 @@ final class CombatControls {
  CombatControls(){reset();}
  void reset(){float[] x={875,875,765,745,660,90,46,710,810,910,565,565,272,328,384,440,496,660,565,660},y={455,325,250,430,320,450,175,175,175,175,385,475,495,495,495,495,495,430,285,510};for(int i=0;i<LABELS.length;i++){xs[i]=x[i]/960;ys[i]=y[i]/540;sizes[i]=1;}}
  CombatControls copy(){CombatControls c=new CombatControls();System.arraycopy(xs,0,c.xs,0,LABELS.length);System.arraycopy(ys,0,c.ys,0,LABELS.length);System.arraycopy(sizes,0,c.sizes,0,LABELS.length);return c;}
+ void preset(int choice){reset();for(int i=0;i<LABELS.length;i++){if(choice==1)xs[i]=1-xs[i];if(choice==2)sizes[i]=.85f;if(choice==3)sizes[i]=1.10f;}}
  float radius(int i,float w,float h){return RADII[i]*sizes[i]*Math.min(w/960,h/540);}
  float x(int i,float w,float h){float r=radius(i,w,h);return Math.max(r+2,Math.min(w-r-2,xs[i]*w));}
  float y(int i,float w,float h){float r=radius(i,w,h);return Math.max(r+2,Math.min(h-r-2,ys[i]*h));}

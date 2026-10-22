@@ -7,6 +7,6 @@
     "node": ">=24"
   },
   "scripts": {
-    "test": "node scripts/check-update-policy.cjs && node test-update.mjs && node test-http.mjs && node --test tests/day4-backpack-base.test.mjs tests/day4-integration.test.mjs tests/day4-network.test.mjs tests/house-deeds.test.mjs tests/house-floors.test.mjs tests/housing.test.mjs tests/full-world-commerce.test.mjs tests/master-network.test.mjs tests/market-tabs.test.mjs"
+    "test": "node scripts/check-menu-policy.cjs && node scripts/check-update-policy.cjs && node test-update.mjs && node test-http.mjs && node --test tests/day4-backpack-base.test.mjs tests/day4-integration.test.mjs tests/day4-network.test.mjs tests/house-deeds.test.mjs tests/house-floors.test.mjs tests/housing.test.mjs tests/full-world-commerce.test.mjs tests/master-network.test.mjs tests/market-tabs.test.mjs"
   }
 }
