@@ -1,13 +1,13 @@
 const fs=require('fs'),path=require('path'),{spawnSync}=require('child_process'),crypto=require('crypto');
 const root=path.resolve(__dirname,'..'),tools=process.env.ANDROID_TOOLS_ROOT||path.resolve(__dirname,'../../android-tools');
-const jdk=path.join(tools,'jdk',fs.readdirSync(path.join(tools,'jdk'))[0],'bin'),bt=path.join(tools,'build-tools','android-15'),platform=path.join(tools,'platform','android-35','android.jar'),build=path.join(__dirname,'app-build-v080');fs.mkdirSync(build,{recursive:true});
+const jdk=path.join(tools,'jdk',fs.readdirSync(path.join(tools,'jdk'))[0],'bin'),bt=path.join(tools,'build-tools','android-15'),platform=path.join(tools,'platform','android-35','android.jar'),build=path.join(__dirname,'app-build-v081');fs.mkdirSync(build,{recursive:true});
 const java=path.join(jdk,'java.exe'),classes=path.join(build,'classes'),dex=path.join(build,'dex');fs.mkdirSync(classes,{recursive:true});fs.mkdirSync(dex,{recursive:true});
 function run(exe,args,env=process.env){const r=spawnSync(exe,args,{encoding:'utf8',env,maxBuffer:10*1024*1024});if(r.stdout)process.stdout.write(r.stdout);if(r.stderr)process.stderr.write(r.stderr);if(r.status!==0)throw Error(path.basename(exe)+' failed: '+r.status);}
 const source=path.join(root,'android','src','com','morongaming','forsakenrealm');
 run(path.join(jdk,'javac.exe'),['-encoding','UTF-8','-source','8','-target','8','-cp',platform,'-d',classes,...fs.readdirSync(source).filter(f=>f.endsWith('.java')).map(f=>path.join(source,f))]);
 const classfiles=[];function walk(p){for(const e of fs.readdirSync(p,{withFileTypes:true})){const f=path.join(p,e.name);if(e.isDirectory())walk(f);else if(f.endsWith('.class'))classfiles.push(f)}}walk(classes);
 run(java,['-cp',path.join(bt,'lib','d8.jar'),'com.android.tools.r8.D8','--lib',platform,'--min-api','23','--output',dex,...classfiles]);
-const unsigned=path.join(build,'unsigned.apk'),aligned=path.join(build,'aligned.apk'),output=path.resolve(__dirname,'../../../outputs/Forsaken-Realm-v0.80.apk');
+const unsigned=path.join(build,'unsigned.apk'),aligned=path.join(build,'aligned.apk'),output=path.resolve(__dirname,'../../../outputs/Forsaken-Realm-v0.81.apk');
 run(path.join(bt,'aapt.exe'),['package','-f','-M',path.join(root,'android','AndroidManifest.xml'),'-S',path.join(root,'android','res'),'-A',path.join(root,'android','assets'),'-I',platform,'-F',unsigned]);
 run(path.join(jdk,'jar.exe'),['uf',unsigned,'-C',dex,'classes.dex']);run(path.join(bt,'zipalign.exe'),['-f','4',unsigned,aligned]);
 const privateDir=process.env.REALM_SIGNING_DIR||path.resolve(__dirname,'../../forsaken-signing');fs.mkdirSync(privateDir,{recursive:true});const passwordFile=path.join(privateDir,'key-password.json'),key=path.join(privateDir,'forsaken-realm-app.p12');if(!fs.existsSync(passwordFile))fs.writeFileSync(passwordFile,JSON.stringify({password:crypto.randomBytes(32).toString('base64url')}));const env={...process.env,REALM_APK_PASSWORD:JSON.parse(fs.readFileSync(passwordFile)).password};
