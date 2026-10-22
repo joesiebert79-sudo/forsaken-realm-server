@@ -1,0 +1,37 @@
+name: Publish direct game downloads
+on:
+  push:
+    branches: [main]
+    paths: ['downloads/**', '.github/workflows/download-page.yml', 'app-release.json']
+  release:
+    types: [published]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: direct-download-page
+  cancel-in-progress: true
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/configure-pages@v5
+      - name: Copy and verify the published app and server
+        run: node downloads/build.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _download-site
+      - name: Publish direct downloads
+        id: deployment
+        uses: actions/deploy-pages@v4
