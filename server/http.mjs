@@ -1,3 +1,6 @@
+import {createPhoneDownloads} from './phone-downloads.mjs';
+import {fileURLToPath} from 'node:url';
+import {resolve,dirname} from 'node:path';
 import {startDiscovery} from './discovery.mjs';
 import {RELEASE_INFO} from './release.mjs';
 import {sceneTransport} from './scene-transport.mjs';
@@ -10,11 +13,13 @@ const tokens=JSON.parse(process.env.REALM_TEST_TOKENS||'{}');
 if(!Object.keys(tokens).length)throw new Error('Set REALM_TEST_TOKENS to a JSON object mapping opaque test tokens to character IDs. This development server has no public registration.');
 const store=new WorldStore(databasePath(process.env.REALM_WORLD_DB||'forsaken-development.sqlite'),undefined,{ruleset:COMPACT?'master-v1':process.env.REALM_RULESET||undefined});
 const authenticate=req=>{const input=Buffer.from((req.headers.authorization||'').replace(/^Bearer /,''));for(const [token,id]of Object.entries(tokens)){const expected=Buffer.from(token);if(input.length===expected.length&&timingSafeEqual(input,expected))return id;}return null;};
+const phoneDownloads=createPhoneDownloads(process.env.REALM_PHONE_DOWNLOADS||resolve(dirname(fileURLToPath(import.meta.url)),'../phone'));
 const server=createServer(async(req,res)=>{
  res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');
  const send=(status,body)=>{if(status===200&&req.headers['x-realm-scene']!==undefined){if(body.state)body={...body,state:sceneTransport(body.state,req.headers['x-realm-scene'])};else if(body.you)body=sceneTransport(body,req.url==='/join'?null:req.headers['x-realm-scene']);}res.writeHead(status);res.end(JSON.stringify(body));};
  if(req.url?.split('?')[0]==='/version.json'&&req.method==='GET')return send(200,RELEASE_INFO);
  if(req.url==='/health'&&req.method==='GET')return send(200,{...RELEASE_INFO,status:'development',players:store.realm.sessions.size,capacity:64});
+ try{if(await phoneDownloads(req,res))return;}catch{return send(503,{error:'Phone installer is not ready yet'});}
  const id=authenticate(req);if(!id)return send(401,{error:'Unauthorized'});
  try{
   if(req.url==='/join'&&req.method==='POST'){store.transaction(r=>r.join(id));return send(200,store.realm.snapshot(id,true));}
@@ -30,8 +35,11 @@ const tick=setInterval(()=>{try{store.transaction(r=>r.tick(.1));}catch(error){c
 let stopDiscovery=()=>{};
 server.listen(Number(process.env.PORT||8788),process.env.REALM_BIND_HOST||'127.0.0.1',()=>{console.log('Realm server ready on port '+server.address().port);stopDiscovery=startDiscovery(server.address().port,RELEASE_INFO.version);});
 server.on('error',error=>{console.error('Server could not start:',error.message);clearInterval(tick);store.close();process.exit(1);});
-function stop(){stopDiscovery();clearInterval(tick);server.close(()=>{store.transaction(()=>{});store.close();process.exit(0);});}
+export const activePlayers=()=>[...store.realm.sessions.values()].filter(at=>Date.now()-at<60000).length;
+export function shutdown(code=0){stopDiscovery();clearInterval(tick);server.close(()=>{store.transaction(()=>{});store.close();process.exit(code);});}
+function stop(){shutdown(0);}
 process.on('SIGTERM',stop);process.on('SIGINT',stop);
+
 
 
 

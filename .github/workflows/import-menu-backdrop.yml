@@ -1,0 +1,31 @@
+name: Preserve menu backdrop
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    if: github.event_name == 'workflow_dispatch' || github.event.release.tag_name == 'v0.84'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Verify published artwork
+        run: |
+          curl --fail --location --retry 3 -o /tmp/menu-app.apk https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.84/Forsaken-Realm-v0.84.apk
+          echo '67101849e4d695fc35a1f5f16445badfa31c39512cb97ff5ab89188a038134f3 /tmp/menu-app.apk' | sha256sum -c -
+          mkdir -p android/assets/menu
+          unzip -p /tmp/menu-app.apk assets/menu/castle-sunset-v084.png > android/assets/menu/castle-sunset-v084.png
+          echo '375b7ea657cca2e174b5c32335a1c073b567156d07996412ef2e50369b0cf21f android/assets/menu/castle-sunset-v084.png' | sha256sum -c -
+      - name: Preserve artwork in source
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add android/assets/menu/castle-sunset-v084.png
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve verified sunset castle menu artwork'
+            git push origin HEAD:main
+          fi

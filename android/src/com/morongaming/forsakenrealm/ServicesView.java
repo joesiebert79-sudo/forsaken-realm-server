@@ -2,7 +2,7 @@ package com.morongaming.forsakenrealm;
 import android.content.Context;import android.graphics.*;import android.view.*;import org.json.*;
 /** Fixed-page services and categorized shop; prices and ownership come from the server. */
 final class ServicesView extends View {
- interface Host {long gold();JSONObject data();String status();void select(JSONObject row);void close();}
+ interface Host {long gold();JSONObject data();String status();void select(JSONObject row);void close();default void navigate(int n){close();}}
  final MenuFrame chrome=new MenuFrame();final Host host;final MarketView store;final Paint p=new Paint(3);int page,tab;float shopOffset,downX,downY,lastX;boolean dragging,shopGesture,touchActive;float scale=1,left,top;
  ServicesView(Context c,Host h){super(c);host=h;store=tabs()!=null?new MarketView(c,h):null;setContentDescription(store!=null?"Realm Store":"Realm service menu");}
  void text(Canvas c,String s,float x,float y,float size,int color,float width){p.setTextSize(size);while(p.measureText(s)>width&&p.getTextSize()>10)p.setTextSize(p.getTextSize()-1);if(p.measureText(s)>width){while(s.length()>1&&p.measureText(s+"…")>width)s=s.substring(0,s.length()-1);s+="…";}p.setColor(color);c.drawText(s,x,y,p);}

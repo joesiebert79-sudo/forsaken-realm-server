@@ -20,7 +20,7 @@ async function copy(asset,name){
  await fs.writeFile(`${directory}/${name}`,bytes);console.log(`Verified ${name}: ${bytes.length} bytes`);return digest;
 }
 const [apkHash,serverHash]=await Promise.all([copy(apk,'Forsaken-Realm.apk'),copy(server,'Forsaken-Realm-Windows-Server.zip')]);
-const version=release.tag_name.replace(/^v/,'');if(!/^\d+\.\d+(\.\d+)?$/.test(version))throw Error('Unexpected version');
+const version=/^Forsaken-Realm-v([\d.]+)\.apk$/.exec(apk.name)?.[1];if(!/^\d+\.\d+(\.\d+)?$/.test(version))throw Error('Unexpected version');
 const size=(apk.size/1048576).toFixed(1);
 await fs.writeFile(`${directory}/.nojekyll`,'');
 await fs.writeFile(`${directory}/downloads.json`,JSON.stringify({version,apk:'Forsaken-Realm.apk',apkSha256:apkHash,apkBytes:apk.size,server:'Forsaken-Realm-Windows-Server.zip',serverSha256:serverHash,release:release.html_url},null,2));

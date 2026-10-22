@@ -1,4 +1,5 @@
 import {spawnSync} from 'node:child_process';
+import {createUpdateManager} from './update-manager.mjs';
 import {playerStorage} from './player-storage.mjs';
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { networkInterfaces } from 'node:os';
@@ -7,6 +8,9 @@ import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const updates=createUpdateManager(root);process.env.REALM_PHONE_DOWNLOADS=updates.phone;
+if(process.env.REALM_UPDATES_OFF!=='1'&&process.env.REALM_LOOPBACK_TEST!=='1'){try{if(await updates.applyPending())process.exit(75);}catch(error){console.log('The staged update was not installed: '+error.message);}}
+
 // The packaged test launcher opts in explicitly. Existing direct/live launchers
 // retain their original behavior and are never silently rebuilt.
 if(process.argv.includes('--development')){
@@ -21,7 +25,7 @@ if(process.argv.includes('--development')){
  process.env.REALM_DATA_DIR=resolve(root,'Development-World');
  process.env.REALM_WORLD_DB=resolve(root,'Development-World','world.sqlite');
  process.env.REALM_WORLD_PROFILE='master-reference';
- console.log('FORSAKEN REALM v0.80 — SMALLER WORLD: 49920 x 33280; 2 Trader Towns, 12 villages, 5 castle landmarks.');
+ console.log('FORSAKEN REALM v0.84 — SMALLER WORLD: 49920 x 33280; 2 Trader Towns, 12 villages, 5 castle landmarks.');
 }
 
 // Only a verified copy-on-rebuild opts this installation into the new world.
@@ -46,11 +50,17 @@ const lines=['THE FORSAKEN REALM: BLOOD & IRON — HOME LAN TEST','',
  'Do not forward this port or expose the server to the Internet.',
  'Stop with Ctrl+C before backing up: '+data];
 writeFileSync(resolve(root,'CONNECTION-INFO.txt'),lines.join('\r\n'),{mode:0o600});
+for(const a of addresses)console.log('PHONE INSTALL / UPDATE: http://'+a.address+':'+port+'/phone');
+lines.push('', 'Phone install/update: '+addresses.map(a=>'http://'+a.address+':'+port+'/phone').join(' or '));writeFileSync(resolve(root,'CONNECTION-INFO.txt'),lines.join('\r\n'),{mode:0o600});
 console.log(lines.join('\n'));
 process.env.REALM_TEST_TOKENS=JSON.stringify(tokens);
 process.env.REALM_WORLD_DB=process.env.REALM_WORLD_DB||resolve(data,'world.sqlite');
 process.env.REALM_BIND_HOST='0.0.0.0';process.env.PORT=String(port);
-await import('../server/http.mjs');
+const http=await import('../server/http.mjs');updates.start();
+const updateIdle=setInterval(()=>{if(updates.pending&&http.activePlayers()===0){console.log('No players are connected. Saving and restarting to install the verified server update.');updates.stop();clearInterval(updateIdle);http.shutdown(75);}},30000);updateIdle.unref();
+if(process.stdin.isTTY){process.stdin.setEncoding('utf8');process.stdin.on('data',text=>{if(text.trim().toLowerCase()==='r'&&updates.pending){console.log('Saving and restarting for the staged update.');updates.stop();http.shutdown(75);}});}
+
+
 
 
 

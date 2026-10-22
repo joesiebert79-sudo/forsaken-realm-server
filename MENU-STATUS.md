@@ -1,15 +1,11 @@
-# Forsaken Realm v0.82 menu and HUD update
+# Forsaken Realm v0.84
 
-All six approved menu screens use the recovered original reference layouts: Start, Play, Character Creation, Store, Settings and Credits. The clean castle backdrop and Forsaken Realm name/icon remain. Original pictures are preserved under references/day8-approved; the recovered archive labels these Day 8. DAY4-STATUS.md describes the separate gameplay scope.
+Stop the server. Extract this ZIP into the folder containing Start-Server.cmd and replace files. Run Start-Server.cmd.
 
-Play shows one actual saved survivor, equipment slots, account coins and real companion. Creation shows supported appearance choices and roles, the actual server starting kit and companion, then reviews the faction's real spawn town before sending createCharacter. Android Back returns from review to choices without creating a character. Existing legacy roles and equipment remain intact. New roles remain Farmer and Hunter; placeholder extra slots, roles, example prices and cash checkout in the pictures are not invented game data. Character modeling is not part of this release.
+The console prints a Phone install/update address. Open that address on your phone using the same home Wi-Fi. Tap Download for Android, open the completed download and approve Update. Keep your existing app installed. This package contains the signed v0.84 app, not the older v0.82 installer.
 
-Settings and the control editor use an actual captured isometric game scene. The editor has Default/MOBA, Left Handed, Compact and Large Buttons presets; drag/resize; reset; Apply and Cancel. Only Apply persists the draft. Existing layouts remain until changed. No staged blacksmith scene replaces the live preview.
+The server mirrors later published Android installers after verifying their SHA-256 checksums. It checks every fifteen minutes. Future server packages are staged, verified, backed up and applied on restart or after no player has contacted the server for a minute. The launcher restarts after applying an update. Saved worlds, player codes and accounts are retained. Android requires approval before installing an app update.
 
-The local survivor's health follows its head as the camera pans/zooms, with extra clearance for mounted riders and clan labels. The large fixed bottom health panel is replaced; the small portrait HUD remains. The belt coin pouch occupies the backpack top header rather than overlapping the character panel heading.
+The two utility shortcuts on the gameplay screen are Backpack and Menu. Map, crafting, skills, companion commands, clan, settings and home/base are reached through the full-screen Menu. Combat controls and hotbar remain available. Menus use the approved sunset castle visual direction with functional live game data. The new six combat classes and their character models remain separate unfinished work.
 
-Blacksmith buttons are Weapons, Armor, Shields and Tools when stocked. The inn has Food. Provisioners have Supplies and Materials when stocked. All category buttons derive from that merchant's actual offers, and empty/unrelated categories are hidden. Trader confirmations now correctly explain the existing 10:1 conversion.
-
-The stocked market, furnishing kits, value-preserving coin exchange, prior combat/backpack/base fixes, smaller world and working updater are retained. The matching Windows server remains v0.80; no server replacement is required for the app-only changes.
-
-Validation: pure Java checks for category filtering, preset persistence and overlap at 16:9 and wide phone sizes, overhead health pan/zoom/mount/label anchoring; actual menu drawing and touch handlers exercised with desktop adapters, including navigation and character creation confirmation; signed Android build; supported server regression suite. Desktop layout previews use graphics/model adapters and are not physical-phone captures. Final phone testing remains with the player.
+Layout previews use desktop Android drawing adapters, not screenshots taken on a physical phone. The Android package is compiled and signature verified, and server and menu interaction checks run before packaging.
