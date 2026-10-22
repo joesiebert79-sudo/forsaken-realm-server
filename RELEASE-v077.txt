@@ -1,0 +1,6 @@
+THE FORSAKEN REALM v0.77 — SERVER UPDATE
+Map: 49,920 x 33,280 (25% of v0.76 width and height).
+Currency: 10 copper = 1 silver; 10 silver = 1 gold. Combined payment and automatic change.
+All 153 existing item definitions have store offers.
+Existing world receives a before-v077.sqlite backup before migration; player codes and inventory are retained.
+No APK included. Existing Android app code is unchanged.

@@ -1,0 +1,23 @@
+name: Verify Forsaken Realm server
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm test
+      - name: Package server update
+        run: zip -r Forsaken-Realm-v0.77-Server-Overwrite.zip server windows Start-Server.cmd RELEASE-v077.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Forsaken-Realm-v0.77-Server-Overwrite
+          path: Forsaken-Realm-v0.77-Server-Overwrite.zip

@@ -1,0 +1,10 @@
+node_modules/
+runtime/
+data/
+Development-World/
+*.sqlite*
+players.json
+CONNECTION-INFO.txt
+.env
+.env.*
+!.env.example
