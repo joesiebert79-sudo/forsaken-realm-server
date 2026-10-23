@@ -36,3 +36,14 @@ test('existing survivor adopts reference class once without losing identity, pro
  assert.equal(p.characterId,id);assert.equal(p.level,12);assert.equal(p.xp,'1337');assert.equal(p.inventory.wood,17);assert.equal(a.gold,gold);assert.equal(p.role,'rogue');assert.equal(r.state.companions.one.kind,'raven');assert.ok(a.previousCompanion);
  assert.throws(()=>r.command('one',{id:'again',type:'adoptReferenceClass',profession:'mage',appearance:'male-2',companion:'wolf'}),/already selected/);
 });
+test('each playable class attacks through server validation and is replicated to another player',()=>{
+ for(const role of classes){
+  const r=fixture(role),p=r.player('one');r.join('observer');r.command('observer',{id:'create-observer',type:'createCharacter',appearance:'male-1',profession:'melee',faction:'survivor',companion:'wolf'});
+  let spot;for(let y=1000;y<20000&&!spot;y+=300)for(let x=1000;x<20000;x+=300)if(!r.safe({x,y})&&![0,10,20,30].some(dx=>r.blocks(x+dx,y))){spot={x,y};break;}assert.ok(spot);
+  Object.assign(p,spot);Object.assign(r.player('observer'),{x:spot.x-20,y:spot.y});
+  r.state.enemies['reference-target']={id:'reference-target',kind:'wolf',x:spot.x+30,y:spot.y,hp:100,maxHp:100,inventory:{}};
+  r.command('one',{id:'attack-class',type:'attack',weapon:p.equippedWeapon,target:'reference-target'});
+  assert.ok(r.state.enemies['reference-target'].hp<100,role+' deals server damage');
+  const seen=r.snapshot('observer').players.find(x=>x.id==='one');assert.ok(seen);assert.equal(seen.role,role);assert.equal(seen.equippedWeapon,p.equippedWeapon);assert.equal(seen.attackWeapon,p.equippedWeapon);
+ }
+});
