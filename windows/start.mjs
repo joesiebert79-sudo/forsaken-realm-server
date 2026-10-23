@@ -25,7 +25,7 @@ if(process.argv.includes('--development')){
  process.env.REALM_DATA_DIR=resolve(root,'Development-World');
  process.env.REALM_WORLD_DB=resolve(root,'Development-World','world.sqlite');
  process.env.REALM_WORLD_PROFILE='master-reference';
- console.log('FORSAKEN REALM v0.86 — SMALLER WORLD: 49920 x 33280; 2 Trader Towns, 12 villages, 5 castle landmarks.');
+ console.log('FORSAKEN REALM v0.89 — SMALLER WORLD: 49920 x 33280; 2 Trader Towns, 12 villages, 5 castle landmarks.');
 }
 
 // Only a verified copy-on-rebuild opts this installation into the new world.
@@ -46,6 +46,7 @@ const lines=['THE FORSAKEN REALM: BLOOD & IRON — HOME LAN TEST','',
  ...addresses.map(a=>`${a.name}: http://${a.address}:${port}`),'',
  ...Object.entries(tokens).map(([token,id])=>`${id} access code: ${token}`),'',
  'Use a different player code on each phone. Keep this file private.',
+ 'Choose your own 6–20 letter/number code with windows/Change-Player-Codes.cmd.',
  'Local test traffic is unencrypted. Use only on your trusted home network.',
  'Do not forward this port or expose the server to the Internet.',
  'Stop with Ctrl+C before backing up: '+data];
@@ -53,7 +54,7 @@ writeFileSync(resolve(root,'CONNECTION-INFO.txt'),lines.join('\r\n'),{mode:0o600
 for(const a of addresses)console.log('PHONE INSTALL / UPDATE: http://'+a.address+':'+port+'/phone');
 lines.push('', 'Phone install/update: '+addresses.map(a=>'http://'+a.address+':'+port+'/phone').join(' or '));writeFileSync(resolve(root,'CONNECTION-INFO.txt'),lines.join('\r\n'),{mode:0o600});
 console.log(lines.join('\n'));
-process.env.REALM_TEST_TOKENS=JSON.stringify(tokens);
+process.env.REALM_TEST_TOKENS=JSON.stringify(tokens);process.env.REALM_PLAYER_CODES_FILE=resolve(data,'players.json');
 process.env.REALM_WORLD_DB=process.env.REALM_WORLD_DB||resolve(data,'world.sqlite');
 process.env.REALM_BIND_HOST='0.0.0.0';process.env.PORT=String(port);
 const http=await import('../server/http.mjs');updates.start();

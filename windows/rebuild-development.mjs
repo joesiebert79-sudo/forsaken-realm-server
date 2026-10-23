@@ -1,3 +1,4 @@
+import {validatePlayerCodes} from '../server/player-code-auth.mjs';
 import {DatabaseSync} from 'node:sqlite';
 import {mkdirSync,readFileSync,writeFileSync,existsSync,realpathSync} from 'node:fs';
 import {resolve,dirname} from 'node:path';
@@ -10,7 +11,7 @@ export async function rebuildDevelopment({sourceData,sourceDatabase,destination,
  const source=realpathSync(sourceData),dbPath=realpathSync(sourceDatabase),target=resolve(destination);
  if(existsSync(target))throw Error('Destination must be a new directory; existing worlds are never overwritten');
  const identityPath=resolve(source,'players.json'),bytes=readFileSync(identityPath),tokens=JSON.parse(bytes);
- if(!tokens||Array.isArray(tokens)||!Object.keys(tokens).length||Object.entries(tokens).some(([code,id])=>!/^[a-f0-9]{32}$/.test(code)||typeof id!=='string'||!id.length||['__proto__','constructor','prototype'].includes(id)))throw Error('Invalid identity records; nothing changed');
+ validatePlayerCodes(tokens);
  mkdirSync(target,{recursive:true,mode:0o700});const backup=resolve(target,'backup-before-rebuild');mkdirSync(backup,{mode:0o700});
  writeFileSync(resolve(backup,'players.json'),bytes,{flag:'wx',mode:0o600});
  if(digest(readFileSync(resolve(backup,'players.json')))!==digest(bytes))throw Error('Identity backup verification failed');

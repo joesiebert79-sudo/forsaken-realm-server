@@ -1,3 +1,4 @@
+import {createPlayerCodeAuth} from './player-code-auth.mjs';
 import {createPhoneDownloads} from './phone-downloads.mjs';
 import {fileURLToPath} from 'node:url';
 import {resolve,dirname} from 'node:path';
@@ -6,13 +7,13 @@ import {RELEASE_INFO} from './release.mjs';
 import {sceneTransport} from './scene-transport.mjs';
 import {COMPACT,databasePath} from './world-profile.mjs';
 import { createServer } from 'node:http';
-import { timingSafeEqual } from 'node:crypto';
 import { WorldStore } from './store.mjs';
 // Provision test identities externally. Never accept a character ID from a request body.
 const tokens=JSON.parse(process.env.REALM_TEST_TOKENS||'{}');
 if(!Object.keys(tokens).length)throw new Error('Set REALM_TEST_TOKENS to a JSON object mapping opaque test tokens to character IDs. This development server has no public registration.');
 const store=new WorldStore(databasePath(process.env.REALM_WORLD_DB||'forsaken-development.sqlite'),undefined,{ruleset:COMPACT?'master-v1':process.env.REALM_RULESET||undefined});
-const authenticate=req=>{const input=Buffer.from((req.headers.authorization||'').replace(/^Bearer /,''));for(const [token,id]of Object.entries(tokens)){const expected=Buffer.from(token);if(input.length===expected.length&&timingSafeEqual(input,expected))return id;}return null;};
+const codeAuth=createPlayerCodeAuth(tokens,{file:process.env.REALM_PLAYER_CODES_FILE});
+const authenticate=req=>codeAuth((req.headers.authorization||'').replace(/^Bearer /,''));
 const phoneDownloads=createPhoneDownloads(process.env.REALM_PHONE_DOWNLOADS||resolve(dirname(fileURLToPath(import.meta.url)),'../phone'));
 const server=createServer(async(req,res)=>{
  res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');

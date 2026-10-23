@@ -34,7 +34,7 @@ final class ScenePainter {
 
  /** Four-legged companions retain independent facing, gait, strike and health feedback. */
  void companion(Canvas c,JSONObject pet,float phase,float attack){
-  String kind=pet.optString("kind");boolean horse=kind.equals("horse"),bear=kind.equals("bear")||kind.equals("warBear"),boar=kind.equals("boar"),dog=kind.equals("dog");
+  String kind=pet.optString("kind");if(CompanionSprites.supported(kind)){shadow(c,kind.equals("horse")?34:kind.equals("warBear")?32:kind.equals("raven")?13:24);CompanionSprites.draw(c,pet,phase,attack);companionStatus(c,pet,pet.optString("mode").equals("ridden")?-156:CompanionSprites.headTop(kind));return;}boolean horse=kind.equals("horse"),bear=kind.equals("bear")||kind.equals("warBear"),boar=kind.equals("boar"),dog=kind.equals("dog");
   float size=horse?1.35f:bear?1.3f:boar?1.05f:1;float dx=(float)pet.optDouble(attack>=0?"attackDX":"facingDX",1),dy=(float)pet.optDouble(attack>=0?"attackDY":"facingDY",0);
   float sx=CombatAim.screenX(dx,dy),sy=CombatAim.screenY(dx,dy),len=(float)Math.hypot(sx,sy);float strike=attack>=0?(float)Math.sin(attack*Math.PI)*10:0;
   c.save();shadow(c,28*size);if(len>0)c.translate(sx/len*strike,sy/len*strike);if(sx<0)c.scale(-1,1);c.scale(size,size);
@@ -51,6 +51,7 @@ final class ScenePainter {
   float top=pet.optString("mode").equals("ridden")?-150:(horse?-91:bear?-69:-58)*size;if(MapDetail.damaged(pet.optDouble("hp"),pet.optDouble("maxHp"))){p.setColor(0xff171d19);c.drawRect(-29,top,29,top+5,p);p.setColor(pet.optBoolean("yours")?0xff8fc4a1:0xffc49a70);c.drawRect(-28,top+1,-28+56*(float)(pet.optDouble("hp")/Math.max(1,pet.optDouble("maxHp"))),top+4,p);}p.setColor(0xffc4c7ad);p.setTextSize(10);String label=(pet.optBoolean("yours")?"YOUR ":"")+pet.optString("name");c.drawText(label,-p.measureText(label)/2,top-4,p);
  }
 
+ private void companionStatus(Canvas c,JSONObject pet,float top){double hp=pet.optDouble("hp"),max=pet.optDouble("maxHp");if(max>0&&hp<max){rect(c,0xff171d19,-29,top,29,top+5);rect(c,pet.optBoolean("yours")?0xff8fc4a1:0xffc49a70,-28,top+1,-28+56*(float)Math.max(0,Math.min(1,hp/max)),top+4);}p.setColor(0xffc4c7ad);p.setTextSize(10);String name=(pet.optBoolean("yours")?"YOUR ":"")+pet.optString("name");c.drawText(name,-p.measureText(name)/2,top-4,p);}
  void objectHealth(Canvas c,JSONObject object){double hp=object.optDouble("hp"),max=object.optDouble("maxHp");if(!MapDetail.damaged(hp,max))return;rect(c,0xdd121914,-28,-66,28,-60);rect(c,0xffb79d5b,-27,-65,-27+54*(float)(hp/max),-61);}
  void rider(Canvas c,JSONObject horse,JSONObject gear,float phase,boolean moving,boolean left){if(horse==null)return;companion(c,horse,phase,-1);c.save();if(left)c.scale(-1,1);float bob=moving?(float)Math.sin(phase*2)*2:0;c.translate(0,bob);poly(c,CharacterRig.color(CharacterRig.slot(gear,"leggings"),0xff45483d),-10,-75,4,-71,16,-52,13,-37,7,-39,7,-52,-5,-60);c.restore();c.save();c.translate(0,-53+bob);c.clipRect(-90,-90,90,-18);actor(c,"you:"+gear.optString("equippedWeapon"),0,0,0xff66776a,phase,false,-1,left,0,gear);c.restore();}
 
