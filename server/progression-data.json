@@ -850,7 +850,7 @@
       "damage": 32,
       "range": 330,
       "ammo": "bolt",
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "rarity": 5,
       "inventoryWidth": 3,
       "inventoryHeight": 2
@@ -1207,7 +1207,7 @@
       "armorSlot": "helmet",
       "armorSet": "brigandine",
       "equipmentTier": 5,
-      "rarity": 5,
+      "rarity": 4,
       "material": "metal",
       "movementPenalty": 0.036,
       "source": "Craft: forge",
@@ -1223,7 +1223,7 @@
       "armorSlot": "chest",
       "armorSet": "brigandine",
       "equipmentTier": 5,
-      "rarity": 5,
+      "rarity": 4,
       "material": "metal",
       "movementPenalty": 0.09,
       "source": "Craft: forge",
@@ -1239,7 +1239,7 @@
       "armorSlot": "gloves",
       "armorSet": "brigandine",
       "equipmentTier": 5,
-      "rarity": 5,
+      "rarity": 4,
       "material": "metal",
       "movementPenalty": 0.018,
       "source": "Craft: forge",
@@ -1255,7 +1255,7 @@
       "armorSlot": "leggings",
       "armorSet": "brigandine",
       "equipmentTier": 5,
-      "rarity": 5,
+      "rarity": 4,
       "material": "metal",
       "movementPenalty": 0.06,
       "source": "Craft: forge",
@@ -1271,7 +1271,7 @@
       "armorSlot": "boots",
       "armorSet": "brigandine",
       "equipmentTier": 5,
-      "rarity": 5,
+      "rarity": 4,
       "material": "metal",
       "movementPenalty": 0.036,
       "source": "Craft: forge",
@@ -1290,7 +1290,7 @@
       "rarity": 5,
       "material": "metal",
       "movementPenalty": 0.042,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 2
     },
@@ -1306,7 +1306,7 @@
       "rarity": 5,
       "material": "metal",
       "movementPenalty": 0.10500000000000001,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 3
     },
@@ -1322,7 +1322,7 @@
       "rarity": 5,
       "material": "metal",
       "movementPenalty": 0.021,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 1
     },
@@ -1338,7 +1338,7 @@
       "rarity": 5,
       "material": "metal",
       "movementPenalty": 0.07,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 3
     },
@@ -1354,7 +1354,7 @@
       "rarity": 5,
       "material": "metal",
       "movementPenalty": 0.042,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 2
     },
@@ -1367,10 +1367,10 @@
       "armorSlot": "helmet",
       "armorSet": "royal",
       "equipmentTier": 7,
-      "rarity": 5,
+      "rarity": 6,
       "material": "metal",
       "movementPenalty": 0.048,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 2
     },
@@ -1383,10 +1383,10 @@
       "armorSlot": "chest",
       "armorSet": "royal",
       "equipmentTier": 7,
-      "rarity": 5,
+      "rarity": 6,
       "material": "metal",
       "movementPenalty": 0.12,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 3
     },
@@ -1399,10 +1399,10 @@
       "armorSlot": "gloves",
       "armorSet": "royal",
       "equipmentTier": 7,
-      "rarity": 5,
+      "rarity": 6,
       "material": "metal",
       "movementPenalty": 0.024,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 1
     },
@@ -1415,10 +1415,10 @@
       "armorSlot": "leggings",
       "armorSet": "royal",
       "equipmentTier": 7,
-      "rarity": 5,
+      "rarity": 6,
       "material": "metal",
       "movementPenalty": 0.08,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 3
     },
@@ -1431,10 +1431,10 @@
       "armorSlot": "boots",
       "armorSet": "royal",
       "equipmentTier": 7,
-      "rarity": 5,
+      "rarity": 6,
       "material": "metal",
       "movementPenalty": 0.048,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 2
     },
@@ -1447,10 +1447,10 @@
       "armorSlot": "helmet",
       "armorSet": "kingslayer",
       "equipmentTier": 8,
-      "rarity": 5,
+      "rarity": 7,
       "material": "metal",
       "movementPenalty": 0.054,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 2
     },
@@ -1463,10 +1463,10 @@
       "armorSlot": "chest",
       "armorSet": "kingslayer",
       "equipmentTier": 8,
-      "rarity": 5,
+      "rarity": 7,
       "material": "metal",
       "movementPenalty": 0.135,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 3
     },
@@ -1479,10 +1479,10 @@
       "armorSlot": "gloves",
       "armorSet": "kingslayer",
       "equipmentTier": 8,
-      "rarity": 5,
+      "rarity": 7,
       "material": "metal",
       "movementPenalty": 0.027,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 1
     },
@@ -1495,10 +1495,10 @@
       "armorSlot": "leggings",
       "armorSet": "kingslayer",
       "equipmentTier": 8,
-      "rarity": 5,
+      "rarity": 7,
       "material": "metal",
       "movementPenalty": 0.09,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 3
     },
@@ -1511,10 +1511,10 @@
       "armorSlot": "boots",
       "armorSet": "kingslayer",
       "equipmentTier": 8,
-      "rarity": 5,
+      "rarity": 7,
       "material": "metal",
       "movementPenalty": 0.054,
-      "source": "Craft: forge",
+      "source": "Flash deals, dangerous exploration or bosses only",
       "inventoryWidth": 2,
       "inventoryHeight": 2
     },
@@ -2052,6 +2052,50 @@
       "range": 58,
       "inventoryWidth": 1,
       "inventoryHeight": 3
+    },
+    {
+      "id": "cutStone",
+      "name": "Dressed building stone",
+      "category": "Materials",
+      "weight": 2,
+      "rarity": 2,
+      "source": "Craft at construction bench level 2",
+      "inventoryWidth": 1,
+      "inventoryHeight": 1,
+      "stackLimit": 20
+    },
+    {
+      "id": "timberFrame",
+      "name": "Joinery frame",
+      "category": "Materials",
+      "weight": 3,
+      "rarity": 3,
+      "source": "Craft at construction bench level 4",
+      "inventoryWidth": 1,
+      "inventoryHeight": 1,
+      "stackLimit": 20
+    },
+    {
+      "id": "ironHinges",
+      "name": "Forged gate hinges",
+      "category": "Materials",
+      "weight": 0.5,
+      "rarity": 3,
+      "source": "Craft at construction bench level 3",
+      "inventoryWidth": 1,
+      "inventoryHeight": 1,
+      "stackLimit": 20
+    },
+    {
+      "id": "roofTiles",
+      "name": "Fired roof tiles",
+      "category": "Materials",
+      "weight": 0.5,
+      "rarity": 2,
+      "source": "Craft at kiln",
+      "inventoryWidth": 1,
+      "inventoryHeight": 1,
+      "stackLimit": 20
     }
   ],
   "recipes": [
@@ -2067,7 +2111,8 @@
       },
       "profession": "smithing",
       "level": 1,
-      "station": "forge"
+      "station": "forge",
+      "stationTier": 1
     },
     {
       "id": "axe",
@@ -2117,7 +2162,8 @@
       },
       "profession": "smithing",
       "level": 0,
-      "station": "forge"
+      "station": "forge",
+      "stationTier": 1
     },
     {
       "id": "iron",
@@ -2130,7 +2176,8 @@
       },
       "profession": "smithing",
       "level": 0,
-      "station": "forge"
+      "station": "forge",
+      "stationTier": 1
     },
     {
       "id": "sword",
@@ -2144,7 +2191,8 @@
       },
       "profession": "smithing",
       "level": 2,
-      "station": "forge"
+      "station": "forge",
+      "stationTier": 1
     },
     {
       "id": "leather",
@@ -2156,7 +2204,8 @@
       },
       "profession": "leatherwork",
       "level": 0,
-      "station": "tannery"
+      "station": "tannery",
+      "stationTier": 1
     },
     {
       "id": "tunic",
@@ -2169,7 +2218,8 @@
       },
       "profession": "leatherwork",
       "level": 2,
-      "station": "tannery"
+      "station": "tannery",
+      "stationTier": 1
     },
     {
       "id": "bread",
@@ -2182,7 +2232,8 @@
       },
       "profession": "cooking",
       "level": 0,
-      "station": "hearth"
+      "station": "hearth",
+      "stationTier": 1
     },
     {
       "id": "charcoal",
@@ -2195,7 +2246,8 @@
       "station": "hearth",
       "tech": "charcoal",
       "profession": "woodcraft",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "plank",
@@ -2247,7 +2299,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "leatherwork",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "copper",
@@ -2261,7 +2314,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "bronze",
@@ -2276,7 +2330,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "steel",
@@ -2290,7 +2345,8 @@
       "station": "forge",
       "tech": "steelwork",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "nails",
@@ -2304,7 +2360,8 @@
       "station": "forge",
       "tech": "charcoal",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "brick",
@@ -2318,7 +2375,8 @@
       "station": "kiln",
       "tech": "masonry",
       "profession": "masonry",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "mortar",
@@ -2334,7 +2392,8 @@
       "station": "kiln",
       "tech": "masonry",
       "profession": "masonry",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "flour",
@@ -2347,7 +2406,8 @@
       "station": "mill",
       "tech": "husbandry",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "dough",
@@ -2374,7 +2434,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "pottage",
@@ -2390,7 +2451,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "porridge",
@@ -2405,7 +2467,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "roastMeat",
@@ -2419,7 +2482,8 @@
       "station": "hearth",
       "tech": "campcraft",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "stew",
@@ -2435,7 +2499,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "saltMeat",
@@ -2464,7 +2529,8 @@
       "station": "smoker",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "cheese",
@@ -2478,7 +2544,8 @@
       "station": "hearth",
       "tech": "husbandry",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "butter",
@@ -2507,7 +2574,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "pickaxe",
@@ -2522,7 +2590,8 @@
       "station": "forge",
       "tech": "charcoal",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "sickle",
@@ -2536,7 +2605,8 @@
       "station": "forge",
       "tech": "charcoal",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "hammer",
@@ -2550,7 +2620,8 @@
       "station": "forge",
       "tech": "charcoal",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "fishingRod",
@@ -2622,7 +2693,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "leatherwork",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "mail",
@@ -2637,7 +2709,8 @@
       "station": "forge",
       "tech": "armour",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "helmet",
@@ -2652,7 +2725,8 @@
       "station": "forge",
       "tech": "armour",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "crossbow",
@@ -2668,7 +2742,8 @@
       "station": "forge",
       "tech": "crossbows",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "acquisitionOnly": true
     },
     {
       "id": "bolt",
@@ -2712,7 +2787,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "bloomIron",
@@ -2726,7 +2802,8 @@
       "station": "forge",
       "tech": "charcoal",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "barkTanning",
@@ -2741,7 +2818,8 @@
       "station": "tannery",
       "tech": "tanning",
       "profession": "leatherwork",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "barleyPorridge",
@@ -2756,7 +2834,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "herbPottage",
@@ -2772,7 +2851,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "bronzeSickle",
@@ -2786,7 +2866,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "crude_helmet",
@@ -2800,7 +2881,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "crude_chest",
@@ -2814,7 +2896,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "crude_gloves",
@@ -2828,7 +2911,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "crude_leggings",
@@ -2842,7 +2926,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "crude_boots",
@@ -2856,7 +2941,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 0
+      "level": 0,
+      "stationTier": 1
     },
     {
       "id": "hide_helmet",
@@ -2870,7 +2956,8 @@
       "station": "tannery",
       "tech": "tanning",
       "profession": "leatherwork",
-      "level": 5
+      "level": 5,
+      "stationTier": 2
     },
     {
       "id": "hide_chest",
@@ -2884,7 +2971,8 @@
       "station": "tannery",
       "tech": "tanning",
       "profession": "leatherwork",
-      "level": 5
+      "level": 5,
+      "stationTier": 2
     },
     {
       "id": "hide_gloves",
@@ -2898,7 +2986,8 @@
       "station": "tannery",
       "tech": "tanning",
       "profession": "leatherwork",
-      "level": 5
+      "level": 5,
+      "stationTier": 2
     },
     {
       "id": "hide_leggings",
@@ -2912,7 +3001,8 @@
       "station": "tannery",
       "tech": "tanning",
       "profession": "leatherwork",
-      "level": 5
+      "level": 5,
+      "stationTier": 2
     },
     {
       "id": "hide_boots",
@@ -2926,7 +3016,8 @@
       "station": "tannery",
       "tech": "tanning",
       "profession": "leatherwork",
-      "level": 5
+      "level": 5,
+      "stationTier": 2
     },
     {
       "id": "padded_helmet",
@@ -2940,7 +3031,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 10
+      "level": 10,
+      "stationTier": 3
     },
     {
       "id": "padded_chest",
@@ -2954,7 +3046,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 10
+      "level": 10,
+      "stationTier": 3
     },
     {
       "id": "padded_gloves",
@@ -2968,7 +3061,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 10
+      "level": 10,
+      "stationTier": 3
     },
     {
       "id": "padded_leggings",
@@ -2982,7 +3076,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 10
+      "level": 10,
+      "stationTier": 3
     },
     {
       "id": "padded_boots",
@@ -2996,7 +3091,8 @@
       "station": "loom",
       "tech": "textiles",
       "profession": "woodcraft",
-      "level": 10
+      "level": 10,
+      "stationTier": 3
     },
     {
       "id": "mailset_helmet",
@@ -3011,7 +3107,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "mailset_chest",
@@ -3026,7 +3123,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "mailset_gloves",
@@ -3041,7 +3139,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "mailset_leggings",
@@ -3056,7 +3155,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "mailset_boots",
@@ -3071,7 +3171,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "brigandine_helmet",
@@ -3087,7 +3188,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 20
+      "level": 20,
+      "stationTier": 5
     },
     {
       "id": "brigandine_chest",
@@ -3103,7 +3205,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 20
+      "level": 20,
+      "stationTier": 5
     },
     {
       "id": "brigandine_gloves",
@@ -3119,7 +3222,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 20
+      "level": 20,
+      "stationTier": 5
     },
     {
       "id": "brigandine_leggings",
@@ -3135,7 +3239,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 20
+      "level": 20,
+      "stationTier": 5
     },
     {
       "id": "brigandine_boots",
@@ -3151,7 +3256,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 20
+      "level": 20,
+      "stationTier": 5
     },
     {
       "id": "plate_helmet",
@@ -3168,7 +3274,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 25
+      "level": 25,
+      "acquisitionOnly": true
     },
     {
       "id": "plate_chest",
@@ -3185,7 +3292,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 25
+      "level": 25,
+      "acquisitionOnly": true
     },
     {
       "id": "plate_gloves",
@@ -3202,7 +3310,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 25
+      "level": 25,
+      "acquisitionOnly": true
     },
     {
       "id": "plate_leggings",
@@ -3219,7 +3328,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 25
+      "level": 25,
+      "acquisitionOnly": true
     },
     {
       "id": "plate_boots",
@@ -3236,7 +3346,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 25
+      "level": 25,
+      "acquisitionOnly": true
     },
     {
       "id": "royal_helmet",
@@ -3253,7 +3364,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 30
+      "level": 30,
+      "acquisitionOnly": true
     },
     {
       "id": "royal_chest",
@@ -3270,7 +3382,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 30
+      "level": 30,
+      "acquisitionOnly": true
     },
     {
       "id": "royal_gloves",
@@ -3287,7 +3400,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 30
+      "level": 30,
+      "acquisitionOnly": true
     },
     {
       "id": "royal_leggings",
@@ -3304,7 +3418,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 30
+      "level": 30,
+      "acquisitionOnly": true
     },
     {
       "id": "royal_boots",
@@ -3321,7 +3436,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 30
+      "level": 30,
+      "acquisitionOnly": true
     },
     {
       "id": "kingslayer_helmet",
@@ -3338,7 +3454,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 35
+      "level": 35,
+      "acquisitionOnly": true
     },
     {
       "id": "kingslayer_chest",
@@ -3355,7 +3472,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 35
+      "level": 35,
+      "acquisitionOnly": true
     },
     {
       "id": "kingslayer_gloves",
@@ -3372,7 +3490,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 35
+      "level": 35,
+      "acquisitionOnly": true
     },
     {
       "id": "kingslayer_leggings",
@@ -3389,7 +3508,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 35
+      "level": 35,
+      "acquisitionOnly": true
     },
     {
       "id": "kingslayer_boots",
@@ -3406,7 +3526,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 35
+      "level": 35,
+      "acquisitionOnly": true
     },
     {
       "id": "siegeRam",
@@ -3422,7 +3543,8 @@
       "station": "forge",
       "tech": "siegecraft",
       "profession": "masonry",
-      "level": 10
+      "level": 10,
+      "stationTier": 3
     },
     {
       "id": "driedApples",
@@ -3435,7 +3557,8 @@
       "station": "smoker",
       "tech": "preserving",
       "profession": "cooking",
-      "level": 5
+      "level": 5,
+      "stationTier": 2
     },
     {
       "id": "smokedMeat",
@@ -3450,7 +3573,8 @@
       "station": "smoker",
       "tech": "preserving",
       "profession": "cooking",
-      "level": 10
+      "level": 10,
+      "stationTier": 3
     },
     {
       "id": "vegetableStew",
@@ -3466,7 +3590,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 5
+      "level": 5,
+      "stationTier": 2
     },
     {
       "id": "oatcakes",
@@ -3481,7 +3606,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 8
+      "level": 8,
+      "stationTier": 2
     },
     {
       "id": "herbalTea",
@@ -3495,7 +3621,8 @@
       "station": "hearth",
       "tech": "cookery",
       "profession": "cooking",
-      "level": 3
+      "level": 3,
+      "stationTier": 1
     },
     {
       "id": "strongRope",
@@ -3509,7 +3636,8 @@
       "station": "loom",
       "tech": "joinery",
       "profession": "woodcraft",
-      "level": 8
+      "level": 8,
+      "stationTier": 2
     },
     {
       "id": "seasonedPlank",
@@ -3523,7 +3651,8 @@
       "station": "hearth",
       "tech": "joinery",
       "profession": "woodcraft",
-      "level": 8
+      "level": 8,
+      "stationTier": 2
     },
     {
       "id": "ironBraces",
@@ -3537,7 +3666,8 @@
       "station": "forge",
       "tech": "joinery",
       "profession": "smithing",
-      "level": 8
+      "level": 8,
+      "stationTier": 2
     },
     {
       "id": "lead",
@@ -3551,7 +3681,8 @@
       "station": "forge",
       "tech": "metals",
       "profession": "smithing",
-      "level": 5
+      "level": 5,
+      "stationTier": 2
     },
     {
       "id": "powderCharge",
@@ -3566,7 +3697,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "pistol",
@@ -3581,7 +3713,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "musket",
@@ -3596,7 +3729,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "blunderbuss",
@@ -3611,7 +3745,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "roundBall",
@@ -3625,7 +3760,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "piercingRound",
@@ -3639,7 +3775,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "fireRound",
@@ -3654,7 +3791,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "poisonRound",
@@ -3669,7 +3807,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "bleedingRound",
@@ -3683,7 +3822,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "explosiveRound",
@@ -3697,7 +3837,8 @@
       "station": "forge",
       "tech": "blackpowder",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "ballistaKit",
@@ -3713,7 +3854,8 @@
       "station": "forge",
       "tech": "siegeworks",
       "profession": "masonry",
-      "level": 20
+      "level": 20,
+      "stationTier": 5
     },
     {
       "id": "trebuchetKit",
@@ -3729,7 +3871,8 @@
       "station": "forge",
       "tech": "siegeworks",
       "profession": "masonry",
-      "level": 20
+      "level": 20,
+      "stationTier": 5
     },
     {
       "id": "siegeBolt",
@@ -3743,7 +3886,8 @@
       "station": "forge",
       "tech": "siegeworks",
       "profession": "smithing",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "siegeStone",
@@ -3756,7 +3900,8 @@
       "station": "kiln",
       "tech": "siegeworks",
       "profession": "masonry",
-      "level": 15
+      "level": 15,
+      "stationTier": 4
     },
     {
       "id": "smallSatchel",
@@ -3769,7 +3914,8 @@
       },
       "profession": "woodcraft",
       "level": 0,
-      "station": "loom"
+      "station": "loom",
+      "stationTier": 1
     },
     {
       "id": "travelersPack",
@@ -3783,7 +3929,8 @@
       },
       "profession": "woodcraft",
       "level": 0,
-      "station": "loom"
+      "station": "loom",
+      "stationTier": 1
     },
     {
       "id": "largeRucksack",
@@ -3797,7 +3944,63 @@
       },
       "profession": "woodcraft",
       "level": 0,
-      "station": "loom"
+      "station": "loom",
+      "stationTier": 1
+    },
+    {
+      "id": "cutStone",
+      "needs": {
+        "stone": 4
+      },
+      "output": {
+        "cutStone": 2
+      },
+      "profession": "masonry",
+      "level": 2,
+      "station": null,
+      "constructionBenchLevel": 2
+    },
+    {
+      "id": "timberFrame",
+      "needs": {
+        "seasonedPlank": 3,
+        "ironBraces": 1
+      },
+      "output": {
+        "timberFrame": 1
+      },
+      "profession": "woodcraft",
+      "level": 8,
+      "station": null,
+      "constructionBenchLevel": 4
+    },
+    {
+      "id": "ironHinges",
+      "needs": {
+        "iron": 2,
+        "charcoal": 1
+      },
+      "output": {
+        "ironHinges": 2
+      },
+      "profession": "smithing",
+      "level": 4,
+      "station": null,
+      "constructionBenchLevel": 3
+    },
+    {
+      "id": "roofTiles",
+      "needs": {
+        "clay": 6,
+        "charcoal": 1
+      },
+      "output": {
+        "roofTiles": 6
+      },
+      "profession": "masonry",
+      "level": 2,
+      "station": "kiln",
+      "stationTier": 1
     }
   ],
   "technologies": [
@@ -3978,6 +4181,14 @@
     {
       "level": 5,
       "name": "Legendary"
+    },
+    {
+      "level": 6,
+      "name": "Mythic"
+    },
+    {
+      "level": 7,
+      "name": "Unique"
     }
   ]
 }

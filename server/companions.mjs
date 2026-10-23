@@ -29,7 +29,7 @@ export const REFERENCE_COMPANIONS=Object.freeze({
 export const companionSpec=pet=>REFERENCE_COMPANIONS[pet.kind]||Object.values(COMPANIONS).find(s=>s.kind===pet.kind)||COMPANIONS[pet.role];
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const sameRoom=(a,b)=>(a.interior||null)===(b.interior||null);
-const blockedFor=(realm,p)=>{const room=roomFor(p.interior);return room?(x,y)=>roomBlocked(room,x,y):realm.blocks;};
+const blockedFor=(realm,p)=>{const room=roomFor(p.interior,realm.buildings);return room?(x,y)=>roomBlocked(room,x,y):realm.blocks;};
 export function ensureCompanion(realm,p){
  const spec=REFERENCE_COMPANIONS[p.companionKind]||(['melee','ranged','mage','rogue','paladin','necromancer'].includes(p.role)?REFERENCE_COMPANIONS.wolf:null)||(masterEnabled(realm)&&!p.legacyCharacter&&p.role==='farmer'?COMPANIONS.soldier:COMPANIONS[p.role]);if(!spec)return null;
  realm.state.companions??={};let pet=realm.state.companions[p.id];
@@ -120,6 +120,7 @@ export function tickCompanions(realm,dt){
  }
 }
 export function companionView(pet,ownerId){if(!pet)return null;const {owner,target,stuckFor,...view}=pet;return {...view,yours:owner===ownerId,skill:companionSpec(pet).skill,skillDescription:companionSpec(pet).description};}
+
 
 
 

@@ -1,3 +1,4 @@
+import {rareEquipmentDrop} from './item-commerce.mjs';
 import {randomInt} from 'node:crypto';
 import {ITEMS} from './catalog.mjs';
 // Only newly opened world fixtures roll loot. Saved containers never reroll.
@@ -24,7 +25,7 @@ export function rollContainerLoot(type,random=()=>randomInt(0,0x1000000)/0x10000
   const {id}=pool.splice(index,1)[0];
   items[id]=single.has(id)||/_(helmet|chest|gloves|leggings|boots)$/.test(id)?1:id==='arrow'||id==='bolt'?2+Math.floor(random()*3):1;
  }
- return items;
+ if(type==='dungeon'){const rare=rareEquipmentDrop('dangerous-exploration',random);if(rare)items[rare]=1;}return items;
 }
 
 

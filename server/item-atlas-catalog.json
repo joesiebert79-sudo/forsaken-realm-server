@@ -1,0 +1,3662 @@
+{
+  "wood": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "stone": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 59,
+      "y": 884,
+      "w": 33,
+      "h": 32
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "ironOre": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 99,
+      "y": 885,
+      "w": 34,
+      "h": 31
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "fiber": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "hide": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 177,
+      "y": 925,
+      "w": 33,
+      "h": 33
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Hunt animals"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "wheat": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "seed": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Harvest planted wheat"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "clay": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "limestone": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "copperOre": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "tinOre": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "salt": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "flaxSeed": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather flax seed plants"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "barley": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "oats": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "peas": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "cabbage": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "onion": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "carrot": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "apple": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 578,
+      "y": 885,
+      "w": 34,
+      "h": 33
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "berry": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "herb": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 679,
+      "y": 880,
+      "w": 35,
+      "h": 36
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "mushroom": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "rawMeat": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 459,
+      "y": 885,
+      "w": 34,
+      "h": 32
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Hunt animals"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "rawFish": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Fish a fishing spot with a rod"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "fat": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Hunt animals"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "bone": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Hunt animals"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "feather": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Hunt animals"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "wool": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "milk": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "egg": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "honey": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "water": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Fill waterskin at a well"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "bark": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Gather or harvest countryside nodes"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "charcoal": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "hearth",
+      "technology": "charcoal"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: hearth"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "plank": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": {
+      "x": 137,
+      "y": 885,
+      "w": 34,
+      "h": 31
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "hand",
+      "technology": "campcraft"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "rope": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": {
+      "x": 887,
+      "y": 885,
+      "w": 34,
+      "h": 33
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "hand",
+      "technology": "campcraft"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "linen": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": {
+      "x": 1000,
+      "y": 969,
+      "w": 33,
+      "h": 32
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 0,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "leather": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": {
+      "x": 177,
+      "y": 885,
+      "w": 33,
+      "h": 34
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 0,
+      "station": "tannery",
+      "technology": null
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: tannery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "iron": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": {
+      "x": 278,
+      "y": 926,
+      "w": 34,
+      "h": 33
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": null
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "copper": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": {
+      "x": 278,
+      "y": 885,
+      "w": 34,
+      "h": 31
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "bronze": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": {
+      "x": 319,
+      "y": 885,
+      "w": 34,
+      "h": 31
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "steel": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": {
+      "x": 238,
+      "y": 927,
+      "w": 34,
+      "h": 32
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "steelwork"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "nails": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "charcoal"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "brick": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "masonry",
+      "level": 0,
+      "station": "kiln",
+      "technology": "masonry"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: kiln"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "mortar": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "masonry",
+      "level": 0,
+      "station": "kiln",
+      "technology": "masonry"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: kiln"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "flour": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "mill",
+      "technology": "husbandry"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: mill"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "dough": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hand",
+      "technology": "cookery"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "tallow": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hearth",
+      "technology": "cookery"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: hearth"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "thread": {
+    "atlasCategory": "Materials (Refined)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 0,
+      "station": "hand",
+      "technology": "textiles"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "bread": {
+    "atlasCategory": "Food & Cooking",
+    "rect": {
+      "x": 617,
+      "y": 926,
+      "w": 35,
+      "h": 32
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hearth",
+      "technology": null
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: hearth"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "pottage": {
+    "atlasCategory": "Food & Cooking",
+    "rect": {
+      "x": 510,
+      "y": 964,
+      "w": 36,
+      "h": 34
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hearth",
+      "technology": "cookery"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: hearth"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "porridge": {
+    "atlasCategory": "Food & Cooking",
+    "rect": {
+      "x": 558,
+      "y": 964,
+      "w": 36,
+      "h": 34
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hearth",
+      "technology": "cookery"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: hearth"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "roastMeat": {
+    "atlasCategory": "Food & Cooking",
+    "rect": {
+      "x": 459,
+      "y": 926,
+      "w": 34,
+      "h": 32
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hearth",
+      "technology": "campcraft"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: hearth"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "stew": {
+    "atlasCategory": "Food & Cooking",
+    "rect": {
+      "x": 606,
+      "y": 964,
+      "w": 36,
+      "h": 34
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hearth",
+      "technology": "cookery"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: hearth"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "saltMeat": {
+    "atlasCategory": "Food & Cooking",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hand",
+      "technology": "cookery"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "smokedFish": {
+    "atlasCategory": "Food & Cooking",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "smoker",
+      "technology": "cookery"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: smoker"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "cheese": {
+    "atlasCategory": "Food & Cooking",
+    "rect": {
+      "x": 499,
+      "y": 926,
+      "w": 34,
+      "h": 32
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hearth",
+      "technology": "husbandry"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: hearth"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "butter": {
+    "atlasCategory": "Food & Cooking",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hand",
+      "technology": "husbandry"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "honeyCake": {
+    "atlasCategory": "Food & Cooking",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 0,
+      "station": "hearth",
+      "technology": "cookery"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: hearth"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "axe": {
+    "atlasCategory": "Axes",
+    "rect": {
+      "x": 208,
+      "y": 396,
+      "w": 29,
+      "h": 43
+    },
+    "visualRow": 1,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "hand",
+      "technology": null
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "spear": {
+    "atlasCategory": "Spears",
+    "rect": {
+      "x": 648,
+      "y": 440,
+      "w": 31,
+      "h": 43
+    },
+    "visualRow": 2,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "hand",
+      "technology": null
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "bow": {
+    "atlasCategory": "Bows",
+    "rect": {
+      "x": 955,
+      "y": 440,
+      "w": 32,
+      "h": 43
+    },
+    "visualRow": 2,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 2,
+      "station": "hand",
+      "technology": null
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "arrow": {
+    "atlasCategory": "Arrows & Bolts",
+    "rect": {
+      "x": 1172,
+      "y": 676,
+      "w": 31,
+      "h": 38
+    },
+    "visualRow": 2,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": null
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "sword": {
+    "atlasCategory": "Swords",
+    "rect": {
+      "x": 39,
+      "y": 484,
+      "w": 35,
+      "h": 43
+    },
+    "visualRow": 3,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 2,
+      "station": "forge",
+      "technology": null
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "shield": {
+    "atlasCategory": "Shields",
+    "rect": {
+      "x": 49,
+      "y": 741,
+      "w": 30,
+      "h": 35
+    },
+    "visualRow": 3,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 1,
+      "station": "forge",
+      "technology": null
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "tunic": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 129,
+      "y": 173,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 2,
+    "equipmentTier": 2,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 2,
+      "station": "tannery",
+      "technology": null
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: tannery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "pickaxe": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "charcoal"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "sickle": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "charcoal"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "hammer": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "charcoal"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "fishingRod": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "hand",
+      "technology": "textiles"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "waterskin": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 0,
+      "station": "hand",
+      "technology": "tanning"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "bandage": {
+    "atlasCategory": "Consumables (Combat)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 0,
+      "station": "hand",
+      "technology": "textiles"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "torch": {
+    "atlasCategory": "Torches",
+    "rect": {
+      "x": 1074,
+      "y": 675,
+      "w": 20,
+      "h": 51
+    },
+    "visualRow": 2,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "hand",
+      "technology": "campcraft"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "gambeson": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 44,
+      "y": 173,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 2,
+    "equipmentTier": 3,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 0,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "mail": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 299,
+      "y": 215,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 3,
+    "equipmentTier": 4,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "armour"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "helmet": {
+    "atlasCategory": "Helmets",
+    "rect": {
+      "x": 587,
+      "y": 180,
+      "w": 30,
+      "h": 34
+    },
+    "visualRow": 2,
+    "equipmentTier": 3,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "armour"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "crossbow": {
+    "atlasCategory": "Bows",
+    "rect": {
+      "x": 1112,
+      "y": 572,
+      "w": 31,
+      "h": 43
+    },
+    "visualRow": 5,
+    "equipmentTier": null,
+    "rarity": 5,
+    "rarityName": "Legendary",
+    "crafting": {
+      "profession": "smithing",
+      "level": 0,
+      "station": "forge",
+      "technology": "crossbows"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "bolt": {
+    "atlasCategory": "Arrows & Bolts",
+    "rect": {
+      "x": 1212,
+      "y": 676,
+      "w": 31,
+      "h": 38
+    },
+    "visualRow": 2,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "hand",
+      "technology": "archery"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "longbow": {
+    "atlasCategory": "Bows",
+    "rect": {
+      "x": 955,
+      "y": 528,
+      "w": 32,
+      "h": 43
+    },
+    "visualRow": 4,
+    "equipmentTier": null,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "hand",
+      "technology": "archery"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: by hand"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "crude_helmet": {
+    "atlasCategory": "Helmets",
+    "rect": {
+      "x": 587,
+      "y": 140,
+      "w": 30,
+      "h": 34
+    },
+    "visualRow": 1,
+    "equipmentTier": 1,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "crude_chest": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 44,
+      "y": 131,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 1,
+    "equipmentTier": 1,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "crude_gloves": {
+    "atlasCategory": "Gauntlets",
+    "rect": {
+      "x": 844,
+      "y": 140,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 1,
+    "equipmentTier": 1,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "crude_leggings": {
+    "atlasCategory": "Leggings",
+    "rect": {
+      "x": 1089,
+      "y": 140,
+      "w": 28,
+      "h": 34
+    },
+    "visualRow": 1,
+    "equipmentTier": 1,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "crude_boots": {
+    "atlasCategory": "Boots",
+    "rect": {
+      "x": 1343,
+      "y": 140,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 1,
+    "equipmentTier": 1,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "hide_helmet": {
+    "atlasCategory": "Helmets",
+    "rect": {
+      "x": 624,
+      "y": 180,
+      "w": 30,
+      "h": 34
+    },
+    "visualRow": 2,
+    "equipmentTier": 2,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 5,
+      "station": "tannery",
+      "technology": "tanning"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: tannery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "hide_chest": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 129,
+      "y": 173,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 2,
+    "equipmentTier": 2,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 5,
+      "station": "tannery",
+      "technology": "tanning"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: tannery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "hide_gloves": {
+    "atlasCategory": "Gauntlets",
+    "rect": {
+      "x": 879,
+      "y": 180,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 2,
+    "equipmentTier": 2,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 5,
+      "station": "tannery",
+      "technology": "tanning"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: tannery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "hide_leggings": {
+    "atlasCategory": "Leggings",
+    "rect": {
+      "x": 1124,
+      "y": 180,
+      "w": 28,
+      "h": 34
+    },
+    "visualRow": 2,
+    "equipmentTier": 2,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 5,
+      "station": "tannery",
+      "technology": "tanning"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: tannery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "hide_boots": {
+    "atlasCategory": "Boots",
+    "rect": {
+      "x": 1381,
+      "y": 180,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 2,
+    "equipmentTier": 2,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "leatherwork",
+      "level": 5,
+      "station": "tannery",
+      "technology": "tanning"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: tannery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "padded_helmet": {
+    "atlasCategory": "Helmets",
+    "rect": {
+      "x": 587,
+      "y": 180,
+      "w": 30,
+      "h": 34
+    },
+    "visualRow": 2,
+    "equipmentTier": 3,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 10,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "padded_chest": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 44,
+      "y": 173,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 2,
+    "equipmentTier": 3,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 10,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "padded_gloves": {
+    "atlasCategory": "Gauntlets",
+    "rect": {
+      "x": 844,
+      "y": 180,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 2,
+    "equipmentTier": 3,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 10,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "padded_leggings": {
+    "atlasCategory": "Leggings",
+    "rect": {
+      "x": 1089,
+      "y": 180,
+      "w": 28,
+      "h": 34
+    },
+    "visualRow": 2,
+    "equipmentTier": 3,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 10,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "padded_boots": {
+    "atlasCategory": "Boots",
+    "rect": {
+      "x": 1343,
+      "y": 180,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 2,
+    "equipmentTier": 3,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 10,
+      "station": "loom",
+      "technology": "textiles"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: loom"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "mailset_helmet": {
+    "atlasCategory": "Helmets",
+    "rect": {
+      "x": 697,
+      "y": 220,
+      "w": 30,
+      "h": 34
+    },
+    "visualRow": 3,
+    "equipmentTier": 4,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "mailset_chest": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 299,
+      "y": 215,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 3,
+    "equipmentTier": 4,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "mailset_gloves": {
+    "atlasCategory": "Gauntlets",
+    "rect": {
+      "x": 950,
+      "y": 220,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 3,
+    "equipmentTier": 4,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "mailset_leggings": {
+    "atlasCategory": "Leggings",
+    "rect": {
+      "x": 1194,
+      "y": 220,
+      "w": 28,
+      "h": 34
+    },
+    "visualRow": 3,
+    "equipmentTier": 4,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "mailset_boots": {
+    "atlasCategory": "Boots",
+    "rect": {
+      "x": 1417,
+      "y": 220,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 3,
+    "equipmentTier": 4,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "brigandine_helmet": {
+    "atlasCategory": "Helmets",
+    "rect": {
+      "x": 661,
+      "y": 260,
+      "w": 30,
+      "h": 34
+    },
+    "visualRow": 4,
+    "equipmentTier": 5,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 20,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "brigandine_chest": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 214,
+      "y": 257,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 4,
+    "equipmentTier": 5,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 20,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "brigandine_gloves": {
+    "atlasCategory": "Gauntlets",
+    "rect": {
+      "x": 915,
+      "y": 260,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 4,
+    "equipmentTier": 5,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 20,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "brigandine_leggings": {
+    "atlasCategory": "Leggings",
+    "rect": {
+      "x": 1159,
+      "y": 260,
+      "w": 28,
+      "h": 34
+    },
+    "visualRow": 4,
+    "equipmentTier": 5,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 20,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "brigandine_boots": {
+    "atlasCategory": "Boots",
+    "rect": {
+      "x": 1417,
+      "y": 260,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 4,
+    "equipmentTier": 5,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 20,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft: forge"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "plate_helmet": {
+    "atlasCategory": "Helmets",
+    "rect": {
+      "x": 735,
+      "y": 260,
+      "w": 30,
+      "h": 34
+    },
+    "visualRow": 4,
+    "equipmentTier": 6,
+    "rarity": 5,
+    "rarityName": "Legendary",
+    "crafting": {
+      "profession": "smithing",
+      "level": 25,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "plate_chest": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 384,
+      "y": 257,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 4,
+    "equipmentTier": 6,
+    "rarity": 5,
+    "rarityName": "Legendary",
+    "crafting": {
+      "profession": "smithing",
+      "level": 25,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "plate_gloves": {
+    "atlasCategory": "Gauntlets",
+    "rect": {
+      "x": 986,
+      "y": 260,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 4,
+    "equipmentTier": 6,
+    "rarity": 5,
+    "rarityName": "Legendary",
+    "crafting": {
+      "profession": "smithing",
+      "level": 25,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "plate_leggings": {
+    "atlasCategory": "Leggings",
+    "rect": {
+      "x": 1230,
+      "y": 260,
+      "w": 28,
+      "h": 34
+    },
+    "visualRow": 4,
+    "equipmentTier": 6,
+    "rarity": 5,
+    "rarityName": "Legendary",
+    "crafting": {
+      "profession": "smithing",
+      "level": 25,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "plate_boots": {
+    "atlasCategory": "Boots",
+    "rect": {
+      "x": 1453,
+      "y": 260,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 4,
+    "equipmentTier": 6,
+    "rarity": 5,
+    "rarityName": "Legendary",
+    "crafting": {
+      "profession": "smithing",
+      "level": 25,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "royal_helmet": {
+    "atlasCategory": "Helmets",
+    "rect": {
+      "x": 735,
+      "y": 300,
+      "w": 30,
+      "h": 34
+    },
+    "visualRow": 5,
+    "equipmentTier": 7,
+    "rarity": 6,
+    "rarityName": "Mythic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 30,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "royal_chest": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 384,
+      "y": 299,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 5,
+    "equipmentTier": 7,
+    "rarity": 6,
+    "rarityName": "Mythic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 30,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "royal_gloves": {
+    "atlasCategory": "Gauntlets",
+    "rect": {
+      "x": 986,
+      "y": 300,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 5,
+    "equipmentTier": 7,
+    "rarity": 6,
+    "rarityName": "Mythic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 30,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "royal_leggings": {
+    "atlasCategory": "Leggings",
+    "rect": {
+      "x": 1230,
+      "y": 300,
+      "w": 28,
+      "h": 34
+    },
+    "visualRow": 5,
+    "equipmentTier": 7,
+    "rarity": 6,
+    "rarityName": "Mythic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 30,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "royal_boots": {
+    "atlasCategory": "Boots",
+    "rect": {
+      "x": 1453,
+      "y": 300,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 5,
+    "equipmentTier": 7,
+    "rarity": 6,
+    "rarityName": "Mythic",
+    "crafting": {
+      "profession": "smithing",
+      "level": 30,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "kingslayer_helmet": {
+    "atlasCategory": "Helmets",
+    "rect": {
+      "x": 735,
+      "y": 300,
+      "w": 30,
+      "h": 34
+    },
+    "visualRow": 5,
+    "equipmentTier": 8,
+    "rarity": 7,
+    "rarityName": "Unique",
+    "crafting": {
+      "profession": "smithing",
+      "level": 35,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "kingslayer_chest": {
+    "atlasCategory": "Armor Sets",
+    "rect": {
+      "x": 384,
+      "y": 299,
+      "w": 30,
+      "h": 40
+    },
+    "visualRow": 5,
+    "equipmentTier": 8,
+    "rarity": 7,
+    "rarityName": "Unique",
+    "crafting": {
+      "profession": "smithing",
+      "level": 35,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "kingslayer_gloves": {
+    "atlasCategory": "Gauntlets",
+    "rect": {
+      "x": 986,
+      "y": 300,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 5,
+    "equipmentTier": 8,
+    "rarity": 7,
+    "rarityName": "Unique",
+    "crafting": {
+      "profession": "smithing",
+      "level": 35,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "kingslayer_leggings": {
+    "atlasCategory": "Leggings",
+    "rect": {
+      "x": 1230,
+      "y": 300,
+      "w": 28,
+      "h": 34
+    },
+    "visualRow": 5,
+    "equipmentTier": 8,
+    "rarity": 7,
+    "rarityName": "Unique",
+    "crafting": {
+      "profession": "smithing",
+      "level": 35,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "kingslayer_boots": {
+    "atlasCategory": "Boots",
+    "rect": {
+      "x": 1453,
+      "y": 300,
+      "w": 32,
+      "h": 34
+    },
+    "visualRow": 5,
+    "equipmentTier": 8,
+    "rarity": 7,
+    "rarityName": "Unique",
+    "crafting": {
+      "profession": "smithing",
+      "level": 35,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "siegeRam": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 4,
+    "rarityName": "Epic",
+    "crafting": {
+      "profession": "masonry",
+      "level": 10,
+      "station": "forge",
+      "technology": "siegecraft"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Forge with Siege engineering"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "driedApples": {
+    "atlasCategory": "Food & Cooking",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 5,
+      "station": "smoker",
+      "technology": "preserving"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft at smoker"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "smokedMeat": {
+    "atlasCategory": "Food & Cooking",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 10,
+      "station": "smoker",
+      "technology": "preserving"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft at smoker"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "vegetableStew": {
+    "atlasCategory": "Food & Cooking",
+    "rect": {
+      "x": 510,
+      "y": 964,
+      "w": 36,
+      "h": 34
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 5,
+      "station": "hearth",
+      "technology": "cookery"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft at hearth"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "oatcakes": {
+    "atlasCategory": "Food & Cooking",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 8,
+      "station": "hearth",
+      "technology": "cookery"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft at hearth"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "herbalTea": {
+    "atlasCategory": "Food & Cooking",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "cooking",
+      "level": 3,
+      "station": "hearth",
+      "technology": "cookery"
+    },
+    "trader": "Tavern",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft at hearth"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "strongRope": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 887,
+      "y": 885,
+      "w": 34,
+      "h": 33
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 8,
+      "station": "loom",
+      "technology": "joinery"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced joinery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "seasonedPlank": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 137,
+      "y": 885,
+      "w": 34,
+      "h": 31
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 8,
+      "station": "hearth",
+      "technology": "joinery"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced joinery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "ironBraces": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 1035,
+      "y": 926,
+      "w": 33,
+      "h": 33
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 8,
+      "station": "forge",
+      "technology": "joinery"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced joinery"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "sulfur": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "saltpetre": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "leadOre": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "lead": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": {
+      "x": 359,
+      "y": 969,
+      "w": 34,
+      "h": 30
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 5,
+      "station": "forge",
+      "technology": "metals"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "powderCharge": {
+    "atlasCategory": "Materials (Basic)",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "category-only"
+  },
+  "pistol": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": 4,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "musket": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": 4,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "blunderbuss": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": 4,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "roundBall": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "piercingRound": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "fireRound": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "poisonRound": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "bleedingRound": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "explosiveRound": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "blackpowder"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "ballistaKit": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "masonry",
+      "level": 20,
+      "station": "forge",
+      "technology": "siegeworks"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "trebuchetKit": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "masonry",
+      "level": 20,
+      "station": "forge",
+      "technology": "siegeworks"
+    },
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "siegeBolt": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 15,
+      "station": "forge",
+      "technology": "siegeworks"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "siegeStone": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "masonry",
+      "level": 15,
+      "station": "kiln",
+      "technology": "siegeworks"
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Advanced medieval workshop"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "oathblade": {
+    "atlasCategory": "Swords",
+    "rect": {
+      "x": 39,
+      "y": 572,
+      "w": 35,
+      "h": 43
+    },
+    "visualRow": 5,
+    "equipmentTier": null,
+    "rarity": 5,
+    "rarityName": "Legendary",
+    "crafting": null,
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "wardenBow": {
+    "atlasCategory": "Bows",
+    "rect": {
+      "x": 955,
+      "y": 572,
+      "w": 32,
+      "h": 43
+    },
+    "visualRow": 5,
+    "equipmentTier": null,
+    "rarity": 5,
+    "rarityName": "Legendary",
+    "crafting": null,
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "founderHammer": {
+    "atlasCategory": "Maces",
+    "rect": {
+      "x": 360,
+      "y": 572,
+      "w": 25,
+      "h": 43
+    },
+    "visualRow": 5,
+    "equipmentTier": null,
+    "rarity": 5,
+    "rarityName": "Legendary",
+    "crafting": null,
+    "trader": null,
+    "acquisition": [
+      "flash",
+      "dangerous-exploration",
+      "boss"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "smallSatchel": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 1,
+    "rarityName": "Common",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom",
+      "technology": null
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft at a loom or buy from a Provisioner"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "travelersPack": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom",
+      "technology": null
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft at a loom or buy from a Provisioner"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "largeRucksack": {
+    "atlasCategory": null,
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 0,
+      "station": "loom",
+      "technology": null
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Craft at a loom or buy from a Provisioner"
+    ],
+    "atlasStatus": "existing-art-fallback"
+  },
+  "storageChestKit": {
+    "atlasCategory": "Miscellaneous",
+    "rect": {
+      "x": 1309,
+      "y": 884,
+      "w": 39,
+      "h": 34
+    },
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Carry to your owned base. Use outdoors beside an active settlement flag."
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "cookingHearthKit": {
+    "atlasCategory": "Miscellaneous",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Carry to your owned base. Use outdoors beside an active settlement flag."
+    ],
+    "atlasStatus": "category-only"
+  },
+  "weavingLoomKit": {
+    "atlasCategory": "Miscellaneous",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Carry to your owned base. Use outdoors beside an active settlement flag."
+    ],
+    "atlasStatus": "category-only"
+  },
+  "smokingRackKit": {
+    "atlasCategory": "Miscellaneous",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Provisioner",
+    "acquisition": [
+      "store",
+      "trader",
+      "Carry to your owned base. Use outdoors beside an active settlement flag."
+    ],
+    "atlasStatus": "category-only"
+  },
+  "dagger": {
+    "atlasCategory": "Daggers",
+    "rect": {
+      "x": 497,
+      "y": 440,
+      "w": 30,
+      "h": 43
+    },
+    "visualRow": 2,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Starting class kit"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "emberStaff": {
+    "atlasCategory": "Staves",
+    "rect": {
+      "x": 1266,
+      "y": 440,
+      "w": 30,
+      "h": 43
+    },
+    "visualRow": 2,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Starting class kit"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "graveStaff": {
+    "atlasCategory": "Staves",
+    "rect": {
+      "x": 1266,
+      "y": 440,
+      "w": 30,
+      "h": 43
+    },
+    "visualRow": 2,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Starting class kit"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "mace": {
+    "atlasCategory": "Maces",
+    "rect": {
+      "x": 360,
+      "y": 440,
+      "w": 25,
+      "h": 43
+    },
+    "visualRow": 2,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": null,
+    "trader": "Smithy",
+    "acquisition": [
+      "store",
+      "trader",
+      "Paladin starting kit"
+    ],
+    "atlasStatus": "matched-cell"
+  },
+  "cutStone": {
+    "atlasCategory": "Crafting Components",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "masonry",
+      "level": 2,
+      "station": "constructionBench",
+      "constructionBenchLevel": 2
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "craft",
+      "store",
+      "trader"
+    ],
+    "atlasStatus": "reference-derived-code"
+  },
+  "timberFrame": {
+    "atlasCategory": "Crafting Components",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "woodcraft",
+      "level": 8,
+      "station": "constructionBench",
+      "constructionBenchLevel": 4
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "craft",
+      "store",
+      "trader"
+    ],
+    "atlasStatus": "reference-derived-code"
+  },
+  "ironHinges": {
+    "atlasCategory": "Crafting Components",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 3,
+    "rarityName": "Rare",
+    "crafting": {
+      "profession": "smithing",
+      "level": 4,
+      "station": "constructionBench",
+      "constructionBenchLevel": 3
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "craft",
+      "store",
+      "trader"
+    ],
+    "atlasStatus": "reference-derived-code"
+  },
+  "roofTiles": {
+    "atlasCategory": "Crafting Components",
+    "rect": null,
+    "visualRow": null,
+    "equipmentTier": null,
+    "rarity": 2,
+    "rarityName": "Uncommon",
+    "crafting": {
+      "profession": "masonry",
+      "level": 2,
+      "station": "kiln",
+      "constructionBenchLevel": null
+    },
+    "trader": "Provisioner",
+    "acquisition": [
+      "craft",
+      "store",
+      "trader"
+    ],
+    "atlasStatus": "reference-derived-code"
+  }
+}

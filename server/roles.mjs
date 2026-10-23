@@ -1,7 +1,7 @@
 import {ITEMS} from './catalog.mjs';
 export const ROLES=Object.freeze([
- {id:'melee',name:'Melee',description:'Close combat specialist with sword, shield and leather protection.',items:{sword:1,shield:1,tunic:1,bread:3,water:3,waterskin:1},weapon:'sword',armour:'tunic',shield:true},
- {id:'ranged',name:'Ranged',description:'Bow specialist who attacks from a distance with arrows.',items:{bow:1,arrow:30,tunic:1,bread:3,water:3,waterskin:1},weapon:'bow',armour:'tunic'},
+ {id:'melee',name:'Warrior',description:'Close combat specialist with sword, shield and leather protection.',items:{sword:1,shield:1,tunic:1,bread:3,water:3,waterskin:1},weapon:'sword',armour:'tunic',shield:true},
+ {id:'ranged',name:'Archer',description:'Bow specialist who attacks from a distance with arrows.',items:{bow:1,arrow:30,tunic:1,bread:3,water:3,waterskin:1},weapon:'bow',armour:'tunic'},
  {id:'mage',name:'Mage',description:'A staff wielder whose ember staff launches fire bolts. Each attack uses stamina.',items:{emberStaff:1,tunic:1,bread:3,water:3,waterskin:1},weapon:'emberStaff',armour:'tunic'},
  {id:'rogue',name:'Rogue',description:'A lightly equipped fighter with fast, close-range dagger strikes.',items:{dagger:1,tunic:1,bread:3,water:3,waterskin:1},weapon:'dagger',armour:'tunic'},
  {id:'paladin',name:'Paladin',description:'An armored defender equipped with a mace, shield and mail.',items:{mace:1,shield:1,mail:1,bread:3,water:3,waterskin:1},weapon:'mace',armour:'mail',shield:true},
@@ -15,6 +15,7 @@ export const ROLES=Object.freeze([
 export function chooseRole(realm,p,id){if(p.role)throw Error('Your role is permanent');const role=ROLES.find(r=>r.id===id);if(!role)throw Error('Choose a valid role');p.role=role.id;p.startingItems=structuredClone(role.items);realm.grant(p,role.items);equipRole(p,role);p.roleRequired=false;}
 function equipRole(p,role){p.equippedWeapon=role.weapon||'unarmed';p.equippedArmour=role.armour||null;p.equippedHelmet=null;p.equippedShield=!!role.shield;p.blockUntil=0;}
 export function respawnKit(realm,p){const role=ROLES.find(r=>r.id===p.role);if(!role)return;const items=p.startingItems||role.items;for(const [id,n] of Object.entries(items))if(!ITEMS[id]||!Number.isSafeInteger(n)||n<1)throw Error('Invalid saved starting kit');realm.grant(p,items);equipRole(p,role);}
+
 
 
 

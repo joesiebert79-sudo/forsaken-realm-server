@@ -86,3 +86,26 @@ test('personal bank makes exact change without changing total wallet plus bank v
   a=s.realm.state.accounts.one;assert.equal(a.copper,5);assert.equal(a.bank.silver,1);assert.equal(a.bank.copper,5);assert.equal(walletValue(a)+walletValue(a.bank),100n);
  }finally{s.close();}
 });
+
+test('both trader hubs make exact copper, silver and gold change for mixed wallets, purchases and sales',()=>{
+ const {s}=fixture();const original=offers.Provisioner.wood;let sequence=0;
+ try{const hubs=MERCHANTS.filter(m=>m.hubName);assert.equal(hubs.length,2);
+  const cases=[
+   {wallet:{gold:0,silver:1,copper:48},price:2,coin:'silver',after:{gold:0,silver:3,copper:8}},
+   {wallet:{gold:1,silver:0,copper:0},price:3,coin:'copper',after:{gold:0,silver:9,copper:7}},
+   {wallet:{gold:0,silver:9,copper:10},price:1,coin:'gold',after:{gold:0,silver:0,copper:0}},
+   {wallet:{gold:0,silver:0,copper:100},price:1,coin:'gold',after:{gold:0,silver:0,copper:0}},
+   {wallet:{gold:0,silver:0,copper:21},price:2,coin:'silver',after:{gold:0,silver:0,copper:1}}
+  ];
+  for(const m of hubs)for(const example of cases){
+   offers.Provisioner.wood=[example.price,1,example.coin];
+   s.transaction(r=>{const p=r.player('one');Object.assign(p,{interior:m.interior,x:m.x,y:m.y,openMerchant:m.id,inventory:{wood:1}});Object.assign(r.state.accounts.one,example.wallet);r.state.merchants??={};r.state.merchants[m.id]={items:{wood:20},receipts:{}};});
+   const buy={id:'change-buy-'+(++sequence),type:'merchantBuy',target:m.id,item:'wood',amount:1,expectedTotal:example.price,expectedCurrency:example.coin};
+   s.transaction(r=>r.command('one',buy));assert.deepEqual(s.realm.snapshot('one').you.coinPouch,example.after,m.hubName+' '+example.coin);
+   const before=walletValue(s.realm.state.accounts.one),row=merchantView(s.realm,s.realm.player('one')).offers.find(o=>o.item==='wood');
+   const sell={id:'change-sell-'+(++sequence),type:'merchantSell',target:m.id,item:'wood',amount:1,expectedTotal:row.sell,expectedCurrency:example.coin};
+   s.transaction(r=>r.command('one',sell));const paid=walletValue(s.realm.state.accounts.one);assert.equal(paid,before+coinValue(row.sell,example.coin));s.transaction(r=>r.command('one',sell));assert.equal(walletValue(s.realm.state.accounts.one),paid);
+   assert.deepEqual(s.realm.snapshot('one').openMerchant.wallet,s.realm.snapshot('one').you.coinPouch);
+  }
+ }finally{offers.Provisioner.wood=original;s.close();}
+});

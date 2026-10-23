@@ -6,7 +6,7 @@ export const APPEARANCES=Object.freeze([
 ]);
 export const INITIAL_PROFESSIONS=Object.freeze(["melee","ranged","mage","rogue","paladin","necromancer"]);
 export const CLAN_RANKS=Object.freeze(['Recruit','Private','Corporal','Sergeant','Lieutenant','Captain','Commander','Warlord']);
-export const EQUIPMENT_TIERS=Object.freeze(['Crude','Common','Uncommon','Rare','Epic','Mythic','Legendary','Unique']);
+export const EQUIPMENT_TIERS=Object.freeze(['Crude','Common','Uncommon','Rare','Epic','Legendary','Mythic','Unique']);
 export const ARMOR_SLOTS=Object.freeze(['helmet','chest','gloves','leggings','boots']);
 export const RECLAMATION_TOKENS=Object.freeze({reclamationMinor:1,reclamationGreater:3,reclamationSuperior:5});
 export const BANK_TIERS=Object.freeze([

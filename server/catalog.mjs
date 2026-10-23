@@ -1,3 +1,5 @@
+import {DEFENSES} from './base-defense-catalog.mjs';
+import {OUTBUILDINGS} from './base-outbuildings.mjs';
 import {COMPACT,LAYOUT} from './world-profile.mjs';
 import {naturalBuildings} from './organic-towns.mjs';
 import {CASTLES} from './castles.mjs';
@@ -15,6 +17,7 @@ export function registerPhysicalDeed(id,design){
 export const ACCOUNT_ITEMS=Object.freeze({copper:{id:'copper',name:'Copper'},silver:{id:'silver',name:'Silver'},gold:{id:'gold',name:'Gold'},reclamationMinor:{id:'reclamationMinor',name:'Minor Skill Reclamation Token'},reclamationGreater:{id:'reclamationGreater',name:'Greater Skill Reclamation Token'},reclamationSuperior:{id:'reclamationSuperior',name:'Superior Skill Reclamation Token'}});
 export const RECIPES=Object.freeze(Object.fromEntries(PROGRESSION.recipes.map(r=>[r.id,r])));
 export const BUILDINGS = Object.freeze({
+  ...DEFENSES,...OUTBUILDINGS,
   kiln:{needs:{stone:30,clay:20,wood:10},hp:500},loom:{needs:{wood:20,fiber:10},hp:220},mill:{needs:{stone:25,wood:20},hp:400},smoker:{needs:{wood:25,stone:10},hp:250},stonewall:{needs:{brick:12,mortar:4},hp:1000},chest:{needs:{plank:8,nails:4},hp:200},
   hearth:{needs:{stone:10,wood:5},hp:200}, forge:{needs:{stone:30,wood:15},hp:500},
   tannery:{needs:{wood:20,fiber:10},hp:300}, farm:{needs:{wood:10,stone:5},hp:200},

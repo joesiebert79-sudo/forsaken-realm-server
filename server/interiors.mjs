@@ -1,7 +1,10 @@
+import {outbuildingRoom} from './base-outbuildings.mjs';
+import {traderHubRoom} from './trader-hubs.mjs';
 import {homeRoom} from './housing-catalog.mjs';
 import {WORLD_BUILDINGS,WORLD,buildingBlocks} from './catalog.mjs';
 export const buildingById=(id,buildings=WORLD_BUILDINGS)=>buildings.find(b=>b.id===id?.replace(/:(?:dungeon|basement)$/,''));
-export function roomFor(id,buildings=WORLD_BUILDINGS){const home=homeRoom(id);if(home)return home;const b=buildingById(id,buildings);if(!b)return null;if(b.houseDesign)return homeRoom(id,b.houseDesign);
+function furnished(room,b){if(room&&!room.id.endsWith(":basement")&&b?.interiorFixtures?.length)room.fixtures.push(...structuredClone(b.interiorFixtures));return room;}
+export function roomFor(id,buildings=WORLD_BUILDINGS){const annex=outbuildingRoom(id);if(annex)return annex;const home=homeRoom(id);if(home)return furnished(home,buildingById(id,buildings));const b=buildingById(id,buildings);if(!b)return null;if(b.houseDesign)return furnished(homeRoom(id,b.houseDesign),b);const hubRoom=traderHubRoom(id);if(hubRoom)return hubRoom;
  if(b.role==='missions')return {id,name:b.name,type:'missions',width:620,height:460,exit:{x:310,y:415},fixtures:[{kind:'rack',x:45,y:60,w:80,h:130},{kind:'counter',x:390,y:70,w:155,h:65},{kind:'table',x:245,y:90,w:110,h:65}]};
  if(['smithy','bank','workshop','merchant'].includes(b.role)){
   // Explicit service roles for isolated map catalogues; legacy buildings keep
@@ -58,6 +61,7 @@ export function clearDoorApproaches(state){
 }
 
 export function descendDungeon(p){const room=roomFor(p.interior);if(room?.portal?.floor==='basement'){if(Math.hypot(p.x-room.portal.x,p.y-room.portal.y)>80)throw Error('Approach the basement stairs');p.interior+=':basement';const down=roomFor(p.interior);p.x=down.exit.x;p.y=down.exit.y-20;return;}if(!room?.portal||Math.hypot(p.x-room.portal.x,p.y-room.portal.y)>80)throw Error('Approach the dungeon stairs');p.interior+=':dungeon';p.x=310;p.y=400;}
+
 
 
 

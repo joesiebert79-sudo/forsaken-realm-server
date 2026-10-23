@@ -1,0 +1,17 @@
+Forsaken Realm v0.90 - Base and Trader Expansion
+
+Five existing home styles each support eight separate base levels.
+Upgrades use progressively stronger materials, local storage and an upgraded construction bench.
+Walls, gates, walkways and four individually built corner towers support server-validated elevated combat.
+Eight base outbuildings include functional greenhouse, workshop, cookhouse, smokehouse, stable, husbandry, storage and trophy interiors.
+Home storage and a chosen workstation can be built at indoor snap points.
+Both named trader hubs remain neutral and keep their established world positions.
+Traders combine copper, silver and gold and make exact change: 10 copper = 1 silver; 10 silver = 1 gold.
+Legendary, Mythic and Unique equipment is restricted to flash deals, dangerous exploration and bosses.
+Six approved classes and seven approved companions remain selectable.
+The map, player progress and player codes are preserved. This archive contains no player saves, codes or signing keys.
+The bundled Android installer is offered by the server's local /phone page.
+
+Validation: 89 server tests, menu navigation, 1,200 character poses, 700 companion poses, item/atlas checks, actual ZIP installation and local phone download checks passed.
+Physical-phone performance has not been measured in this workspace.
+Some original item artwork is retained and rendered at the shared 48-pixel scale where the approved atlas lacks the item.

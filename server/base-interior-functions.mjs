@@ -1,0 +1,18 @@
+import {ownedHousing} from './housing.mjs';
+import {payBaseConstruction} from './base-progression.mjs';
+import {outbuildingRoom} from './base-outbuildings.mjs';
+import {refreshHousing} from './housing-runtime.mjs';
+export function initializeAnnexContents(r,annex){const room=outbuildingRoom(annex.id);if(!room)return;r.state.containers??={};for(const [i,f]of room.fixtures.entries()){
+ if(['crate','chest','box'].includes(f.kind))r.state.containers['fixture:'+annex.id+':'+i]??={items:{}};
+ if(annex.kind==='greenhouse'&&f.name==='Planting bed'){const id='planter:'+annex.id+':'+i;r.state.structures[id]??={id,kind:'farm',parentBuildingId:annex.id,propertyId:annex.propertyId,settlementId:annex.settlementId,owner:annex.owner,interior:annex.id,x:f.x+f.w/2,y:f.y+f.h/2,hp:200,maxHp:200};}
+ }}
+export function annexAvailable(r,p){const b=r.state.structures?.[p.interior],h=ownedHousing(r.state,p);return b&&b.hp>0&&!b.abandonedAt&&h&&b.propertyId===h.id&&r.state.settlements?.[h.settlementId]?.flagActive?b:null;}
+export function checkPlanter(r,p,farm){if((farm.interior||null)!==(p.interior||null))throw Error('Farm is in another location');if(farm.parentBuildingId&&(!annexAvailable(r,p)||farm.parentBuildingId!==p.interior))throw Error('Greenhouse is unavailable');}
+export function baseInteriorCommand(r,p,c){const b=annexAvailable(r,p);if(!b||p.hp<=0)throw Error('Enter your active base building');const land=r.state.settlements[b.settlementId],now=r.clock();
+ if(c.type==='husbandryCollect'){if(b.kind!=='husbandry')throw Error('Use your husbandry barn');if(now<(b.productionReadyAt||0))throw Error('The next husbandry batch is not ready');payBaseConstruction(r,p,land,{wheat:6,water:3});r.grant(p,{milk:2,wool:2,egg:2});b.productionReadyAt=now+30*60000;return;}
+ if(c.type==='stableCare'){if(b.kind!=='stable')throw Error('Use your stable');const pet=r.state.companions?.[p.id],nearby=pet&&(pet.interior===p.interior?Math.hypot(p.x-pet.x,p.y-pet.y)<=150:!pet.interior&&Math.hypot(pet.x-b.x,pet.y-b.y-45)<=180);if(!pet||pet.hp<=0||!nearby)throw Error('Bring your living companion to the stable entrance');if(now<(pet.stableCareReadyAt||0))throw Error('Your companion is still resting');if(pet.hp>=pet.maxHp)throw Error('Your companion is already healthy');payBaseConstruction(r,p,land,{wheat:1,water:2});pet.hp=Math.min(pet.maxHp,pet.hp+Math.max(1,Math.ceil(pet.maxHp*.15)));pet.stableCareReadyAt=now+60000;return;}
+ throw Error('Unknown interior action');
+}
+export function baseInteriorRows(r,p){const b=annexAvailable(r,p);if(!b)return [];if(b.kind==='husbandry')return [{name:'Feed livestock and collect produce',detail:'6 wheat + 3 water → 2 milk, 2 wool, 2 eggs • one batch per 30 minutes',action:{type:'husbandryCollect'}}];if(b.kind==='stable')return [{name:'Feed and tend companion',detail:'1 wheat + 2 water • restores 15% health • bring companion to entrance • 60-second rest',action:{type:'stableCare'}}];return [];}
+export function retireAnnex(r,b,now){if(!b.id?.startsWith('annex:'))return;const items={},armorCondition={};for(const [id,c]of Object.entries(r.state.containers||{})){if(!id.startsWith('fixture:'+b.id+':'))continue;for(const [item,n]of Object.entries(c.items||{}))items[item]=(items[item]||0)+n;for(const [item,n]of Object.entries(c.armorCondition||{}))armorCondition[item]=Math.min(armorCondition[item]??100,n);c.items={};c.armorCondition={};}if(Object.keys(items).length){const id='annex-loot:'+b.id;r.state.corpses[id]={id,x:b.x,y:b.y+45,items,armorCondition,name:'Destroyed '+(b.kind||'building')+' storage',createdAt:now};}for(const s of Object.values(r.state.structures||{}))if(s.parentBuildingId===b.id)s.hp=0;b.hp=0;refreshHousing(r);}
+

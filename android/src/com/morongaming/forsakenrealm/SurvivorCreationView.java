@@ -7,7 +7,7 @@ final class SurvivorCreationView extends View {
  static final String[] PETS={"wolf","direWolf","horse","warBear","raven","loneWolf","familiar"};
  static final String[] PET_NAMES={"WOLF","DIRE WOLF","HORSE","WAR BEAR","RAVEN","LONE WOLF","FAMILIAR"};
  final Host host;final MenuFrame f=new MenuFrame();final MenuArt art;int sex,body,role,faction,step,companion;float downX,downY;boolean pressed;long changedStep;
- SurvivorCreationView(Context c,Host h){super(c);host=h;art=MenuArt.get(c);setContentDescription("Choose Melee, Ranged, Mage, Rogue, Paladin or Necromancer; male or female; and one of seven reference companions. Review before confirming.");}
+ SurvivorCreationView(Context c,Host h){super(c);host=h;art=MenuArt.get(c);setContentDescription("Choose Warrior, Archer, Mage, Rogue, Paladin or Necromancer; male or female; and one of seven reference companions. Review before confirming.");}
  String appearance(){return(sex==1?"female-":"male-")+(body==1?"2":"1");}
  String allegiance(){return faction==0?"survivor":"bandit";}
  String profession(){return host.legacyProfession().isEmpty()?CLASSES[role]:host.legacyProfession();}
@@ -25,3 +25,4 @@ final class SurvivorCreationView extends View {
  public boolean performClick(){super.performClick();return true;}
  public boolean onTouchEvent(MotionEvent e){float x=f.x(e.getX()),y=f.y(e.getY());int type=e.getActionMasked();if(type==MotionEvent.ACTION_DOWN){pressed=true;downX=x;downY=y;return true;}if(type==MotionEvent.ACTION_CANCEL||type==MotionEvent.ACTION_POINTER_DOWN){pressed=false;return true;}if(type!=MotionEvent.ACTION_UP||!pressed)return true;pressed=false;if(Math.hypot(x-downX,y-downY)>14)return true;performClick();if(step==0){if(host.legacyProfession().isEmpty()&&x>=36&&x<=217&&y>=123&&y<375&&(y-123)%42<=36)role=(int)((y-123)/42);if(y>=345&&y<=381&&x>=275&&x<=523)sex=x>=399?1:0;if(!host.existingSurvivor()&&y>=388&&y<=416&&x>=275&&x<=558)faction=x>=421?1:0;if(host.legacyProfession().isEmpty()&&y>=437&&y<=484&&x>=26&&x<=935&&(x-26)%131<=123)companion=(int)((x-26)/131);}if(y>=494&&y<=528){if(x>=24&&x<=194)back();else if(x>=616&&x<=936){if(step==0){step=1;changedStep=e.getEventTime();}else if(e.getEventTime()-changedStep>=250)host.create(appearance(),allegiance(),profession(),PETS[companion]);}}invalidate();return true;}
 }
+

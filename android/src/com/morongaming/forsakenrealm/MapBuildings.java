@@ -17,8 +17,10 @@ final class MapBuildings {
    p.setStyle(Paint.Style.STROKE);p.setStrokeWidth(q);p.setColor(0xffd4c5a1);c.drawRect(x-a,y-d,x+a,y+10,p);c.drawLine(x,y-d,x,y+10,p);
    if(castle){p.setStyle(Paint.Style.FILL);p.setColor(0xff545c4d);c.drawRect(x-a*.55f,y-d*.75f,x+a*.55f,y-d*.2f,p);p.setColor(0xffddd0a9);float t=Math.min(a*.23f,d*.28f);for(int k=0;k<4;k++){float tx=k%2==0?x-a:x+a,ty=k<2?y-d:y+10;c.drawRect(tx-t,ty-t,tx+t,ty+t,p);}}
    p.setStyle(Paint.Style.FILL);
-   if(MapDetail.doors(zoom)){p.setColor(0xfff7d88a);p.setStrokeWidth(3*q);c.drawLine(x-20,y+10,x+20,y+10,p);p.setStrokeWidth(q);c.drawLine(x,y+14,x,y+35,p);c.drawCircle(x,y+35,2*q,p);}
+   if(MapDetail.doors(zoom)){JSONObject door=b.optJSONObject("door");float doorX=door==null?x:(float)door.optDouble("x"),doorY=door==null?y+35:(float)door.optDouble("y"),edgeX=Math.max(x-a,Math.min(x+a,doorX)),edgeY=Math.max(y-d,Math.min(y+10,doorY));p.setColor(0xfff7d88a);p.setStrokeWidth(q);c.drawLine(edgeX,edgeY,doorX,doorY,p);c.drawCircle(doorX,doorY,3*q,p);}
    if(MapDetail.labels(zoom)&&(shop||castle)||zoom>24){String name=shop?b.optString("shop"):b.optString("name");if(name.isEmpty())continue;p.setTextSize(11*q);float width=p.measureText(name);RectF box=new RectF(x+a+5*q,y-12*q,x+a+width+11*q,y+4*q);boolean overlap=false;for(RectF prior:labels)if(RectF.intersects(prior,box)){overlap=true;break;}if(!overlap){labels.add(box);p.setColor(0xdd1a211b);c.drawRoundRect(box,2*q,2*q,p);p.setColor(shop?0xffffdda0:0xffded6bc);c.drawText(name,box.left+3*q,y,p);}}
   }
  }
 }
+
+
