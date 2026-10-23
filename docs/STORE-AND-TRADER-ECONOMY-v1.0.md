@@ -1,31 +1,19 @@
 # Store and Trader Economy v1.0
 
-Status: owner-approved policy, incomplete item proposal awaiting review. These documents do not activate or change any gameplay system.
+The owner authorized completion of missing item proposals, fair pricing and trader levels. The catalog now contains 360 named entries: 165 existing items and 195 explicitly marked new proposals. New proposals are not claimed as implemented gameplay.
 
-## Approved rules
+## Currency and pricing
 
-- Target proposal: 360 items. Do not claim the complete proposal exists until all names and entries are recovered and reconciled.
-- Currency: 10 Copper = 1 Silver; 10 Silver = 1 Gold. All purchases combine denominations, and change preserves exact total value in Copper.
-- Sell-back: 25%. The payout basis and fractional-Copper rounding still require review.
-- General Store: 3 mixed-rarity items per category, rotating every 24 hours.
-- Specialized traders: level-based stock. Thresholds require review.
-- Flash Deals: 15–40% discounts.
-- Cash Store: cosmetics only; no stats, progression, capacity, currency, resources or other gameplay advantage.
-- Existing trader hubs remain neutral.
-- Earlier approved Legendary/Mythic/Unique restriction remains: Flash Deals, dangerous exploration or bosses only.
+10 Copper = 1 Silver; 10 Silver = 1 Gold. Mixed wallets pay any denomination and receive exact change. Prices are stored as whole Copper with an equivalent display denomination. Starter food and materials remain accessible at level 1. Specialist tiers unlock at levels 1, 5, 10, 18 and 28 and retain earlier stock. Restricted Legendary, Mythic and Unique equipment remains outside ordinary shops.
 
-## Catalog and provenance
+Sell-back pays 25% of base catalog Copper value, rounded down once for the entire stack. Regional scarcity cannot inflate resale. A 3-Copper item pays 0 for one or 3 Copper for four; a 3-Silver item pays 7 Copper for one or 3 Silver for four. Splitting stacks never increases payout. This authorized pricing correction is implemented separately from the proposed catalog.
 
-[Machine-readable catalog](../economy/store-trader-v1.catalog.json) contains 165 existing progression entries as reference material. Each current price is explicitly marked as a runtime reference, not an approved v1 final price. Proposed prices remain null pending reconciliation/review. No unnamed items were fabricated to reach 360.
+## Stores
 
-The approved item atlas is visual evidence, not a complete named 360-item pricing proposal. The original user item-list image has the same SHA-256 as the retained item atlas.
+General Store: three distinct mixed-rarity eligible items per category, shared 24-hour rotation at midnight UTC, deterministic across restart, with purchased quantities persisted. Common/Uncommon/Rare is the preferred mix. Restricted equipment cannot enter the fallback pool. Categories lacking three eligible items must be reported rather than filled with invented live items.
 
-[Review issues](../economy/store-trader-v1.review.json) records missing data and conflicts. Its blocking issues must be resolved before runtime integration.
+Specialists carry relevant stock only. Both trader hubs remain neutral. Flash Deals use 15–40% discounts in Copper, with rounded effective discount checked. Legendary/Mythic/Unique equipment comes only from Flash Deals, dangerous exploration or bosses. Cash Store is cosmetics only and remains disabled until payment and SKU review.
 
-## Implementation boundary
+## Review boundary
 
-Do not import this catalog into runtime trading, crafting, loot, progression, wallets or Cash Store code before review. Preserve existing player data and receipts. This economy review does not prevent the separately authorized menu/interior visual corrections.
-
-## Required acceptance checks after review
-
-Validate all 360 unique item IDs, price units, trader/level assignments, three-per-category rarity mix, stable 24-hour rotation across restart, exact mixed-currency payments/change, 25% sell-back/rounding, 15–40% discounts, restricted loot sources and cosmetics-only cash effects. Test insufficient funds, replay protection, fractional pricing, integer overflow and arbitrage.
+[Catalog](../economy/store-trader-v1.catalog.json) includes proposed prices and level assignments for every entry. [Remaining review issues](../economy/store-trader-v1.review.json) distinguishes missing recipes/effects/artwork from completed naming and pricing. No catalog import into live crafting, loot, progression or store rotation occurs before review. Existing names, statistics and saves are preserved.
