@@ -7,7 +7,7 @@ Owner: Joe • Repository: joesiebert79-sudo/forsaken-realm-server
 
 This is the shared entry point for two parallel Work chats. Read this file, [approved reference register](APPROVED-REFERENCE-REGISTER.md), and [coordination ledger](COORDINATION-LEDGER.md) before editing. The owner-approved economy requirements below are binding; implementation proposals and missing details are explicitly identified. This PR changes documentation only. It does not activate economy rules, complete housing, create Work chats, or change gameplay.
 
-Baseline inspected: main at ac9ff0751724aac33553473e60668671f88a402a. Existing README/status version labels describe different increments; do not infer a release's completion from a label. Another active chat, “Update menus and shrink map,” has ongoing menu/interior work and an economy-specification task. Its uncommitted work is not part of this baseline. Check its eventual PR before duplicating those changes. No chat-to-role assignment has been confirmed.
+Baseline inspected: main at ac9ff0751724aac33553473e60668671f88a402a. Existing README/status version labels describe different increments; do not infer a release's completion from a label. Another active chat, with stable thread ID `01a164f2-5301-74b3-a911-018f1ddb9e1a`, has ongoing menu/interior work and an economy-specification task. Its uncommitted work is not part of this baseline. Check its eventual PR before duplicating those changes. No chat-to-role assignment has been confirmed.
 
 ## Ownership boundaries
 
@@ -122,3 +122,7 @@ Each handoff includes task ID, source branch/commit, PR, changed files, contract
 - Reference paths are discoverable; reserved economy paths are clearly distinguished from verified files.
 - The PR contains only Markdown documentation, with relative links checked and the base/head diff inspected.
 - Gameplay implementation and physical-phone acceptance remain separate and are never claimed by this plan.
+
+## Stable chat identity
+
+Chat titles can change and are never identifiers. Coordinate by stable thread/conversation ID, role (Work 1 or Work 2), repository and branch. Record the stable ID when Joe assigns a role; do not infer assignment from a title. Titles are optional display labels only. The related thread ID above identifies observed work, not an assigned Work 1/Work 2 role.
