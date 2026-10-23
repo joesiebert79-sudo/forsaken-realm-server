@@ -5,8 +5,8 @@ final class SkillsView extends View {
  interface Host {JSONObject data();JSONObject player();String status();void learn(String id);void reclaim(String token,JSONObject ranks);void close();}
  private final Host host;private final Paint paint=new Paint(3);private float scale,left,top;private int page=0;private JSONObject selected=new JSONObject();
  SkillsView(Context c,Host h){super(c);host=h;setContentDescription("Character level and skill progression");}
- private void text(Canvas c,String s,float x,float y,int size,int color){paint.setColor(color);paint.setTextSize(size);c.drawText(s,x,y,paint);}
- private void box(Canvas c,float x,float y,float w,float h,int color){paint.setColor(color);c.drawRoundRect(x,y,x+w,y+h,5,5,paint);}
+ private void text(Canvas c,String s,float x,float y,int size,int color){paint.setColor(color);paint.setTypeface(Typeface.create(Typeface.SERIF,Typeface.NORMAL));paint.setTextSize(size);c.drawText(s,x,y,paint);}
+ private void box(Canvas c,float x,float y,float w,float h,int color){if(w>25&&h>20&&ReferenceSkin.get(getContext()).frame(c,x,y,w,h,((color>>16)&255)>((color>>8)&255)+5))return;paint.setColor(color);c.drawRoundRect(x,y,x+w,y+h,5,5,paint);}
  private JSONArray nodes(){JSONObject d=host.data();return d==null?new JSONArray():d.optJSONArray("nodes");}
  private int refund(){int points=0;JSONArray ns=nodes();if(ns!=null)for(int i=0;i<ns.length();i++){JSONObject n=ns.optJSONObject(i);int rank=n.optInt("rank"),take=selected.optInt(n.optString("id"));JSONArray costs=n.optJSONArray("costs");if(take>rank)return -1;for(int j=rank-take;j<rank;j++)points+=costs.optInt(j);}return points;}
  protected void onDraw(Canvas c){scale=Math.min(getWidth()/960f,getHeight()/540f);left=(getWidth()-960*scale)/2;top=(getHeight()-540*scale)/2;MenuArt.get(getContext()).backdrop(c);c.save();c.translate(left,top);c.scale(scale,scale);JSONObject d=host.data();

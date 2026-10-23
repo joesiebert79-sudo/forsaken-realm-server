@@ -13,3 +13,4 @@ const dir=mkdtempSync(join(tmpdir(),'realm-v077-')),path=join(dir,'world.sqlite'
 console.log('PASS: smaller world, 10:1 coins, mixed payment/change, all catalogue item offers, menu rows, duplicate purchase rejection, backup, migration and restart preservation.');
 
 
+
