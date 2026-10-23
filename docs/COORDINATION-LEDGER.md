@@ -62,3 +62,7 @@ Further decisions must include date, source/PR, alternatives, affected contracts
 ## Merge / acceptance record
 
 Pending. After each merge record PR URL, merged SHA, validation commit, both role reviews, owner acceptance where required, and which task/checkpoint is now unblocked. Do not mark physical-phone validation complete from a compiler or screenshot test.
+
+## Stable chat identity
+
+Chat titles can change and are never identifiers. Coordinate by stable thread/conversation ID, role (Work 1 or Work 2), repository and branch. Record the stable ID when Joe assigns a role; do not infer assignment from a title. Titles are optional display labels only. The related thread ID above identifies observed work, not an assigned Work 1/Work 2 role.
