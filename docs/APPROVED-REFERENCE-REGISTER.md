@@ -18,9 +18,9 @@ Read [the master plan](MASTER-DEVELOPMENT-PLAN.md) first. Verified against main 
 
 The current user request explicitly confirms Store and Trader Economy v1.0: 360 proposed items, 3 mixed items per General Store category, level-based specialized traders, Gold/Silver/Copper, 25% sellback, 15–40% Flash Deals and cosmetics-only Cash Store.
 
-The retrieved “Create Item Price List” conversation (ID 6adbdaa7-3d04-83e9-84cd-8fe46fc45030) contains the user's approval of the list/rules and correction to three mixed items per category with more level-based trader stock. Assistant replies resolve only to content-reference markers; no original price list or attachments were returned. Therefore the exact 360 entries and detailed visual concepts cannot be reconstructed from that retrieval.
+The retrieved conversation (stable ID 6adbdaa7-3d04-83e9-84cd-8fe46fc45030) contains the user's approval of the list/rules and correction to three mixed items per category with more level-based trader stock. Assistant replies resolve only to content-reference markers; no original price list or attachments were returned. Therefore the exact 360 entries and detailed visual concepts cannot be reconstructed from that retrieval.
 
-The related active chat “Update menus and shrink map” contains an owner request for a permanent economy specification/catalog and 24-hour rotation. It is preparing the reserved economy paths listed in the master plan. Those files and additional restrictions proposed there require verification against their PR and source evidence; this register does not promote unrecovered details to approved policy.
+The related active chat with stable thread ID `01a164f2-5301-74b3-a911-018f1ddb9e1a` contains an owner request for a permanent economy specification/catalog and 24-hour rotation. It is preparing the reserved economy paths listed in the master plan. Those files and additional restrictions proposed there require verification against their PR and source evidence; this register does not promote unrecovered details to approved policy.
 
 ## Recovery queue
 
@@ -33,3 +33,7 @@ The related active chat “Update menus and shrink map” contains an owner requ
 | R5 | Economy spec/catalog PR from active chat | Work 1 | Verify paths, provenance, conflicts and merge SHA |
 
 Do not substitute generated art or current runtime prices for missing originals. Preserve recovered originals unchanged; record variants separately. Each new reference needs repository path, source, approval scope, version/date and checksum. Work 2 maintains this register and Work 1 reviews economy references.
+
+## Stable chat identity
+
+Chat titles can change and are never identifiers. Coordinate by stable thread/conversation ID, role (Work 1 or Work 2), repository and branch. Record the stable ID when Joe assigns a role; do not infer assignment from a title. Titles are optional display labels only. The related thread ID above identifies observed work, not an assigned Work 1/Work 2 role.
