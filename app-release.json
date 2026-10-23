@@ -1,7 +1,7 @@
 {
-  "versionCode": 89,
-  "versionName": "0.89",
-  "apkUrl": "https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.89/Forsaken-Realm-v0.89.apk",
-  "apkSha256": "1f172b3a168b8724466f5433240230264e4c851bda07f7b87e41693b3cfe63e7",
-  "serverVersion": "0.89-16bit-menu-flow"
+  "serverVersion": "0.90-base-trader-expansion",
+  "apkUrl": "https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.90/Forsaken-Realm-v0.90.apk",
+  "versionName": "0.90",
+  "versionCode": 90,
+  "apkSha256": "d22914e42a3715dbc6f4f514f30a0d486685e7144adc4e59c3da3b441ef53aab"
 }
