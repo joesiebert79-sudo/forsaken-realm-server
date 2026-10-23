@@ -17,12 +17,21 @@ export const COMPANIONS=Object.freeze({
  woodsman:{kind:'bear',name:'Forest Bear',maxHp:210,damage:16,speed:130,skill:'Crushing Maul',description:'A heavy maul adds 24 damage every 12 seconds.',cooldown:12000},
  smith:{kind:'boar',name:'Iron Boar',maxHp:150,damage:10,speed:150,skill:'Ironhide Charge',description:'Tusk strike adds 10 damage every 10 seconds. Armour always absorbs 30% of incoming damage.',cooldown:10000}
 });
-export const companionSpec=pet=>Object.values(COMPANIONS).find(s=>s.kind===pet.kind)||COMPANIONS[pet.role];
+export const REFERENCE_COMPANIONS=Object.freeze({
+ wolf:{kind:'wolf',name:'Wolf',maxHp:110,damage:11,speed:180,skill:'Hamstring',description:'Slows a struck target for three seconds.',cooldown:10000},
+ direWolf:{kind:'direWolf',name:'Dire Wolf',maxHp:140,damage:13,speed:170,skill:'Rending Bite',description:'A heavy bite every ten seconds.',cooldown:10000},
+ horse:{kind:'horse',name:'Horse',maxHp:160,damage:8,speed:190,skill:'Second Wind',description:'A hoof strike restores twenty stamina.',cooldown:12000},
+ warBear:{kind:'warBear',name:'War Bear',maxHp:210,damage:16,speed:130,skill:'Crushing Maul',description:'A heavy maul every twelve seconds.',cooldown:12000},
+ raven:{kind:'raven',name:'Raven',maxHp:80,damage:8,speed:200,skill:'Raking Talons',description:'A fast companion with a timed talon strike.',cooldown:8000},
+ loneWolf:{kind:'loneWolf',name:'Lone Wolf',maxHp:120,damage:12,speed:180,skill:'Rending Bite',description:'A swift wolf with a timed heavy bite.',cooldown:10000},
+ familiar:{kind:'familiar',name:'Familiar',maxHp:90,damage:10,speed:170,skill:'Ember Bite',description:'A small companion with a timed ember bite.',cooldown:10000}
+});
+export const companionSpec=pet=>REFERENCE_COMPANIONS[pet.kind]||Object.values(COMPANIONS).find(s=>s.kind===pet.kind)||COMPANIONS[pet.role];
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const sameRoom=(a,b)=>(a.interior||null)===(b.interior||null);
 const blockedFor=(realm,p)=>{const room=roomFor(p.interior);return room?(x,y)=>roomBlocked(room,x,y):realm.blocks;};
 export function ensureCompanion(realm,p){
- const spec=masterEnabled(realm)&&!p.legacyCharacter&&p.role==='farmer'?COMPANIONS.soldier:COMPANIONS[p.role];if(!spec)return null;
+ const spec=REFERENCE_COMPANIONS[p.companionKind]||(['melee','ranged','mage','rogue','paladin','necromancer'].includes(p.role)?REFERENCE_COMPANIONS.wolf:null)||(masterEnabled(realm)&&!p.legacyCharacter&&p.role==='farmer'?COMPANIONS.soldier:COMPANIONS[p.role]);if(!spec)return null;
  realm.state.companions??={};let pet=realm.state.companions[p.id];
  if(!pet){pet={id:randomUUID(),owner:p.id,role:p.role,kind:spec.kind,name:spec.name,maxHp:spec.maxHp,hp:spec.maxHp,x:p.x,y:p.y,interior:p.interior||null,mode:'follow',target:null,lastAttack:0,skillReadyAt:0};realm.state.companions[p.id]=pet;if(p.hp<=0)resetCompanion(realm,p);}
  if(masterEnabled(realm)){ensureCharacterProgression(pet);pet.maxHp=Math.round(companionSpec(pet).maxHp*(1+companionRank(pet,'vigor')*.04));pet.hp=Math.min(pet.hp,pet.maxHp);}
@@ -94,7 +103,7 @@ export function tickCompanions(realm,dt){
    pet.active=move(pet,target,spec.speed*(1+companionRank(pet,'agility')*.02)*(pet.slowUntil>now?.65:1),dt,blocked,34);
    if(distance(pet,target)<=38&&now-pet.lastAttack>=1100&&now>=(pet.attackReadyAt||0)&&clearStrike(pet,target,blocked)){
     const skill=now>=(pet.skillReadyAt||0);let damage=spec.damage;
-    if(skill){if(pet.kind==='dog')damage+=14;if(pet.kind==='bear')damage+=24;if(pet.kind==='boar')damage+=10;pet.skillReadyAt=now+spec.cooldown*(1-companionRank(pet,'discipline')*.03);pet.lastSkillAt=now;}
+    if(skill){if(pet.kind==='dog')damage+=14;if(pet.kind==='bear'||pet.kind==='warBear')damage+=24;if(['direWolf','loneWolf'].includes(pet.kind))damage+=14;if(['raven','familiar'].includes(pet.kind))damage+=8;if(pet.kind==='boar')damage+=10;pet.skillReadyAt=now+spec.cooldown*(1-companionRank(pet,'discipline')*.03);pet.lastSkillAt=now;}
     const canAffect=!(target.dodgeUntil>now);hit(realm,pet,target,damage*(1+companionRank(pet,'ferocity')*.03),now);
     if(skill&&canAffect&&pet.kind==='wolf'&&target.hp>0)target.slowUntil=now+3000;
     if(skill&&pet.kind==='horse')p.stamina=Math.min(maxStamina(p),p.stamina+20);

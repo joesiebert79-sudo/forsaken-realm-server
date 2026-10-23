@@ -34,7 +34,7 @@ final class ScenePainter {
 
  /** Four-legged companions retain independent facing, gait, strike and health feedback. */
  void companion(Canvas c,JSONObject pet,float phase,float attack){
-  String kind=pet.optString("kind");boolean horse=kind.equals("horse"),bear=kind.equals("bear"),boar=kind.equals("boar"),dog=kind.equals("dog");
+  String kind=pet.optString("kind");boolean horse=kind.equals("horse"),bear=kind.equals("bear")||kind.equals("warBear"),boar=kind.equals("boar"),dog=kind.equals("dog");
   float size=horse?1.35f:bear?1.3f:boar?1.05f:1;float dx=(float)pet.optDouble(attack>=0?"attackDX":"facingDX",1),dy=(float)pet.optDouble(attack>=0?"attackDY":"facingDY",0);
   float sx=CombatAim.screenX(dx,dy),sy=CombatAim.screenY(dx,dy),len=(float)Math.hypot(sx,sy);float strike=attack>=0?(float)Math.sin(attack*Math.PI)*10:0;
   c.save();shadow(c,28*size);if(len>0)c.translate(sx/len*strike,sy/len*strike);if(sx<0)c.scale(-1,1);c.scale(size,size);
@@ -64,7 +64,7 @@ final class ScenePainter {
  void building(Canvas c,JSONObject b,float playerX,float playerY){
   float rx=playerX-(float)b.optDouble("x"),ry=playerY-(float)b.optDouble("y");boolean close=BuildingVisibility.obstructs(rx,ry,b.optDouble("halfWidth",125),b.optDouble("depth",80),b.optString("kind").equals("keep")?255:163);
   if(homeArt.draw(c,b,close)){p.setColor(0xffe7d6ae);p.setTextSize(13);c.drawText(b.optString("name")+" • "+b.optString("shop"),-50,45,p);return;}
-  if(villageArt.building(c,b,close)){String label=b.optString("shop","");if(!label.isEmpty()){c.save();c.translate(-10,-95);c.skew(0,.5f);c.scale(.6f,.6f);shopSign(c,label);c.restore();}return;}
+  if(villageArt.building(c,b,close)){String label=b.optString("shop","");if(label.isEmpty()&&"workshop".equals(b.optString("role")))label="CRAFTING HALL";if(!label.isEmpty()){c.save();c.translate(-10,-95);c.skew(0,.5f);c.scale(.6f,.6f);shopSign(c,label);c.restore();}return;}
   String name=b.optString("name");String key=BuildingProfile.cacheKey(b);
   Bitmap cached=buildingCache.get(key);if(cached==null){cached=Bitmap.createBitmap((int)Math.max(600,2*(b.optDouble("halfWidth",125)+b.optDouble("depth",80)+70)),(int)Math.max(500,b.optDouble("halfWidth",125)+b.optDouble("depth",80)+350),Bitmap.Config.ARGB_8888);Canvas layer=new Canvas(cached);layer.translate(cached.getWidth()/2,cached.getHeight()-140);buildingGeometry(layer,b,false);buildingCache.put(key,cached);}
   boolean hides=close;

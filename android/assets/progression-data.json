@@ -1999,6 +1999,59 @@
       "inventoryHeight": 1,
       "stackLimit": 1,
       "source": "Carry to your owned base. Use outdoors beside an active settlement flag."
+    },
+    {
+      "category": "Equipment",
+      "rarity": 2,
+      "source": "Starting class kit",
+      "id": "dagger",
+      "name": "Iron Dagger",
+      "weight": 1,
+      "damage": 12,
+      "range": 45,
+      "reloadMs": 450,
+      "inventoryWidth": 1,
+      "inventoryHeight": 2
+    },
+    {
+      "category": "Equipment",
+      "rarity": 2,
+      "source": "Starting class kit",
+      "id": "emberStaff",
+      "name": "Ember Staff",
+      "weight": 3,
+      "damage": 16,
+      "range": 230,
+      "reloadMs": 1100,
+      "damageType": "fire",
+      "inventoryWidth": 1,
+      "inventoryHeight": 5
+    },
+    {
+      "category": "Equipment",
+      "rarity": 2,
+      "source": "Starting class kit",
+      "id": "graveStaff",
+      "name": "Grave Staff",
+      "weight": 3,
+      "damage": 18,
+      "range": 210,
+      "reloadMs": 1200,
+      "damageType": "poison",
+      "inventoryWidth": 1,
+      "inventoryHeight": 5
+    },
+    {
+      "id": "mace",
+      "name": "Iron Mace",
+      "category": "Equipment",
+      "rarity": 2,
+      "source": "Paladin starting kit",
+      "weight": 3,
+      "damage": 18,
+      "range": 58,
+      "inventoryWidth": 1,
+      "inventoryHeight": 3
     }
   ],
   "recipes": [

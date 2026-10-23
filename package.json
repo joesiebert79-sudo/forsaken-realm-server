@@ -1,12 +1,12 @@
 {
   "name": "forsaken-realm-server",
-  "version": "0.86.0",
+  "version": "0.87.0",
   "private": true,
   "type": "module",
   "engines": {
     "node": ">=24"
   },
   "scripts": {
-    "test": "node scripts/check-menu-policy.cjs && node scripts/check-update-policy.cjs && node test-update.mjs && node test-http.mjs && node --test tests/day4-backpack-base.test.mjs tests/day4-integration.test.mjs tests/day4-network.test.mjs tests/house-deeds.test.mjs tests/house-floors.test.mjs tests/housing.test.mjs tests/full-world-commerce.test.mjs tests/master-network.test.mjs tests/market-tabs.test.mjs tests/server-updates.test.mjs"
+    "test": "node scripts/check-menu-policy.cjs && node scripts/check-update-policy.cjs && node test-update.mjs && node test-http.mjs && node --test tests/day4-backpack-base.test.mjs tests/day4-integration.test.mjs tests/day4-network.test.mjs tests/house-deeds.test.mjs tests/house-floors.test.mjs tests/housing.test.mjs tests/full-world-commerce.test.mjs tests/master-network.test.mjs tests/market-tabs.test.mjs tests/server-updates.test.mjs && node --test tests/reference-selection.test.mjs"
   }
 }

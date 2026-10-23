@@ -1,11 +1,12 @@
+import {checkBackpack,checkWeight,carryWeight} from './backpack-capacity.mjs';
 import {DAY4,EFFICIENCY,MASTER} from './world-profile.mjs';
 import {wallet} from './currency.mjs';
 import {STARTING_GOLD} from './skill-balance.mjs';
 import {addWhole} from './master-rules.mjs';
 import {randomUUID} from 'node:crypto';
 import {APPEARANCES,INITIAL_PROFESSIONS,FACTION_TOWNS,CORPSE_LIFETIME_MS} from './master-rules.mjs';
-import {chooseRole} from './roles.mjs';
-import {ensureCompanion} from './companions.mjs';
+import {ROLES,chooseRole} from './roles.mjs';
+import {REFERENCE_COMPANIONS,ensureCompanion} from './companions.mjs';
 import {buildingById} from './interiors.mjs';
 export const masterEnabled=r=>r.state.ruleset==='master-v1';
 export function accountFor(r,p){
@@ -33,9 +34,10 @@ export function createCharacter(r,p,command){
  if(!p.creationRequired)throw Error('Appearance, faction and profession are already selected');
  if(!APPEARANCES.some(v=>v.id===command.appearance))throw Error('Choose one of the four appearances');
  if(!['survivor','bandit'].includes(command.faction))throw Error('Choose Survivor or Bandit');
- if(!p.legacyCharacter&&!INITIAL_PROFESSIONS.includes(command.profession))throw Error('Only Farmer or Hunter can be selected initially');
+ if(!p.legacyCharacter&&![...INITIAL_PROFESSIONS,'farmer','hunter'].includes(command.profession))throw Error('Choose one of the six approved classes');
  if(p.legacyCharacter&&command.profession!==p.role)throw Error('Existing profession and progress must be preserved');
- if(!p.legacyCharacter){chooseRole(r,p,command.profession);if(command.profession==='hunter'){delete p.startingItems.fishingRod;delete p.inventory.fishingRod;}p.characterId=randomUUID();p.level=1;p.xp=0;p.skillPoints=0;p.skills={};p.armorMastery={};}
+ if(!p.legacyCharacter&&command.companion&&!Object.hasOwn(REFERENCE_COMPANIONS,command.companion))throw Error('Choose a reference companion');
+ if(!p.legacyCharacter){p.companionKind=command.companion||'wolf';chooseRole(r,p,command.profession);if(command.profession==='hunter'){delete p.startingItems.fishingRod;delete p.inventory.fishingRod;}p.characterId=randomUUID();p.level=1;p.xp=0;p.skillPoints=0;p.skills={};p.armorMastery={};}
  p.appearance=command.appearance;const appearance=APPEARANCES.find(a=>a.id===p.appearance);p.sex=appearance.sex;p.bodyStyle=appearance.bodyStyle;p.faction=command.faction;p.creationRequired=false;p.roleRequired=false;
  Object.assign(p,spawnFor(p));p.interior=null;a.activeCharacterId=p.characterId;
  a.characters[p.characterId]={id:p.characterId,profession:p.role,appearance:p.appearance,sex:p.sex,bodyStyle:p.bodyStyle,legacy:!!p.legacyCharacter};
@@ -48,3 +50,19 @@ export function expireCorpses(r){const now=r.clock();for(const [id,c] of Object.
 
 
 
+
+// One-time adoption for pre-reference survivors: retain account, levels, skills,
+// inventory and identity; replace only class, appearance and companion selection.
+export function adoptReferenceClass(r,p,c){
+ const a=accountFor(r,p);
+ if(INITIAL_PROFESSIONS.includes(p.role)||p.referenceClassAdopted)throw Error('Reference class already selected');
+ if(p.creationRequired||!p.role)throw Error('Complete character creation first');
+ if(!r.safe(p)||p.interior||p.mounted||r.clock()-Math.max(p.lastAttack||0,p.lastHitAt||0)<10000)throw Error('Choose your new class outdoors in a protected town, out of combat and dismounted');
+ const role=ROLES.find(x=>INITIAL_PROFESSIONS.includes(x.id)&&x.id===c.profession),look=APPEARANCES.find(x=>x.id===c.appearance);
+ if(!role||!look||!Object.hasOwn(REFERENCE_COMPANIONS,c.companion))throw Error('Choose an approved class, appearance and companion');
+ const next=structuredClone(p);for(const [id,n] of Object.entries(role.items))next.inventory[id]=Math.max(next.inventory[id]||0,n);next.equippedWeapon=role.weapon;next.equippedShield=!!role.shield;next.armorSlots??={};if(role.armour)next.armorSlots.chest=role.armour;checkBackpack(0,next);checkWeight(carryWeight(p),next);
+ p.inventory=next.inventory;p.backpackGrid=next.backpackGrid;p.previousClass=p.role;p.role=role.id;p.referenceClassAdopted=true;p.companionKind=c.companion;p.appearance=look.id;p.sex=look.sex;p.bodyStyle=look.bodyStyle;
+ p.startingItems=structuredClone(role.items);p.equippedWeapon=role.weapon;p.equippedShield=!!role.shield;p.equippedArmour=role.armour||null;p.armorSlots??={};if(role.armour)p.armorSlots.chest=role.armour;
+ const pet=r.state.companions?.[p.id];if(pet){a.previousCompanion=structuredClone(pet);delete r.state.companions[p.id];}ensureCompanion(r,p);
+ a.characters[p.characterId]={...a.characters[p.characterId],profession:p.role,appearance:p.appearance,level:p.level,legacy:false};
+}

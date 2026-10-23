@@ -4,7 +4,7 @@ export const APPEARANCES=Object.freeze([
  {id:'male-1',name:'Male — Lean',sex:'male',bodyStyle:'lean'},{id:'male-2',name:'Male — Sturdy',sex:'male',bodyStyle:'sturdy'},
  {id:'female-1',name:'Female — Lean',sex:'female',bodyStyle:'lean'},{id:'female-2',name:'Female — Sturdy',sex:'female',bodyStyle:'sturdy'}
 ]);
-export const INITIAL_PROFESSIONS=Object.freeze(['farmer','hunter']);
+export const INITIAL_PROFESSIONS=Object.freeze(["melee","ranged","mage","rogue","paladin","necromancer"]);
 export const CLAN_RANKS=Object.freeze(['Recruit','Private','Corporal','Sergeant','Lieutenant','Captain','Commander','Warlord']);
 export const EQUIPMENT_TIERS=Object.freeze(['Crude','Common','Uncommon','Rare','Epic','Mythic','Legendary','Unique']);
 export const ARMOR_SLOTS=Object.freeze(['helmet','chest','gloves','leggings','boots']);
