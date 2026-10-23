@@ -1,0 +1,7 @@
+Forsaken Realm v0.91
+
+Separate appearance, class, companion and confirmation pages. Reference-derived menu framing and illustrated class portraits. Detailed interior props, cutaway walls, paving, and corrected blacksmith arrangement. Map shortcut and reduced in-game menu retained.
+
+Merchant resale is 25% of base Copper value, rounding once per stack. Starter food and equipment denomination errors corrected. 360-item economy specification is a review proposal; its 195 new items are not activated.
+
+Stop the server, extract this ZIP into the existing server folder and replace program files, then start it. Existing player data and player codes are not included or replaced. The local /phone page serves the bundled signed Android update. These new Android visuals require accepting Android's Update prompt; a server-only update cannot change an already installed renderer.

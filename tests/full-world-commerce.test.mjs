@@ -42,7 +42,7 @@ test('wrong denomination, insufficient total funds and full pouch roll back stoc
   Object.assign(s.realm.state.accounts.one,{gold:0,silver:0,copper:0});before=JSON.stringify(s.realm.state);
   assert.throws(()=>s.transaction(r=>r.command('one',{...cmd,id:'no-silver',expectedCurrency:'silver'})),/Not enough coins/);assert.equal(JSON.stringify(s.realm.state),before);
   Object.assign(s.realm.state.accounts.one,{gold:500,silver:2000,copper:2000});s.realm.player('one').inventory.wood=1;before=JSON.stringify(s.realm.state);
-  assert.throws(()=>s.transaction(r=>r.command('one',{...cmd,id:'pouch-full',type:'merchantSell',expectedTotal:1,expectedCurrency:'silver'})),/pouch is full/);assert.equal(JSON.stringify(s.realm.state),before);
+  assert.throws(()=>s.transaction(r=>r.command('one',{...cmd,id:'pouch-full',type:'merchantSell',expectedTotal:7,expectedCurrency:'copper'})),/pouch is full/);assert.equal(JSON.stringify(s.realm.state),before);
  }finally{offers[m.shop].wood=original;s.close();}
 });
 test('both full-world towns keep neutral access and their complete protected radius',()=>{
@@ -103,8 +103,8 @@ test('both trader hubs make exact copper, silver and gold change for mixed walle
    const buy={id:'change-buy-'+(++sequence),type:'merchantBuy',target:m.id,item:'wood',amount:1,expectedTotal:example.price,expectedCurrency:example.coin};
    s.transaction(r=>r.command('one',buy));assert.deepEqual(s.realm.snapshot('one').you.coinPouch,example.after,m.hubName+' '+example.coin);
    const before=walletValue(s.realm.state.accounts.one),row=merchantView(s.realm,s.realm.player('one')).offers.find(o=>o.item==='wood');
-   const sell={id:'change-sell-'+(++sequence),type:'merchantSell',target:m.id,item:'wood',amount:1,expectedTotal:row.sell,expectedCurrency:example.coin};
-   s.transaction(r=>r.command('one',sell));const paid=walletValue(s.realm.state.accounts.one);assert.equal(paid,before+coinValue(row.sell,example.coin));s.transaction(r=>r.command('one',sell));assert.equal(walletValue(s.realm.state.accounts.one),paid);
+   const sell={id:'change-sell-'+(++sequence),type:'merchantSell',target:m.id,item:'wood',amount:1,expectedTotal:row.sell,expectedCurrency:row.sellCurrency};
+   s.transaction(r=>r.command('one',sell));const paid=walletValue(s.realm.state.accounts.one);assert.equal(paid,before+coinValue(row.sell,row.sellCurrency));s.transaction(r=>r.command('one',sell));assert.equal(walletValue(s.realm.state.accounts.one),paid);
    assert.deepEqual(s.realm.snapshot('one').openMerchant.wallet,s.realm.snapshot('one').you.coinPouch);
   }
  }finally{offers.Provisioner.wood=original;s.close();}

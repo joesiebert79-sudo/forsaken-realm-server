@@ -5,13 +5,13 @@ import {WORLD_BUILDINGS,WORLD,buildingBlocks} from './catalog.mjs';
 export const buildingById=(id,buildings=WORLD_BUILDINGS)=>buildings.find(b=>b.id===id?.replace(/:(?:dungeon|basement)$/,''));
 function furnished(room,b){if(room&&!room.id.endsWith(":basement")&&b?.interiorFixtures?.length)room.fixtures.push(...structuredClone(b.interiorFixtures));return room;}
 export function roomFor(id,buildings=WORLD_BUILDINGS){const annex=outbuildingRoom(id);if(annex)return annex;const home=homeRoom(id);if(home)return furnished(home,buildingById(id,buildings));const b=buildingById(id,buildings);if(!b)return null;if(b.houseDesign)return furnished(homeRoom(id,b.houseDesign),b);const hubRoom=traderHubRoom(id);if(hubRoom)return hubRoom;
- if(b.role==='missions')return {id,name:b.name,type:'missions',width:620,height:460,exit:{x:310,y:415},fixtures:[{kind:'rack',x:45,y:60,w:80,h:130},{kind:'counter',x:390,y:70,w:155,h:65},{kind:'table',x:245,y:90,w:110,h:65}]};
+ if(b.role==='missions')return {id,name:b.name,type:'missions',width:620,height:460,exit:{x:310,y:415},fixtures:[{kind:'rack',name:'Mission noticeboard',x:45,y:60,w:80,h:130},{kind:'counter',name:'Mission giver',x:390,y:70,w:155,h:65},{kind:'table',name:'Planning table',x:245,y:90,w:110,h:65}]};
  if(['smithy','bank','workshop','merchant'].includes(b.role)){
   // Explicit service roles for isolated map catalogues; legacy buildings keep
   // their existing interior layouts and entry/stair transition protocol.
   const fixtures=b.role==='smithy'?[
-   {kind:'forge',x:245,y:55,w:115,h:75},{kind:'anvil',x:70,y:160,w:75,h:45},
-   {kind:'kiln',x:435,y:290,w:90,h:65}
+   {kind:'forge',name:'FORGE',x:245,y:35,w:115,h:75},{kind:'anvil',name:'SMITHING',x:70,y:160,w:75,h:45},
+   {kind:'kiln',name:'FORGE · firing chamber',x:435,y:35,w:90,h:65}
   ]:b.role==='workshop'?[
    {kind:'loom',x:65,y:65,w:100,h:65},{kind:'tannery',x:435,y:65,w:100,h:65},
    {kind:'table',x:245,y:65,w:120,h:60},{kind:'hearth',x:65,y:285,w:75,h:65},
@@ -47,7 +47,7 @@ export function stationInRoom(p,kind,buildings=WORLD_BUILDINGS){const room=roomF
 // Move only generated resource nodes out of entrance approaches. Stable IDs,
 // quantities and regeneration timers are preserved; player storage is untouched.
 export function clearDoorApproaches(state){
- if(state.doorApproachesVersion===1)return;
+ if(state.doorApproachesVersion===2)return;
  const doorway=n=>WORLD_BUILDINGS.find(b=>Math.abs(n.x-b.x)<70&&n.y>b.y+10&&n.y<b.y+175);
  for(const n of state.resources){const b=doorway(n);if(!b)continue;
   for(const [dx,dy] of [[-b.halfWidth-70,70],[b.halfWidth+70,70],[-b.halfWidth-100,130],[b.halfWidth+100,130]]){
@@ -56,8 +56,8 @@ export function clearDoorApproaches(state){
   }
  }
  // A saved player may occupy a spot where a moved fixture now stands.
- for(const p of Object.values(state.players||{})){const room=roomFor(p.interior);if(room&&roomBlocked(room,p.x,p.y)){p.x=310;p.y=400;}}
- state.doorApproachesVersion=1;
+ for(const p of Object.values(state.players||{})){const room=roomFor(p.interior);if(room&&roomBlocked(room,p.x,p.y)){const exit=room.exit;let spot=null;for(let distance=15;distance<120&&!spot;distance+=10)for(const dx of [0,-20,20,-40,40]){const candidate={x:exit.x+dx,y:exit.y-distance};if(!roomBlocked(room,candidate.x,candidate.y)){spot=candidate;break;}}if(spot)Object.assign(p,spot);}}
+ state.doorApproachesVersion=2;
 }
 
 export function descendDungeon(p){const room=roomFor(p.interior);if(room?.portal?.floor==='basement'){if(Math.hypot(p.x-room.portal.x,p.y-room.portal.y)>80)throw Error('Approach the basement stairs');p.interior+=':basement';const down=roomFor(p.interior);p.x=down.exit.x;p.y=down.exit.y-20;return;}if(!room?.portal||Math.hypot(p.x-room.portal.x,p.y-room.portal.y)>80)throw Error('Approach the dungeon stairs');p.interior+=':dungeon';p.x=310;p.y=400;}
