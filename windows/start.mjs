@@ -25,7 +25,7 @@ if(process.argv.includes('--development')){
  process.env.REALM_DATA_DIR=resolve(root,'Development-World');
  process.env.REALM_WORLD_DB=resolve(root,'Development-World','world.sqlite');
  process.env.REALM_WORLD_PROFILE='master-reference';
- console.log('FORSAKEN REALM v0.84 — SMALLER WORLD: 49920 x 33280; 2 Trader Towns, 12 villages, 5 castle landmarks.');
+ console.log('FORSAKEN REALM v0.85 — SMALLER WORLD: 49920 x 33280; 2 Trader Towns, 12 villages, 5 castle landmarks.');
 }
 
 // Only a verified copy-on-rebuild opts this installation into the new world.
@@ -59,6 +59,7 @@ process.env.REALM_BIND_HOST='0.0.0.0';process.env.PORT=String(port);
 const http=await import('../server/http.mjs');updates.start();
 const updateIdle=setInterval(()=>{if(updates.pending&&http.activePlayers()===0){console.log('No players are connected. Saving and restarting to install the verified server update.');updates.stop();clearInterval(updateIdle);http.shutdown(75);}},30000);updateIdle.unref();
 if(process.stdin.isTTY){process.stdin.setEncoding('utf8');process.stdin.on('data',text=>{if(text.trim().toLowerCase()==='r'&&updates.pending){console.log('Saving and restarting for the staged update.');updates.stop();http.shutdown(75);}});}
+
 
 
 
