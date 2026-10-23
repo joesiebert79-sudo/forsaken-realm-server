@@ -1,0 +1,5879 @@
+{
+  "schemaVersion": "1.0",
+  "specification": "Store and Trader Economy v1.0",
+  "status": "approved-rules-incomplete-item-proposal-awaiting-review",
+  "runtimeIntegration": false,
+  "expectedProposedItemCount": 360,
+  "identifiedExistingItemCount": 165,
+  "missingProposedItemCount": 195,
+  "currency": {
+    "base": "copper",
+    "silverCopper": 10,
+    "goldCopper": 100,
+    "mixedDenominationPayment": true,
+    "change": "Normalize total remaining copper into gold, silver and copper; denomination labels do not restrict payment"
+  },
+  "policies": {
+    "sellBackBasisPoints": 2500,
+    "generalStore": {
+      "itemsPerCategory": 3,
+      "mixedRarity": true,
+      "rotationHours": 24,
+      "rotationAnchor": null,
+      "rarityMix": null
+    },
+    "specializedTraders": {
+      "levelBased": true,
+      "levelThresholds": null
+    },
+    "flashDeals": {
+      "minimumDiscountPercent": 15,
+      "maximumDiscountPercent": 40,
+      "discountDistribution": null
+    },
+    "cashStore": {
+      "cosmeticsOnly": true,
+      "gameplayAdvantagesAllowed": false,
+      "realMoneyPrices": null
+    },
+    "restrictedEquipment": {
+      "rarities": [
+        "Legendary",
+        "Mythic",
+        "Unique"
+      ],
+      "allowedSources": [
+        "flash-deals",
+        "dangerous-exploration",
+        "bosses"
+      ],
+      "ordinaryTraderStockAllowed": false
+    },
+    "traderAccess": "neutral"
+  },
+  "items": [
+    {
+      "id": "wood",
+      "name": "Timber",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 3,
+        "currency": "copper",
+        "totalCopper": 3,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 3,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "stone",
+      "name": "Stone",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 2,
+        "currency": "copper",
+        "totalCopper": 2,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 2,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "ironOre",
+      "name": "Iron ore",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "fiber",
+      "name": "Flax fibre",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 2,
+        "currency": "copper",
+        "totalCopper": 2,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 2,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "hide",
+      "name": "Raw hide",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Hunt animals"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "seed",
+      "name": "Grain seed",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Harvest planted wheat"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "clay",
+      "name": "Clay",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "limestone",
+      "name": "Limestone",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "copperOre",
+      "name": "Copper ore",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "tinOre",
+      "name": "Tin ore",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "salt",
+      "name": "Rock salt",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "flaxSeed",
+      "name": "Flax seed",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather flax seed plants"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "barley",
+      "name": "Barley",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "oats",
+      "name": "Oats",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "peas",
+      "name": "Peas",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 3,
+        "currency": "copper",
+        "totalCopper": 3,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 3,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "berry",
+      "name": "Wild berries",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "herb",
+      "name": "Kitchen herbs",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "mushroom",
+      "name": "Edible mushrooms",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "rawMeat",
+      "name": "Raw game meat",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Hunt animals"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "rawFish",
+      "name": "Fresh fish",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Fish a fishing spot with a rod"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "fat",
+      "name": "Animal fat",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Hunt animals"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "bone",
+      "name": "Bone",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Hunt animals"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "feather",
+      "name": "Feathers",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Hunt animals"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "wool",
+      "name": "Raw wool",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "egg",
+      "name": "Egg",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Fill waterskin at a well"
+      ],
+      "currentReferencePrice": {
+        "amount": 2,
+        "currency": "copper",
+        "totalCopper": 2,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 2,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "bark",
+      "name": "Oak bark",
+      "category": "Raw materials",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Gather or harvest countryside nodes"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "charcoal",
+      "name": "Charcoal",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "plank",
+      "name": "Sawn plank",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "rope",
+      "name": "Rope",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "linen",
+      "name": "Linen cloth",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "leather",
+      "name": "Tanned leather",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: tannery"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "iron",
+      "name": "Wrought iron",
+      "category": "Components",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 15,
+        "currency": "silver",
+        "totalCopper": 150,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 150,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "copper",
+      "name": "Copper ingot",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "bronze",
+      "name": "Bronze ingot",
+      "category": "Components",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 15,
+        "currency": "silver",
+        "totalCopper": 150,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 150,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "steel",
+      "name": "Steel billet",
+      "category": "Components",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 20,
+        "currency": "gold",
+        "totalCopper": 2000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 2000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "nails",
+      "name": "Iron nails",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "brick",
+      "name": "Fired brick",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: kiln"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "mortar",
+      "name": "Lime mortar",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: kiln"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "flour",
+      "name": "Flour",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: mill"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "dough",
+      "name": "Dough",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "tallow",
+      "name": "Tallow",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "thread",
+      "name": "Spun thread",
+      "category": "Components",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "silver",
+        "totalCopper": 50,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 50,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "pottage",
+      "name": "Vegetable pottage",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "porridge",
+      "name": "Oat porridge",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "roastMeat",
+      "name": "Roast meat",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 12,
+        "currency": "silver",
+        "totalCopper": 120,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 120,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "stew",
+      "name": "Meat stew",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 16,
+        "currency": "silver",
+        "totalCopper": 160,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 160,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "saltMeat",
+      "name": "Salted meat",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "smokedFish",
+      "name": "Smoked fish",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: smoker"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "cheese",
+      "name": "Fresh cheese",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "honeyCake",
+      "name": "Honey cake",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "axe",
+      "name": "Stone axe",
+      "category": "Equipment",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 30,
+        "currency": "copper",
+        "totalCopper": 30,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 30,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "spear",
+      "name": "Ash spear",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 25,
+        "currency": "silver",
+        "totalCopper": 250,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 250,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "bow",
+      "name": "Hunting bow",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 2,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "arrow",
+      "name": "Iron arrow",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 2,
+        "currency": "silver",
+        "totalCopper": 20,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 20,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "sword",
+      "name": "Arming sword",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 2,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 70,
+        "currency": "silver",
+        "totalCopper": 700,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 700,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "shield",
+      "name": "Round shield",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 1,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 50,
+        "currency": "silver",
+        "totalCopper": 500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "tunic",
+      "name": "Leather tunic",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 2,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: tannery"
+      ],
+      "currentReferencePrice": {
+        "amount": 30,
+        "currency": "silver",
+        "totalCopper": 300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "pickaxe",
+      "name": "Iron pickaxe",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 30,
+        "currency": "silver",
+        "totalCopper": 300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "sickle",
+      "name": "Iron sickle",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 20,
+        "currency": "silver",
+        "totalCopper": 200,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 200,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "hammer",
+      "name": "Smith hammer",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 15,
+        "currency": "silver",
+        "totalCopper": 150,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 150,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "fishingRod",
+      "name": "Fishing rod",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "waterskin",
+      "name": "Waterskin",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "bandage",
+      "name": "Linen bandage",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 12,
+        "currency": "silver",
+        "totalCopper": 120,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 120,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "torch",
+      "name": "Pitchless torch",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 4,
+        "currency": "silver",
+        "totalCopper": 40,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 40,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "gambeson",
+      "name": "Padded gambeson",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 90,
+        "currency": "silver",
+        "totalCopper": 900,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 900,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "mail",
+      "name": "Mail shirt",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 35,
+        "currency": "gold",
+        "totalCopper": 3500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 3500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "helmet",
+      "name": "Iron helmet",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 54,
+        "currency": "silver",
+        "totalCopper": 540,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 540,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "crossbow",
+      "name": "Crossbow",
+      "category": "Equipment",
+      "rarity": {
+        "level": 5,
+        "name": "Legendary"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 150,
+        "currency": "gold",
+        "totalCopper": 15000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 15000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "bolt",
+      "name": "Crossbow bolt",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 3,
+        "currency": "silver",
+        "totalCopper": 30,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 30,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "longbow",
+      "name": "Yew longbow",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: by hand"
+      ],
+      "currentReferencePrice": {
+        "amount": 20,
+        "currency": "gold",
+        "totalCopper": 2000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 2000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "crude_helmet",
+      "name": "Ragged Helm",
+      "category": "Equipment",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 6,
+        "currency": "copper",
+        "totalCopper": 6,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 6,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "crude_chest",
+      "name": "Ragged Chestplate",
+      "category": "Equipment",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "copper",
+        "totalCopper": 10,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 10,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "crude_gloves",
+      "name": "Ragged Gloves",
+      "category": "Equipment",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 4,
+        "currency": "copper",
+        "totalCopper": 4,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 4,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "crude_leggings",
+      "name": "Ragged Leggings",
+      "category": "Equipment",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 8,
+        "currency": "copper",
+        "totalCopper": 8,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 8,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "crude_boots",
+      "name": "Ragged Boots",
+      "category": "Equipment",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 5,
+        "currency": "copper",
+        "totalCopper": 5,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "hide_helmet",
+      "name": "Hide Helm",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 5,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: tannery"
+      ],
+      "currentReferencePrice": {
+        "amount": 18,
+        "currency": "silver",
+        "totalCopper": 180,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 180,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "hide_chest",
+      "name": "Hide Chestplate",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 5,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: tannery"
+      ],
+      "currentReferencePrice": {
+        "amount": 30,
+        "currency": "silver",
+        "totalCopper": 300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "hide_gloves",
+      "name": "Hide Gloves",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 5,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: tannery"
+      ],
+      "currentReferencePrice": {
+        "amount": 11,
+        "currency": "silver",
+        "totalCopper": 110,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 110,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "hide_leggings",
+      "name": "Hide Leggings",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 5,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: tannery"
+      ],
+      "currentReferencePrice": {
+        "amount": 23,
+        "currency": "silver",
+        "totalCopper": 230,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 230,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "hide_boots",
+      "name": "Hide Boots",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 5,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: tannery"
+      ],
+      "currentReferencePrice": {
+        "amount": 14,
+        "currency": "silver",
+        "totalCopper": 140,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 140,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "padded_helmet",
+      "name": "Padded Helm",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 10,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 54,
+        "currency": "silver",
+        "totalCopper": 540,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 540,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "padded_chest",
+      "name": "Padded Chestplate",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 10,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 90,
+        "currency": "silver",
+        "totalCopper": 900,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 900,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "padded_gloves",
+      "name": "Padded Gloves",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 10,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 32,
+        "currency": "silver",
+        "totalCopper": 320,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 320,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "padded_leggings",
+      "name": "Padded Leggings",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 10,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 68,
+        "currency": "silver",
+        "totalCopper": 680,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 680,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "padded_boots",
+      "name": "Padded Boots",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 10,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: loom"
+      ],
+      "currentReferencePrice": {
+        "amount": 41,
+        "currency": "silver",
+        "totalCopper": 410,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 410,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "mailset_helmet",
+      "name": "Riveted Mail Helm",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 21,
+        "currency": "gold",
+        "totalCopper": 2100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 2100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "mailset_chest",
+      "name": "Riveted Mail Chestplate",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 35,
+        "currency": "gold",
+        "totalCopper": 3500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 3500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "mailset_gloves",
+      "name": "Riveted Mail Gloves",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 13,
+        "currency": "gold",
+        "totalCopper": 1300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 1300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "mailset_leggings",
+      "name": "Riveted Mail Leggings",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 27,
+        "currency": "gold",
+        "totalCopper": 2700,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 2700,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "mailset_boots",
+      "name": "Riveted Mail Boots",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 16,
+        "currency": "gold",
+        "totalCopper": 1600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 1600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "brigandine_helmet",
+      "name": "Brigandine Helm",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 20,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 54,
+        "currency": "gold",
+        "totalCopper": 5400,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 5400,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "brigandine_chest",
+      "name": "Brigandine Chestplate",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 20,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 90,
+        "currency": "gold",
+        "totalCopper": 9000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 9000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "brigandine_gloves",
+      "name": "Brigandine Gloves",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 20,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 32,
+        "currency": "gold",
+        "totalCopper": 3200,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 3200,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "brigandine_leggings",
+      "name": "Brigandine Leggings",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 20,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 68,
+        "currency": "gold",
+        "totalCopper": 6800,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 6800,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "brigandine_boots",
+      "name": "Brigandine Boots",
+      "category": "Equipment",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 20,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft: forge"
+      ],
+      "currentReferencePrice": {
+        "amount": 41,
+        "currency": "gold",
+        "totalCopper": 4100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 4100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "plate_helmet",
+      "name": "Tempered Plate Helm",
+      "category": "Equipment",
+      "rarity": {
+        "level": 5,
+        "name": "Legendary"
+      },
+      "level": {
+        "crafting": 25,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 108,
+        "currency": "gold",
+        "totalCopper": 10800,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 10800,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "plate_chest",
+      "name": "Tempered Plate Chestplate",
+      "category": "Equipment",
+      "rarity": {
+        "level": 5,
+        "name": "Legendary"
+      },
+      "level": {
+        "crafting": 25,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 180,
+        "currency": "gold",
+        "totalCopper": 18000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 18000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "plate_gloves",
+      "name": "Tempered Plate Gloves",
+      "category": "Equipment",
+      "rarity": {
+        "level": 5,
+        "name": "Legendary"
+      },
+      "level": {
+        "crafting": 25,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 63,
+        "currency": "gold",
+        "totalCopper": 6300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 6300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "plate_leggings",
+      "name": "Tempered Plate Leggings",
+      "category": "Equipment",
+      "rarity": {
+        "level": 5,
+        "name": "Legendary"
+      },
+      "level": {
+        "crafting": 25,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 135,
+        "currency": "gold",
+        "totalCopper": 13500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 13500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "plate_boots",
+      "name": "Tempered Plate Boots",
+      "category": "Equipment",
+      "rarity": {
+        "level": 5,
+        "name": "Legendary"
+      },
+      "level": {
+        "crafting": 25,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 81,
+        "currency": "gold",
+        "totalCopper": 8100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 8100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "royal_helmet",
+      "name": "Royal Plate Helm",
+      "category": "Equipment",
+      "rarity": {
+        "level": 6,
+        "name": "Mythic"
+      },
+      "level": {
+        "crafting": 30,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 180,
+        "currency": "gold",
+        "totalCopper": 18000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 18000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "royal_chest",
+      "name": "Royal Plate Chestplate",
+      "category": "Equipment",
+      "rarity": {
+        "level": 6,
+        "name": "Mythic"
+      },
+      "level": {
+        "crafting": 30,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 300,
+        "currency": "gold",
+        "totalCopper": 30000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 30000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "royal_gloves",
+      "name": "Royal Plate Gloves",
+      "category": "Equipment",
+      "rarity": {
+        "level": 6,
+        "name": "Mythic"
+      },
+      "level": {
+        "crafting": 30,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 105,
+        "currency": "gold",
+        "totalCopper": 10500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 10500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "royal_leggings",
+      "name": "Royal Plate Leggings",
+      "category": "Equipment",
+      "rarity": {
+        "level": 6,
+        "name": "Mythic"
+      },
+      "level": {
+        "crafting": 30,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 225,
+        "currency": "gold",
+        "totalCopper": 22500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 22500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "royal_boots",
+      "name": "Royal Plate Boots",
+      "category": "Equipment",
+      "rarity": {
+        "level": 6,
+        "name": "Mythic"
+      },
+      "level": {
+        "crafting": 30,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 135,
+        "currency": "gold",
+        "totalCopper": 13500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 13500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "kingslayer_helmet",
+      "name": "Kingslayer Plate Helm",
+      "category": "Equipment",
+      "rarity": {
+        "level": 7,
+        "name": "Unique"
+      },
+      "level": {
+        "crafting": 35,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 300,
+        "currency": "gold",
+        "totalCopper": 30000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 30000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "kingslayer_chest",
+      "name": "Kingslayer Plate Chestplate",
+      "category": "Equipment",
+      "rarity": {
+        "level": 7,
+        "name": "Unique"
+      },
+      "level": {
+        "crafting": 35,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 500,
+        "currency": "gold",
+        "totalCopper": 50000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 50000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "kingslayer_gloves",
+      "name": "Kingslayer Plate Gloves",
+      "category": "Equipment",
+      "rarity": {
+        "level": 7,
+        "name": "Unique"
+      },
+      "level": {
+        "crafting": 35,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 175,
+        "currency": "gold",
+        "totalCopper": 17500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 17500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "kingslayer_leggings",
+      "name": "Kingslayer Plate Leggings",
+      "category": "Equipment",
+      "rarity": {
+        "level": 7,
+        "name": "Unique"
+      },
+      "level": {
+        "crafting": 35,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 375,
+        "currency": "gold",
+        "totalCopper": 37500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 37500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "kingslayer_boots",
+      "name": "Kingslayer Plate Boots",
+      "category": "Equipment",
+      "rarity": {
+        "level": 7,
+        "name": "Unique"
+      },
+      "level": {
+        "crafting": 35,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 225,
+        "currency": "gold",
+        "totalCopper": 22500,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 22500,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "siegeRam",
+      "name": "Iron-shod hand ram",
+      "category": "Weapons",
+      "rarity": {
+        "level": 4,
+        "name": "Epic"
+      },
+      "level": {
+        "crafting": 10,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Forge with Siege engineering"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "gold",
+        "totalCopper": 6000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 6000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "driedApples",
+      "name": "Dried apples",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 5,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft at smoker"
+      ],
+      "currentReferencePrice": {
+        "amount": 20,
+        "currency": "silver",
+        "totalCopper": 200,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 200,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "smokedMeat",
+      "name": "Smoked venison",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 10,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft at smoker"
+      ],
+      "currentReferencePrice": {
+        "amount": 18,
+        "currency": "silver",
+        "totalCopper": 180,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 180,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "vegetableStew",
+      "name": "Garden vegetable stew",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 5,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft at hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 14,
+        "currency": "silver",
+        "totalCopper": 140,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 140,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "oatcakes",
+      "name": "Honey oatcakes",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 8,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft at hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 20,
+        "currency": "silver",
+        "totalCopper": 200,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 200,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "herbalTea",
+      "name": "Herbal infusion",
+      "category": "Food",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 3,
+        "purchase": null
+      },
+      "trader": "Tavern",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft at hearth"
+      ],
+      "currentReferencePrice": {
+        "amount": 8,
+        "currency": "silver",
+        "totalCopper": 80,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 80,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "strongRope",
+      "name": "Braided rope",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 8,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced joinery"
+      ],
+      "currentReferencePrice": {
+        "amount": 30,
+        "currency": "silver",
+        "totalCopper": 300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "seasonedPlank",
+      "name": "Seasoned timber",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 8,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced joinery"
+      ],
+      "currentReferencePrice": {
+        "amount": 30,
+        "currency": "silver",
+        "totalCopper": 300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "ironBraces",
+      "name": "Iron braces",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 8,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced joinery"
+      ],
+      "currentReferencePrice": {
+        "amount": 30,
+        "currency": "silver",
+        "totalCopper": 300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "sulfur",
+      "name": "Brimstone",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 15,
+        "currency": "silver",
+        "totalCopper": 150,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 150,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "saltpetre",
+      "name": "Nitre crystals",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 15,
+        "currency": "silver",
+        "totalCopper": 150,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 150,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "leadOre",
+      "name": "Lead ore",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 15,
+        "currency": "silver",
+        "totalCopper": 150,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 150,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "lead",
+      "name": "Cast lead",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 5,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 30,
+        "currency": "silver",
+        "totalCopper": 300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "powderCharge",
+      "name": "Prepared powder charge",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "pistol",
+      "name": "Matchlock pistol",
+      "category": "Weapons",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "musket",
+      "name": "Matchlock musket",
+      "category": "Weapons",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "blunderbuss",
+      "name": "Early blunderbuss",
+      "category": "Weapons",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "roundBall",
+      "name": "Lead ball cartridge",
+      "category": "Ammunition",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "piercingRound",
+      "name": "Hardened cartridge",
+      "category": "Ammunition",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "fireRound",
+      "name": "Incendiary cartridge",
+      "category": "Ammunition",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "poisonRound",
+      "name": "Venom cartridge",
+      "category": "Ammunition",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "bleedingRound",
+      "name": "Jagged cartridge",
+      "category": "Ammunition",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "explosiveRound",
+      "name": "Burst cartridge",
+      "category": "Ammunition",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "ballistaKit",
+      "name": "Ballista assembly",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 20,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 75,
+        "currency": "silver",
+        "totalCopper": 750,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 750,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "trebuchetKit",
+      "name": "Trebuchet assembly",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 20,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 75,
+        "currency": "silver",
+        "totalCopper": 750,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 750,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "siegeBolt",
+      "name": "Ballista bolt",
+      "category": "Ammunition",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "siegeStone",
+      "name": "Dressed siege stone",
+      "category": "Ammunition",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 15,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Advanced medieval workshop"
+      ],
+      "currentReferencePrice": {
+        "amount": 60,
+        "currency": "silver",
+        "totalCopper": 600,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 600,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "oathblade",
+      "name": "Oathkeeper blade",
+      "category": "Weapons",
+      "rarity": {
+        "level": 5,
+        "name": "Legendary"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 150,
+        "currency": "gold",
+        "totalCopper": 15000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 15000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "wardenBow",
+      "name": "Last Warden bow",
+      "category": "Weapons",
+      "rarity": {
+        "level": 5,
+        "name": "Legendary"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 150,
+        "currency": "gold",
+        "totalCopper": 15000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 15000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "founderHammer",
+      "name": "Founders war hammer",
+      "category": "Weapons",
+      "rarity": {
+        "level": 5,
+        "name": "Legendary"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": null,
+      "acquisition": [
+        "flash",
+        "dangerous-exploration",
+        "boss"
+      ],
+      "currentReferencePrice": {
+        "amount": 150,
+        "currency": "gold",
+        "totalCopper": 15000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 15000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "smallSatchel",
+      "name": "Small Satchel",
+      "category": "Equipment",
+      "rarity": {
+        "level": 1,
+        "name": "Common"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft at a loom or buy from a Provisioner"
+      ],
+      "currentReferencePrice": {
+        "amount": 35,
+        "currency": "copper",
+        "totalCopper": 35,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 35,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "travelersPack",
+      "name": "Traveler’s Pack",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft at a loom or buy from a Provisioner"
+      ],
+      "currentReferencePrice": {
+        "amount": 100,
+        "currency": "silver",
+        "totalCopper": 1000,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 1000,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "largeRucksack",
+      "name": "Large Rucksack",
+      "category": "Equipment",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 0,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Craft at a loom or buy from a Provisioner"
+      ],
+      "currentReferencePrice": {
+        "amount": 240,
+        "currency": "silver",
+        "totalCopper": 2400,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 2400,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "storageChestKit",
+      "name": "Storage Chest Kit",
+      "category": "Furniture",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Carry to your owned base. Use outdoors beside an active settlement flag."
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "cookingHearthKit",
+      "name": "Cooking Hearth Kit",
+      "category": "Furniture",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Carry to your owned base. Use outdoors beside an active settlement flag."
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "weavingLoomKit",
+      "name": "Weaving Loom Kit",
+      "category": "Furniture",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Carry to your owned base. Use outdoors beside an active settlement flag."
+      ],
+      "currentReferencePrice": {
+        "amount": 15,
+        "currency": "silver",
+        "totalCopper": 150,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 150,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "smokingRackKit",
+      "name": "Smoking Rack Kit",
+      "category": "Furniture",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "store",
+        "trader",
+        "Carry to your owned base. Use outdoors beside an active settlement flag."
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "dagger",
+      "name": "Iron Dagger",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Starting class kit"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "emberStaff",
+      "name": "Ember Staff",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Starting class kit"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "graveStaff",
+      "name": "Grave Staff",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Starting class kit"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "mace",
+      "name": "Iron Mace",
+      "category": "Equipment",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": null,
+        "purchase": null
+      },
+      "trader": "Smithy",
+      "acquisition": [
+        "store",
+        "trader",
+        "Paladin starting kit"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "cutStone",
+      "name": "Dressed building stone",
+      "category": "Materials",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 2,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "craft",
+        "store",
+        "trader"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "timberFrame",
+      "name": "Joinery frame",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 8,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "craft",
+        "store",
+        "trader"
+      ],
+      "currentReferencePrice": {
+        "amount": 30,
+        "currency": "silver",
+        "totalCopper": 300,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 300,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    },
+    {
+      "id": "ironHinges",
+      "name": "Forged gate hinges",
+      "category": "Materials",
+      "rarity": {
+        "level": 3,
+        "name": "Rare"
+      },
+      "level": {
+        "crafting": 4,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "craft",
+        "store",
+        "trader"
+      ],
+      "currentReferencePrice": {
+        "amount": 15,
+        "currency": "silver",
+        "totalCopper": 150,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 150,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level",
+        "Choose fractional-copper sell-back rounding policy"
+      ]
+    },
+    {
+      "id": "roofTiles",
+      "name": "Fired roof tiles",
+      "category": "Materials",
+      "rarity": {
+        "level": 2,
+        "name": "Uncommon"
+      },
+      "level": {
+        "crafting": 2,
+        "purchase": null
+      },
+      "trader": "Provisioner",
+      "acquisition": [
+        "craft",
+        "store",
+        "trader"
+      ],
+      "currentReferencePrice": {
+        "amount": 10,
+        "currency": "silver",
+        "totalCopper": 100,
+        "source": "server/item-commerce.mjs:itemPrice"
+      },
+      "proposedPrice": null,
+      "proposedSellBack": {
+        "basisPoints": 2500,
+        "exactCopperNumerator": 100,
+        "exactCopperDenominator": 4,
+        "roundedCopper": null
+      },
+      "reviewRequired": [
+        "Approve final price and trader purchase level"
+      ]
+    }
+  ]
+}

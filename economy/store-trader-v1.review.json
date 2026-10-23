@@ -1,0 +1,56 @@
+{
+  "specification": "Store and Trader Economy v1.0",
+  "runtimeChanged": false,
+  "issues": [
+    {
+      "id": "missing-proposal",
+      "severity": "blocking",
+      "detail": "The conversation requests 360 proposed items. 165 existing progression entries are identifiable; the complete named 360-item proposal is not present in the inspected repository or the supplied conversation. Missing count is a reconciliation gap, not proof existing entries belong to that proposal."
+    },
+    {
+      "id": "sell-back",
+      "severity": "blocking",
+      "detail": "Current merchant generation uses 40% with a minimum one unit in the displayed denomination, and some fixed offers use other ratios. v1 requires 25%. No runtime values changed."
+    },
+    {
+      "id": "general-store",
+      "severity": "blocking",
+      "detail": "Current fixed/featured offers do not implement exactly three mixed-rarity items per category or the approved 24-hour stock selection."
+    },
+    {
+      "id": "specialist-levels",
+      "severity": "blocking",
+      "detail": "Purchase-level thresholds and trader tier assignments are not specified. Crafting levels are not equivalent to purchase eligibility."
+    },
+    {
+      "id": "rotation-details",
+      "severity": "review",
+      "detail": "24-hour duration is approved. Epoch/timezone, shared versus per-player rotation, stock quantities, rarity distribution and restart behavior need review."
+    },
+    {
+      "id": "rounding",
+      "severity": "review",
+      "detail": "25% sell-back and percentage discounts can produce fractions of one copper. Rounding policy and payout basis (base/current/paid price) are unspecified."
+    },
+    {
+      "id": "flash-deals",
+      "severity": "review",
+      "detail": "Existing helper computes a fixed approximately 25% discount with denomination rounding. That is within 15–40%, but does not implement the full approved range/distribution or duration."
+    },
+    {
+      "id": "restricted-rarity",
+      "severity": "review",
+      "detail": "Mixed-rarity general-store stock must respect the earlier restriction: Legendary/Mythic/Unique only via Flash Deals, dangerous exploration or bosses. Ordinary general/specialist stock must exclude these unless owner changes the restriction."
+    },
+    {
+      "id": "regional-price",
+      "severity": "review",
+      "detail": "Existing regional stock pricing varies from 75% to 150% of base; confirm its interaction with 25% sell-back and Flash Deals. Prevent buy/sell arbitrage."
+    },
+    {
+      "id": "cash-store",
+      "severity": "review",
+      "detail": "Cash Store is currently unavailable. Cosmetics-only policy is approved; no real-money prices, payment provider or purchasable SKU list has been specified. Gameplay supply bundles/deeds/coins must not become cash purchases."
+    }
+  ]
+}
