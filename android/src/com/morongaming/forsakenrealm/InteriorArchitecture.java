@@ -2,13 +2,14 @@ package com.morongaming.forsakenrealm;
 import android.graphics.*;import org.json.JSONObject;
 /** Cutaway masonry and timber shell. Drawn in the same projection as furniture and actors. */
 final class InteriorArchitecture {
- private final FurniturePainter art;private final Paint p=new Paint(3);private final Path path=new Path();
+ private final FurniturePainter art;private final Paint p=new Paint(3);private final Path path=new Path();private Bitmap cached;private int cacheWidth,cacheDepth;private boolean cacheGlass;
  InteriorArchitecture(FurniturePainter art){this.art=art;}
  void polygon(Canvas c,int color,float...v){path.reset();for(int i=0;i<v.length;i+=2){if(i==0)path.moveTo(v[i],v[i+1]);else path.lineTo(v[i],v[i+1]);}path.close();p.setColor(color);c.drawPath(path,p);}
  void wall(Canvas c,float x,float y,float w,float d,float height){art.box(c,x,y,-8,w,d,height,1);}
  void lamp(Canvas c,float x,float y,float z){float sx=art.sx(x,y),sy=art.sy(x,y,z);for(int i=4;i>0;i--){p.setColor((8<<24)|0x00ffae42);c.drawOval(sx-15*i,sy-19*i,sx+15*i,sy+19*i,p);}p.setColor(0xff34261a);c.drawRoundRect(sx-8,sy-18,sx+8,sy+12,3,3,p);p.setColor(0xffffbe58);c.drawRect(sx-5,sy-14,sx+5,sy+8,p);p.setColor(0xffffe0a0);c.drawRect(sx-2,sy-11,sx+2,sy+5,p);p.setColor(0xff302317);p.setStrokeWidth(2);c.drawLine(sx,sy-17,sx,sy+11,p);c.drawLine(sx-8,sy-3,sx+8,sy-3,p);}
  void window(Canvas c,float x,float y,boolean east){float z=74,w=42,h=48;float ax=art.sx(x,y),ay=art.sy(x,y,z);float bx=art.sx(x+(east?w:0),y+(east?0:w)),by=art.sy(x+(east?w:0),y+(east?0:w),z);polygon(c,0xff302318,ax-3,ay-h-4,bx+3,by-h-4,bx+3,by+4,ax-3,ay+4);polygon(c,0xffd1a65b,ax,ay-h,bx,by-h,bx,by,ax,ay);p.setColor(0xff594026);p.setStrokeWidth(3);for(int i=0;i<4;i++){float t=i/3f,sx=ax+(bx-ax)*t,sy=ay+(by-ay)*t;c.drawLine(sx,sy-h,sx,sy,p);}c.drawLine(ax,ay-h/2,bx,by-h/2,p);}
- void draw(Canvas c,JSONObject room){float w=(float)room.optDouble("width"),d=(float)room.optDouble("height"),height=132;boolean glass=room.optString("type").equals("greenhouse");
+ void draw(Canvas c,JSONObject room){int w=room.optInt("width"),d=room.optInt("height");boolean glass=room.optString("type").equals("greenhouse");if(w<=0||d<=0||w+d>2200)return;if(cached==null||w!=cacheWidth||d!=cacheDepth||glass!=cacheGlass){if(cached!=null)cached.recycle();cached=Bitmap.createBitmap(w+d+100,(w+d)/2+320,Bitmap.Config.ARGB_8888);Canvas offscreen=new Canvas(cached);offscreen.translate(d+50,240);render(offscreen,room,w,d,glass);cacheWidth=w;cacheDepth=d;cacheGlass=glass;}p.setColor(Color.WHITE);c.drawBitmap(cached,-d-50,-240,p);}
+ private void render(Canvas c,JSONObject room,float w,float d,boolean glass){float height=132;
  // Dry interior paving replaces the outdoor moss texture. Variation is stable
  // across frames and uses the same floor coordinates as collision and actors.
  for(int row=0;row*30<d;row++)for(int col=0;col*54<w;col++){float x=col*54,y=row*30,a=Math.min(w,x+53),b=Math.min(d,y+29);int shade=(col*17+row*31)%19;int color=Color.rgb(112+shade,99+shade,80+shade);polygon(c,color,art.sx(x,y),art.sy(x,y,0),art.sx(a,y),art.sy(a,y,0),art.sx(a,b),art.sy(a,b,0),art.sx(x,b),art.sy(x,b,0));art.line(c,0xff9f8f73,.7f,x,y,0,a,y,0);}
