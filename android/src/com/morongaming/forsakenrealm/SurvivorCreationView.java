@@ -1,32 +1,75 @@
 package com.morongaming.forsakenrealm;
-import android.content.Context;import android.graphics.*;import android.view.*;import org.json.*;
-/** The approved six-class selection, with independent reference companion choices. */
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
+import org.json.JSONObject;
+import java.util.Iterator;
+
+/** Six separate, interactive screens drawn from the seven owner-approved pictures. */
 final class SurvivorCreationView extends View {
- interface Host{void create(String appearance,String faction,String profession);default void create(String a,String f,String p,String pet){create(a,f,p);}default boolean additionalCharacter(){return false;}default boolean existingSurvivor(){return false;}String status();String legacyProfession();JSONObject definition(String profession);JSONObject previewCharacter();String spawnTown(String faction);void back();}
+ interface Host{
+  void create(String name,String appearance,String faction,String profession,String companion);
+  boolean additionalCharacter();boolean existingSurvivor();String status();String legacyProfession();
+  JSONObject definition(String profession);JSONObject previewCharacter();String spawnTown(String faction);void back();
+ }
  static final String[] CLASSES={"melee","ranged","mage","rogue","paladin","necromancer"};
- static final String[] PETS={"wolf","direWolf","horse","warBear","raven","loneWolf","familiar"};
- static final String[] PET_NAMES={"WOLF","DIRE WOLF","HORSE","WAR BEAR","RAVEN","LONE WOLF","FAMILIAR"};
- final Host host;final MenuFrame f=new MenuFrame();final MenuArt art;int sex,body,role,faction,step,companion;float downX,downY;boolean pressed;long changedStep;
- SurvivorCreationView(Context c,Host h){super(c);host=h;art=MenuArt.get(c);setContentDescription("Choose Warrior, Archer, Mage, Rogue, Paladin or Necromancer; male or female; and one of seven reference companions. Review before confirming.");}
- String appearance(){return(sex==1?"female-":"male-")+(body==1?"2":"1");}
- String allegiance(){return faction==0?"survivor":"bandit";}
- String profession(){return host.legacyProfession().isEmpty()?CLASSES[role]:host.legacyProfession();}
- JSONObject definition(){JSONObject d=host.definition(profession());return d==null?new JSONObject():d;}
- JSONObject preview(){JSONObject saved=host.previewCharacter();try{JSONObject g=saved==null?new JSONObject():new JSONObject(saved.toString()),d=definition();g.put("role",profession()).put("appearance",appearance());if(saved==null)g.put("equippedWeapon",d.optString("weapon")).put("equippedArmour",d.optString("armour")).put("equippedShield",d.optBoolean("shield"));return g;}catch(JSONException e){return new JSONObject();}}
+ static final String[] CLASS_NAMES={"Warrior","Archer","Mage","Rogue","Paladin","Necromancer"};
+ static final String[] PETS={"wolf","direWolf","warBear","raven","loneWolf","familiar"};
+ static final String[] PET_NAMES={"Wolf","Dire Wolf","War Bear","Raven","Lone Wolf","Familiar"};
+ private final Host host;private final Paint paint=new Paint(3);private int step=0,sex=-1,role=-1,companion=-1;
+ private String name="",message="";private float downX,downY;private long changedStep;
+ SurvivorCreationView(Context context,Host host){super(context);this.host=host;JSONObject saved=host.previewCharacter();if(saved!=null){name=saved.optString("characterName","");String look=saved.optString("appearance","");if(look.startsWith("female"))sex=1;else if(look.startsWith("male"))sex=0;}setContentDescription("Character creation, six separate steps: name, gender, class, companion, review, enter realm.");}
+ String appearance(){JSONObject saved=host.previewCharacter();String old=saved==null?"":saved.optString("appearance","");return (sex==1?"female-":"male-")+(old.endsWith("-2")?"2":"1");}
+ String profession(){return host.legacyProfession().isEmpty()?CLASSES[Math.max(0,role)]:host.legacyProfession();}
+ String className(){if(!host.legacyProfession().isEmpty())return title(host.legacyProfession());return role<0?"Select a class":CLASS_NAMES[role];}
+ String petName(){return companion<0?"Select a companion":PET_NAMES[companion];}
+ String title(String value){return value.isEmpty()?value:Character.toUpperCase(value.charAt(0))+value.substring(1);}
  void back(){if(step>0){step--;invalidate();}else host.back();}
- protected void onDraw(Canvas c){f.begin(c,this);f.brand(c);String[] pages={"APPEARANCE","CHOOSE YOUR CLASS","CHOOSE YOUR COMPANION","REVIEW CHARACTER"};f.text(c,pages[step],337,43,23,590);f.text(c,"STEP "+(step+1)+" OF 4",337,68,12,590);JSONObject d=definition();
- if(step==0){f.panel(c,24,91,250,365,false);f.text(c,"CHOOSE GENDER",42,121,18,214);for(int i=0;i<2;i++){f.panel(c,42+i*111,140,103,65,sex==i);f.text(c,i==0?"MALE":"FEMALE",50+i*111,180,18,87);}f.text(c,"CHOOSE BODY TYPE",42,250,18,214);for(int i=0;i<2;i++){f.panel(c,42,273+i*66,214,54,body==i);f.text(c,i==0?"LEAN":"ATHLETIC",57,307+i*66,18,184);}art.character(c,preview(),new RectF(320,94,645,453));f.panel(c,682,91,254,365,false);f.text(c,"YOUR SURVIVOR",700,126,19,218);f.wrap(c,"Choose appearance first. Class and companion each have a separate screen next.",700,171,216,6);}
- else if(step==1){f.panel(c,24,91,226,365,false);f.text(c,"CHOOSE CLASS",42,121,18,190);String[] names={"WARRIOR","ARCHER","MAGE","ROGUE","PALADIN","NECROMANCER"};if(host.legacyProfession().isEmpty())for(int i=0;i<6;i++){f.panel(c,39,137+i*48,196,42,role==i);f.text(c,names[i],51,165+i*48,17,172);}else f.wrap(c,"Saved profession: "+profession(),42,165,190,4);art.character(c,preview(),new RectF(278,93,596,453));f.panel(c,623,91,313,365,false);f.text(c,host.legacyProfession().isEmpty()?names[role]:profession().toUpperCase(),641,128,23,277);f.wrap(c,d.optString("description","Your saved equipment and progression are retained."),641,169,275,6);f.text(c,"STARTING EQUIPMENT",641,333,16,277);drawKit(c,d,641,352);}
- else if(step==2){f.panel(c,24,91,259,365,false);f.text(c,"COMPANIONS",42,121,18,223);for(int i=0;i<PETS.length;i++){f.panel(c,39,133+i*44,229,39,companion==i);f.text(c,PET_NAMES[i],52,159+i*44,17,202);}try{art.companionPortrait(c,new JSONObject().put("kind",PETS[companion]),new RectF(320,135,660,432));}catch(JSONException ignored){}f.panel(c,689,91,247,365,false);f.text(c,PET_NAMES[companion],707,128,20,211);f.wrap(c,"Your companion travels with this character. Commands are available from the in-game menu.",707,176,209,7);}
- else{art.character(c,preview(),new RectF(35,94,354,455));f.panel(c,382,91,554,365,false);f.text(c,"YOUR CHARACTER",403,125,22,510);f.text(c,profession().toUpperCase()+" · "+(sex==0?"MALE":"FEMALE"),403,168,20,510);f.text(c,"COMPANION: "+PET_NAMES[companion],403,207,18,510);if(!host.existingSurvivor())for(int i=0;i<2;i++){f.panel(c,403+i*254,229,245,38,faction==i);f.text(c,i==0?"SURVIVOR":"BANDIT",417+i*254,254,17,217);}f.wrap(c,host.additionalCharacter()?"Unlock a separate level-one character. Your existing survivor stays intact.":host.existingSurvivor()?"Your saved level, inventory and progress are retained.":"Starting town: "+host.spawnTown(allegiance()),403,296,505,3);drawKit(c,d,403,367);}
- f.panel(c,24,486,170,42,false);f.text(c,"< BACK",47,514,17,137);f.text(c,host.status(),211,514,12,382);f.panel(c,616,486,320,42,true);f.text(c,step<3?"CONTINUE >":host.additionalCharacter()?"UNLOCK CHARACTER":"CONFIRM & ENTER",648,514,18,275);c.restore();}
- void drawKit(Canvas c,JSONObject d,float x,float y){JSONObject kit=d.optJSONObject("items");if(kit==null)return;java.util.Iterator<String> keys=kit.keys();int n=0;while(keys.hasNext()&&n<6){String id=keys.next();art.item(c,id,x+n*47,y,35);f.text(c,"×"+kit.optInt(id),x+n*47,y+51,12,44);n++;}}
- public boolean performClick(){super.performClick();return true;}
- public boolean onTouchEvent(MotionEvent e){float x=f.x(e.getX()),y=f.y(e.getY());int type=e.getActionMasked();if(type==MotionEvent.ACTION_DOWN){pressed=true;downX=x;downY=y;return true;}if(type==MotionEvent.ACTION_CANCEL||type==MotionEvent.ACTION_POINTER_DOWN){pressed=false;return true;}if(type!=MotionEvent.ACTION_UP||!pressed)return true;pressed=false;if(Math.hypot(x-downX,y-downY)>14)return true;performClick();
- if(y>=486&&y<=528){if(x>=24&&x<=194)back();else if(x>=616&&x<=936){if(step<3){step++;changedStep=e.getEventTime();}else if(e.getEventTime()-changedStep>=250){changedStep=e.getEventTime();host.create(appearance(),allegiance(),profession(),PETS[companion]);}}invalidate();return true;}
- if(step==0){if(y>=140&&y<=205&&x>=42&&x<=256)sex=x>=153?1:0;if(x>=42&&x<=256){if(y>=273&&y<=327)body=0;else if(y>=339&&y<=393)body=1;}}
- else if(step==1&&host.legacyProfession().isEmpty()&&x>=39&&x<=235&&y>=137&&y<425&&(y-137)%48<=42)role=(int)((y-137)/48);
- else if(step==2&&x>=39&&x<=268&&y>=133&&y<441&&(y-133)%44<=39)companion=(int)((y-133)/44);
- else if(step==3&&!host.existingSurvivor()&&y>=229&&y<=267&&x>=403&&x<=902)faction=x>=657?1:0;
- invalidate();return true;}
+ private void text(Canvas canvas,String value,float x,float y,float size,int color){paint.setTypeface(android.graphics.Typeface.create("serif",0));paint.setTextSize(size);paint.setColor(color);canvas.drawText(value,x,y,paint);}
+ private void dark(Canvas canvas,float x,float y,float w,float h){paint.setColor(0xf00b0b0c);canvas.drawRect(x,y,x+w,y+h,paint);}
+ private void outline(Canvas canvas,float left,float top,float right,float bottom){paint.setColor(0xffffb864);paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(6);canvas.drawRoundRect(new RectF(left,top,right,bottom),8,8,paint);paint.setStyle(Paint.Style.FILL);}
+ @Override protected void onDraw(Canvas canvas){
+  ApprovedMenuScenes.draw(canvas,this,step+2);
+  canvas.save();canvas.scale(getWidth()/1672f,getHeight()/941f);
+  if(step==0){dark(canvas,572,414,528,48);text(canvas,name.isEmpty()?"Tap to enter your name":name,585,449,27,name.isEmpty()?0xff98938b:0xfff4e9d3);dark(canvas,1053,473,56,27);text(canvas,name.length()+"/20",1060,493,18,0xfff4e9d3);}
+  if(step==1&&sex>=0)outline(canvas,sex==0?401:850,245,sex==0?818:1264,677);
+  if(step==2&&role>=0)outline(canvas,72+role*255,344,317+role*255,690);
+  if(step==3&&companion>=0)outline(canvas,37+companion*221,377,255+companion*221,714);
+  if(step>=4){
+   float x=step==4?116:95,y=step==4?331:300,w=step==4?338:326;
+   dark(canvas,x,y,w,step==4?298:247);
+   text(canvas,"NAME",x+18,y+24,19,0xffe7c797);text(canvas,name,x+18,y+50,23,Color.WHITE);
+   text(canvas,"GENDER",x+18,y+88,19,0xffe7c797);text(canvas,sex==1?"Female":"Male",x+18,y+115,23,Color.WHITE);
+   text(canvas,"CLASS",x+18,y+151,19,0xffe7c797);text(canvas,className(),x+18,y+178,23,Color.WHITE);
+   text(canvas,"COMPANION",x+18,y+215,19,0xffe7c797);text(canvas,petName(),x+18,y+242,23,Color.WHITE);
+   if(step==4){dark(canvas,1312,341,244,304);text(canvas,"STARTING GEAR",1323,366,20,0xffe7c797);JSONObject d=host.definition(profession()),kit=d==null?null:d.optJSONObject("items");if(kit!=null){Iterator<String> ids=kit.keys();int row=0;while(ids.hasNext()&&row<6){String id=ids.next();text(canvas,"• "+MenuArt.get(getContext()).name(id),1322,407+row*37,19,Color.WHITE);row++;}}}
+  }
+  if(step>0){dark(canvas,122,800,1440,45);if(!name.isEmpty())text(canvas,name,150,832,18,0xffe9dfc9);if(sex>=0)text(canvas,sex==1?"Female":"Male",414,832,18,0xffe9dfc9);if(role>=0||!host.legacyProfession().isEmpty())text(canvas,className(),674,832,18,0xffe9dfc9);if(companion>=0)text(canvas,petName(),923,832,18,0xffe9dfc9);}
+  if(!message.isEmpty()){dark(canvas,560,699,560,41);text(canvas,message,583,728,21,0xffffae99);}
+  canvas.restore();
+ }
+ private void editName(){EditText input=new EditText(getContext());input.setSingleLine(true);input.setText(name);input.setSelection(input.length());input.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});input.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_CAP_WORDS);new AlertDialog.Builder(getContext()).setTitle("Enter your character name").setView(input).setPositiveButton("Save",(dialog,which)->{String value=input.getText().toString().trim();if(value.matches("[\\p{L}\\p{N} '-]{1,20}")){name=value;message="";}else message="Use 1–20 letters, numbers, spaces, ' or -";invalidate();}).setNegativeButton("Cancel",null).show();}
+ private boolean ready(){if(step==0)return name.matches("[\\p{L}\\p{N} '-]{1,20}");if(step==1)return sex>=0;if(step==2)return role>=0||!host.legacyProfession().isEmpty();if(step==3)return companion>=0;return true;}
+ private void next(){if(!ready()){message=step==0?"Enter a name to continue":step==1?"Choose male or female":step==2?"Choose a class":"Choose a companion";invalidate();return;}message="";if(step<5){step++;changedStep=android.os.SystemClock.elapsedRealtime();invalidate();}else if(android.os.SystemClock.elapsedRealtime()-changedStep>=250){host.create(name,appearance(),"survivor",profession(),PETS[companion]);}}
+ @Override public boolean performClick(){super.performClick();return true;}
+ @Override public boolean onTouchEvent(MotionEvent event){float x=ApprovedMenuScenes.x(this,event.getX()),y=ApprovedMenuScenes.y(this,event.getY());if(event.getActionMasked()==MotionEvent.ACTION_DOWN){downX=x;downY=y;return true;}if(event.getActionMasked()!=MotionEvent.ACTION_UP)return true;if(Math.hypot(x-downX,y-downY)>24)return true;performClick();
+  if(step==0){if(x>=552&&x<=1120&&y>=392&&y<=483){editName();return true;}if(x>=650&&x<=1035&&y>=558&&y<=658)next();return true;}
+  if(y>=842&&x<=280){back();return true;}
+  if(step==1&&y>=250&&y<=678){if(x>=393&&x<=822)sex=0;else if(x>=846&&x<=1273)sex=1;}
+  if(step==2&&y>=341&&y<=701&&x>=67&&x<=1617)role=Math.min(5,(int)((x-67)/257));
+  if(step==3&&y>=371&&y<=720&&x>=29&&x<=1370)companion=Math.min(5,(int)((x-29)/223));
+  if(step==4&&x>=161&&x<=407&&y>=630&&y<=682){step=0;invalidate();return true;}
+  if(step==5){if(x>=630&&x<=1055&&y>=845)next();}
+  else if(x>=1320&&x<=1640&&y>=841)next();
+  invalidate();return true;
+ }
 }
