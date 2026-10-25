@@ -1,7 +1,7 @@
 {
-  "apkUrl": "https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.94/Forsaken-Realm-v0.94.apk",
-  "versionName": "0.94",
-  "versionCode": 94,
-  "serverVersion": "0.94-approved-world",
-  "apkSha256": "9b407576d7a2dca717cc93bd74a84c4033d84bb4b114b067e3377ef264092136"
+  "apkUrl": "https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.95/Forsaken-Realm-v0.95.apk",
+  "versionName": "0.95",
+  "versionCode": 95,
+  "serverVersion": "0.95-approved-menus-and-world",
+  "apkSha256": "a90dd31979903f4fedc6431c58e2deef778d15e51a632366ad700049009e7966"
 }
