@@ -20,7 +20,7 @@ The source's sight radius remains 300 world units; the supplied prompt says 500 
 ## Verification and limits
 
 - The full server package suite passed after the first wildlife/economy wiring, including update/HTTP flows, currency checks, animation checks, craft/market tests, and wildlife tests. Focused wildlife/field tests passed again after the last balance and market changes.
-- All Android Java compiled against API 35. A signed Android 0.94 playtest APK was built with the repository's original art hashes and existing signing key; APK signature, alignment, and package metadata were verified.
+- All Android Java compiled against API 35. A signed Android 0.96 playtest APK was built with the repository's original art hashes and existing signing key; APK signature, alignment, and package metadata were verified. Version code 96 allows an in-place install over the owner's earlier 0.95 playtest, if installed.
 - A server snapshot in the authored forest returned 36 spawned animals, 8 in view, 101 field definitions, and 53 recipes. This is a server/client data check, **not** a device playtest or an FPS measurement.
 - The APK has not been installed on a device or emulator, and no live server was deployed. The local APK connects to a compatible server running this branch. Runtime visual alignment, full hunting loops, performance, and progression balance still need in-game playtesting.
 - The playtest server launcher is `windows/Start-Phase-2-4-Playtest.cmd`; it disables automatic updates and starts the existing isolated development-world preparation. The packaged server bundle includes Node 24. Stop any other Forsaken Realm server before using the playtest launcher.
