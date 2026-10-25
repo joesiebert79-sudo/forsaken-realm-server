@@ -1,4 +1,7 @@
 import {sellBackTotal,sellBackQuotes} from './sell-back.mjs';
+import {fieldMerchantRows,fieldTrade} from './field-market.mjs';
+import {FIELD_ITEMS} from './field-catalog.mjs';
+import {fieldLot} from './field-inventory.mjs';
 import {ITEM_COMMERCE,itemPrice,saleMetadata,restrictedEquipment} from './item-commerce.mjs';
 import {traderHub} from './trader-hubs.mjs';
 import {isCoin,wallet,changeWallet,canAfford} from './currency.mjs';
@@ -37,10 +40,11 @@ function quantityQuotes(base,stock,count,buying){const result=[0];for(let i=0;i<
 function itemCategory(item){const d=ITEMS[item];return ['axe','pickaxe','sickle','hammer'].includes(item)?'Tools':d.armorSlot?'Armor':item==='shield'?'Shields':d.damage||item==='arrow'?'Weapons':d.category==='Food'||item==='bandage'||item==='herb'||item==='herbalTea'?'Provisions':'Materials';}
 export function merchantView(r,p){
  if(!p.openMerchant)return null;let m;try{m=reachable(r,p,p.openMerchant);}catch{return null;}
- const s=merchantStock(r,m);return {...m,wallet:wallet(accountFor(r,p)),standing:{reputation:accountFor(r,p).reputation||0,faction:p.faction,townFaction:m.faction,access:'Open',displayOnly:true},unlimitedGold:true,playtestPrices:true,offers:Object.entries(offers[m.shop]).filter(([id])=>ITEMS[id]).map(([item,offer])=>{const [buy,sell]=offer;return {...saleMetadata(item),currency:offerCurrency(offer),sellCurrency:'copper',sellBackPercent:25,item,name:ITEMS[item].name,category:itemCategory(item),buyQuotes:quantityQuotes(buy,s.items[item]||0,s.items[item]||0,true),sellQuotes:sellBackQuotes(buy,offerCurrency(offer),p.inventory[item]||0),buy:marketUnit(buy,s.items[item]||0),sell:sellBackTotal(buy,offerCurrency(offer)),stock:s.items[item]||0,owned:p.inventory[item]||0,sellAll:sellBackTotal(buy,offerCurrency(offer),p.inventory[item]||0)};})};
+ const s=merchantStock(r,m);return {...m,wallet:wallet(accountFor(r,p)),standing:{reputation:accountFor(r,p).reputation||0,faction:p.faction,townFaction:m.faction,access:'Open',displayOnly:true},unlimitedGold:true,playtestPrices:true,offers:[...Object.entries(offers[m.shop]).filter(([id])=>ITEMS[id]).map(([item,offer])=>{const [buy,sell]=offer;return {...saleMetadata(item),currency:offerCurrency(offer),sellCurrency:'copper',sellBackPercent:25,item,name:ITEMS[item].name,category:itemCategory(item),buyQuotes:quantityQuotes(buy,s.items[item]||0,s.items[item]||0,true),sellQuotes:sellBackQuotes(buy,offerCurrency(offer),p.inventory[item]||0),buy:marketUnit(buy,s.items[item]||0),sell:sellBackTotal(buy,offerCurrency(offer)),stock:s.items[item]||0,owned:p.inventory[item]||0,sellAll:sellBackTotal(buy,offerCurrency(offer),p.inventory[item]||0)};}),...fieldMerchantRows(r,p,m)]};
 }
 export function trade(r,p,c){
  const m=reachable(r,p,c.target);if(p.openMerchant!==m.id)throw Error('Interact with the trader first');
+ if(FIELD_ITEMS[c.item]||fieldLot(r,c.item)){fieldTrade(r,p,m,c);return;}
  const s=merchantStock(r,m),key=JSON.stringify([p.id,c.id]);if(Object.hasOwn(s.receipts,key))return;
  const quote=offers[m.shop][c.item];if(restrictedEquipment(c.item))throw Error('Legendary equipment is only available from flash deals, dangerous exploration or bosses');if(!Object.hasOwn(offers[m.shop],c.item)||!quote||!ITEMS[c.item])throw Error('This trader does not trade that item');
  const amount=positive(c.amount??1);if(c.type==='merchantBuy'&&amount>100)throw Error('Buy at most 100 items at once');

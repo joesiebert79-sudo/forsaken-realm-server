@@ -240,6 +240,15 @@
         "date": "2026-10-25",
         "scope": "Appearance only; motion, alignment and production readiness are unapproved"
       }
+    },
+    {
+      "entity": "warrior",
+      "action": "walk",
+      "framesRequested": 12,
+      "status": "unreviewed-fidelity-motion-and-alignment",
+      "productionFrames": 0,
+      "path": "references/phase-2-review/warrior-walk-pilot-draft.png",
+      "sha256": "82c106cb47e1962678f87b5072ff6288c0df3fd716541eaebe39771bd44e12ff"
     }
   ]
 }

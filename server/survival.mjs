@@ -7,7 +7,7 @@ export function tickSurvival(realm,p,dt){
  const sheltered=realm.safe(p)||!!p.interior;const cold=p.y<1800&&p.x>2000;const hot=p.y>2200&&p.x<1800;
  const target=sheltered||nearFire?50:cold?10:hot?90:50;
  p.temperature+=Math.sign(target-p.temperature)*Math.min(Math.abs(target-p.temperature),dt*.12);
- const danger=(p.hunger<=0?1:0)+(p.thirst<=0?2:0)+(p.temperature<15||p.temperature>85?1:0);
+ const danger=(p.hunger<=0?1:0)+(p.thirst<=0?2:0)+(p.temperature<15||p.temperature>85?1:0)+(p.waterIllnessUntil>realm.clock()?0.05:0);
  if(danger){p.hp=Math.max(0,p.hp-dt*danger);if(p.hp===0)realm.die(p,realm.clock());}
 }
 

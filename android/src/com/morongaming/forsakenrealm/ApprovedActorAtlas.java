@@ -10,6 +10,7 @@ import java.util.*;
 final class ApprovedActorAtlas {
  private static final int BUDGET=32*1024*1024,MAX_PAGE=2048;
  private static ApprovedActorAtlas shared;
+ private static long synchronizedServerTime,synchronizedLocalTime;
  private final Context context;
  private final Map<String,JSONObject> entities=new HashMap<>();
  private final LinkedHashMap<String,Bitmap> pages=new LinkedHashMap<>(8,.75f,true);
@@ -17,6 +18,14 @@ final class ApprovedActorAtlas {
  private int bytes;
  private String error="No approved production atlases installed";
  static synchronized void load(Context context){if(shared==null)shared=new ApprovedActorAtlas(context.getApplicationContext());}
+ static void synchronize(long serverTime){synchronizedServerTime=serverTime;synchronizedLocalTime=android.os.SystemClock.elapsedRealtime();}
+ static boolean drawActor(Canvas canvas,JSONObject actor){
+  if(shared==null||actor==null)return false;JSONObject animation=actor.optJSONObject("animation");if(animation==null)return false;
+  String id=animation.optString("entityId");JSONObject entity=shared.entities.get(id);if(entity==null)return false;
+  long serverNow=synchronizedServerTime+Math.max(0,android.os.SystemClock.elapsedRealtime()-synchronizedLocalTime);
+  long elapsed=Math.max(0,serverNow-animation.optLong("startedAt",serverNow));
+  return draw(canvas,id,animation.optString("action","idle"),animation.optInt("direction"),elapsed,(float)entity.optDouble("worldScale",1));
+ }
  static String status(){return shared==null?"Not loaded":shared.error;}
  static int cachedBytes(){return shared==null?0:shared.bytes;}
  static void trim(){if(shared!=null)shared.evictTo(0);}

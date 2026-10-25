@@ -1,3 +1,4 @@
+import {recordActorMotion} from './actor-animation.mjs';
 import {revokeRepairProtection} from './sieges.mjs';
 import {contractKill} from './contracts.mjs';
 import {companionRank} from './companion-progression.mjs';
@@ -100,7 +101,8 @@ export function tickCompanions(realm,dt){
   if(target&&!allowed(realm,p,pet,target)){target=null;pet.target=null;pet.mode='follow';}
   if(pet.mode==='attack'&&!target){pet.mode='follow';pet.target=null;}
   if(target){
-   pet.active=move(pet,target,spec.speed*(1+companionRank(pet,'agility')*.02)*(pet.slowUntil>now?.65:1),dt,blocked,34);
+   const before={x:pet.x,y:pet.y};pet.active=move(pet,target,spec.speed*(1+companionRank(pet,'agility')*.02)*(pet.slowUntil>now?.65:1),dt,blocked,34);
+   recordActorMotion(pet,before,now,true);
    if(distance(pet,target)<=38&&now-pet.lastAttack>=1100&&now>=(pet.attackReadyAt||0)&&clearStrike(pet,target,blocked)){
     const skill=now>=(pet.skillReadyAt||0);let damage=spec.damage;
     if(skill){if(pet.kind==='dog')damage+=14;if(pet.kind==='bear'||pet.kind==='warBear')damage+=24;if(['direWolf','loneWolf'].includes(pet.kind))damage+=14;if(['raven','familiar'].includes(pet.kind))damage+=8;if(pet.kind==='boar')damage+=10;pet.skillReadyAt=now+spec.cooldown*(1-companionRank(pet,'discipline')*.03);pet.lastSkillAt=now;}
@@ -110,7 +112,8 @@ export function tickCompanions(realm,dt){
     realm.state.revision++;
    }
   }else{
-   pet.active=move(pet,p,spec.speed*(1+companionRank(pet,'agility')*.02)*(pet.mode==='retreat'?1.25:1),dt,blocked,48);
+   const before={x:pet.x,y:pet.y};pet.active=move(pet,p,spec.speed*(1+companionRank(pet,'agility')*.02)*(pet.mode==='retreat'?1.25:1),dt,blocked,48);
+   recordActorMotion(pet,before,now,pet.mode==='retreat');
    pet.stuckFor=distance(pet,p)>100&&!pet.active?(pet.stuckFor||0)+dt:0;
    // Recall a stuck follower; never teleport into an attack. Door/fixture collision stays authoritative.
    if(pet.stuckFor>5||distance(pet,p)>650){pet.x=p.x;pet.y=p.y;pet.stuckFor=0;pet.attackReadyAt=now+2000;}
