@@ -20,6 +20,8 @@ adb shell wm density 240
 PKG='com.morongaming.forsakenrealm.app'; ACT='com.morongaming.forsakenrealm.MainActivity'
 adb shell am start -n "$PKG/$ACT" >/dev/null
 sleep 3
+adb shell input tap 927 285
+sleep 1
 cat > "$CAPTURE_DIR/prefs.xml" <<'EOF'
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
@@ -43,6 +45,7 @@ for scene in map village trader wilderness house; do
   adb shell am force-stop "$PKG"
   adb shell am start -n "$PKG/$ACT" >/dev/null
   sleep 4
+  adb shell input tap 927 285
   adb shell input tap 200 193
   sleep 7
   adb shell input tap 1046 647
