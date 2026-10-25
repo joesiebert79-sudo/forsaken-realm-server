@@ -1,6 +1,6 @@
 // Shared world time; one real hour per game day, persisted across restarts.
 export const DAY_LENGTH_MS=3600000;
-export const SIGHT_RADIUS=300;
+export const SIGHT_RADIUS=500;
 export const EXPLORE_CELL=75;
 export function worldTime(state,now){
  state.dayStartedAt??=now-DAY_LENGTH_MS/3;
@@ -17,7 +17,7 @@ export function visibility(state,p){
   const dx=Math.max(x*cellSize-p.x,0,p.x-(x+1)*cellSize),dy=Math.max(y*cellSize-p.y,0,p.y-(y+1)*cellSize);
   if(Math.hypot(dx,dy)<=radius)explored[x+','+y]=true;
  }
- const local=[];if(!p.interior)for(let x=Math.floor((p.x-1800)/cellSize);x<=Math.ceil((p.x+1800)/cellSize);x++)for(let y=Math.floor((p.y-1800)/cellSize);y<=Math.ceil((p.y+1800)/cellSize);y++){const k=x+','+y;if(explored[k]&&Math.abs(x*cellSize-p.x)<1800&&Math.abs(y*cellSize-p.y)<1800)local.push(k);}return {radius,cellSize,explored:local};
+ const local=[];if(!p.interior)for(let x=Math.floor((p.x-650)/cellSize);x<=Math.ceil((p.x+650)/cellSize);x++)for(let y=Math.floor((p.y-650)/cellSize);y<=Math.ceil((p.y+650)/cellSize);y++){const k=x+','+y;if(explored[k]&&Math.abs(x*cellSize-p.x)<650&&Math.abs(y*cellSize-p.y)<650)local.push(k);}return {radius,cellSize,explored:local};
 }
 export function inSight(p,actor){return (p.interior||null)===(actor.interior||null)&&Math.hypot(p.x-actor.x,p.y-actor.y)<=SIGHT_RADIUS;}
 
