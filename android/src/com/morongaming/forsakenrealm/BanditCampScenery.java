@@ -20,12 +20,28 @@ final class BanditCampScenery {
    int seed=Math.floorMod(row*7919+col*104729,997);
    double x=tx+col*148+(seed%63)-31,y=ty+row*148+(seed%47)-23;
    int cell=(seed%4==0)?0:1;double width=cell==0?165+seed%55:58+seed%25;
-   if(clear(x,y,cell==0?100:44))prop(x,y,cell,width);
+   if(clear(x,y,cell==0?100:44)){
+    prop(x,y,cell,width);
+    if(cell==0)for(int j=0;j<3;j++){double bx=x-65+j*57,by=y+65+(j%2)*28;if(clear(bx,by,44)){prop(bx,by,1,55+j*7);bed(bx,by);}}
+   }
   }
   // Short timber boundaries and planted beds around the four existing shops.
   if(buildings!=null)for(int i=0;i<buildings.length();i++){
    JSONObject b=buildings.optJSONObject(i);if(b==null||!b.optString("id").startsWith("day2-bandit-"))continue;
    double x=b.optDouble("x"),y=b.optDouble("y"),a=b.optDouble("halfWidth",125)+85,back=y-b.optDouble("depth",80)-90;
+   // Fenced side gardens mirror the reference's layered yards.
+   for(int side:new int[]{-1,1})for(int k=0;k<3;k++){
+    double gx=x+side*(a+62),gy=back+65+k*95;
+    if(clear(gx,gy,55)){
+     bed(gx,gy);fence(gx-29,gy-36,gx+29,gy-36);fence(gx-29,gy+36,gx+29,gy+36);
+     fence(gx-29,gy-36,gx-29,gy+36);fence(gx+29,gy-36,gx+29,gy+36);
+     if(k==0&&clear(gx,gy,100))prop(gx,gy,0,145);else prop(gx,gy,1,64);
+    }
+   }
+   for(int side:new int[]{-1,1}){
+    double lx=x+side*(a-12),ly=y+245;
+    if(clear(lx,ly,32))prop(lx,ly,3,52);
+   }
    fence(x-a,back,x+a,back);fence(x-a,back,x-a,y+130);fence(x+a,back,x+a,y+130);
    for(int side:new int[]{-1,1}){
     double px=x+side*a,py=y+105;
@@ -56,6 +72,6 @@ final class BanditCampScenery {
   }return false;
  }
  private void prop(double x,double y,int cell,double width){try{props.add(new JSONObject().put("id","bandit-scenery-"+props.size()).put("x",x).put("y",y).put("cell",cell).put("width",width));}catch(Exception ignored){}}
- private void bed(double x,double y){try{ground.put(new JSONObject().put("kind","garden").put("x",x).put("y",y).put("x2",x).put("y2",y));}catch(Exception ignored){}}
+ private void bed(double x,double y){try{ground.put(new JSONObject().put("kind","flowerGarden").put("x",x).put("y",y).put("x2",x).put("y2",y));}catch(Exception ignored){}}
  private void fence(double x,double y,double x2,double y2){int n=(int)Math.ceil(Math.hypot(x2-x,y2-y)/28);for(int i=0;i<n;i++){double ax=x+(x2-x)*i/n,ay=y+(y2-y)*i/n,bx=x+(x2-x)*(i+1)/n,by=y+(y2-y)*(i+1)/n;if(!clear(ax,ay,22)||!clear((ax+bx)/2,(ay+by)/2,22)||!clear(bx,by,22))continue;try{ground.put(new JSONObject().put("kind","fence").put("x",ax).put("y",ay).put("x2",bx).put("y2",by));}catch(Exception ignored){}}}
 }
