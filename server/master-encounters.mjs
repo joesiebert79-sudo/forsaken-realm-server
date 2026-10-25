@@ -25,7 +25,7 @@ export function ensureMasterEncounters(realm,p){
    for(let attempt=0;attempt<18;attempt++){
     const n=hash(seed+slot*1299709+attempt*83492791),px=x*cell+100+n%952,py=y*cell+100+hash(n)%952;
     if(px>=MASTER_SIZE.width-40||py>=MASTER_SIZE.height-40||realm.blocks(px,py)||realm.safe({x:px,y:py})||onMasterRoad(px,py,65))continue;
-    if(MASTER_LANDMARKS.some(l=>Math.hypot(l.x-px,l.y-py)<(l.kind==='trader'?1500:l.kind==='castle'?1000:740)))continue;
+    if(MASTER_LANDMARKS.some(l=>Math.hypot(l.x-px,l.y-py)<(l.kind==='trader'?700:l.kind==='castle'?600:400)))continue;
     if(realm.buildings.some(b=>Math.abs(b.x-px)<b.halfWidth+150&&Math.abs(b.y-py)<b.depth+180))continue;
     const terrain=MASTER_POLYGONS.find(s=>['mountain','marsh','forest'].includes(s.kind)&&contains(s.points,px,py));
     const biome=terrain?.kind==='mountain'?'highlands':terrain?.kind==='marsh'?'marsh':'woodland';
@@ -38,17 +38,20 @@ export function ensureMasterEncounters(realm,p){
  }
  // A traveler leaving safety should actually see life in the nearby world.
  // One deterministic sighting per 768-unit travel cell avoids endless spawns.
- if(realm.safe(p)||Object.values(state.enemies).some(e=>e.hp>0&&Math.hypot(e.x-p.x,e.y-p.y)<285))return;
- const tx=Math.floor(p.x/768),ty=Math.floor(p.y/768),id='approved-sighting-'+tx+','+ty;
- if(state.enemies[id])return;
+ if(realm.safe(p))return;
+ const tx=Math.floor(p.x/768),ty=Math.floor(p.y/768);
  const seed=hash(tx*92837111^ty*689287499);
- for(let attempt=0;attempt<16;attempt++){
-  const angle=(seed%6283)/1000+attempt*2.399963,radius=185+hash(seed+attempt)%75;
+ for(let slot=0;slot<2;slot++){
+  const id='approved-sighting-'+tx+','+ty+'-'+slot;
+  if(state.enemies[id]||Object.values(state.enemies).some(e=>e.hp>0&&animal(e.kind)===(slot===0)&&Math.hypot(e.x-p.x,e.y-p.y)<285))continue;
+  for(let attempt=0;attempt<16;attempt++){
+  const angle=(seed%6283)/1000+attempt*2.399963+slot*Math.PI,radius=145+hash(seed+attempt+slot*31)%115;
   const px=Math.round(p.x+Math.cos(angle)*radius),py=Math.round(p.y+Math.sin(angle)*radius);
   if(px<40||py<40||px>MASTER_SIZE.width-40||py>MASTER_SIZE.height-40||realm.blocks(px,py)||realm.safe({x:px,y:py})||onMasterRoad(px,py,65))continue;
   if(realm.buildings.some(b=>Math.abs(b.x-px)<b.halfWidth+120&&Math.abs(b.y-py)<b.depth+150))continue;
-  const kind=(tx+ty)%2?'wolf':'poacher';
+  const kind=slot===0?'wolf':'poacher';
   const enemy={id,kind,biome:'woodland',x:px,y:py,homeX:px,homeY:py,hp:50,maxHp:50,damage:6,speed:kind==='wolf'?85:55,range:35,lastAttack:0,respawnAt:0,active:false};
   equipEnemy(enemy);state.enemies[id]=enemy;break;
+ }
  }
 }
