@@ -1,4 +1,3 @@
-import {canAfford,changeWallet} from './currency.mjs';
 import {APPROVED_WORLD,COMPACT,LAYOUT} from './world-profile.mjs';
 import {navigate} from './navigation.mjs';
 import {weaponReady,spendAttack,ammunition} from './weapon-actions.mjs';
@@ -6,7 +5,7 @@ import {planCaravanRoute} from './caravan-routing.mjs';
 import {contractProgress} from './contracts.mjs';
 import {FACTION_TOWNS,addWhole} from './master-rules.mjs';
 import {authorizedTown,accountFor} from './accounts.mjs';
-import {MERCHANTS,merchantStock,marketTotal,offers,offerCurrency} from './merchants.mjs';
+import {MERCHANTS,merchantStock,marketTotal,offers} from './merchants.mjs';
 import {killEnemy} from './enemies.mjs';
 import {ITEMS} from './catalog.mjs';
 import {clearStrike,recordHit,defend} from './combat.mjs';
@@ -41,10 +40,26 @@ function depositCargo(r,c){for(const [item,count]of Object.entries(c.cargo)){con
 function retireGuards(r,c,destination=c.to||c.from){for(const id of [...c.guards,...(c.merchant?[c.merchant]:[])]){const n=r.state.enemies[id];if(n?.hp>0){const depot=r.state.caravanDepots[destination];depot.gold=addWhole(depot.gold,n.inventory.gold||0);for(const [item,count]of Object.entries(n.inventory))if(item!=='gold')depot.goods[item]=addWhole(depot.goods[item]||0,count);}delete r.state.enemies[id];}}
 export function ensureCaravans(r){if(!r.state.caravansVersion){r.state.caravans??={};r.state.caravanDepots??={};for(const t of FACTION_TOWNS)r.state.caravanDepots[t.id]??={gold:300,goods:{spear:4,shield:4,tunic:4}};for(const faction of ['survivor','bandit']){const t=FACTION_TOWNS.find(t=>t.faction===faction)||FACTION_TOWNS.filter(t=>t.faction==='neutral')[faction==='bandit'?1:0];if(!t)throw Error('Missing caravan origin');r.state.caravans[faction]={id:'caravan:'+faction,faction,x:t.x,y:t.y,hp:400,maxHp:400,from:t.id,to:null,status:'waiting',readyAt:r.clock(),trip:0,guards:[],cargo:{},gold:0,escorts:{},history:[],ambushes:[]};}r.state.caravansVersion=1;}}
 export function reconcileApprovedCaravans(r){
- // Older saved routes can reach a neutral village whose depot was never saved.
+ if(!APPROVED_WORLD)return;
+ // v0.94 saves can already be marked reconciled while still referring to the
+ // master map's trader IDs. Move those depots and route endpoints before ticks.
+ const aliases={'day2-master-trader-a':'day2-survivor','day2-master-trader-b':'day2-bandit'};
+ let remapped=false;
  r.state.caravanDepots??={};
+ for(const [oldId,newId] of Object.entries(aliases)){
+  if(!r.state.caravanDepots[oldId])continue;
+  r.state.caravanDepots[newId]??=r.state.caravanDepots[oldId];
+  delete r.state.caravanDepots[oldId];
+  remapped=true;
+ }
+ // Existing v0.95 saves may already have valid route IDs but no destination
+ // depot for a neutral village. Arriving caravans must always have a depot.
  for(const t of FACTION_TOWNS)r.state.caravanDepots[t.id]??={gold:300,goods:{spear:4,shield:4,tunic:4}};
- if(!APPROVED_WORLD||r.state.approvedCaravansVersion)return;
+ for(const c of Object.values(r.state.caravans||{})){
+  for(const key of ['from','to'])if(aliases[c[key]]){c[key]=aliases[c[key]];remapped=true;}
+ }
+ if(remapped)r.state.approvedCaravansVersion=0;
+ if(r.state.approvedCaravansVersion)return;
  for(const c of Object.values(r.state.caravans||{})){
   if(!['loading','travelling'].includes(c.status)||!c.to)continue;
   const from=town(c.from),to=town(c.to),route=from&&to?planCaravanRoute(r,from,to,c):null;
@@ -54,7 +69,7 @@ export function reconcileApprovedCaravans(r){
  }
  r.state.approvedCaravansVersion=1;
 }
-function load(r,c){const from=town(c.from),depot=r.state.caravanDepots[from.id];const smith=MERCHANTS.find(m=>m.townId===from.id&&m.shop==='Smithy');if(smith){const stock=merchantStock(r,smith);for(const item of ['spear','shield','tunic']){const missing=Math.max(0,4-(depot.goods[item]||0));if(!missing||(stock.items[item]||0)<missing)continue;const price=marketTotal(offers.Smithy[item][0],stock.items[item],missing,true);const currency=offerCurrency(offers.Smithy[item]);if(depot.gold<100||!canAfford({...depot,gold:depot.gold-100},price,currency))continue;Object.assign(depot,changeWallet(depot,price,currency,false,{pouch:false}));stock.items[item]-=missing;depot.goods[item]=(depot.goods[item]||0)+missing;}}if(depot.gold<100||['spear','shield','tunic'].some(item=>(depot.goods[item]||0)<4))return;const choices=FACTION_TOWNS.filter(t=>(t.faction===c.faction||COMPACT&&t.faction==='neutral')&&t.id!==from.id).map(to=>({to,route:planCaravanRoute(r,from,to,c)})).filter(o=>o.route).map(o=>({...o,path:o.route.points})).sort((a,b)=>{const score=t=>(c.history.at(-1)?.from===t.to.id?100:0)+c.ambushes.filter(e=>e.to===t.to.id&&r.clock()-e.at<REPLACE*3).length*200;return score(a)-score(b)||a.to.id.localeCompare(b.to.id);});if(!choices.length)return;const chosen=choices[0],cargo={};for(const m of MERCHANTS.filter(m=>m.townId===from.id)){const stock=merchantStock(r,m);for(const item of ['wood','stone','bread','bandage','wheat','flour','thread','linen','ironOre','iron','plank','charcoal']){const n=Math.min(5,stock.items[item]||0);if(n){stock.items[item]-=n;cargo[item]=(cargo[item]||0)+n;}}}if(!Object.keys(cargo).length)return;
+function load(r,c){const from=town(c.from),depot=r.state.caravanDepots[from.id];const smith=MERCHANTS.find(m=>m.townId===from.id&&m.shop==='Smithy');if(smith){const stock=merchantStock(r,smith);for(const item of ['spear','shield','tunic']){const missing=Math.max(0,4-(depot.goods[item]||0));if(!missing||(stock.items[item]||0)<missing)continue;const price=marketTotal(offers.Smithy[item][0],stock.items[item],missing,true);if(depot.gold-price<100)continue;depot.gold-=price;stock.items[item]-=missing;depot.goods[item]=(depot.goods[item]||0)+missing;}}if(depot.gold<100||['spear','shield','tunic'].some(item=>(depot.goods[item]||0)<4))return;const choices=FACTION_TOWNS.filter(t=>(t.faction===c.faction||COMPACT&&t.faction==='neutral')&&t.id!==from.id).map(to=>({to,route:planCaravanRoute(r,from,to,c)})).filter(o=>o.route).map(o=>({...o,path:o.route.points})).sort((a,b)=>{const score=t=>(c.history.at(-1)?.from===t.to.id?100:0)+c.ambushes.filter(e=>e.to===t.to.id&&r.clock()-e.at<REPLACE*3).length*200;return score(a)-score(b)||a.to.id.localeCompare(b.to.id);});if(!choices.length)return;const chosen=choices[0],cargo={};for(const m of MERCHANTS.filter(m=>m.townId===from.id)){const stock=merchantStock(r,m);for(const item of ['wood','stone','bread','bandage','wheat','flour','thread','linen','ironOre','iron','plank','charcoal']){const n=Math.min(5,stock.items[item]||0);if(n){stock.items[item]-=n;cargo[item]=(cargo[item]||0)+n;}}}if(!Object.keys(cargo).length)return;
  for(const item of ['spear','shield','tunic'])depot.goods[item]-=4;depot.gold-=100;Object.assign(c,{to:chosen.to.id,path:chosen.path,routeRoads:chosen.route.roads,index:1,x:chosen.path[0].x,y:chosen.path[0].y,hp:400,cargo,originalCargo:structuredClone(cargo),gold:80,escorts:{},status:'loading',departAt:r.clock()+LOADING,trip:c.trip+1,travelled:0,totalDistance:chosen.path.slice(1).reduce((sum,p,i)=>sum+dist(chosen.path[i],p),0),attackers:{},guards:[],detours:0,needsDetour:false,destroyedAt:null});
  c.merchant=c.id+':'+c.trip+':merchant';r.state.enemies[c.merchant]={id:c.merchant,kind:'caravan merchant',caravanId:c.id,faction:c.faction,x:c.x,y:c.y,hp:80,maxHp:80,speed:45,damage:0,range:0,lastAttack:0,active:false,equippedWeapon:null,inventory:{},respawnAt:Number.MAX_SAFE_INTEGER};
  for(let i=0;i<4;i++){const id=c.id+':'+c.trip+':guard:'+i;c.guards.push(id);r.state.enemies[id]={id,kind:'caravan guard',caravanId:c.id,faction:c.faction,x:c.x+(i%2?35:-35),y:c.y+Math.floor(i/2)*30,hp:100,maxHp:100,speed:55,damage:8,range:50,lastAttack:0,active:false,equippedWeapon:'spear',equippedShield:true,equippedArmour:'tunic',inventory:{spear:1,shield:1,tunic:1,gold:5},respawnAt:Number.MAX_SAFE_INTEGER};}
@@ -79,6 +94,7 @@ export function caravanRows(r,p){const t=authorizedTown(r,p);if(!t)return [{name
 export function caravanActors(r,p){return Object.values(r.state.caravans||{}).filter(c=>['loading','travelling'].includes(c.status)&&!p.interior&&dist(p,c)<900).map(c=>({id:c.id,targetGroup:'structures',kind:'caravan',name:c.faction+' caravan',x:c.x,y:c.y,hp:c.hp,maxHp:c.maxHp}));}
 
 export function npcAttackCaravan(r,n,c){if(!n?.societyId||n.hp<=0||!c||c.status!=='travelling'||c.hp<=0||n.faction===c.faction||r.safe(n)||r.safe(c)||dist(n,c)>50||r.clock()-n.lastAttack<1400||!clearStrike(n,c,r.blocks))return false;recordHit(n,c,n.equippedWeapon||'spear',n.damage||8,r.clock());c.lastAttacker=n.id;c.needsDetour=true;if(!c.ambushes.some(e=>e.trip===c.trip)){c.ambushes.push({trip:c.trip,to:c.to,x:c.x,y:c.y,at:r.clock()});c.ambushes=c.ambushes.slice(-12);}damageCaravan(r,c,r.clock());return true;}
+
 
 
 

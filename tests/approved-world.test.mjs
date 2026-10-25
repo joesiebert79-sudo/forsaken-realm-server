@@ -3,8 +3,10 @@ import assert from 'node:assert/strict';
 import {createApprovedWorldLayout} from '../server/approved-world-layout.mjs';
 import {createDay2Layout} from '../server/day2-layout.mjs';
 import {masterBlocked} from '../server/master-geography.mjs';
-import {migrateApprovedWorld} from '../server/approved-world-migration.mjs';
+import {migrateApprovedWorld,migrateMasterSaveToApproved} from '../server/approved-world-migration.mjs';
 import {Realm} from '../server/world.mjs';
+import {AI_LIMITS,tickEnemies} from '../server/enemies.mjs';
+import {SIGHT_RADIUS,inSight} from '../server/world-visibility.mjs';
 import {planCaravanRoute} from '../server/caravan-routing.mjs';
 import {reconcileApprovedCaravans} from '../server/caravans.mjs';
 import {WorldStore} from '../server/store.mjs';
@@ -68,6 +70,48 @@ test('first saved-world migration makes a recoverable SQLite checkpoint',()=>{
   const backup=new DatabaseSync(path+'.before-world-v1.sqlite',{readOnly:true});try{const state=JSON.parse(backup.prepare('SELECT body FROM world WHERE id=1').get().body);assert.equal(state.players.keeper.x,home.x);assert.equal(state.approvedWorldVersion,undefined);}finally{backup.close();}
  }finally{rmSync(dir,{recursive:true,force:true});}
 });
+
+test('the active v0.94 master save keeps progress and usable interiors on the approved layout',()=>{
+ const layout=createApprovedWorldLayout(),owned='master-village-1-home-0';
+ const state={profile:'master-reference',mapScale:32.5,players:{owner:{id:'owner',interior:owned,x:15600,y:5400,level:9,inventory:{wood:17}},banker:{id:'banker',interior:'day2-master-trader-a-bank',x:5750,y:8000}},companions:{owner:{owner:'owner',interior:owned,x:15600,y:5400,level:4}},properties:{home:{id:'home',buildingId:owned,design:'hut',owner:'owner',x:15600,y:5400,level:5}},accounts:{owner:{gold:777}},resources:[],structures:{},enemies:{},claims:{}};
+ assert.equal(migrateMasterSaveToApproved(state,layout),true);
+ assert.equal(state.profile,'day2-compact');assert.equal(state.approvedWorldVersion,1);
+ assert.equal(state.players.owner.interior,owned);assert.equal(state.companions.owner.interior,owned);
+ assert.equal(state.players.banker.interior,'day2-survivor-bank');
+ assert.equal(state.players.owner.level,9);assert.equal(state.players.owner.inventory.wood,17);
+ assert.equal(state.accounts.owner.gold,777);assert.equal(state.properties.home.level,5);
+ assert.equal(migrateMasterSaveToApproved(state,layout),false);
+});
+
+test('wilderness travel returns visible enemies and animals while trader towns stay protected',()=>{
+ const r=new Realm(undefined,()=>1000000,{ruleset:'master-v1'});r.join('walker');
+ r.command('walker',{id:'created',type:'createCharacter',name:'Pathfinder',appearance:'female-1',profession:'ranged',faction:'survivor',companion:'wolf'});
+ const p=r.player('walker');let spot;
+ for(let y=3000;y<24000&&!spot;y+=900)for(let x=3000;x<36000;x+=900)if(!r.safe({x,y})&&!r.blocks(x,y)){spot={x,y};break;}
+ assert.ok(spot);Object.assign(p,spot);
+ const view=r.snapshot('walker');assert.ok(view.enemies.length>0,'at least one living wilderness creature is visible');
+ const kinds=Object.values(r.state.enemies).map(e=>e.kind);
+ assert.ok(view.wildlife.length>0,'huntable animals exist in the visible wilderness');
+ assert.ok(kinds.some(k=>!/wolf|boar|bear|rat|hound/.test(k)),'hostile human encounters exist');
+ p.x=layoutTown().x;p.y=layoutTown().y;assert.equal(r.snapshot('walker').enemies.length,0,'the protected trader plaza stays clear');
+ function layoutTown(){return createApprovedWorldLayout().settlements[0];}
+});
+
+test('500-unit sight and longer pursuit preserve protected towns',()=>{
+ assert.equal(SIGHT_RADIUS,500);
+ assert.equal(inSight({x:0,y:0},{x:500,y:0}),true);
+ assert.equal(inSight({x:0,y:0},{x:501,y:0}),false);
+ assert.ok(AI_LIMITS.leash>=600);
+ let now=1000000;
+ const p={id:'walker',x:200,y:0,hp:100};
+ const e={id:'wolf',kind:'wolf',x:0,y:0,homeX:0,homeY:0,hp:50,maxHp:50,speed:85,range:35,lastAttack:0};
+ const realm={clock:()=>now,sessions:new Map([['walker',now]]),state:{players:{walker:p},enemies:{wolf:e},companions:{}},safe:()=>false,blocks:()=>false};
+ tickEnemies(realm,1);assert.equal(e.aggro,'walker');
+ p.x=610;now+=1000;tickEnemies(realm,1);assert.equal(e.active,true);assert.equal(e.aggro,'walker');
+ p.x=1200;now+=1000;tickEnemies(realm,1);assert.equal(e.aggro,undefined);
+ realm.safe=target=>target===p;p.x=250;now+=1000;tickEnemies(realm,1);assert.equal(e.active,false);
+});
+
 test('already migrated caravan saves recover missing neutral destination depots',()=>{
  const r=new Realm(undefined,()=>1000000,{ruleset:'master-v1'});
  const c=r.state.caravans.bandit;

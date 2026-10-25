@@ -1,14 +1,45 @@
 package com.morongaming.forsakenrealm;
-import android.content.Context;import android.graphics.*;import android.view.*;
-/** Live navigation over the original clean castle artwork; no reference-image buttons. */
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.view.MotionEvent;
+import android.view.View;
+
+/** Exact approved main-menu artwork with live touch targets. */
 final class LandingView extends View {
  interface Host{void select(int action);String version();}
- private final Host host;private final MenuFrame f=new MenuFrame();private final boolean credits;private float downX,downY;
- LandingView(Context c,Host h,boolean credits){super(c);host=h;this.credits=credits;setContentDescription(credits?"Forsaken Realm credits. Moron Gaming. Back to main.":"Forsaken Realm main menu: Play, Settings, Store, Credits, Exit.");}
- protected void onDraw(Canvas c){f.begin(c,this);f.paint.setColor(0x18000000);c.drawRect(0,0,960,540,f.paint);ReferenceSkin.current.brand(c,24,5,365,100);f.text(c,"v"+host.version(),838,40,15,95);
- if(credits){f.panel(c,220,140,520,292,false);f.text(c,"A GAME BY",397,185,18,200);f.text(c,"MORON GAMING",285,242,37,410);f.text(c,"GAME DEVELOPMENT",267,295,14,205);f.text(c,"Moron Gaming",267,322,20,205);f.text(c,"REALM COMMUNITY",502,295,14,210);f.text(c,"Players & testers",502,322,20,210);f.text(c,"FORGED IN WAR. RULED BY THE RUTHLESS.",267,383,14,445);f.panel(c,32,460,250,52,false);f.text(c,"<  BACK TO MAIN",56,493,19,210);}else{String[] labels={"PLAY","SETTINGS","STORE","CREDITS","EXIT"},sub={"ENTER THE REALM","ADJUST YOUR EXPERIENCE","SUPPLIES & EQUIPMENT","THE PEOPLE BEHIND THE REALM","LEAVE THE GAME"};for(int i=0;i<5;i++){float y=118+i*61;f.panel(c,32,y,268,54,i==0);icon(c,i,60,y+27);f.text(c,labels[i],91,y+23,20,199);f.text(c,sub[i],92,y+42,10,198,0xffb9b0a0);}f.panel(c,32,448,385,62,false);f.text(c,"EXPLORE  ·  SURVIVE  ·  CONQUER",48,475,17,355);f.text(c,"FORGED IN WAR. RULED BY THE RUTHLESS.",48,495,11,355,0xffc5b79e);}c.restore();}
- private void icon(Canvas c,int i,float x,float y){if(ReferenceSkin.current!=null&&ReferenceSkin.current.icon(c,i,x-18,y-18,36))return;Paint p=f.paint;p.setColor(0xffd7bd83);p.setStrokeWidth(2);p.setStyle(Paint.Style.STROKE);if(i==0){c.drawLine(x-12,y+13,x+12,y-13,p);c.drawLine(x-12,y-13,x+12,y+13,p);c.drawLine(x-14,y+7,x-6,y+15,p);c.drawLine(x+6,y+15,x+14,y+7,p);}else if(i==1){c.drawCircle(x,y,11,p);c.drawCircle(x,y,4,p);for(int a=0;a<8;a++){double r=a*Math.PI/4;c.drawLine(x+(float)Math.cos(r)*12,y+(float)Math.sin(r)*12,x+(float)Math.cos(r)*17,y+(float)Math.sin(r)*17,p);}}else if(i==2){c.drawRect(x-14,y-10,x+14,y+12,p);c.drawLine(x-14,y-1,x+14,y-1,p);c.drawRect(x-3,y-2,x+3,y+5,p);}else if(i==3){c.drawRect(x-14,y-12,x+14,y+12,p);c.drawLine(x,y-12,x,y+12,p);c.drawLine(x-10,y-6,x-4,y-6,p);c.drawLine(x+4,y-6,x+10,y-6,p);}else{c.drawRect(x-11,y-15,x+11,y+15,p);c.drawCircle(x+5,y,1,p);}p.setStyle(Paint.Style.FILL);}
- public boolean performClick(){super.performClick();return true;}
- public boolean onTouchEvent(MotionEvent e){float x=f.x(e.getX()),y=f.y(e.getY());if(e.getActionMasked()==MotionEvent.ACTION_DOWN){downX=x;downY=y;return true;}if(e.getActionMasked()!=MotionEvent.ACTION_UP)return true;if(Math.hypot(x-downX,y-downY)>14)return true;performClick();if(credits){if(x>=32&&x<=282&&y>=460&&y<=512)host.select(5);}else if(x>=32&&x<=300&&y>=118&&y<417&&(y-118)%61<=54)host.select((int)((y-118)/61));return true;}
+ private final Host host;
+ private final boolean lore;
+ private final Paint paint=new Paint(3);
+ private float downX,downY;
+ LandingView(Context context,Host host,boolean lore){super(context);this.host=host;this.lore=lore;setContentDescription(lore?"Forsaken Realm lore. Tap Back to return.":"Forsaken Realm main menu: Play, Continue, Store, Settings, Lore, Exit.");}
+ @Override protected void onDraw(Canvas canvas){
+  ApprovedMenuScenes.draw(canvas,this,1);
+  if(!lore)return;
+  float sx=getWidth()/1536f,sy=getHeight()/1024f;
+  canvas.save();canvas.scale(sx,sy);
+  paint.setColor(0xee0b0a0a);canvas.drawRoundRect(new RectF(655,205,1435,850),22,22,paint);
+  paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(4);paint.setColor(0xffb69a63);canvas.drawRoundRect(new RectF(655,205,1435,850),22,22,paint);paint.setStyle(Paint.Style.FILL);
+  paint.setTypeface(android.graphics.Typeface.create("serif",1));paint.setColor(0xffe9d7b2);paint.setTextSize(48);canvas.drawText("LORE OF THE REALM",715,285,paint);
+  paint.setTypeface(android.graphics.Typeface.create("serif",0));paint.setTextSize(29);
+  String[] lines={"The Forsaken Realm is a land of scattered villages,","two trader towns, old castles, and dangerous wilderness.","Survivors build homes, master crafts, and claim their","place in a world shaped by blood and iron."};
+  for(int i=0;i<lines.length;i++)canvas.drawText(lines[i],715,365+i*47,paint);
+  paint.setColor(0xffa33323);canvas.drawRoundRect(new RectF(905,682,1185,770),9,9,paint);
+  paint.setColor(Color.WHITE);paint.setTextSize(35);canvas.drawText("BACK",990,738,paint);
+  canvas.restore();
+ }
+ @Override public boolean performClick(){super.performClick();return true;}
+ @Override public boolean onTouchEvent(MotionEvent event){
+  float x=event.getX()*1536f/Math.max(1,getWidth()),y=event.getY()*1024f/Math.max(1,getHeight());
+  if(event.getActionMasked()==MotionEvent.ACTION_DOWN){downX=x;downY=y;return true;}
+  if(event.getActionMasked()!=MotionEvent.ACTION_UP)return true;
+  if(Math.hypot(x-downX,y-downY)>30)return true;
+  performClick();
+  if(lore){host.select(6);return true;}
+  if(x>=145&&x<=590){int[] top={343,439,534,625,713,803};for(int i=0;i<6;i++)if(y>=top[i]&&y<=top[i]+88){host.select(i);break;}}
+  return true;
+ }
 }
-

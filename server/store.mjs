@@ -1,5 +1,6 @@
 import {existsSync} from 'node:fs';
-import {APPROVED_WORLD,MASTER,DAY4} from './world-profile.mjs';
+import {APPROVED_WORLD,MASTER,DAY4,LAYOUT} from './world-profile.mjs';
+import {migrateMasterSaveToApproved} from './approved-world-migration.mjs';
 import {refreshHousing} from './housing-runtime.mjs';
 import { DatabaseSync } from 'node:sqlite';
 import { Realm, initialWorld } from './world.mjs';
@@ -16,6 +17,7 @@ export class WorldStore {
     if(APPROVED_WORLD&&saved&&!state.approvedWorldVersion&&path!==':memory:'&&!existsSync(path+'.before-world-v1.sqlite'))this.db.prepare('VACUUM INTO ?').run(path+'.before-world-v1.sqlite');
     if(DAY4)state.day4HousingVersion=1;
     for(const row of this.db.prepare('SELECT body FROM movement').all()){const patch=JSON.parse(row.body);state.players[patch.player.id]=patch.player;if(patch.companion){state.companions??={};state.companions[patch.player.id]=patch.companion;}state.revision=Math.max(state.revision,patch.revision);}
+    if(APPROVED_WORLD&&saved&&state.profile==='master-reference')migrateMasterSaveToApproved(state,LAYOUT);
     this.realm=new Realm(state,clock,options);
     this.writeMovement=this.db.prepare('INSERT INTO movement(id,body) VALUES(?,?) ON CONFLICT(id) DO UPDATE SET body=excluded.body');
     this.write=this.db.prepare('INSERT INTO world(id,body) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET body=excluded.body');

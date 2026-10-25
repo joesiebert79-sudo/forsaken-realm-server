@@ -39,3 +39,40 @@ export function migrateApprovedWorld(state,layout){
  state.approvedWorldMigration={from:'day4-housing',to:layout.id,settlements:layout.settlements.length};
  return true;
 }
+
+// v0.94 launched a master-reference save even though its approved map was
+// packaged. Both layouts use the same 32.5 world coordinates. Keep every saved
+// player, property, structure and resource at its actual location, and let
+// housing-runtime retain owned houses whose old static ID is absent in v1.
+export function migrateMasterSaveToApproved(state,layout){
+ if(state.profile!=='master-reference'||state.approvedWorldVersion>=1)return false;
+ if(state.mapScale!==32.5)throw Error('Legacy world scale is unknown; original save was not changed');
+ state.profile='day2-compact'; // Existing Day 4 save profile identifier.
+ state.travelLayoutVersion=3;
+ state.day4HousingVersion=1;
+ state.approvedWorldVersion=1;
+ state.masterEncounterChunks={};
+ state.approvedEncounterVersion=0;
+ state.buildingLocations={};
+ state.excludedTownBuildings=[];
+ const owned=new Set(Object.values(state.properties||{}).map(home=>home.buildingId));
+ for(const actor of [...Object.values(state.players||{}),...Object.values(state.companions||{})]){
+  const room=actor.interior;if(!room||owned.has(room.replace(/:basement$/,'')))continue;
+  const trader=/^day2-master-trader-([ab])-(smithy|bank|workshop|merchant|missions)$/.exec(room);
+  if(trader){
+   const id=(trader[1]==='a'?'day2-survivor':'day2-bandit')+'-'+(trader[2]==='missions'?'workshop':trader[2]);
+   if(layout.buildings.some(b=>b.id===id)){actor.interior=id;continue;}
+  }
+  const village=/^master-village-(\d+)-home-\d+(?::basement)?$/.exec(room);
+  if(village){
+   const settlement=layout.settlements.find(s=>s.id===(village[1]==='4'?'day2-neutral':'village-'+village[1]));
+   actor.interior=null;
+   if(settlement){actor.x=settlement.x;actor.y=settlement.y+180;}
+  }
+ }
+ for(const player of Object.values(state.players||{})){
+  player.openMerchant=null;player.openService=null;player.openContainer=null;
+ }
+ state.approvedWorldMigration={from:'master-reference',to:layout.id,settlements:layout.settlements.length,coordinatesPreserved:true};
+ return true;
+}
