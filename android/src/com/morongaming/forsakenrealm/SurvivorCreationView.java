@@ -37,6 +37,7 @@ final class SurvivorCreationView extends View {
  private void text(Canvas canvas,String value,float x,float y,float size,int color){paint.setTypeface(android.graphics.Typeface.create("serif",0));paint.setTextSize(size);paint.setColor(color);canvas.drawText(value,x,y,paint);}
  private void dark(Canvas canvas,float x,float y,float w,float h){paint.setColor(0xf00b0b0c);canvas.drawRect(x,y,x+w,y+h,paint);}
  private void outline(Canvas canvas,float left,float top,float right,float bottom){paint.setColor(0xffffb864);paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(6);canvas.drawRoundRect(new RectF(left,top,right,bottom),8,8,paint);paint.setStyle(Paint.Style.FILL);}
+ private void navigationButton(Canvas canvas,float left,float top,float right,float bottom,String label){paint.setColor(0xee170f0d);canvas.drawRoundRect(new RectF(left,top,right,bottom),10,10,paint);paint.setColor(0xffd6a762);paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(4);canvas.drawRoundRect(new RectF(left,top,right,bottom),10,10,paint);paint.setStyle(Paint.Style.FILL);paint.setTypeface(android.graphics.Typeface.create("serif",android.graphics.Typeface.BOLD));paint.setTextSize(26);paint.setColor(Color.WHITE);canvas.drawText(label,left+(right-left-paint.measureText(label))/2,top+(bottom-top)/2+9,paint);}
  @Override protected void onDraw(Canvas canvas){
   ApprovedMenuScenes.draw(canvas,this,step+2);
   canvas.save();canvas.scale(getWidth()/1672f,getHeight()/941f);
@@ -55,6 +56,8 @@ final class SurvivorCreationView extends View {
   }
   if(step>0){dark(canvas,122,800,1440,45);if(!name.isEmpty())text(canvas,name,150,832,18,0xffe9dfc9);if(sex>=0)text(canvas,sex==1?"Female":"Male",414,832,18,0xffe9dfc9);if(role>=0||!host.legacyProfession().isEmpty())text(canvas,className(),674,832,18,0xffe9dfc9);if(companion>=0)text(canvas,petName(),923,832,18,0xffe9dfc9);}
   if(!message.isEmpty()){dark(canvas,560,699,560,41);text(canvas,message,583,728,21,0xffffae99);}
+  if(step==0)navigationButton(canvas,34,865,266,930,"‹  BACK");
+  if(step>=1&&step<=4)navigationButton(canvas,1360,865,1640,930,"NEXT  ›");
   canvas.restore();
  }
  private void editName(){EditText input=new EditText(getContext());input.setSingleLine(true);input.setText(name);input.setSelection(input.length());input.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});input.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_CAP_WORDS);new AlertDialog.Builder(getContext()).setTitle("Enter your character name").setView(input).setPositiveButton("Save",(dialog,which)->{String value=input.getText().toString().trim();if(value.matches("[\\p{L}\\p{N} '-]{1,20}")){name=value;message="";}else message="Use 1–20 letters, numbers, spaces, ' or -";invalidate();}).setNegativeButton("Cancel",null).show();}
@@ -62,7 +65,7 @@ final class SurvivorCreationView extends View {
  private void next(){if(!ready()){message=step==0?"Enter a name to continue":step==1?"Choose male or female":step==2?"Choose a class":"Choose a companion";invalidate();return;}message="";if(step<5){step++;changedStep=android.os.SystemClock.elapsedRealtime();invalidate();}else if(android.os.SystemClock.elapsedRealtime()-changedStep>=250){host.create(name,appearance(),"survivor",profession(),PETS[companion]);}}
  @Override public boolean performClick(){super.performClick();return true;}
  @Override public boolean onTouchEvent(MotionEvent event){float x=ApprovedMenuScenes.x(this,event.getX()),y=ApprovedMenuScenes.y(this,event.getY());if(event.getActionMasked()==MotionEvent.ACTION_DOWN){downX=x;downY=y;return true;}if(event.getActionMasked()!=MotionEvent.ACTION_UP)return true;if(Math.hypot(x-downX,y-downY)>24)return true;performClick();
-  if(step==0){if(x>=552&&x<=1120&&y>=392&&y<=483){editName();return true;}if(x>=650&&x<=1035&&y>=558&&y<=658)next();return true;}
+  if(step==0){if(x<=280&&y>=842){back();return true;}if(x>=552&&x<=1120&&y>=392&&y<=483){editName();return true;}if(x>=650&&x<=1035&&y>=558&&y<=658)next();return true;}
   if(y>=842&&x<=280){back();return true;}
   if(step==1&&y>=250&&y<=678){if(x>=393&&x<=822)sex=0;else if(x>=846&&x<=1273)sex=1;}
   if(step==2&&y>=341&&y<=701&&x>=67&&x<=1617)role=Math.min(5,(int)((x-67)/257));
