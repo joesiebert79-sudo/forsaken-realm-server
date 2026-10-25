@@ -6,6 +6,7 @@ import {masterBlocked} from '../server/master-geography.mjs';
 import {migrateApprovedWorld,migrateMasterSaveToApproved} from '../server/approved-world-migration.mjs';
 import {Realm} from '../server/world.mjs';
 import {planCaravanRoute} from '../server/caravan-routing.mjs';
+import {reconcileApprovedCaravans} from '../server/caravans.mjs';
 import {WorldStore} from '../server/store.mjs';
 import {DatabaseSync} from 'node:sqlite';
 import {mkdtempSync,existsSync,rmSync} from 'node:fs';
@@ -93,3 +94,15 @@ test('wilderness travel returns visible enemies and animals while trader towns s
  p.x=layoutTown().x;p.y=layoutTown().y;assert.equal(r.snapshot('walker').enemies.length,0,'the protected trader plaza stays clear');
  function layoutTown(){return createApprovedWorldLayout().settlements[0];}
 });
+
+test('already migrated caravan saves recover missing neutral destination depots',()=>{
+ const r=new Realm(undefined,()=>1000000,{ruleset:'master-v1'});
+ const c=r.state.caravans.bandit;
+ c.from='day2-bandit';c.to='day2-neutral';c.status='travelling';
+ r.state.approvedCaravansVersion=1;
+ delete r.state.caravanDepots['day2-neutral'];
+ reconcileApprovedCaravans(r);
+ assert.ok(r.state.caravanDepots['day2-neutral']);
+ assert.equal(r.state.caravanDepots['day2-neutral'].goods.spear,4);
+});
+
