@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createApprovedWorldLayout} from '../server/approved-world-layout.mjs';
 import {createDay2Layout} from '../server/day2-layout.mjs';
-import {masterBlocked} from '../server/master-geography.mjs';
+import {masterBlocked,onMasterRoad} from '../server/master-geography.mjs';
 import {migrateApprovedWorld} from '../server/approved-world-migration.mjs';
 import {Realm} from '../server/world.mjs';
 import {planCaravanRoute} from '../server/caravan-routing.mjs';
@@ -21,6 +21,7 @@ test('approved geography preserves building identities and clear approaches',()=
  assert.ok(w.width>old.width*5&&w.height>old.height*4);
  for(const b of old.buildings)assert.ok(w.buildings.some(n=>n.id===b.id&&n.houseDesign===b.houseDesign),b.id);
  for(const b of w.buildings)assert.equal(masterBlocked(b.x,b.y+35),false,b.id+' door');
+ for(const b of w.buildings.filter(b=>b.id.startsWith('approved-')))assert.equal(onMasterRoad(b.x,b.y,180),false,b.id+' clear of main road');
  for(const road of w.roads.filter(r=>r.kind==='path'))for(let i=1;i<road.points.length;i++){
   const a=road.points[i-1],b=road.points[i],steps=Math.ceil(Math.hypot(a.x-b.x,a.y-b.y)/20);
   for(let n=0;n<=steps;n++){const x=a.x+(b.x-a.x)*n/steps,y=a.y+(b.y-a.y)*n/steps;
