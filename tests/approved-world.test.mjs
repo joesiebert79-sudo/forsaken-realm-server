@@ -6,6 +6,7 @@ import {masterBlocked} from '../server/master-geography.mjs';
 import {migrateApprovedWorld} from '../server/approved-world-migration.mjs';
 import {Realm} from '../server/world.mjs';
 import {planCaravanRoute} from '../server/caravan-routing.mjs';
+import {reconcileApprovedCaravans} from '../server/caravans.mjs';
 import {WorldStore} from '../server/store.mjs';
 import {DatabaseSync} from 'node:sqlite';
 import {mkdtempSync,existsSync,rmSync} from 'node:fs';
@@ -66,4 +67,14 @@ test('first saved-world migration makes a recoverable SQLite checkpoint',()=>{
   try{store.realm.join('keeper');assert.ok(existsSync(path+'.before-world-v1.sqlite'));assert.equal(store.realm.player('keeper').level,8);assert.equal(store.realm.player('keeper').inventory.iron,17);assert.equal(store.realm.state.properties.saved.level,6);assert.equal(store.realm.state.approvedWorldVersion,1);}finally{store.close();}
   const backup=new DatabaseSync(path+'.before-world-v1.sqlite',{readOnly:true});try{const state=JSON.parse(backup.prepare('SELECT body FROM world WHERE id=1').get().body);assert.equal(state.players.keeper.x,home.x);assert.equal(state.approvedWorldVersion,undefined);}finally{backup.close();}
  }finally{rmSync(dir,{recursive:true,force:true});}
+});
+test('already migrated caravan saves recover missing neutral destination depots',()=>{
+ const r=new Realm(undefined,()=>1000000,{ruleset:'master-v1'});
+ const c=r.state.caravans.bandit;
+ c.from='day2-bandit';c.to='day2-neutral';c.status='travelling';
+ r.state.approvedCaravansVersion=1;
+ delete r.state.caravanDepots['day2-neutral'];
+ reconcileApprovedCaravans(r);
+ assert.ok(r.state.caravanDepots['day2-neutral']);
+ assert.equal(r.state.caravanDepots['day2-neutral'].goods.spear,4);
 });

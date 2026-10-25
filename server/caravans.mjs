@@ -41,6 +41,9 @@ function depositCargo(r,c){for(const [item,count]of Object.entries(c.cargo)){con
 function retireGuards(r,c,destination=c.to||c.from){for(const id of [...c.guards,...(c.merchant?[c.merchant]:[])]){const n=r.state.enemies[id];if(n?.hp>0){const depot=r.state.caravanDepots[destination];depot.gold=addWhole(depot.gold,n.inventory.gold||0);for(const [item,count]of Object.entries(n.inventory))if(item!=='gold')depot.goods[item]=addWhole(depot.goods[item]||0,count);}delete r.state.enemies[id];}}
 export function ensureCaravans(r){if(!r.state.caravansVersion){r.state.caravans??={};r.state.caravanDepots??={};for(const t of FACTION_TOWNS)r.state.caravanDepots[t.id]??={gold:300,goods:{spear:4,shield:4,tunic:4}};for(const faction of ['survivor','bandit']){const t=FACTION_TOWNS.find(t=>t.faction===faction)||FACTION_TOWNS.filter(t=>t.faction==='neutral')[faction==='bandit'?1:0];if(!t)throw Error('Missing caravan origin');r.state.caravans[faction]={id:'caravan:'+faction,faction,x:t.x,y:t.y,hp:400,maxHp:400,from:t.id,to:null,status:'waiting',readyAt:r.clock(),trip:0,guards:[],cargo:{},gold:0,escorts:{},history:[],ambushes:[]};}r.state.caravansVersion=1;}}
 export function reconcileApprovedCaravans(r){
+ // Older saved routes can reach a neutral village whose depot was never saved.
+ r.state.caravanDepots??={};
+ for(const t of FACTION_TOWNS)r.state.caravanDepots[t.id]??={gold:300,goods:{spear:4,shield:4,tunic:4}};
  if(!APPROVED_WORLD||r.state.approvedCaravansVersion)return;
  for(const c of Object.values(r.state.caravans||{})){
   if(!['loading','travelling'].includes(c.status)||!c.to)continue;
