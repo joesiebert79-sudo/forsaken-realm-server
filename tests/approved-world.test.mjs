@@ -5,6 +5,8 @@ import {createDay2Layout} from '../server/day2-layout.mjs';
 import {masterBlocked} from '../server/master-geography.mjs';
 import {migrateApprovedWorld,migrateMasterSaveToApproved} from '../server/approved-world-migration.mjs';
 import {Realm} from '../server/world.mjs';
+import {AI_LIMITS,tickEnemies} from '../server/enemies.mjs';
+import {SIGHT_RADIUS,inSight} from '../server/world-visibility.mjs';
 import {planCaravanRoute} from '../server/caravan-routing.mjs';
 import {reconcileApprovedCaravans} from '../server/caravans.mjs';
 import {WorldStore} from '../server/store.mjs';
@@ -95,6 +97,21 @@ test('wilderness travel returns visible enemies and animals while trader towns s
  function layoutTown(){return createApprovedWorldLayout().settlements[0];}
 });
 
+test('500-unit sight and longer pursuit preserve protected towns',()=>{
+ assert.equal(SIGHT_RADIUS,500);
+ assert.equal(inSight({x:0,y:0},{x:500,y:0}),true);
+ assert.equal(inSight({x:0,y:0},{x:501,y:0}),false);
+ assert.ok(AI_LIMITS.leash>=600);
+ let now=1000000;
+ const p={id:'walker',x:200,y:0,hp:100};
+ const e={id:'wolf',kind:'wolf',x:0,y:0,homeX:0,homeY:0,hp:50,maxHp:50,speed:85,range:35,lastAttack:0};
+ const realm={clock:()=>now,sessions:new Map([['walker',now]]),state:{players:{walker:p},enemies:{wolf:e},companions:{}},safe:()=>false,blocks:()=>false};
+ tickEnemies(realm,1);assert.equal(e.aggro,'walker');
+ p.x=610;now+=1000;tickEnemies(realm,1);assert.equal(e.active,true);assert.equal(e.aggro,'walker');
+ p.x=1200;now+=1000;tickEnemies(realm,1);assert.equal(e.aggro,undefined);
+ realm.safe=target=>target===p;p.x=250;now+=1000;tickEnemies(realm,1);assert.equal(e.active,false);
+});
+
 test('already migrated caravan saves recover missing neutral destination depots',()=>{
  const r=new Realm(undefined,()=>1000000,{ruleset:'master-v1'});
  const c=r.state.caravans.bandit;
@@ -105,4 +122,3 @@ test('already migrated caravan saves recover missing neutral destination depots'
  assert.ok(r.state.caravanDepots['day2-neutral']);
  assert.equal(r.state.caravanDepots['day2-neutral'].goods.spear,4);
 });
-
