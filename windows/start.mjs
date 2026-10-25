@@ -1,7 +1,6 @@
-import {spawnSync} from 'node:child_process';
 import {createUpdateManager} from './update-manager.mjs';
 import {playerStorage} from './player-storage.mjs';
-import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { writeFileSync, existsSync } from 'node:fs';
 import { networkInterfaces } from 'node:os';
 import { randomBytes } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -11,30 +10,28 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const updates=createUpdateManager(root);process.env.REALM_PHONE_DOWNLOADS=updates.phone;
 if(process.env.REALM_UPDATES_OFF!=='1'&&process.env.REALM_LOOPBACK_TEST!=='1'){try{if(await updates.applyPending())process.exit(75);}catch(error){console.log('The staged update was not installed: '+error.message);}}
 
-// The packaged test launcher opts in explicitly. Existing direct/live launchers
-// retain their original behavior and are never silently rebuilt.
-if(process.argv.includes('--development')){
- const marker=resolve(root,'Development-World','REBUILD-VERIFIED.json');
- if(!existsSync(marker)){
-  console.log('Preparing approved full development map; preserving original saves and player codes.');
-  const prepared=spawnSync(process.execPath,[resolve(root,'windows','prepare-development.mjs')],{stdio:'inherit',env:process.env});
-  if(prepared.status!==0||!existsSync(marker))throw Error('Full-map preparation failed. Original world is unchanged.');
- }
- const verified=JSON.parse(readFileSync(marker,'utf8'));
- if(verified.developmentOnly!==true||verified.profile!=='master-reference')throw Error('Development world verification is invalid');
- process.env.REALM_DATA_DIR=resolve(root,'Development-World');
- process.env.REALM_WORLD_DB=resolve(root,'Development-World','world.sqlite');
- process.env.REALM_WORLD_PROFILE='master-reference';
- console.log('FORSAKEN REALM v0.90 — SMALLER WORLD: 49920 x 33280; 2 Trader Towns, 12 villages, 5 castle landmarks.');
-}
-
-// Only a verified copy-on-rebuild opts this installation into the new world.
+// The old launcher selected a separate master-reference world, bypassing the
+// approved layout. Reuse that exact live database when present; WorldStore makes
+// a SQLite checkpoint before its one-time in-place layout migration.
 if(!process.env.REALM_DATA_DIR&&existsSync(resolve(root,'Development-World','REBUILD-VERIFIED.json'))){
- process.env.REALM_DATA_DIR=resolve(root,'Development-World');
- process.env.REALM_WORLD_DB=resolve(root,'Development-World','world.sqlite');
- process.env.REALM_WORLD_PROFILE='master-reference';
+ const data=resolve(root,'Development-World');
+ process.env.REALM_DATA_DIR=data;
 }
+process.env.REALM_WORLD_PROFILE='day4-housing';
+console.log('Approved world: 12 villages, 2 trader towns, 5 castles. Existing saves stay in their active data folder.');
 const {data,tokens}=playerStorage(root,process.env.LOCALAPPDATA,{allowNew:process.argv.includes('--new-world')});
+const base=resolve(data,'world.sqlite');
+const requested=process.env.REALM_WORLD_DB?resolve(process.env.REALM_WORLD_DB):null;
+const oldMaster=base+'.master-reference.sqlite',oldDay4=base+'.day2-compact.sqlite';
+const selected=requested&&existsSync(requested)?requested:
+ requested&&existsSync(requested+'.day2-compact.sqlite')?requested+'.day2-compact.sqlite':
+ requested&&existsSync(requested+'.master-reference.sqlite')?requested+'.master-reference.sqlite':
+ existsSync(resolve(data,'REBUILD-VERIFIED.json'))&&existsSync(oldMaster)?oldMaster:
+ existsSync(oldDay4)?oldDay4:existsSync(base)?base:existsSync(oldMaster)?oldMaster:null;
+if(!selected)throw Error('Saved world database was not found. Original player data was not changed.');
+process.env.REALM_WORLD_DB=selected;
+process.env.REALM_WORLD_DB_EXACT='1';
+console.log('Using existing saved world: '+selected);
 console.log('Permanent world and player-code folder: '+data);
 const port=Number(process.env.PORT||8788);
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('Choose a valid server PORT from 1024 to 65535');
@@ -55,7 +52,6 @@ for(const a of addresses)console.log('PHONE INSTALL / UPDATE: http://'+a.address
 lines.push('', 'Phone install/update: '+addresses.map(a=>'http://'+a.address+':'+port+'/phone').join(' or '));writeFileSync(resolve(root,'CONNECTION-INFO.txt'),lines.join('\r\n'),{mode:0o600});
 console.log(lines.join('\n'));
 process.env.REALM_TEST_TOKENS=JSON.stringify(tokens);process.env.REALM_PLAYER_CODES_FILE=resolve(data,'players.json');
-process.env.REALM_WORLD_DB=process.env.REALM_WORLD_DB||resolve(data,'world.sqlite');
 process.env.REALM_BIND_HOST='0.0.0.0';process.env.PORT=String(port);
 const http=await import('../server/http.mjs');updates.start();
 const updateIdle=setInterval(()=>{if(updates.pending&&http.activePlayers()===0){console.log('No players are connected. Saving and restarting to install the verified server update.');updates.stop();clearInterval(updateIdle);http.shutdown(75);}},30000);updateIdle.unref();
