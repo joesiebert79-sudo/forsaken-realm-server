@@ -15,6 +15,8 @@ keytool -genkeypair -alias capture -keyalg RSA -keysize 2048 -validity 2 -dname 
 "$BT/apksigner" sign --ks "$CAPTURE_DIR/capture.p12" --ks-key-alias capture --ks-pass pass:capturepass --out "$CAPTURE_DIR/capture.apk" "$CAPTURE_DIR/aligned.apk"
 "$BT/apksigner" verify "$CAPTURE_DIR/capture.apk"
 adb install -r "$CAPTURE_DIR/capture.apk"
+adb shell wm size 1280x720
+adb shell wm density 240
 PKG='com.morongaming.forsakenrealm.app'; ACT='com.morongaming.forsakenrealm.MainActivity'
 adb shell am start -n "$PKG/$ACT" >/dev/null
 sleep 3
@@ -29,7 +31,8 @@ adb shell am force-stop "$PKG"
 PREF_NAME="$(adb shell run-as "$PKG" ls shared_prefs 2>/dev/null | tr -d '\r' | head -1 || true)"
 PREF_NAME="${PREF_NAME:-com.morongaming.forsakenrealm.MainActivity.xml}"
 adb shell run-as "$PKG" mkdir -p shared_prefs
-base64 -w0 "$CAPTURE_DIR/prefs.xml" | adb shell run-as "$PKG" sh -c "base64 -d > shared_prefs/$PREF_NAME"
+adb shell "run-as $PKG sh -c 'cat > shared_prefs/$PREF_NAME'" < "$CAPTURE_DIR/prefs.xml"
+adb shell run-as "$PKG" cat "shared_prefs/$PREF_NAME" | grep -q 'TESTER01'
 for scene in map village trader wilderness house; do
   rm -f "$CAPTURE_DIR/world.sqlite.day2-compact.sqlite" "$CAPTURE_DIR/world.sqlite.day2-compact.sqlite-wal" "$CAPTURE_DIR/world.sqlite.day2-compact.sqlite-shm"
   export REALM_WORLD_DB="$CAPTURE_DIR/world.sqlite" REALM_WORLD_PROFILE=day4-housing
