@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "directions": 16,
+  "directionConvention": "0 = world +X; counterclockwise in world XY at 22.5-degree increments; render using the approved isometric camera",
+  "actions": {
+    "idle": 12,
+    "walk": 12,
+    "run": 16,
+    "attack": 12,
+    "hit": 6,
+    "death": 12,
+    "special": 16,
+    "turn": 4
+  },
+  "references": [
+    {
+      "role": "classes",
+      "path": "references/phase-2-approved/approved-six-classes.png",
+      "sha256": "0b5dc94b86464129ef5f1ede3f6d5512fb220c80deab9ea70b8ad770366ae113"
+    },
+    {
+      "role": "companions",
+      "path": "references/phase-2-approved/approved-companions.png",
+      "sha256": "45b4fc23ae88c020a4d011a1b0361de3b73c200cfa73dfc941dc49997c3f441c"
+    },
+    {
+      "role": "wildlife",
+      "path": "references/phase-2-approved/approved-wildlife.png",
+      "sha256": "47b547536e971356ec3e3fe97932b86598a9732a63a40eab5bd554344517580a"
+    }
+  ],
+  "entities": [
+    {
+      "id": "warrior",
+      "name": "Warrior",
+      "runtimeId": "melee",
+      "type": "class",
+      "reference": "classes",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "archer",
+      "name": "Archer",
+      "runtimeId": "ranged",
+      "type": "class",
+      "reference": "classes",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "mage",
+      "name": "Mage",
+      "runtimeId": "mage",
+      "type": "class",
+      "reference": "classes",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "rogue",
+      "name": "Rogue",
+      "runtimeId": "rogue",
+      "type": "class",
+      "reference": "classes",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "paladin",
+      "name": "Paladin",
+      "runtimeId": "paladin",
+      "type": "class",
+      "reference": "classes",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "necromancer",
+      "name": "Necromancer",
+      "runtimeId": "necromancer",
+      "type": "class",
+      "reference": "classes",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "wolf",
+      "name": "Wolf",
+      "runtimeId": "wolf",
+      "type": "companion",
+      "reference": "companions",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "direWolf",
+      "name": "Dire Wolf",
+      "runtimeId": "direWolf",
+      "type": "companion",
+      "reference": "companions",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "warBear",
+      "name": "War Bear",
+      "runtimeId": "warBear",
+      "type": "companion",
+      "reference": "companions",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "raven",
+      "name": "Raven",
+      "runtimeId": "raven",
+      "type": "companion",
+      "reference": "companions",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "loneWolf",
+      "name": "Lone Wolf",
+      "runtimeId": "loneWolf",
+      "type": "companion",
+      "reference": "companions",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "familiar",
+      "name": "Dragon Familiar",
+      "runtimeId": "familiar",
+      "type": "companion",
+      "reference": "companions",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    },
+    {
+      "id": "horse",
+      "name": "Horse Mount",
+      "runtimeId": "horse",
+      "type": "companion",
+      "reference": "companions",
+      "status": "awaiting-production",
+      "directions": 16,
+      "requiredBaseFrames": 1440,
+      "review": {
+        "approved": false
+      },
+      "pages": [],
+      "clips": []
+    }
+  ],
+  "drafts": [
+    {
+      "entity": "warrior",
+      "action": "idle",
+      "framesRequested": 12,
+      "status": "unreviewed-fidelity-and-alignment",
+      "productionFrames": 0,
+      "path": "references/phase-2-review/warrior-idle-pilot-draft.png",
+      "appearanceReview": {
+        "approved": true,
+        "sha256": "a79b74c2f43622557e68fa897430c68b97ddd5766c99d8a2590f8c2b440359d6",
+        "date": "2026-10-25",
+        "scope": "Appearance only; motion, alignment and production readiness are unapproved"
+      }
+    }
+  ]
+}

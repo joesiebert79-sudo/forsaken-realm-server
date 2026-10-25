@@ -52,7 +52,7 @@ export function trade(r,p,c){
  if(buying){
   if((s.items[c.item]||0)<amount)throw Error('Trader is out of stock');if(!canAfford(a,total,currency))throw Error('Not enough coins');
   const owned=addWhole(p.inventory[c.item]||0,amount),paid=changeWallet(a,total,currency,false,{pouch:MASTER});
-  s.items[c.item]-=amount;Object.assign(a,paid);p.inventory[c.item]=owned;const depot=r.state.caravanDepots?.[m.townId];if(depot&&currency==='gold')depot.gold=addWhole(depot.gold,Math.floor(total/10));
+  s.items[c.item]-=amount;Object.assign(a,paid);p.inventory[c.item]=owned;const depot=r.state.caravanDepots?.[m.townId];if(depot)depot[currency]=addWhole(depot[currency]||0,total);
  }else{
   if((p.inventory[c.item]||0)<amount)throw Error('Item is not in your backpack');
   const count=addWhole(s.items[c.item]||0,amount),paid=changeWallet(a,total,currency,true,{pouch:MASTER});

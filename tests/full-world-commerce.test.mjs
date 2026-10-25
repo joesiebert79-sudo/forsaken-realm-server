@@ -42,7 +42,7 @@ test('wrong denomination, insufficient total funds and full pouch roll back stoc
   Object.assign(s.realm.state.accounts.one,{gold:0,silver:0,copper:0});before=JSON.stringify(s.realm.state);
   assert.throws(()=>s.transaction(r=>r.command('one',{...cmd,id:'no-silver',expectedCurrency:'silver'})),/Not enough coins/);assert.equal(JSON.stringify(s.realm.state),before);
   Object.assign(s.realm.state.accounts.one,{gold:500,silver:2000,copper:2000});s.realm.player('one').inventory.wood=1;before=JSON.stringify(s.realm.state);
-  assert.throws(()=>s.transaction(r=>r.command('one',{...cmd,id:'pouch-full',type:'merchantSell',expectedTotal:7,expectedCurrency:'copper'})),/pouch is full/);assert.equal(JSON.stringify(s.realm.state),before);
+  assert.throws(()=>s.transaction(r=>r.command('one',{...cmd,id:'pouch-full',type:'merchantSell',expectedTotal:75,expectedCurrency:'copper'})),/pouch is full/);assert.equal(JSON.stringify(s.realm.state),before);
  }finally{offers[m.shop].wood=original;s.close();}
 });
 test('both full-world towns keep neutral access and their complete protected radius',()=>{
@@ -61,19 +61,19 @@ test('wilderness encounters exist across west and east, retain death state, and 
  }finally{s.close();}
 });
 
-test('one gold pays two silver and returns exactly eight silver',()=>{
- assert.deepEqual(changeWallet({gold:1,silver:0,copper:0},2,'silver'),{gold:0,silver:8,copper:0});
- assert.deepEqual(changeWallet({gold:0,silver:1,copper:0},2,'copper'),{gold:0,silver:0,copper:8});
- assert.deepEqual(changeWallet({gold:0,silver:9,copper:10},1,'gold'),{gold:0,silver:0,copper:0});
+test('one gold pays two silver and returns exactly 98 silver',()=>{
+ assert.deepEqual(changeWallet({gold:1,silver:0,copper:0},2,'silver'),{gold:0,silver:98,copper:0});
+ assert.deepEqual(changeWallet({gold:0,silver:1,copper:0},2,'copper'),{gold:0,silver:0,copper:98});
+ assert.deepEqual(changeWallet({gold:0,silver:99,copper:100},1,'gold'),{gold:0,silver:0,copper:0});
  for(const amount of [-1,1.5,NaN,Number.MAX_SAFE_INTEGER+1])assert.throws(()=>changeWallet({gold:1},amount,'silver'));
 });
 
-test('trader purchase charges 2 silver from one gold, returns 8 silver, and retry charges once',()=>{
+test('trader purchase charges 2 silver from one gold, returns 98 silver, and retry charges once',()=>{
  const {s,m}=fixture(),original=offers[m.shop].wood;offers[m.shop].wood=[2,10,'silver'];
  try{Object.assign(s.realm.state.accounts.one,{gold:1,silver:0,copper:0});
   const cmd={id:'owner-change-example',type:'merchantBuy',target:m.id,item:'wood',amount:1,expectedTotal:2,expectedCurrency:'silver'};
   s.transaction(r=>r.command('one',cmd));s.transaction(r=>r.command('one',cmd));
-  assert.deepEqual(s.realm.snapshot('one').you.coinPouch,{gold:0,silver:8,copper:0});assert.equal(s.realm.player('one').inventory.wood,1);
+  assert.deepEqual(s.realm.snapshot('one').you.coinPouch,{gold:0,silver:98,copper:0});assert.equal(s.realm.player('one').inventory.wood,1);
  }finally{offers[m.shop].wood=original;s.close();}
 });
 
@@ -81,9 +81,9 @@ test('personal bank makes exact change without changing total wallet plus bank v
  const {servicePosition}=await import('../server/service-locations.mjs');const {s}=fixture();
  try{const p=s.realm.player('one');Object.assign(p,servicePosition(FACTION_TOWNS[0],'bank'));Object.assign(s.realm.state.accounts.one,{gold:1,silver:0,copper:0,bank:{gold:0,silver:0,copper:0,tier:1,tokens:{}}});
   s.transaction(r=>r.command('one',{id:'deposit-change',type:'bankDeposit',item:'silver',amount:2}));
-  let a=s.realm.state.accounts.one;assert.equal(a.gold,0);assert.equal(a.silver,8);assert.equal(a.bank.silver,2);assert.equal(walletValue(a)+walletValue(a.bank),100n);
+  let a=s.realm.state.accounts.one;assert.equal(a.gold,0);assert.equal(a.silver,98);assert.equal(a.bank.silver,2);assert.equal(walletValue(a)+walletValue(a.bank),10000n);
   s.transaction(r=>r.command('one',{id:'withdraw-change',type:'bankWithdraw',item:'copper',amount:5}));
-  a=s.realm.state.accounts.one;assert.equal(a.copper,5);assert.equal(a.bank.silver,1);assert.equal(a.bank.copper,5);assert.equal(walletValue(a)+walletValue(a.bank),100n);
+  a=s.realm.state.accounts.one;assert.equal(a.copper,5);assert.equal(a.bank.silver,1);assert.equal(a.bank.copper,95);assert.equal(walletValue(a)+walletValue(a.bank),10000n);
  }finally{s.close();}
 });
 
@@ -91,11 +91,11 @@ test('both trader hubs make exact copper, silver and gold change for mixed walle
  const {s}=fixture();const original=offers.Provisioner.wood;let sequence=0;
  try{const hubs=MERCHANTS.filter(m=>m.hubName);assert.equal(hubs.length,2);
   const cases=[
-   {wallet:{gold:0,silver:1,copper:48},price:2,coin:'silver',after:{gold:0,silver:3,copper:8}},
-   {wallet:{gold:1,silver:0,copper:0},price:3,coin:'copper',after:{gold:0,silver:9,copper:7}},
-   {wallet:{gold:0,silver:9,copper:10},price:1,coin:'gold',after:{gold:0,silver:0,copper:0}},
-   {wallet:{gold:0,silver:0,copper:100},price:1,coin:'gold',after:{gold:0,silver:0,copper:0}},
-   {wallet:{gold:0,silver:0,copper:21},price:2,coin:'silver',after:{gold:0,silver:0,copper:1}}
+   {wallet:{gold:0,silver:2,copper:48},price:2,coin:'silver',after:{gold:0,silver:0,copper:48}},
+   {wallet:{gold:1,silver:0,copper:0},price:3,coin:'copper',after:{gold:0,silver:99,copper:97}},
+   {wallet:{gold:0,silver:99,copper:100},price:1,coin:'gold',after:{gold:0,silver:0,copper:0}},
+   {wallet:{gold:0,silver:0,copper:10000},price:1,coin:'gold',after:{gold:0,silver:0,copper:0}},
+   {wallet:{gold:0,silver:0,copper:201},price:2,coin:'silver',after:{gold:0,silver:0,copper:1}}
   ];
   for(const m of hubs)for(const example of cases){
    offers.Provisioner.wood=[example.price,1,example.coin];

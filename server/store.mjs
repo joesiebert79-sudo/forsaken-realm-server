@@ -9,6 +9,7 @@ export class WorldStore {
     this.db.exec('CREATE TABLE IF NOT EXISTS movement (id TEXT PRIMARY KEY, body TEXT NOT NULL)');
     const saved=this.db.prepare('SELECT body FROM world WHERE id=1').get();
     const state=saved?JSON.parse(saved.body):initialWorld();
+    if(saved&&state.currencyVersion!==2&&path!==':memory:'&&!existsSync(path+'.before-currency-100.sqlite'))this.db.prepare('VACUUM INTO ?').run(path+'.before-currency-100.sqlite');
     if(MASTER&&saved&&state.mapScale!==32.5&&path!==':memory:'&&!existsSync(path+'.before-v077.sqlite'))this.db.prepare('VACUUM INTO ?').run(path+'.before-v077.sqlite');
     if(DAY4&&saved&&!state.day4HousingVersion&&path!==':memory:'&&!existsSync(path+'.before-v068.sqlite'))this.db.prepare('VACUUM INTO ?').run(path+'.before-v068.sqlite');
     if(DAY4&&saved&&!state.traderVillageVersion&&path!==':memory:'&&!existsSync(path+'.before-v070.sqlite'))this.db.prepare('VACUUM INTO ?').run(path+'.before-v070.sqlite');

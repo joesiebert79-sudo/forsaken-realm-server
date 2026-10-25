@@ -108,7 +108,7 @@ export class Realm {
     for(const e of Object.values(state.enemies))equipEnemy(e);state.containers??={};state.companions??={};
     this.progressionBalance=validateBalance(Object.hasOwn(options,'progressionBalance')?options.progressionBalance:state.ruleset==='master-v1'?PLAYTEST_SKILLS:null);
     if(!COMPACT&&state.ruleset==='master-v1'){clearDoorApproaches(state);clearStaticApproaches(state,this.buildings,this.roadGeometry);}
-    this.state=state; this.clock=clock;worldTime(state,clock()); this.sessions=new Map();this.serviceBalance=options.serviceBalance||JSON.parse(readFileSync(new URL('./expansion-settings.json',import.meta.url),'utf8'));if(masterEnabled(this)){ensureSocieties(this);ensureCosmetics(this);ensureDungeons(this);ensureCaravans(this);reconcileApprovedCaravans(this);}
+    state.currencyVersion=2;this.state=state; this.clock=clock;worldTime(state,clock()); this.sessions=new Map();this.serviceBalance=options.serviceBalance||JSON.parse(readFileSync(new URL('./expansion-settings.json',import.meta.url),'utf8'));if(masterEnabled(this)){ensureSocieties(this);ensureCosmetics(this);ensureDungeons(this);ensureCaravans(this);reconcileApprovedCaravans(this);}
   }
   safe(position) {const location=position.interior?buildingById(position.interior,this.buildings):position;return !!location&&(COMPACT?WORLD.safeTowns:masterEnabled(this)?FACTION_TOWNS:WORLD.safeTowns).some(t=>distance(t,location)<=t.radius);}
   join(identity) {

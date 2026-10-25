@@ -1,3 +1,4 @@
+import {COIN_VALUE,coinValue} from './currency.mjs';
 import {readFileSync} from 'node:fs';
 import {PROGRESSION} from './progression.mjs';
 export const ITEM_COMMERCE=JSON.parse(readFileSync(new URL('./item-atlas-catalog.json',import.meta.url),'utf8'));
@@ -9,8 +10,27 @@ export function itemPrice(id){const d=ITEM_COMMERCE[id],item=PROGRESSION.items.f
  if(restrictedEquipment(id))return {amount:150,currency:'gold'};
  return {amount:Math.max(2,(d?.rarity||1)*5*(1+Math.floor((d?.crafting?.level||0)/5))),currency:(d?.rarity||1)>=4?'gold':(d?.rarity||1)>=2?'silver':'copper'};
 }
-export function supplyPrice(supplies){let copper=0;for(const [id,n]of Object.entries(supplies)){const p=itemPrice(id);copper+=p.amount*n*({copper:1,silver:10,gold:100}[p.currency]);}if(!Number.isSafeInteger(copper)||copper<=0)throw Error('Invalid supply price');return copper%100===0?{amount:copper/100,currency:'gold'}:copper%10===0?{amount:copper/10,currency:'silver'}:{amount:copper,currency:'copper'};}
-export function flashPrice(amount,currency){if(amount<4&&currency!=='copper'){amount*=10;currency=currency==='gold'?'silver':'copper';}const discounted=Math.max(1,Math.ceil(amount*.75));return {gold:discounted,currency,...(discounted<amount?{regularGold:amount}:{})};}
+export function supplyPrice(supplies){
+ let copper=0n;
+ for(const [id,n] of Object.entries(supplies)){
+  if(!Number.isSafeInteger(n)||n<1)throw Error('Invalid supply quantity');
+  const price=itemPrice(id);copper+=coinValue(price.amount,price.currency)*BigInt(n);
+ }
+ if(copper<=0n||copper>BigInt(Number.MAX_SAFE_INTEGER))throw Error('Invalid supply price');
+ for(const currency of ['gold','silver','copper']){
+  const value=BigInt(COIN_VALUE[currency]);
+  if(copper%value===0n)return {amount:Number(copper/value),currency};
+ }
+}
+export function flashPrice(amount,currency){
+ coinValue(amount,currency); // Validate server-owned denominations and integer prices.
+ if(amount<4&&currency!=='copper'){
+  const next=currency==='gold'?'silver':'copper';
+  amount*=COIN_VALUE[currency]/COIN_VALUE[next];currency=next;
+ }
+ const discounted=Math.max(1,Math.ceil(amount*.75));
+ return {gold:discounted,currency,...(discounted<amount?{regularGold:amount}:{})};
+}
 export function saleMetadata(id){const d=ITEM_COMMERCE[id];return d?{equipmentTier:d.equipmentTier,rarity:d.rarity,rarityName:d.rarityName,crafting:d.crafting,atlasCategory:d.atlasCategory,acquisition:d.acquisition}:{};}
 export function offerRestricted(o){return Object.keys(o.supplies||{}).some(restrictedEquipment)||o.kind==='supplies'&&restrictedEquipment(o.item);}
 export function rareEquipmentDrop(source,random){

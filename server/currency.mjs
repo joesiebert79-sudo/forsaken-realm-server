@@ -1,6 +1,6 @@
 import {MASTER} from './world-profile.mjs';
 export const COINS=Object.freeze(['copper','silver','gold']);
-export const COIN_VALUE=Object.freeze({copper:1,silver:10,gold:100});
+export const COIN_VALUE=Object.freeze({copper:1,silver:100,gold:10000});
 export const POUCH_CAPACITY=Object.freeze({copper:2000,silver:2000,gold:500});
 export const isCoin=id=>COINS.includes(id);
 const whole=n=>{if(!Number.isSafeInteger(n)||n<0)throw Error('Invalid coin quantity');return n;};
@@ -24,4 +24,4 @@ export function changeWallet(account,amount,coin='gold',credit=false,{pouch=true
 }
 export function debitCoins(account,amount,coin='gold',options){Object.assign(account,changeWallet(account,amount,coin,false,options));}
 export function creditCoins(account,amount,coin='gold',options){Object.assign(account,changeWallet(account,amount,coin,true,options));}
-export function coinRows(account){if(!MASTER)return[];const coins=wallet(account);return [{name:'Belt coin pouch',detail:`Copper ${coins.copper}/2000 • Silver ${coins.silver}/2000 • Gold ${coins.gold}/500`},{name:'Coin value and change',detail:'10 copper = 1 silver. 10 silver = 1 gold. Traders accept combined coins and return change.'}];}
+export function coinRows(account){if(!MASTER)return[];const coins=wallet(account);return [{name:'Belt coin pouch',detail:`Copper ${coins.copper}/2000 • Silver ${coins.silver}/2000 • Gold ${coins.gold}/500`},{name:'Coin value and change',detail:'100 copper = 1 silver. 100 silver = 1 gold. Traders accept combined coins and return change.'}];}
