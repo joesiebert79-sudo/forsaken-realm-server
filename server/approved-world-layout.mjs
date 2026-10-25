@@ -1,5 +1,5 @@
 import {createDay2Layout} from './day2-layout.mjs';
-import {MASTER_LANDMARKS,MASTER_ROADS,MASTER_RIVERS,MASTER_SIZE,masterBlocked,onMasterRoad} from './master-geography.mjs';
+import {MASTER_LANDMARKS,MASTER_ROADS,MASTER_RIVERS,MASTER_SIZE} from './master-geography.mjs';
 import {clearPath} from './master-paths.mjs';
 
 // Issue #2: arrange the existing house/shop/castle assets on the approved map.
@@ -8,7 +8,6 @@ const villageNames=['Northreach','Ravenford','Pinecrest','Stonehollow','Millford
 const biomes=['mountain','forest','woodland','farmland','marsh','plains','coast','river','coast','marsh','swamp','mountain'];
 const castleNames=['Wolfswatch','Blackthorn','Duskfort','Ironcrown','Stormkeep'];
 const villageOffsets=[[-690,-510],[-345,-560],[345,-560],[690,-510],[-730,-95],[-365,-105],[365,-105],[730,-95],[-690,385],[-345,420],[345,420],[690,385]];
-const compactSites=[[-220,-420],[220,-420],[-600,-420],[600,-420],[-220,-40],[220,-40],[-600,-40],[600,-40],[-220,340],[220,340],[-600,340],[600,340],[-220,-800],[220,-800],[-600,-800],[600,-800],[-220,720],[220,720],[-600,720],[600,720]];
 const traderOffsets={smithy:[470,-290],bank:[-470,-290],workshop:[470,330],merchant:[-470,330]};
 const road=(id,kind,width,points)=>({id,kind,width,points:points.map(([x,y])=>({x:Math.round(x),y:Math.round(y)}))});
 export function createApprovedWorldLayout(){
@@ -36,8 +35,7 @@ export function createApprovedWorldLayout(){
  for(const [vi,v] of villages.entries()){
   // Keep the exact relative positions of the fifteen existing homes so saved
   // garden plots, walls and workstations move with their approved house.
-  const closeSites=compactSites.filter(([dx,dy])=>!onMasterRoad(v.x+dx,v.y+dy,210)&&!masterBlocked(v.x+dx,v.y+dy+45)).slice(0,12);
-  const offsets=vi===3?oldHomes.map(h=>[h.x-old.settlements.find(s=>s.id==='day2-neutral').x,h.y-old.settlements.find(s=>s.id==='day2-neutral').y]):closeSites.length===12?closeSites:villageOffsets;
+  const offsets=vi===3?oldHomes.map(h=>[h.x-old.settlements.find(s=>s.id==='day2-neutral').x,h.y-old.settlements.find(s=>s.id==='day2-neutral').y]):villageOffsets;
   for(let i=0;i<offsets.length;i++){
    let [dx,dy]=offsets[i];if(vi===8&&i===2)dx-=150;const legacy=vi===3?oldHomes[i]:null;
    const design=legacy?.houseDesign||(['hut','cottage','farmhouse','townhouse','manor'][i%5]);
