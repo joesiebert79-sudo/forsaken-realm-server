@@ -44,13 +44,15 @@ for scene in map village trader wilderness house; do
   for attempt in {1..30}; do if curl -fsS http://127.0.0.1:8788/health >/dev/null; then break; fi; sleep 1; done
   adb shell am force-stop "$PKG"
   adb shell am start -n "$PKG/$ACT" >/dev/null
-  sleep 4
+  sleep 12
   adb shell input tap 927 285
   adb shell input tap 200 193
-  sleep 7
+  sleep 12
+  if [ "$scene" = map ]; then adb exec-out screencap -p > "$CAPTURE_DIR/screenshots/map-after-play.png"; fi
   adb shell input tap 1046 647
-  sleep 5
-  if [ "$scene" = map ]; then adb shell input tap 61 233; sleep 3; fi
+  sleep 10
+  if [ "$scene" = map ]; then adb exec-out screencap -p > "$CAPTURE_DIR/screenshots/map-after-enter.png"; fi
+  if [ "$scene" = map ]; then adb shell input tap 61 233; sleep 5; fi
   adb exec-out screencap -p > "$CAPTURE_DIR/screenshots/$scene.png"
   kill "$SERVER_PID" || true
   wait "$SERVER_PID" || true
