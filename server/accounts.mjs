@@ -1,5 +1,5 @@
 import {checkBackpack,checkWeight,carryWeight} from './backpack-capacity.mjs';
-import {DAY4,EFFICIENCY,MASTER} from './world-profile.mjs';
+import {APPROVED_WORLD,DAY4,EFFICIENCY,MASTER} from './world-profile.mjs';
 import {wallet} from './currency.mjs';
 import {STARTING_GOLD} from './skill-balance.mjs';
 import {addWhole} from './master-rules.mjs';
@@ -28,7 +28,7 @@ export function accountFor(r,p){
 export function townAt(r,position){const pos=position.interior?buildingById(position.interior):position;return pos&&FACTION_TOWNS.find(t=>Math.hypot(t.x-pos.x,t.y-pos.y)<=t.radius);}
 export function authorizedTown(r,p){const town=townAt(r,p);return (town?.traderZone!==false)&&(town?.faction===p.faction||town?.faction==='neutral')?town:null;}
 export function canEnter(r,p,position){const town=townAt(r,position);return EFFICIENCY||!town||town.traderZone===false||town.faction==='neutral'||town.faction===p.faction;}
-export function spawnFor(p){const t=MASTER?FACTION_TOWNS[p.faction==='bandit'?1:0]:FACTION_TOWNS.find(t=>t.faction===(p.faction||'survivor'));return {x:t.x,y:t.y};}
+export function spawnFor(p){const t=MASTER||APPROVED_WORLD?FACTION_TOWNS[p.faction==='bandit'?1:0]:FACTION_TOWNS.find(t=>t.faction===(p.faction||'survivor'));return {x:t.x,y:t.y};}
 export function createCharacter(r,p,command){
  const a=accountFor(r,p);
  if(!p.creationRequired)throw Error('Appearance, faction and profession are already selected');

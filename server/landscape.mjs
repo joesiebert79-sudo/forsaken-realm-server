@@ -1,5 +1,5 @@
 import {MASTER_POLYGONS} from './master-geography.mjs';
-import {COMPACT,LAYOUT,MASTER} from './world-profile.mjs';
+import {APPROVED_WORLD,COMPACT,LAYOUT,MASTER} from './world-profile.mjs';
 import {CASTLES} from './castles.mjs';
 import {WORLD,VILLAGES,WORLD_BUILDINGS,NEW_VILLAGES,buildingBlocks} from './catalog.mjs';
 export const segmentDistance=(x,y,a,b)=>{const dx=b.x-a.x,dy=b.y-a.y;const t=Math.max(0,Math.min(1,((x-a.x)*dx+(y-a.y)*dy)/(dx*dx+dy*dy||1)));return Math.hypot(x-a.x-t*dx,y-a.y-t*dy);};
@@ -37,7 +37,7 @@ export const STREAMS=COMPACT?LAYOUT.streams:[21000,43000].map((base,i)=>({name:i
 // Low-cost ground detail appears on both the atlas and the playable landscape.
 export const TERRAIN=VILLAGES.flatMap((v,i)=>[{id:v.id+'-fields',kind:'fields',name:v.name+' Fields',x:v.x+650,y:v.y+1350,rx:420,ry:190},{id:v.id+'-meadow',kind:'meadow',name:v.name+' Common',x:v.x-1000,y:v.y+1500,rx:570,ry:360}]).filter(t=>t.x-t.rx>0&&t.y+t.ry<WORLD.height&&!WORLD_BUILDINGS.some(b=>Math.abs(b.x-t.x)<t.rx+b.halfWidth&&Math.abs(b.y-t.y)<t.ry+b.depth));
 export function localTerrain(p){return TERRAIN.filter(t=>Math.abs(t.x-p.x)<1600+t.rx&&Math.abs(t.y-p.y)<1600+t.ry);}
-export const worldMap={...(MASTER?{terrainPolygons:MASTER_POLYGONS}:{}),castles:CASTLES,terrain:TERRAIN,villages:VILLAGES,roads:ROADS.filter(r=>r.kind==='road'),paths:ROADS.filter(r=>r.kind==='path'),streams:STREAMS.slice(0,1),rivers:STREAMS.slice(1),regions:COMPACT?LAYOUT.settlements.map(t=>({name:t.name,x:t.x,y:t.y})):[{name:'Western Marches',x:4000,y:24000},{name:'Northreach',x:36000,y:6500},{name:'Ashen Lowlands',x:17000,y:48000},{name:'Eastern Downs',x:49000,y:37000}]};
+export const worldMap={...(MASTER||APPROVED_WORLD?{terrainPolygons:MASTER_POLYGONS}:{}),castles:CASTLES,terrain:TERRAIN,villages:VILLAGES,roads:ROADS.filter(r=>r.kind==='road'),paths:ROADS.filter(r=>r.kind==='path'),streams:STREAMS.slice(0,1),rivers:STREAMS.slice(1),regions:COMPACT?LAYOUT.settlements.map(t=>({name:t.name,x:t.x,y:t.y})):[{name:'Western Marches',x:4000,y:24000},{name:'Northreach',x:36000,y:6500},{name:'Ashen Lowlands',x:17000,y:48000},{name:'Eastern Downs',x:49000,y:37000}]};
 const hash=s=>{let h=2166136261;for(const c of s)h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0;};
 export function expandLandscape(state){if(COMPACT)return;if(state.landscapeVersion>=2)return;
  // Only generated nature is thinned. Character identities, items, claims and structures are untouched.

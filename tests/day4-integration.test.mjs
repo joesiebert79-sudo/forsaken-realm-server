@@ -1,12 +1,12 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {mkdtempSync,rmSync} from 'node:fs';import {tmpdir} from 'node:os';import {join} from 'node:path';
 process.env.REALM_WORLD_PROFILE='day4-housing';const {buyFixtureDeed}=await import('./deed-fixture.mjs');
-const {WorldStore}=await import('../server/store.mjs');const {HOUSE_DESIGNS}=await import('../server/housing-catalog.mjs');const {housingWorld}=await import('../server/housing-runtime.mjs');const {validateHousingPlacement}=await import('../server/housing.mjs');const {MERCHANTS}=await import('../server/merchants.mjs');
+const {LAYOUT}=await import('../server/world-profile.mjs');const {WorldStore}=await import('../server/store.mjs');const {HOUSE_DESIGNS}=await import('../server/housing-catalog.mjs');const {housingWorld}=await import('../server/housing-runtime.mjs');const {validateHousingPlacement}=await import('../server/housing.mjs');const {MERCHANTS}=await import('../server/merchants.mjs');
 test('Day 4 real transactions: corner trader services, house purchase, owner entrance, persistence and duplicate protection',()=>{
  const dir=mkdtempSync(join(tmpdir(),'day4-')),path=join(dir,'world.sqlite');let store=new WorldStore(path,()=>1000000,{ruleset:'master-v1'}),seq=0;
  const act=(id,type,args={})=>store.transaction(r=>r.command(id,{id:'housing-'+(++seq),type,...args}));
  try{
  for(const [id,faction] of [['one','survivor'],['two','bandit']]){store.transaction(r=>r.join(id));act(id,'createCharacter',{faction,appearance:'male-1',profession:'farmer'});}
- let r=store.realm,p=r.player('one');assert.equal(r.snapshot('one').towns.length,2);assert.equal(r.safe({x:700,y:700}),true);assert.equal(r.safe({x:3430,y:3430}),false);assert.ok(MERCHANTS.every(m=>m.faction!=='neutral'));
+ let r=store.realm,p=r.player('one');assert.equal(r.snapshot('one').towns.length,2);assert.equal(r.safe(LAYOUT.settlements.find(t=>t.id==='day2-survivor')),true);assert.equal(r.safe({x:3430,y:3430}),false);assert.ok(MERCHANTS.every(m=>m.faction==='neutral'));
  for(const id of ['one','two']){const player=r.player(id),bank=r.buildings.find(b=>b.id==='day2-'+player.faction+'-bank');player.x=bank.x;player.y=bank.y+35;act(id,'enter',{target:bank.id});player.x=120;player.y=350;r.state.accounts[id].gold=1000;act(id,'bankOpen',{quote:20});player.x=310;player.y=415;act(id,'exit');}
  const b=r.buildings.find(b=>b.housingStatus==='vacant');p.x=b.x;p.y=b.y+35;act('one','interact');assert.equal(p.openService,'housing');
  buyFixtureDeed(store,'one',b.houseDesign);act('one','housingPreview',{design:b.houseDesign,target:b.id});const nonce=r.state.accounts.one.housingProposal.nonce,gold=r.state.accounts.one.gold;
