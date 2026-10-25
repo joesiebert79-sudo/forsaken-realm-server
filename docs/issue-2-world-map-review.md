@@ -3,6 +3,17 @@
 Status: **implementation candidate; visual approval pending**. Do not merge or
 publish an Android APK until the owner has reviewed actual in-game screenshots.
 
+Actual emulator captures from the game are in
+[`docs/issue-2-screenshots/`](issue-2-screenshots/):
+[whole map](issue-2-screenshots/map.png),
+[village](issue-2-screenshots/village.png),
+[trader town](issue-2-screenshots/trader.png),
+[forest wilderness](issue-2-screenshots/wilderness.png), and
+[existing house](issue-2-screenshots/house.png).
+These are gameplay-camera views, not re-creations of the reference pictures.
+The village and trader screenshots still show less visual density than the
+panoramic references. Owner review of that difference is required before release.
+
 The five authoritative, byte-preserved reference images are in
 [`references/world-map-approved/`](../references/world-map-approved/README.md).
 The map shown by the Android full-screen Map button uses the approved map image.
@@ -27,14 +38,11 @@ reference folder. The Android map reads the new `approved-world` server profile.
 The server streams local terrain, resources and encounters around the player to
 avoid loading the entire expanded world during play.
 
-Automated verification: 94 server tests pass, including new geography, path
-clearance, save relocation and caravan routes; HTTP startup passes; Android Java
-sources compile with the local Android SDK. Actual device/emulator play and
-performance checks, and the required five in-game screenshots, are outstanding.
-This workspace has no Android emulator or connected test device. A static image
-of the approved reference must not be presented as an in-game screenshot.
+Automated verification: the repository's server check passes, including new
+geography, path clearance, save relocation and caravan routes; HTTP startup
+passes; Android Java sources compile and run in an Android emulator. The five
+captures above were taken from that running emulator. Physical-device travel,
+multiplayer load and Android frame-rate measurements remain unverified.
 
-Required visual review captures: full world map, one village, one trader town,
-wilderness between settlements, and an approved house in the new environment.
-After the owner approves those visuals, prepare and publish the signed Android
-and server update together.
+After the owner approves the visuals, prepare and publish the signed Android and
+server update together. No APK or server update has been published for Issue #2.
