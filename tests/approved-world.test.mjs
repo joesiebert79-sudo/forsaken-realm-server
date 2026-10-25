@@ -6,6 +6,11 @@ import {masterBlocked} from '../server/master-geography.mjs';
 import {migrateApprovedWorld} from '../server/approved-world-migration.mjs';
 import {Realm} from '../server/world.mjs';
 import {planCaravanRoute} from '../server/caravan-routing.mjs';
+import {WorldStore} from '../server/store.mjs';
+import {DatabaseSync} from 'node:sqlite';
+import {mkdtempSync,existsSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
 
 test('approved geography preserves building identities and clear approaches',()=>{
  const old=createDay2Layout(true),w=createApprovedWorldLayout();
@@ -46,4 +51,19 @@ test('saved identity, ownership, inventory and interior remain intact after relo
  assert.deepEqual(state.accounts,before.accounts);
  assert.equal(state.players.p.level,9);assert.equal(state.companions.p.level,4);
  const once=structuredClone(state);assert.equal(migrateApprovedWorld(state,w),false);assert.deepEqual(state,once);
+});
+
+test('first saved-world migration makes a recoverable SQLite checkpoint',()=>{
+ const dir=mkdtempSync(join(tmpdir(),'approved-world-')),path=join(dir,'world.sqlite');
+ try{
+  const old=createDay2Layout(true),home=old.buildings.find(b=>b.houseDesign);
+  const r=new Realm(undefined,()=>1000000,{ruleset:'master-v1'});r.join('keeper');r.command('keeper',{id:'created',type:'createCharacter',appearance:'male-1',profession:'melee',faction:'survivor'});
+  const p=r.player('keeper');p.x=home.x;p.y=home.y+35;p.level=8;p.inventory.iron=17;
+  r.state.properties={saved:{id:'saved',buildingId:home.id,x:home.x,y:home.y,design:home.houseDesign,level:6,owner:'keeper'}};
+  delete r.state.approvedWorldVersion;delete r.state.approvedCaravansVersion;delete r.state.caravans;delete r.state.caravansVersion;
+  const db=new DatabaseSync(path);db.exec('CREATE TABLE world(id INTEGER PRIMARY KEY,body TEXT NOT NULL);CREATE TABLE movement(id TEXT PRIMARY KEY,body TEXT NOT NULL)');db.prepare('INSERT INTO world(id,body) VALUES(1,?)').run(JSON.stringify(r.state));db.close();
+  const store=new WorldStore(path,()=>1000001,{ruleset:'master-v1'});
+  try{store.realm.join('keeper');assert.ok(existsSync(path+'.before-world-v1.sqlite'));assert.equal(store.realm.player('keeper').level,8);assert.equal(store.realm.player('keeper').inventory.iron,17);assert.equal(store.realm.state.properties.saved.level,6);assert.equal(store.realm.state.approvedWorldVersion,1);}finally{store.close();}
+  const backup=new DatabaseSync(path+'.before-world-v1.sqlite',{readOnly:true});try{const state=JSON.parse(backup.prepare('SELECT body FROM world WHERE id=1').get().body);assert.equal(state.players.keeper.x,home.x);assert.equal(state.approvedWorldVersion,undefined);}finally{backup.close();}
+ }finally{rmSync(dir,{recursive:true,force:true});}
 });
