@@ -6,8 +6,11 @@ if not exist "runtime\node.exe" (
  pause
  exit /b 1
 )
+:start
 "runtime\node.exe" "windows\start.mjs" --development
-if errorlevel 1 echo Server stopped with an error. See the message above.
+set "REALM_EXIT=%errorlevel%"
+if "%REALM_EXIT%"=="75" goto start
+if not "%REALM_EXIT%"=="0" echo Server stopped with an error. See the message above.
 pause
 
 
