@@ -45,6 +45,7 @@ for scene in map village trader wilderness house; do
   adb shell am force-stop "$PKG"
   adb shell am start -n "$PKG/$ACT" >/dev/null
   sleep 12
+  adb shell input tap 550 514
   adb shell input tap 927 285
   adb shell input tap 200 193
   sleep 12
@@ -52,6 +53,13 @@ for scene in map village trader wilderness house; do
   adb shell input tap 1046 647
   sleep 10
   if [ "$scene" = map ]; then adb exec-out screencap -p > "$CAPTURE_DIR/screenshots/map-after-enter.png"; fi
+  adb shell uiautomator dump /sdcard/issue-2-window.xml >/dev/null
+  WINDOW_XML="$(adb exec-out cat /sdcard/issue-2-window.xml)"
+  if [[ "$WINDOW_XML" != *'Forsaken Realm gameplay'* ]]; then
+    adb exec-out screencap -p > "$CAPTURE_DIR/screenshots/$scene-navigation-failed.png"
+    echo "Gameplay did not open for $scene" >&2
+    exit 1
+  fi
   if [ "$scene" = map ]; then adb shell input tap 61 233; sleep 5; fi
   adb exec-out screencap -p > "$CAPTURE_DIR/screenshots/$scene.png"
   kill "$SERVER_PID" || true

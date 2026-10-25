@@ -31,9 +31,9 @@ jobs:
         with:
           api-level: 35
           arch: x86_64
-          target: google_apis
-          profile: pixel_6
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          target: default
+          profile: Nexus 5X
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096
           script: bash scripts/issue-2-capture.sh
       - name: Upload screenshots only
         if: always()
