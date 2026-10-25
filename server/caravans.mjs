@@ -40,7 +40,23 @@ function depositCargo(r,c){for(const [item,count]of Object.entries(c.cargo)){con
 function retireGuards(r,c,destination=c.to||c.from){for(const id of [...c.guards,...(c.merchant?[c.merchant]:[])]){const n=r.state.enemies[id];if(n?.hp>0){const depot=r.state.caravanDepots[destination];depot.gold=addWhole(depot.gold,n.inventory.gold||0);for(const [item,count]of Object.entries(n.inventory))if(item!=='gold')depot.goods[item]=addWhole(depot.goods[item]||0,count);}delete r.state.enemies[id];}}
 export function ensureCaravans(r){if(!r.state.caravansVersion){r.state.caravans??={};r.state.caravanDepots??={};for(const t of FACTION_TOWNS)r.state.caravanDepots[t.id]??={gold:300,goods:{spear:4,shield:4,tunic:4}};for(const faction of ['survivor','bandit']){const t=FACTION_TOWNS.find(t=>t.faction===faction)||FACTION_TOWNS.filter(t=>t.faction==='neutral')[faction==='bandit'?1:0];if(!t)throw Error('Missing caravan origin');r.state.caravans[faction]={id:'caravan:'+faction,faction,x:t.x,y:t.y,hp:400,maxHp:400,from:t.id,to:null,status:'waiting',readyAt:r.clock(),trip:0,guards:[],cargo:{},gold:0,escorts:{},history:[],ambushes:[]};}r.state.caravansVersion=1;}}
 export function reconcileApprovedCaravans(r){
- if(!APPROVED_WORLD||r.state.approvedCaravansVersion)return;
+ if(!APPROVED_WORLD)return;
+ // v0.94 saves can already be marked reconciled while still referring to the
+ // master map's trader IDs. Move those depots and route endpoints before ticks.
+ const aliases={'day2-master-trader-a':'day2-survivor','day2-master-trader-b':'day2-bandit'};
+ let remapped=false;
+ r.state.caravanDepots??={};
+ for(const [oldId,newId] of Object.entries(aliases)){
+  if(!r.state.caravanDepots[oldId])continue;
+  r.state.caravanDepots[newId]??=r.state.caravanDepots[oldId];
+  delete r.state.caravanDepots[oldId];
+  remapped=true;
+ }
+ for(const c of Object.values(r.state.caravans||{})){
+  for(const key of ['from','to'])if(aliases[c[key]]){c[key]=aliases[c[key]];remapped=true;}
+ }
+ if(remapped)r.state.approvedCaravansVersion=0;
+ if(r.state.approvedCaravansVersion)return;
  for(const c of Object.values(r.state.caravans||{})){
   if(!['loading','travelling'].includes(c.status)||!c.to)continue;
   const from=town(c.from),to=town(c.to),route=from&&to?planCaravanRoute(r,from,to,c):null;

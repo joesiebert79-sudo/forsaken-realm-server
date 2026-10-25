@@ -32,15 +32,16 @@ export function spawnFor(p){const t=MASTER||APPROVED_WORLD?FACTION_TOWNS[p.facti
 export function createCharacter(r,p,command){
  const a=accountFor(r,p);
  if(!p.creationRequired)throw Error('Appearance, faction and profession are already selected');
+ if(command.name!==undefined&&!(typeof command.name==='string'&&/^[\p{L}\p{N} '-]{1,20}$/u.test(command.name.trim())))throw Error('Character name must be 1–20 letters, numbers, spaces, hyphens or apostrophes');
  if(!APPEARANCES.some(v=>v.id===command.appearance))throw Error('Choose one of the four appearances');
  if(!['survivor','bandit'].includes(command.faction))throw Error('Choose Survivor or Bandit');
  if(!p.legacyCharacter&&![...INITIAL_PROFESSIONS,'farmer','hunter'].includes(command.profession))throw Error('Choose one of the six approved classes');
  if(p.legacyCharacter&&command.profession!==p.role)throw Error('Existing profession and progress must be preserved');
  if(!p.legacyCharacter&&command.companion&&!Object.hasOwn(REFERENCE_COMPANIONS,command.companion))throw Error('Choose a reference companion');
  if(!p.legacyCharacter){p.companionKind=command.companion||'wolf';chooseRole(r,p,command.profession);if(command.profession==='hunter'){delete p.startingItems.fishingRod;delete p.inventory.fishingRod;}p.characterId=randomUUID();p.level=1;p.xp=0;p.skillPoints=0;p.skills={};p.armorMastery={};}
- p.appearance=command.appearance;const appearance=APPEARANCES.find(a=>a.id===p.appearance);p.sex=appearance.sex;p.bodyStyle=appearance.bodyStyle;p.faction=command.faction;p.creationRequired=false;p.roleRequired=false;
+ p.characterName=command.name?.trim()||p.characterName||p.id.slice(0,20);p.appearance=command.appearance;const appearance=APPEARANCES.find(a=>a.id===p.appearance);p.sex=appearance.sex;p.bodyStyle=appearance.bodyStyle;p.faction=command.faction;p.creationRequired=false;p.roleRequired=false;
  Object.assign(p,spawnFor(p));p.interior=null;a.activeCharacterId=p.characterId;
- a.characters[p.characterId]={id:p.characterId,profession:p.role,appearance:p.appearance,sex:p.sex,bodyStyle:p.bodyStyle,legacy:!!p.legacyCharacter};
+ a.characters[p.characterId]={id:p.characterId,name:p.characterName,profession:p.role,appearance:p.appearance,sex:p.sex,bodyStyle:p.bodyStyle,legacy:!!p.legacyCharacter};
  // Legacy companion identity/progression is deliberately retained until migration is approved.
  const pet=ensureCompanion(r,p);if(pet){Object.assign(pet,{x:p.x,y:p.y,interior:null});pet.level??=1;pet.xp??=0;pet.skills??={};}
 }
@@ -55,6 +56,7 @@ export function expireCorpses(r){const now=r.clock();for(const [id,c] of Object.
 // inventory and identity; replace only class, appearance and companion selection.
 export function adoptReferenceClass(r,p,c){
  const a=accountFor(r,p);
+ if(c.name!==undefined&&!(typeof c.name==='string'&&/^[\p{L}\p{N} '-]{1,20}$/u.test(c.name.trim())))throw Error('Character name must be 1–20 letters, numbers, spaces, hyphens or apostrophes');
  if(INITIAL_PROFESSIONS.includes(p.role)||p.referenceClassAdopted)throw Error('Reference class already selected');
  if(p.creationRequired||!p.role)throw Error('Complete character creation first');
  if(!r.safe(p)||p.interior||p.mounted||r.clock()-Math.max(p.lastAttack||0,p.lastHitAt||0)<10000)throw Error('Choose your new class outdoors in a protected town, out of combat and dismounted');
@@ -62,7 +64,7 @@ export function adoptReferenceClass(r,p,c){
  if(!role||!look||!Object.hasOwn(REFERENCE_COMPANIONS,c.companion))throw Error('Choose an approved class, appearance and companion');
  const next=structuredClone(p);for(const [id,n] of Object.entries(role.items))next.inventory[id]=Math.max(next.inventory[id]||0,n);next.equippedWeapon=role.weapon;next.equippedShield=!!role.shield;next.armorSlots??={};if(role.armour)next.armorSlots.chest=role.armour;checkBackpack(0,next);checkWeight(carryWeight(p),next);
  p.inventory=next.inventory;p.backpackGrid=next.backpackGrid;p.previousClass=p.role;p.role=role.id;p.referenceClassAdopted=true;p.companionKind=c.companion;p.appearance=look.id;p.sex=look.sex;p.bodyStyle=look.bodyStyle;
- p.startingItems=structuredClone(role.items);p.equippedWeapon=role.weapon;p.equippedShield=!!role.shield;p.equippedArmour=role.armour||null;p.armorSlots??={};if(role.armour)p.armorSlots.chest=role.armour;
+ p.characterName=c.name?.trim()||p.characterName||p.id.slice(0,20);p.startingItems=structuredClone(role.items);p.equippedWeapon=role.weapon;p.equippedShield=!!role.shield;p.equippedArmour=role.armour||null;p.armorSlots??={};if(role.armour)p.armorSlots.chest=role.armour;
  const pet=r.state.companions?.[p.id];if(pet){a.previousCompanion=structuredClone(pet);delete r.state.companions[p.id];}ensureCompanion(r,p);
- a.characters[p.characterId]={...a.characters[p.characterId],profession:p.role,appearance:p.appearance,level:p.level,legacy:false};
+ a.characters[p.characterId]={...a.characters[p.characterId],name:p.characterName,profession:p.role,appearance:p.appearance,level:p.level,legacy:false};
 }

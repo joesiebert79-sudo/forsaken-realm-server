@@ -70,7 +70,7 @@ export function tickEnemies(realm,dt){
 export function killEnemy(realm,enemy,now){
  if(enemy.lootDropped)return;
  equipEnemy(enemy);legendaryKill(realm,enemy);enemy.lootDropped=true;enemy.active=false;enemy.respawnAt=now+AI_LIMITS.respawnMs;
- const random=()=>randomInt(0,0x1000000)/0x1000000;const source=enemy.legendaryOwner?'boss':enemy.id?.startsWith('master-encounter-')&&enemy.maxHp>=100&&!realm.safe(enemy)?'dangerous-exploration':null;const rare=rareEquipmentDrop(source,random);if(rare)enemy.inventory[rare]=(enemy.inventory[rare]||0)+1;const id=`loot-${enemy.id}-${now}`;
+ const random=()=>randomInt(0,0x1000000)/0x1000000;const source=enemy.legendaryOwner?'boss':/^(master-encounter-|approved-encounter-|approved-sighting-)/.test(enemy.id||'')&&enemy.maxHp>=100&&!realm.safe(enemy)?'dangerous-exploration':null;const rare=rareEquipmentDrop(source,random);if(rare)enemy.inventory[rare]=(enemy.inventory[rare]||0)+1;const id=`loot-${enemy.id}-${now}`;
  realm.state.corpses[id]={id,x:enemy.x,y:enemy.y,interior:enemy.interior||null,items:structuredClone(enemy.inventory),name:enemy.kind,owner:enemy.id,createdAt:now};enemy.inventory={};if(enemy.societyId)societyDeath(realm,enemy);
 }
 
