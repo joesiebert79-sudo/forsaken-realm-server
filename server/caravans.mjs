@@ -52,6 +52,9 @@ export function reconcileApprovedCaravans(r){
   delete r.state.caravanDepots[oldId];
   remapped=true;
  }
+ // Existing v0.95 saves may already have valid route IDs but no destination
+ // depot for a neutral village. Arriving caravans must always have a depot.
+ for(const t of FACTION_TOWNS)r.state.caravanDepots[t.id]??={gold:300,goods:{spear:4,shield:4,tunic:4}};
  for(const c of Object.values(r.state.caravans||{})){
   for(const key of ['from','to'])if(aliases[c[key]]){c[key]=aliases[c[key]];remapped=true;}
  }
@@ -91,6 +94,7 @@ export function caravanRows(r,p){const t=authorizedTown(r,p);if(!t)return [{name
 export function caravanActors(r,p){return Object.values(r.state.caravans||{}).filter(c=>['loading','travelling'].includes(c.status)&&!p.interior&&dist(p,c)<900).map(c=>({id:c.id,targetGroup:'structures',kind:'caravan',name:c.faction+' caravan',x:c.x,y:c.y,hp:c.hp,maxHp:c.maxHp}));}
 
 export function npcAttackCaravan(r,n,c){if(!n?.societyId||n.hp<=0||!c||c.status!=='travelling'||c.hp<=0||n.faction===c.faction||r.safe(n)||r.safe(c)||dist(n,c)>50||r.clock()-n.lastAttack<1400||!clearStrike(n,c,r.blocks))return false;recordHit(n,c,n.equippedWeapon||'spear',n.damage||8,r.clock());c.lastAttacker=n.id;c.needsDetour=true;if(!c.ambushes.some(e=>e.trip===c.trip)){c.ambushes.push({trip:c.trip,to:c.to,x:c.x,y:c.y,at:r.clock()});c.ambushes=c.ambushes.slice(-12);}damageCaravan(r,c,r.clock());return true;}
+
 
 
 
