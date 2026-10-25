@@ -13,7 +13,7 @@ export const HOUSING=DAY4||MASTER;
 export const EFFICIENCY=PROFILE==='day2-efficiency';
 export const COMPACT=MASTER||EFFICIENCY||PROFILE==='day2-compact'||DAY4;
 export const LAYOUT=MASTER?createMasterLayout():APPROVED_WORLD?createApprovedWorldLayout():EFFICIENCY?createEfficiencyLayout():COMPACT?createDay2Layout(DAY4):null;
-export function databasePath(original){if(typeof original!=='string'||!original.length)throw Error('World database path required');return MASTER?original+'.master-reference.sqlite':EFFICIENCY?original+'.day2-efficiency.sqlite':COMPACT?original+'.day2-compact.sqlite':original;}
+export function databasePath(original){if(typeof original!=='string'||!original.length)throw Error('World database path required');if(process.env.REALM_EXACT_WORLD_DB==='1')return original;return MASTER?original+'.master-reference.sqlite':EFFICIENCY?original+'.day2-efficiency.sqlite':COMPACT?original+'.day2-compact.sqlite':original;}
 
 
 

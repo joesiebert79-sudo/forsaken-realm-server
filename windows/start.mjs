@@ -1,4 +1,5 @@
 import {spawnSync} from 'node:child_process';
+import {DatabaseSync} from 'node:sqlite';
 import {createUpdateManager} from './update-manager.mjs';
 import {playerStorage} from './player-storage.mjs';
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -33,6 +34,24 @@ if(!process.env.REALM_DATA_DIR&&existsSync(resolve(root,'Development-World','REB
  process.env.REALM_DATA_DIR=resolve(root,'Development-World');
  process.env.REALM_WORLD_DB=resolve(root,'Development-World','world.sqlite');
  process.env.REALM_WORLD_PROFILE='master-reference';
+}
+// A verified development copy can already hold the approved-world migration
+// even when its historic filename still ends in master-reference.sqlite.
+if(process.env.REALM_DATA_DIR===resolve(root,'Development-World')){
+ const saved=resolve(root,'Development-World','world.sqlite.master-reference.sqlite');
+ if(existsSync(saved)){
+  const db=new DatabaseSync(saved,{readOnly:true});
+  try{
+   const row=db.prepare('SELECT body FROM world WHERE id=1').get();
+   const world=row?JSON.parse(row.body):null;
+   if(world?.profile==='day2-compact'&&world.approvedWorldVersion>=1&&world.approvedWorldMigration?.to==='approved-world-v1'){
+    process.env.REALM_WORLD_PROFILE='day4-housing';
+    process.env.REALM_WORLD_DB=saved;
+    process.env.REALM_EXACT_WORLD_DB='1';
+    console.log('Opening the existing approved world from its saved database.');
+   }
+  }finally{db.close();}
+ }
 }
 const {data,tokens}=playerStorage(root,process.env.LOCALAPPDATA,{allowNew:process.argv.includes('--new-world')});
 console.log('Permanent world and player-code folder: '+data);
