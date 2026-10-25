@@ -8,7 +8,7 @@ import {downCompanion,companionDamage} from './companions.mjs';
 import {defend,clearStrike,recordHit} from './combat.mjs';
 import { ENEMIES, WORLD, ITEMS, buildingBlocks } from './catalog.mjs';
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
-export const AI_LIMITS=Object.freeze({perPlayer:2,total:64,activation:240,leash:180,respawnMs:600000});
+export const AI_LIMITS=Object.freeze({perPlayer:3,total:64,activation:330,leash:650,respawnMs:600000});
 const safe=p=>WORLD.safeTowns.some(t=>distance(t,p)<=t.radius+20);
 export function equipEnemy(e,reset=false){
  if(e.inventory&&!reset)return;
@@ -42,12 +42,12 @@ export function tickEnemies(realm,dt){
  for(const enemy of Object.values(realm.state.enemies)){
   enemy.retaliating=false;if(enemy.aggroUntil&&enemy.aggroUntil<=now){delete enemy.aggro;delete enemy.aggroUntil;}if(enemy.caravanId||enemy.interior)continue;if(enemy.societyId&&!(enemy.aggroUntil>now))continue;enemy.active=false;
   if(enemy.hp<=0){if(enemy.legendaryOwner)continue;if(now>=enemy.respawnAt&&!players.some(p=>distance(enemy,p)<220)){equipEnemy(enemy,true);enemy.lootDropped=false;enemy.hp=enemy.maxHp;enemy.x=enemy.homeX;enemy.y=enemy.homeY;}else continue;}
-  const attacker=players.find(p=>p.id===enemy.aggro&&enemy.aggroUntil>now&&distance(enemy,p)<=750);
+  const attacker=players.find(p=>p.id===enemy.aggro&&enemy.aggroUntil>now&&distance(enemy,p)<=900);
   if(enemy.aggro&&!attacker){delete enemy.aggro;delete enemy.aggroUntil;}
   if(enemy.societyId&&!attacker)continue;
   let target=attacker||null,best=attacker?distance(enemy,attacker):AI_LIMITS.activation;
   for(const p of attacker?[]:players){const d=distance(enemy,p);if(d<best&&distance({x:enemy.homeX,y:enemy.homeY},p)<AI_LIMITS.leash){best=d;target=p;}}
-  if(target)candidates.push({enemy,target,d:best,provoked:!!attacker});
+  if(target){enemy.aggro=target.id;enemy.aggroUntil=now+30000;candidates.push({enemy,target,d:best,provoked:!!attacker});}
   else if(distance(enemy,{x:enemy.homeX,y:enemy.homeY})>1){const d=distance(enemy,{x:enemy.homeX,y:enemy.homeY});const step=Math.min(d,enemy.speed*dt);enemy.x+=(enemy.homeX-enemy.x)/d*step;enemy.y+=(enemy.homeY-enemy.y)/d*step;}
  }
  candidates.sort((a,b)=>Number(b.provoked)-Number(a.provoked)||a.d-b.d||a.enemy.id.localeCompare(b.enemy.id));
@@ -70,7 +70,7 @@ export function tickEnemies(realm,dt){
 export function killEnemy(realm,enemy,now){
  if(enemy.lootDropped)return;
  equipEnemy(enemy);legendaryKill(realm,enemy);enemy.lootDropped=true;enemy.active=false;enemy.respawnAt=now+AI_LIMITS.respawnMs;
- const random=()=>randomInt(0,0x1000000)/0x1000000;const source=enemy.legendaryOwner?'boss':enemy.id?.startsWith('master-encounter-')&&enemy.maxHp>=100&&!realm.safe(enemy)?'dangerous-exploration':null;const rare=rareEquipmentDrop(source,random);if(rare)enemy.inventory[rare]=(enemy.inventory[rare]||0)+1;const id=`loot-${enemy.id}-${now}`;
+ const random=()=>randomInt(0,0x1000000)/0x1000000;const source=enemy.legendaryOwner?'boss':/^(master-encounter-|approved-encounter-|approved-sighting-)/.test(enemy.id||'')&&enemy.maxHp>=100&&!realm.safe(enemy)?'dangerous-exploration':null;const rare=rareEquipmentDrop(source,random);if(rare)enemy.inventory[rare]=(enemy.inventory[rare]||0)+1;const id=`loot-${enemy.id}-${now}`;
  realm.state.corpses[id]={id,x:enemy.x,y:enemy.y,interior:enemy.interior||null,items:structuredClone(enemy.inventory),name:enemy.kind,owner:enemy.id,createdAt:now};enemy.inventory={};if(enemy.societyId)societyDeath(realm,enemy);
 }
 

@@ -52,11 +52,11 @@ test('wilderness encounters exist across west and east, retain death state, and 
  const {s}=fixture();try{const r=s.realm,p=r.player('one');p.interior=null;
   for(const town of MASTER_LANDMARKS.filter(l=>l.kind==='trader')){
    Object.assign(p,{x:town.x-2200,y:town.y+2200});ensureMasterEncounters(r,p);
-   assert.ok(Object.values(r.state.enemies).some(e=>e.id.startsWith('master-encounter-')&&Math.hypot(e.x-p.x,e.y-p.y)<4600));
+   assert.ok(Object.values(r.state.enemies).some(e=>/^(master-encounter-|approved-encounter-)/.test(e.id)&&Math.hypot(e.x-p.x,e.y-p.y)<4600));
   }
-  const e=Object.values(r.state.enemies).find(e=>e.id.startsWith('master-encounter-'));e.hp=0;e.respawnAt=2000000;
+  const e=Object.values(r.state.enemies).find(e=>/^(master-encounter-|approved-encounter-)/.test(e.id));e.hp=0;e.respawnAt=2000000;
   const before=JSON.stringify(r.state.enemies);ensureMasterEncounters(r,p);assert.equal(JSON.stringify(r.state.enemies),before);
-  for(const enemy of Object.values(r.state.enemies).filter(e=>e.id.startsWith('master-encounter-'))){assert.ok(!r.safe(enemy));assert.ok(!r.blocks(enemy.x,enemy.y));}
+  for(const enemy of Object.values(r.state.enemies).filter(e=>/^(master-encounter-|approved-encounter-)/.test(e.id))){assert.ok(!r.safe(enemy));assert.ok(!r.blocks(enemy.x,enemy.y));}
   Object.assign(p,{x:512,y:512});r.leave('one');r.join('one');assert.ok(r.safe(r.player('one')));assert.ok(!r.blocks(r.player('one').x,r.player('one').y));
  }finally{s.close();}
 });
