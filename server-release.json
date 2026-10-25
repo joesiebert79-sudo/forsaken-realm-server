@@ -1,5 +1,5 @@
 {
-  "zipSha256": "2c918851b9ddf7460c4e13526b0fad670b87959e988893802f0a6f3f2b6904d1",
-  "version": "0.95",
-  "zipUrl": "https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.95/Forsaken-Realm-v0.95-Windows-Server.zip"
+  "zipSha256": "3c8bcb46de582f334d87b915323423c7e7861c3234f43d7ec159d6d89ca008e8",
+  "version": "0.95.1",
+  "zipUrl": "https://github.com/joesiebert79-sudo/forsaken-realm-server/releases/download/v0.95.1/Forsaken-Realm-v0.95.1-Windows-Server-Update.zip"
 }
