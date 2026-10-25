@@ -208,9 +208,11 @@ public final class MainActivity extends Activity {
    c.drawColor(0xff171e1b);JSONObject size=state.optJSONObject("worldSize");float ww=size==null?13585:size.optInt("width"),hh=size==null?13585:size.optInt("height"),scale=Math.min((w-60*u)/ww,(h-140*u)/hh)*mapZoom;clampMap(u);c.save();c.clipRect(0,70*u,w,h-60*u);c.translate(w/2+mapPanX,(h+10*u)/2+mapPanY);c.scale(scale,scale);c.translate(-ww/2,-hh/2);paint.setColor(0xff303c32);c.drawRect(0,0,ww,hh,paint);
    JSONObject atlas=state.optJSONObject("worldMap");if(atlas!=null){if(state.optString("worldProfile").equals("approved-world"))masterTerrain.approvedMap(c,ww,hh);else if(state.optString("worldProfile").equals("master-reference"))masterTerrain.map(c,atlas.optJSONArray("terrainPolygons"),ww,hh);
     if(!state.optString("worldProfile").equals("approved-world")&&MapDetail.settlements(mapZoom))drawTerrain(c,atlas.optJSONArray("terrain"),true,scale,u,0,0,ww,hh);
-    paint.setColor(0xff6794a0);paint.setStrokeWidth(Math.max(65,2*u/scale));mapLines(c,atlas.optJSONArray("streams"));paint.setColor(0xff80acb7);paint.setStrokeWidth(Math.max(100,3*u/scale));mapLines(c,atlas.optJSONArray("rivers"));
-    if(MapDetail.buildings(mapZoom)){paint.setColor(0xff8e8064);paint.setStrokeWidth(Math.max(18,.8f*u/scale));mapLines(c,atlas.optJSONArray("paths"));}
-    paint.setColor(0xffbba479);paint.setStrokeWidth(Math.max(40,1.4f*u/scale));mapLines(c,atlas.optJSONArray("roads"));
+    if(!state.optString("worldProfile").equals("approved-world")||mapZoom>4){
+     paint.setColor(0xff6794a0);paint.setStrokeWidth(Math.max(65,2*u/scale));mapLines(c,atlas.optJSONArray("streams"));paint.setColor(0xff80acb7);paint.setStrokeWidth(Math.max(100,3*u/scale));mapLines(c,atlas.optJSONArray("rivers"));
+     if(MapDetail.buildings(mapZoom)){paint.setColor(0xff8e8064);paint.setStrokeWidth(Math.max(18,.8f*u/scale));mapLines(c,atlas.optJSONArray("paths"));}
+     paint.setColor(0xffbba479);paint.setStrokeWidth(Math.max(40,1.4f*u/scale));mapLines(c,atlas.optJSONArray("roads"));
+    }
     if((!state.optString("worldProfile").equals("approved-world")||mapZoom>4)&&MapDetail.settlements(mapZoom)){JSONArray villages=atlas.optJSONArray("villages");if(villages!=null)for(int i=0;i<villages.length();i++){JSONObject v=villages.optJSONObject(i);float x=(float)v.optDouble("x"),y=(float)v.optDouble("y");paint.setColor(v.optBoolean("safe")?0xff87b2a0:0xffdec28c);c.drawCircle(x,y,4*u/scale,paint);paint.setTextSize(12*u/scale);c.drawText(v.optString("name"),x+6*u/scale,y-6*u/scale,paint);}}
    }
    if(MapDetail.buildings(mapZoom))mapBuildings.draw(c,state.optJSONArray("mapBuildings"),mapZoom,scale,u);
