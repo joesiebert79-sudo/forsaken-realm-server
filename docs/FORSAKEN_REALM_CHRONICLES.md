@@ -227,3 +227,10 @@ The creator-approved text of [Chapter Three — The Names Beneath the Stone](CHR
 ## Chapter Seven — The Bells Below
 
 [Read Chapter Seven](CHRONICLES_CHAPTER_07.md).
+
+
+---
+
+## Chapter Eight — The Keeper of Ash
+
+[Read the approved complete Chapter Eight](CHRONICLES_CHAPTER_08.md). Approved by creator on 2026-10-26; in-game pagination and implementation pending.
