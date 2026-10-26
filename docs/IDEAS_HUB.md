@@ -110,3 +110,6 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 - Grow the pool as new chapters and historical lore are written. Create multiple genuinely distinct questions per historical fact, with varied phrasing and answer order, but don't rely on cosmetic shuffling as the only anti-sharing measure. Questions must have unambiguous, verifiable answers and references to lore players can access.
 - **Practical limit:** A finite question bank cannot guarantee a unique question forever or for every player globally. Guarantee no repeats within a player's run **while unused questions remain**; if exhausted, add questions or clearly defined fallback behavior. Do not make unanswerable or procedurally invented canon.
 - Keep the three-spires-per-region rule, permanent reveal on successful activation, and ability to retry failed questions. This is a documented game design, not implemented functionality.
+
+## Latest chapter-length rule (2026-10-26)
+**6–9 pages per chapter** is the current approved rule and supersedes every earlier page-count statement in this file. Keep the saga extremely long overall.
