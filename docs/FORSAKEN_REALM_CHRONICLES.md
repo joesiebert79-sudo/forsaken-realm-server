@@ -196,3 +196,10 @@ In the same hour, a child in a mountain hut drew seven crowns in ash and erased 
 The world was remembering without consent.
 
 **Chapter Two page count: 7 pages.**
+
+
+---
+
+## Chapter Three — The Names Beneath the Stone
+
+The complete seven-page chapter is preserved in [Chapter Three — The Names Beneath the Stone](CHRONICLES_CHAPTER_03.md). This linked chapter is part of the canonical living manuscript.
