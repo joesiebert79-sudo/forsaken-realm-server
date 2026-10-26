@@ -49,3 +49,9 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 
 ## Suggested instruction for any new Chat or Work session
 > Before doing Forsaken Realm work, read `docs/IDEAS_HUB.md` in `joesiebert79-sudo/forsaken-realm-server`, then follow its linked design notes and current priorities. Update the hub when we approve a new decision.
+
+## Easy cross-chat retrieval phrase (approved 2026-10-26)
+- The user should only need to say: **"Check the Forsaken Realm ideas."**
+- Any Chat or Work session receiving that request should locate this GitHub repository (`joesiebert79-sudo/forsaken-realm-server`), read `docs/IDEAS_HUB.md`, and follow linked design notes before advising or editing.
+- Do not require the user to memorize repository paths or filenames.
+- **Important limitation:** This phrase is a convention, not an automatic global trigger; a new session may need GitHub access and must actually fetch the document rather than pretending it has read it.
