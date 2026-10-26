@@ -98,3 +98,8 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 - **[Formal Chronicles Writing Rules](CHRONICLES_WRITING_RULES.md)** govern all future chapters and revisions.
 - **Approved chapter length: 4–7 pages per chapter.** This explicitly supersedes the older 10–15+ page target in the initial book concept above.
 - Preserve canon, connect the story to the game, save prose in the manuscript, let the assistant lead creative writing, and plan coherent answers to major mysteries.
+
+## Spire distribution by region (2026-10-26)
+- **Approved layout principle:** Place **three Spires of Remembrance in each distinct map area/region**, including mountain areas, wilderness areas, and the other established regions. Each spire has its own lore question and reveals its assigned portion of that region's map.
+- **Total spire count is derived from the number of regions (3 × region count)**, not a fixed 24 or 50. If there are eight areas, that would be 24 spires; do not assume eight areas until the actual map is confirmed. The earlier 50 and proposed 24 totals are superseded as fixed design targets by the three-per-area rule.
+- Activating every spire reveals 100% of the world map. Preserve actual existing map geography and area names; do not invent regions merely to reach a tower count.
