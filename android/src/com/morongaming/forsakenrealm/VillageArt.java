@@ -5,6 +5,7 @@ import java.io.InputStream;
 import org.json.JSONObject;
 /** Shared sprite atlases; drawing allocates no bitmaps, shaders, paths or arrays. */
 final class VillageArt {
+ private final BanditCampArt camp=new BanditCampArt();
  private Bitmap buildings,props;private static Bitmap sharedBuildings,sharedProps;private static int sharedQuality=-1;
  private final Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG);
  private final Rect src=new Rect();private final RectF dst=new RectF();
@@ -12,8 +13,9 @@ final class VillageArt {
  private static final float[] DOOR_Y={.821f,.845f,.805f,.77f};
  private static final boolean[] MIRROR={true,false,true,true};
  private static Bitmap load(Context context,String file,int quality){try(InputStream in=context.getAssets().open(file)){BitmapFactory.Options o=new BitmapFactory.Options();o.inSampleSize=quality==0?2:1;return BitmapFactory.decodeStream(in,null,o);}catch(Exception e){return null;}}
- void load(Context context,int quality){if(sharedQuality!=quality||sharedBuildings==null){sharedBuildings=load(context,"village-buildings-v65.png",quality);sharedProps=load(context,"village-props-v65.png",quality);sharedQuality=quality;}buildings=sharedBuildings;props=sharedProps;}
+ void load(Context context,int quality){if(sharedQuality!=quality||sharedBuildings==null){sharedBuildings=load(context,"village-buildings-v65.png",quality);sharedProps=load(context,"village-props-v65.png",quality);sharedQuality=quality;}buildings=sharedBuildings;props=sharedProps;camp.load(context,quality);}
  boolean building(Canvas c,JSONObject b,boolean obstructs){
+  if(b.optString("id").startsWith("day2-bandit-")&&"neutral".equals(b.optString("faction"))&&!"smithy".equals(b.optString("role"))){camp.prop(c,1,330);return true;}
   if(buildings==null||!b.optString("id").startsWith("day2-"))return false;
   String role=b.optString("artRole",BuildingProfile.role(b));int cell=role.equals("smithy")?0:role.equals("bank")?1:role.equals("workshop")?2:role.equals("merchant")?3:-1;if(cell<0)return false;
   int w=buildings.getWidth()/2,h=buildings.getHeight()/2;src.set(cell%2*w,cell/2*h,(cell%2+1)*w,(cell/2+1)*h);

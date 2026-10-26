@@ -9,22 +9,34 @@ const biomes=['mountain','forest','woodland','farmland','marsh','plains','coast'
 const castleNames=['Wolfswatch','Blackthorn','Duskfort','Ironcrown','Stormkeep'];
 const villageOffsets=[[-690,-510],[-345,-560],[345,-560],[690,-510],[-730,-95],[-365,-105],[365,-105],[730,-95],[-690,385],[-345,420],[345,420],[690,385]];
 const traderOffsets={smithy:[470,-290],bank:[-470,-290],workshop:[470,330],merchant:[-470,330]};
+const banditCampOffsets={smithy:[440,-260],bank:[-440,-260],workshop:[440,245],merchant:[0,-475]};
 const road=(id,kind,width,points)=>({id,kind,width,points:points.map(([x,y])=>({x:Math.round(x),y:Math.round(y)}))});
 export function createApprovedWorldLayout(){
  const old=createDay2Layout(true);
  const byId=new Map(MASTER_LANDMARKS.map(p=>[p.id,p]));
  const west=byId.get('trader-a'),east=byId.get('trader-b');
  const towns=[{...west,id:'day2-survivor',name:'Trader Town A',faction:'neutral',traderZone:true,safe:true,radius:1450},
-              {...east,id:'day2-bandit',name:'Trader Town B',faction:'neutral',traderZone:true,safe:true,radius:1450}];
+              {...east,id:'day2-bandit',name:'Bandit Trader Camp',faction:'neutral',traderZone:true,safe:true,radius:1450}];
  const villages=villageNames.map((name,i)=>{const p=byId.get('village-'+(i+1));return {...p,id:i===3?'day2-neutral':p.id,name,biome:biomes[i],faction:'neutral',traderZone:false,safe:false};});
  const settlements=[...towns,...villages];
  const castles=castleNames.map((name,i)=>{const p=byId.get('castle-'+i);return {...p,id:'castle-'+i,name:name+' Castle',kind:'keep',style:'Castle',halfWidth:195,depth:160,size:700};});
  const buildings=[...castles],roads=MASTER_ROADS.map(r=>({...r,points:r.points.map(p=>({...p}))}));
  for(const town of towns){
   const oldTown=old.settlements.find(s=>s.id===town.id);
+  const camp=town.id==='day2-bandit',offsets=camp?banditCampOffsets:traderOffsets;
   for(const legacy of old.buildings.filter(b=>b.faction===oldTown.faction&&b.role!=='residence')){
-   const [dx,dy]=traderOffsets[legacy.role];
-   buildings.push({...legacy,x:Math.round(town.x+dx),y:Math.round(town.y+dy),faction:'neutral'});
+   const [dx,dy]=offsets[legacy.role];
+   buildings.push({...legacy,x:Math.round(town.x+dx),y:Math.round(town.y+dy),faction:'neutral',name:camp?'Bandit Camp '+legacy.name.split(' ').slice(-1)[0]:legacy.name});
+  }
+  if(camp){
+   // The southern gate feeds a cobbled spine; a walkable ring links the trader,
+   // workshop, smithy and bank while the central fire remains clear.
+   roads.push(road('bandit-gate-road','path',74,[[town.x,town.y+850],[town.x,town.y+490],[town.x,town.y+80],[town.x,town.y-320]]));
+   roads.push(road('bandit-north-lane','path',52,[[town.x-500,town.y-80],[town.x,town.y-80],[town.x+500,town.y-80]]));
+   roads.push(road('bandit-south-lane','path',52,[[town.x-500,town.y+340],[town.x,town.y+340],[town.x+500,town.y+340]]));
+   roads.push(road('bandit-west-lane','path',42,[[town.x-250,town.y-350],[town.x-250,town.y+340]]));
+   roads.push(road('bandit-east-lane','path',42,[[town.x+250,town.y-350],[town.x+250,town.y+340]]));
+   continue;
   }
   // Wide plaza and short counter approaches; no approved shop geometry is changed.
   roads.push(road('plaza-'+town.id,'path',95,[[town.x-850,town.y+95],[town.x+850,town.y+95]]));
