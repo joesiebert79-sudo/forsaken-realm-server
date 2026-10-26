@@ -74,3 +74,9 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 - **Trader Town A → Thornhaven.** Historic crossroads trading settlement with stone gates and a blackthorn tree in the central square. Represents the prosperity of the old realm. Saying: *“All roads lead to Thornhaven, but not all travelers return.”*
 - **Trader Town B → Ravenshollow.** Trading settlement near dark woods and ruins, known for rare treasures, secret dealings, and whispered ancient magic. Reflects the darkness spreading through the realm. Saying: *“Gold buys passage. Secrets buy survival.”*
 - These are the approved narrative names for the two existing trader towns; retain the underlying map locations and all other user-established village/castle names. Use these names consistently in Forsaken Realm Chronicles and future town-label proposals. No game map or asset change is implied by this lore documentation update.
+
+## Approved trader town faction identities (2026-10-26)
+- **Thornhaven — Allied Trader Town:** Lawful, good-aligned trading sanctuary protected by peaceful factions and allied kingdoms. Honest merchants, travelers, guards, provisions, weapons, armor and healing supplies. A surviving beacon of the old realm's prosperity.
+- **Ravenshollow — Bandit Trader Town:** Bandit-controlled marketplace of outlaws, smugglers, stolen goods, forbidden weapons, and rare artifacts. Rival bandit leaders preserve an uneasy market truce because all factions need trade.
+- **Historical connection:** Ravenshollow was once a prosperous, legitimate settlement. When the Seven Kingdoms fell, royal armies abandoned it; outlaws took control over generations. Thornhaven represents what survived; Ravenshollow represents the scar left by the collapse.
+- These faction identities are approved lore and should be used consistently in the Chronicles and game planning. Keep existing map placements and previously established names for other locations.
