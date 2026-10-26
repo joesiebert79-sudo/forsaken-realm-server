@@ -55,3 +55,17 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 - Any Chat or Work session receiving that request should locate this GitHub repository (`joesiebert79-sudo/forsaken-realm-server`), read `docs/IDEAS_HUB.md`, and follow linked design notes before advising or editing.
 - Do not require the user to memorize repository paths or filenames.
 - **Important limitation:** This phrase is a convention, not an automatic global trigger; a new session may need GitHub access and must actually fetch the document rather than pretending it has read it.
+
+## Approved: Forsaken Realm Chronicles — living lore book (2026-10-26)
+- Create a **page-turning, in-game medieval fantasy book**, titled **Forsaken Realm Chronicles**, with a continuous novel rather than one page per chapter. Chapters should naturally span approximately **10–15 or more turnable pages**, with readable pagination, dialogue, scenes, and coherent chapter continuity.
+- **Both reading and listening modes:** a thematic medieval speaker/play control integrated into the book, with **play, pause, resume, and replay**. Narration must follow the written text **word for word**.
+- **Automatic page turning synchronized to narration** so listeners can hear an entire chapter hands-free; readers can also manually turn pages with audio off.
+- **Remember reading/listening position** across closing and reopening the book, including page and audio progress when feasible.
+- Atmospheric, restrained sound design: leather-bound book opening creak, parchment turns, and optional quiet environmental sounds (fire, wind, thunder, combat) that do not obscure narration. Original dark medieval styling consistent with the approved book art; no generic overlay controls.
+- The user wants the assistant to **author the lore independently**, while the user occasionally supplies ideas and approves or changes direction; do not demand a choice at every page.
+- **Established story foundation:** the realm was once beautiful and prosperous, with **seven kingdoms** and a long peace; magic nourished the land. A forgotten entity beneath an ancient mountain whispered to a king, beginning the downfall. This is developing narrative canon, subject to user revisions.
+- **Working opening:** Book I, *The Age of Splendor*; Chapter One, *Before the World Was Forsaken*. Northern kingdom **Vaeloria**, **King Aldric**, royal archivist **Lady Seraphine**, the mountain **Hollow Crown**, and the **Festival of Seven Crowns** appear in the current draft. Preserve continuity when expanding; these details are draft lore, not yet separately ratified.
+- **Status:** design and story direction approved; audio/book interaction features are specifications, not verified implementation. Continue writing the novel and later implement the reader as a distinct task.
+
+## Change log addition
+- **2026-10-26:** Approved multi-page Chronicles format, synchronized narration/audio controls, automatic page turns, save-place behavior, and opening lore premise.
