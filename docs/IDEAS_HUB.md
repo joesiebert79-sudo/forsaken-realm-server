@@ -113,3 +113,6 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 
 ## Latest chapter-length rule (2026-10-26)
 **6–9 pages per chapter** is the current approved rule and supersedes every earlier page-count statement in this file. Keep the saga extremely long overall.
+
+## Approved Spires art and multiplayer behavior (2026-10-26)
+Creator approved the dark-gothic spire concepts adapted to the game's elevated three-quarter camera. Twelve spire types, each dormant and activated; three spires per map region. Spires become visually lit for everyone after awakening, but lore challenges and map unlocks remain personal. See [Spires of Remembrance design handoff](SPIRES_OF_REMEMBRANCE_DESIGN.md). **Work implements later; concept art image binaries still require upload to repository.**
