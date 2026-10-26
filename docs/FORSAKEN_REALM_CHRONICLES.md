@@ -91,3 +91,49 @@ They were never meant to reveal territory. They were meant to preserve truth whe
 - **Ravenshollow:** bandit-controlled trader town; once prosperous, abandoned during the kingdoms' collapse, then taken by outlaws.
 - **Fifty Spires of Remembrance:** ancient signal-and-memory network. Answering a question based on accessible Chronicles lore activates each spire and reveals its map section. All 50 reveal 100% of the game map. The feature is planned, not implemented.
 - This is a **living manuscript**, not a claim that the story or book interface has been implemented in the game.
+
+### Page Seven — The First Awakening
+
+The blue fire burned without consuming the wood beneath it.
+
+From the northern watchtower of Thornhaven, Captain Edric Voss watched the unnatural flames climb into the darkness. There was no smoke, no heat, and no sound. Yet every bell in the city had begun to ring.
+
+Beyond the walls, the ancient spire stood upon a hill overlooking the crossroads. For centuries, its black stone had remained cold and lifeless.
+
+Tonight, something moved within it.
+
+A thin line of silver light appeared along its surface, tracing symbols no living scholar could read.
+
+Then the earth trembled.
+
+Far beneath Ravenshollow, the cloaked traveler stumbled as dust fell from the chamber ceiling.
+
+The bandit clerk seized his arm.
+
+“Do you hear that?”
+
+At first, the traveler heard nothing.
+
+Then came three deep notes, like the tolling of a bell buried beneath a mountain.
+
+The sealed archway began to open.
+
+Beyond it stood a staircase descending into absolute darkness. Upon the first step lay a crown of tarnished silver, split cleanly down its center.
+
+The traveler knelt beside it.
+
+“Whose crown is this?”
+
+The clerk's face drained of color.
+
+“Nobody's,” he whispered. “Not anymore.”
+
+A voice rose from the darkness.
+
+“Seven kings made a promise. Six broke it. One was buried for keeping it.”
+
+And in the northern kingdom of Vaeloria, Lady Seraphine opened an ancient manuscript to discover that an entire chapter of the realm's history had vanished from its pages.
+
+Where the names of seven kings should have appeared, only one sentence remained:
+
+*When the towers remember, the dead shall demand their names.*
