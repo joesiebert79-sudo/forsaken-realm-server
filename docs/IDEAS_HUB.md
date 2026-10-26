@@ -80,3 +80,11 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 - **Ravenshollow — Bandit Trader Town:** Bandit-controlled marketplace of outlaws, smugglers, stolen goods, forbidden weapons, and rare artifacts. Rival bandit leaders preserve an uneasy market truce because all factions need trade.
 - **Historical connection:** Ravenshollow was once a prosperous, legitimate settlement. When the Seven Kingdoms fell, royal armies abandoned it; outlaws took control over generations. Thornhaven represents what survived; Ravenshollow represents the scar left by the collapse.
 - These faction identities are approved lore and should be used consistently in the Chronicles and game planning. Keep existing map placements and previously established names for other locations.
+
+## Approved concept: Fifty Spires of Remembrance — lore-driven map discovery (2026-10-26)
+- Place **50 ancient spire-like towers** throughout the game world. Each is activated by answering a question drawn from the actual *Forsaken Realm Chronicles* lore.
+- Every activated spire permanently reveals its assigned section of the world map; activating all **50** reveals **100%** of the map. Partition coverage to avoid gaps or unintended full-map discovery before all fifty are completed.
+- **Narrative connection:** The spires form an ancient magical signal network from the era of the Seven Kingdoms. A strange blue warning fire from allied **Thornhaven** can propagate across the network; a spire near bandit-held **Ravenshollow** responds with a crimson glow. This ties the current Chapter One signal scene to map exploration.
+- **Working lore name:** *Spires of Remembrance*. Each preserves a fragment of history and requires knowledge of that history to awaken. The network fell silent during the kingdoms' collapse and begins stirring again.
+- Design intent: link reading/listening to the Chronicles with exploration and progression. Questions should be answerable from accessible lore; allow retry without permanently locking players out. Exact placement, question bank, reveal regions, visual effects and implementation remain to be designed.
+- **Status:** user-approved game/lore concept, **not implemented**. Continue authoring the story without repeatedly requesting creative choices.
