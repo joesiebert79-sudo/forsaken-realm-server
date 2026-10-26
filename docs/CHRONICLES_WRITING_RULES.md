@@ -35,3 +35,8 @@ The Chronicles must be **extremely long in total**, despite individual chapters 
 
 ## 10. Spire count and faction balance — proposed revision
 The creator is considering reducing the previously approved **50 Spires of Remembrance** to **24 total**, split **12 on each side** (allied and bandit). **Twenty-four is a proposal, not a finalized replacement yet**; the creator may change the count. Do not silently overwrite the fifty-spire map-reveal requirement until the new number is confirmed. Whatever count is finalized, activating all spires should reveal 100% of the map, and each should have a distinct lore-based question and meaningful history.
+
+## Spire distribution by region (2026-10-26)
+- **Approved layout principle:** Place **three Spires of Remembrance in each distinct map area/region**, including mountain areas, wilderness areas, and the other established regions. Each spire has its own lore question and reveals its assigned portion of that region's map.
+- **Total spire count is derived from the number of regions (3 × region count)**, not a fixed 24 or 50. If there are eight areas, that would be 24 spires; do not assume eight areas until the actual map is confirmed. The earlier 50 and proposed 24 totals are superseded as fixed design targets by the three-per-area rule.
+- Activating every spire reveals 100% of the world map. Preserve actual existing map geography and area names; do not invent regions merely to reach a tower count.
