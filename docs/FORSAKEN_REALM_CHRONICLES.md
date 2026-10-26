@@ -202,4 +202,4 @@ The world was remembering without consent.
 
 ## Chapter Three — The Names Beneath the Stone
 
-The complete seven-page chapter is preserved in [Chapter Three — The Names Beneath the Stone](CHRONICLES_CHAPTER_03.md). This linked chapter is part of the canonical living manuscript.
+The [approved opening scene of Chapter Three](CHRONICLES_CHAPTER_03.md) is saved as a **work in progress**, not a complete chapter. The rejected previous draft has been replaced. Page breaks and the final 6–9-page layout await verification in the Android book by Work.
