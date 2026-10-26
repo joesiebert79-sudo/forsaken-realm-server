@@ -6,8 +6,8 @@
 ## 1. Preserve established lore
 Maintain continuity with approved characters, kingdoms, towns, historical events, geography, and the game world. Never silently contradict or replace approved canon. The creator may revise any rule or canon deliberately; document revisions in the Ideas Hub and manuscript.
 
-## 2. Chapter length: four to seven pages
-**Each chapter should be between 4 and 7 pages**, replacing the earlier 10–15+ page target. Pages should contain meaningful story prose; do not pad or artificially truncate a scene merely to hit a count. Use clear chapter and page labels. If a chapter needs substantial restructuring, preserve narrative continuity.
+## 2. Chapter length: six to nine pages
+**Each chapter should be between 6 and 9 pages**, replacing the earlier 10–15+ page target. Pages should contain meaningful story prose; do not pad or artificially truncate a scene merely to hit a count. Use clear chapter and page labels. If a chapter needs substantial restructuring, preserve narrative continuity.
 
 ## 3. Write an immersive, continuous epic
 Use evocative dark-medieval fantasy prose, coherent scenes, meaningful dialogue, character development, tension, mysteries, and consequences. Each chapter should advance the larger story and have a satisfying internal arc while remaining part of the ongoing chronicle.
@@ -47,3 +47,6 @@ The creator is considering reducing the previously approved **50 Spires of Remem
 - Grow the pool as new chapters and historical lore are written. Create multiple genuinely distinct questions per historical fact, with varied phrasing and answer order, but don't rely on cosmetic shuffling as the only anti-sharing measure. Questions must have unambiguous, verifiable answers and references to lore players can access.
 - **Practical limit:** A finite question bank cannot guarantee a unique question forever or for every player globally. Guarantee no repeats within a player's run **while unused questions remain**; if exhausted, add questions or clearly defined fallback behavior. Do not make unanswerable or procedurally invented canon.
 - Keep the three-spires-per-region rule, permanent reveal on successful activation, and ability to retry failed questions. This is a documented game design, not implemented functionality.
+
+## Chapter length amendment — 2026-10-26
+The creator revised the official chapter length to **6–9 pages per chapter**, superseding all earlier 4–7 and 10–15+ page instructions. The overall saga remains expansive, with as many chapters as the story warrants.
