@@ -55,3 +55,11 @@ The creator revised the official chapter length to **6–9 pages per chapter**, 
 - From now on, when presenting a completed chapter to the creator, **read the entire chapter aloud in order**, rather than a synopsis, excerpts, or a page-by-page stop-and-ask flow.
 - At the **end** of the complete chapter reading, state **the exact number of manuscript pages in that chapter**. Chapters should have **6–9 explicitly labeled pages**. Do not claim a count without corresponding page divisions in the saved manuscript.
 - Preserve the chapter text in the shared GitHub manuscript and read from that text, so spoken and written versions match. If a chapter is unfinished, say so and do not call it complete.
+
+## 12. Actual book-page fit and narration fidelity (approved 2026-10-26)
+- **A spoken “Page One,” “turning the page,” etc. must correspond to a real page break in the Android Chronicles book.** Do not invent page boundaries for pacing or treat a one-sentence scene summary as a page.
+- Compose **substantial, fully developed prose** with dialogue, description, action, and consequences. Aim for 2–3 developed paragraphs per rendered page where feasible, but **paragraph count is not a substitute for measuring the rendered layout**; dialogue can create shorter paragraphs.
+- **Before claiming a page fits**, establish the actual book content area, font family and size, line height, padding, page dimensions/orientation, and text renderer. Lay out or preview the exact text in the actual book UI or an equivalent renderer; split at verified page boundaries with appropriate breathing room. Font scaling and device differences may require responsive pagination. Do not assert fit based on word counts alone.
+- Read the **full exact page text**, not a compressed synopsis. Announce page turns only at verified boundaries. If page dimensions/renderer have not been supplied or tested, label pagination **provisional** and do not promise a visual fit.
+- Chapters Three and Four from the earlier short drafts are **REJECTED / NON-CANON** pending a complete rewrite from Chapter Three onward. Do not use their events as established lore until the creator approves a rewritten chapter. Earlier Chapter One and Chapter Two remain intact.
+- Retain the creator's **6–9 actual book pages per chapter** target; never meet that count by padding with near-empty pages.
