@@ -203,3 +203,9 @@ The world was remembering without consent.
 ## Chapter Three — The Names Beneath the Stone
 
 The creator-approved text of [Chapter Three — The Names Beneath the Stone](CHRONICLES_CHAPTER_03.md) is preserved as **Chapter Three**, not as a separate opening scene. Work will paginate the chapter for the actual in-game book; page boundaries are not yet verified.
+
+---
+
+## Chapter Four — The Bell That Rang Beneath the Earth
+
+[Read the complete Chapter Four manuscript](CHRONICLES_CHAPTER_04.md). Pagination is pending verification in the Android book.
