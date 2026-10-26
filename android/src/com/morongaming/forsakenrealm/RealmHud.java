@@ -16,7 +16,7 @@ final class RealmHud {
  text(c,"HEALTH  "+you.optInt("hp")+" / "+you.optInt("maxHp",100),85,26,11,0xffeee1c6);bar(c,85,32,180,you.optDouble("hp"),you.optDouble("maxHp",100),0xffa93c35);
  text(c,"STAMINA  "+you.optInt("stamina"),85,60,11,0xffeee1c6);bar(c,85,66,180,you.optDouble("stamina"),you.optDouble("maxStamina",100),0xff649a59);
  text(c,"Food "+you.optInt("hunger")+"  Water "+you.optInt("thirst")+"  "+(you.optDouble("temperature",50)<25?"COLD":you.optDouble("temperature",50)>75?"HOT":"Comfort"),85,88,10,0xffc0bda7);
- float compassLeft=292,compassRight=w-212,center=(compassLeft+compassRight)/2;float heading=(float)((Math.toDegrees(Math.atan2(dx,-dy))+360)%360);String[] dirs={"N","NE","E","SE","S","SW","W","NW"};c.save();c.clipRect(compassLeft,6,compassRight,62);p.setColor(0xbb101713);c.drawRect(compassLeft,6,compassRight,62,p);
+ float compassLeft=292,compassRight=w-284,center=(compassLeft+compassRight)/2;float heading=(float)((Math.toDegrees(Math.atan2(dx,-dy))+360)%360);String[] dirs={"N","NE","E","SE","S","SW","W","NW"};c.save();c.clipRect(compassLeft,6,compassRight,62);p.setColor(0xbb101713);c.drawRect(compassLeft,6,compassRight,62,p);
  for(int i=-8;i<=8;i++){float angle=(float)(Math.floor(heading/15)*15+i*15),delta=angle-heading,x=center+delta*2;int bearing=((int)angle%360+360)%360;p.setColor(0xffbca776);c.drawRect(x,10,x+1,bearing%45==0?19:15,p);text(c,bearing%45==0?dirs[bearing/45]:""+bearing,x-7,32,bearing%45==0?12:9,0xffe4d4ae);}
  text(c,"▼",center-5,45,13,0xffdfb86c);String place=location(state,you);p.setTextSize(9);text(c,place,center-p.measureText(place)/2,58,9,0xffc7c8ac);c.restore();
  text(c,"FORSAKEN REALM",w-204,25,12,0xffe6bc64);

@@ -13,6 +13,7 @@ import java.io.InputStream;
 
 /** Original owner-approved menu pictures, decoded one at a time for phone memory. */
 final class ApprovedMenuScenes {
+ static final float MAIN_WIDTH=1536,MAIN_HEIGHT=1024,CREATION_WIDTH=1672,CREATION_HEIGHT=941;
  private static Bitmap image;
  private static int loaded;
  private static final Paint paint=new Paint(Paint.FILTER_BITMAP_FLAG);
@@ -28,8 +29,19 @@ final class ApprovedMenuScenes {
    }catch(IOException ignored){}
   }
   canvas.drawColor(Color.BLACK);
-  if(image!=null)canvas.drawBitmap(image,null,new RectF(0,0,view.getWidth(),view.getHeight()),paint);
+  if(image!=null)canvas.drawBitmap(image,null,bounds(view,number),paint);
  }
- static float x(View view,float touch){return touch*1672f/Math.max(1,view.getWidth());}
- static float y(View view,float touch){return touch*941f/Math.max(1,view.getHeight());}
+ static RectF bounds(View view,int number){
+  float width=number==1?MAIN_WIDTH:CREATION_WIDTH,height=number==1?MAIN_HEIGHT:CREATION_HEIGHT;
+  float scale=Math.min(view.getWidth()/width,view.getHeight()/height);
+  float left=(view.getWidth()-width*scale)/2,top=(view.getHeight()-height*scale)/2;
+  return new RectF(left,top,left+width*scale,top+height*scale);
+ }
+ static void beginOverlay(Canvas canvas,View view,int number){
+  RectF b=bounds(view,number);
+  canvas.save();canvas.translate(b.left,b.top);
+  canvas.scale(b.width()/(number==1?MAIN_WIDTH:CREATION_WIDTH),b.height()/(number==1?MAIN_HEIGHT:CREATION_HEIGHT));
+ }
+ static float x(View view,float touch,int number){RectF b=bounds(view,number);return (touch-b.left)*(number==1?MAIN_WIDTH:CREATION_WIDTH)/b.width();}
+ static float y(View view,float touch,int number){RectF b=bounds(view,number);return (touch-b.top)*(number==1?MAIN_HEIGHT:CREATION_HEIGHT)/b.height();}
 }

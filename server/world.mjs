@@ -64,7 +64,7 @@ import {ensureCompanion,resetCompanion,rideCompanion,dismount,commandCompanion,t
 import {ROLES,chooseRole,respawnKit} from './roles.mjs';
 import {dropItem,interact,containerView,transferContainer,openContainer,nearbyContainers} from './interaction.mjs';
 import {ensureProgression,knowledge,learn} from './progression.mjs';
-import {block,dodge,defend,clearStrike,recordHit} from './combat.mjs';
+import {block,dodge,defend,activateSkill,clearStrike,recordHit} from './combat.mjs';
 import {localTerrain,expandLandscape,naturalizeStones,worldMap,localRoads,nearRoad,STREAMS} from './landscape.mjs';
 import {buildingById,roomFor,roomBlocked,enterRoom,exitRoom,stationInRoom,clearDoorApproaches} from './interiors.mjs';
 import {migrateVitals,tickSurvival} from './survival.mjs';
@@ -136,7 +136,7 @@ export class Realm {
     if(masterEnabled(this)&&command.type==='chooseRole')fail('Use permanent character creation');
     if(p.roleRequired&&command.type!=='createCharacter'&&command.type!=='chooseRole'&&command.type!=='respawn')fail('Choose your permanent role first');
     if(p.hp<=0 && command.type!=='respawn') fail('You are dead');
-    if(p.interior&&!String(command.type).startsWith('clan')&&!['baseFurnish','baseStationUpgrade','plant','harvest','stableCare','husbandryCollect','baseBenchUpgrade','baseUpgrade','houseRest','contractClaim','legendaryStart','legendaryClaim','characterUnlock','characterSwitch','openService','companionFollow','friendInvite','friendAccept','friendDecline','friendRemove','closeService','learnMastery','reclaimMastery','repairArmor','companionLearnSkill','learnSkill','reclaimSkills','move','exit','craft','eat','attack','harvestWildlife','trackWildlife','collectWater','stalk','loot','respawn','equipShield','block','dodge','research','use','interact','packItem','take','takeEquip','drop','deposit','closeContainer','openContainer','chooseRole','unequip','companionAttack','companionRetreat','companionStay','ride','hotbar','merchantBuy','merchantSell','closeMerchant','houseDeedBuy','houseDeedRedeem','bankUpgrade','bankOpen','bankDeposit','bankWithdraw','cosmeticGift','cosmeticEquip','shopBuy','cosmeticList','cosmeticCancel','cosmeticBuy'].includes(command.type))fail('Leave the building to do that');
+    if(p.interior&&!String(command.type).startsWith('clan')&&!['activateSkill','baseFurnish','baseStationUpgrade','plant','harvest','stableCare','husbandryCollect','baseBenchUpgrade','baseUpgrade','houseRest','contractClaim','legendaryStart','legendaryClaim','characterUnlock','characterSwitch','openService','companionFollow','friendInvite','friendAccept','friendDecline','friendRemove','closeService','learnMastery','reclaimMastery','repairArmor','companionLearnSkill','learnSkill','reclaimSkills','move','exit','craft','eat','attack','harvestWildlife','trackWildlife','collectWater','stalk','loot','respawn','equipShield','block','dodge','research','use','interact','packItem','take','takeEquip','drop','deposit','closeContainer','openContainer','chooseRole','unequip','companionAttack','companionRetreat','companionStay','ride','hotbar','merchantBuy','merchantSell','closeMerchant','houseDeedBuy','houseDeedRedeem','bankUpgrade','bankOpen','bankDeposit','bankWithdraw','cosmeticGift','cosmeticEquip','shopBuy','cosmeticList','cosmeticCancel','cosmeticBuy'].includes(command.type))fail('Leave the building to do that');
     if(p.mounted&&['attack','gather','harvest','block','dodge'].includes(command.type))fail('Dismount to fight or harvest');
     // All commands are synchronous. Validation precedes mutations; durable store wraps this in a transaction.
     switch(command.type){
@@ -204,6 +204,7 @@ export class Realm {
        else fail('This is an ingredient or a passive tool');break;}
       case 'equipShield': if(command.enabled&&!(p.inventory.shield>0))fail('No shield in backpack');p.equippedShield=command.enabled===true;p.blockUntil=0;break;
       case 'block': block(p,command.enabled===true,now);break;
+      case 'activateSkill':activateSkill(p,command.slot,now);break;
       case 'dodge': {const room=roomFor(p.interior,this.buildings);dodge(p,command,now,room?((x,y)=>roomBlocked(room,x,y)):((x,y)=>this.blocks(x,y)||(masterEnabled(this)&&!canEnter(this,p,{x,y}))),room||WORLD);break;}
       case 'enter': canEnterHome(this,p,command.target);if(!this.buildings.some(b=>b.id===command.target))fail('Building unavailable');if(masterEnabled(this)&&!canEnter(this,p,{interior:command.target}))fail('That town belongs to the other faction');enterRoom(p,command.target,this.buildings);if(masterEnabled(this))discoverContract(p);break;
       case 'exit': exitRoom(p,this.buildings);break;

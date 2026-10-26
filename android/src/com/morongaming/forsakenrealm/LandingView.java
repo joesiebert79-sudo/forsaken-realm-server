@@ -19,8 +19,7 @@ final class LandingView extends View {
  @Override protected void onDraw(Canvas canvas){
   ApprovedMenuScenes.draw(canvas,this,1);
   if(!lore)return;
-  float sx=getWidth()/1536f,sy=getHeight()/1024f;
-  canvas.save();canvas.scale(sx,sy);
+  ApprovedMenuScenes.beginOverlay(canvas,this,1);
   paint.setColor(0xee0b0a0a);canvas.drawRoundRect(new RectF(655,205,1435,850),22,22,paint);
   paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(4);paint.setColor(0xffb69a63);canvas.drawRoundRect(new RectF(655,205,1435,850),22,22,paint);paint.setStyle(Paint.Style.FILL);
   paint.setTypeface(android.graphics.Typeface.create("serif",1));paint.setColor(0xffe9d7b2);paint.setTextSize(48);canvas.drawText("LORE OF THE REALM",715,285,paint);
@@ -33,7 +32,7 @@ final class LandingView extends View {
  }
  @Override public boolean performClick(){super.performClick();return true;}
  @Override public boolean onTouchEvent(MotionEvent event){
-  float x=event.getX()*1536f/Math.max(1,getWidth()),y=event.getY()*1024f/Math.max(1,getHeight());
+  float x=ApprovedMenuScenes.x(this,event.getX(),1),y=ApprovedMenuScenes.y(this,event.getY(),1);
   if(event.getActionMasked()==MotionEvent.ACTION_DOWN){downX=x;downY=y;return true;}
   if(event.getActionMasked()!=MotionEvent.ACTION_UP)return true;
   if(Math.hypot(x-downX,y-downY)>30)return true;
