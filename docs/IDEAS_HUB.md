@@ -116,3 +116,13 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 
 ## Approved Spires art and multiplayer behavior (2026-10-26)
 Creator approved the dark-gothic spire concepts adapted to the game's elevated three-quarter camera. Twelve spire types, each dormant and activated; three spires per map region. Spires become visually lit for everyone after awakening, but lore challenges and map unlocks remain personal. See [Spires of Remembrance design handoff](SPIRES_OF_REMEMBRANCE_DESIGN.md). **Work implements later; concept art image binaries still require upload to repository.**
+
+
+## Approved faction-selection screen — replaces Character Review (2026-10-26)
+- **APPROVED visual design:** the newly generated **Choose Your Allegiance** screen based on the creator's original **Character Review / Step 5 of 6** reference. Preserve its exact gothic Forsaken Realm: Blood & Iron artwork and overall composition; no redesign or generic substitutes.
+- Header: **CHOOSE YOUR ALLEGIANCE — STEP 5 OF 6**. Center: display the player's **actual selected character and companion**, not a fixed sample; preserve character/class/gender/companion appearance.
+- Left blue-and-gold panel: **ALLIES**, heraldic lion/castle imagery, with protection, kingdom support and allied trading access. Right crimson-and-black panel: **BANDITS**, outlaw camp/skull imagery, with outlaw freedom, bandit settlements and black-market access.
+- Interactive selection: selecting either panel highlights that faction, then **CONFIRM ALLEGIANCE** saves the selected faction to the character profile; **BACK** returns to previous creation step. Confirm should not silently choose a default. Ensure responsive landscape Android layout, touch targets and no overlapping/clipped buttons.
+- Faction canon: **Thornhaven = allied trader town; Ravenshollow = bandit trader town**. Do not assume every proposed perk is implemented; connect faction mechanics to actual gameplay systems.
+- **Original approved generated image:** saved in the 2026-10-26 conversation; the creator has explicitly approved it. **Image binary is not yet confirmed committed to GitHub**. Work must obtain the exact approved image from the creator/conversation and commit it to the approved reference-assets directory, then implement/test the screen. Do not replace it with a newly generated approximation.
+- **Status:** APPROVED DESIGN / PENDING ART ASSET COMMIT AND IMPLEMENTATION. Add to the seven-menu repair scope (GitHub issue #6). This entry is the cross-session source of truth.
