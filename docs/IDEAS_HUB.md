@@ -93,3 +93,8 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 - **[Forsaken Realm Chronicles manuscript](FORSAKEN_REALM_CHRONICLES.md)** is the living story text in this same repository, with the opening pages and Spires of Remembrance scene.
 - Keep complete prose and page continuity in the manuscript; keep approved decisions and design notes in this Ideas Hub. Future Chat and Work sessions should read both before extending the lore or writing spire questions.
 - Draft prose, editorial bridges, and proposed plot threads are labeled distinctly. Update the manuscript as the story develops.
+
+## Chronicles writing rules — chapter-length revision (2026-10-26)
+- **[Formal Chronicles Writing Rules](CHRONICLES_WRITING_RULES.md)** govern all future chapters and revisions.
+- **Approved chapter length: 4–7 pages per chapter.** This explicitly supersedes the older 10–15+ page target in the initial book concept above.
+- Preserve canon, connect the story to the game, save prose in the manuscript, let the assistant lead creative writing, and plan coherent answers to major mysteries.
