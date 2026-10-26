@@ -88,3 +88,8 @@ See [Combat HUD and Progression](COMBAT_HUD_AND_PROGRESSION.md) for full detail.
 - **Working lore name:** *Spires of Remembrance*. Each preserves a fragment of history and requires knowledge of that history to awaken. The network fell silent during the kingdoms' collapse and begins stirring again.
 - Design intent: link reading/listening to the Chronicles with exploration and progression. Questions should be answerable from accessible lore; allow retry without permanently locking players out. Exact placement, question bank, reveal regions, visual effects and implementation remain to be designed.
 - **Status:** user-approved game/lore concept, **not implemented**. Continue authoring the story without repeatedly requesting creative choices.
+
+## Shared Chronicles manuscript (2026-10-26)
+- **[Forsaken Realm Chronicles manuscript](FORSAKEN_REALM_CHRONICLES.md)** is the living story text in this same repository, with the opening pages and Spires of Remembrance scene.
+- Keep complete prose and page continuity in the manuscript; keep approved decisions and design notes in this Ideas Hub. Future Chat and Work sessions should read both before extending the lore or writing spire questions.
+- Draft prose, editorial bridges, and proposed plot threads are labeled distinctly. Update the manuscript as the story develops.
