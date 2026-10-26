@@ -28,3 +28,8 @@ Each type has **dormant** and **activated** visual states. Concept art depicts 2
 
 ## Visual source handoff
 Three image sheets were generated in the conversation: a first 12-type environment poster, a second 12-type magical gothic poster (creator's preferred direction), and a final **isometric 12-type dormant/activated comparison sheet**. The image binaries still need to be uploaded to GitHub by a workflow with file-byte access; this text document preserves their approved design intent and names but does not itself contain those image files.
+
+## Creator approval — exact visual reference (2026-10-26)
+**APPROVED / VISUAL DESIGN LOCK:** The creator explicitly approved the **final isometric 12-spire comparison sheet**, with each of the twelve spire types shown in both dormant and activated states, as the **exact visual template** for implementation. Preserve silhouettes, stonework, palettes, glow effects, composition and camera perspective as closely as possible; do not reinterpret or substitute the earlier poster sets. Image filename in the conversation workspace: `wide_game_art_style_infographic_poster_on_a_dark.png` (generated concept art, 12 types × 2 states). This approval is for the artwork/design, not implementation of game code.
+
+**Asset-transfer status:** The approved PNG exists in the conversation workspace but is **not yet committed as a binary file in GitHub**. Work must upload the exact PNG to `assets/concept-art/spires/spires-of-remembrance-approved-isometric.png` and use this document as its approval record. Do not mistake this Markdown approval for a completed image upload.
