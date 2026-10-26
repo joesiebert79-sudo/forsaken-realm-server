@@ -29,3 +29,9 @@ The Chronicles is designed for a page-turning in-game book with optional word-fo
 
 ## Revision record
 - **2026-10-26:** Initial formal writing rules approved for creation. Creator explicitly revised chapter length to **4–7 pages**, superseding the previous 10–15+ page direction.
+
+## 9. Epic scope across many short chapters
+The Chronicles must be **extremely long in total**, despite individual chapters remaining **4–7 pages**. Plan a multi-book, multi-era saga with as many chapters as needed to explain the world thoroughly. Explore why castles were built, who ruled them, why sieges and raids happened, why villages flourished or crumbled, how factions rose and fell, and the lasting human consequences. Give important locations and conflicts layered histories, causes, motivations, and aftermath; avoid filler or repetitive exposition. Keep the overarching narrative open for expansion as the game grows.
+
+## 10. Spire count and faction balance — proposed revision
+The creator is considering reducing the previously approved **50 Spires of Remembrance** to **24 total**, split **12 on each side** (allied and bandit). **Twenty-four is a proposal, not a finalized replacement yet**; the creator may change the count. Do not silently overwrite the fifty-spire map-reveal requirement until the new number is confirmed. Whatever count is finalized, activating all spires should reveal 100% of the map, and each should have a distinct lore-based question and meaningful history.
