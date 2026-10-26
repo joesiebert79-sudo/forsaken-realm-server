@@ -202,4 +202,4 @@ The world was remembering without consent.
 
 ## Chapter Three — The Names Beneath the Stone
 
-The [approved opening scene of Chapter Three](CHRONICLES_CHAPTER_03.md) is saved as a **work in progress**, not a complete chapter. The rejected previous draft has been replaced. Page breaks and the final 6–9-page layout await verification in the Android book by Work.
+**Not yet written.** Chapter Three must be a complete, fully developed chapter before it is saved as canon. No standalone opening scene is accepted as a chapter. Final pagination will be handled in the in-game book.
