@@ -9,7 +9,9 @@ const biomes=['mountain','forest','woodland','farmland','marsh','plains','coast'
 const castleNames=['Wolfswatch','Blackthorn','Duskfort','Ironcrown','Stormkeep'];
 const villageOffsets=[[-690,-510],[-345,-560],[345,-560],[690,-510],[-730,-95],[-365,-105],[365,-105],[730,-95],[-690,385],[-345,420],[345,420],[690,385]];
 const traderOffsets={smithy:[470,-290],bank:[-470,-290],workshop:[470,330],merchant:[-470,330]};
-const banditCampOffsets={smithy:[440,-260],bank:[-440,-260],workshop:[440,245],merchant:[0,-475]};
+// Functional entrances aligned with the approved camp scene: blacksmith,
+// missions, crafting/cooking and provisioner respectively.
+const banditCampOffsets={smithy:[-65,-405],bank:[-488,48],workshop:[228,-348],merchant:[-293,-238]};
 const road=(id,kind,width,points)=>({id,kind,width,points:points.map(([x,y])=>({x:Math.round(x),y:Math.round(y)}))});
 export function createApprovedWorldLayout(){
  const old=createDay2Layout(true);
@@ -28,16 +30,7 @@ export function createApprovedWorldLayout(){
    const [dx,dy]=offsets[legacy.role];
    buildings.push({...legacy,x:Math.round(town.x+dx),y:Math.round(town.y+dy),faction:'neutral',name:camp?'Bandit Camp '+legacy.name.split(' ').slice(-1)[0]:legacy.name});
   }
-  if(camp){
-   // The southern gate feeds a cobbled spine; a walkable ring links the trader,
-   // workshop, smithy and bank while the central fire remains clear.
-   roads.push(road('bandit-gate-road','path',74,[[town.x,town.y+850],[town.x,town.y+490],[town.x,town.y+80],[town.x,town.y-320]]));
-   roads.push(road('bandit-north-lane','path',52,[[town.x-500,town.y-80],[town.x,town.y-80],[town.x+500,town.y-80]]));
-   roads.push(road('bandit-south-lane','path',52,[[town.x-500,town.y+340],[town.x,town.y+340],[town.x+500,town.y+340]]));
-   roads.push(road('bandit-west-lane','path',42,[[town.x-250,town.y-350],[town.x-250,town.y+340]]));
-   roads.push(road('bandit-east-lane','path',42,[[town.x+250,town.y-350],[town.x+250,town.y+340]]));
-   continue;
-  }
+  if(camp)continue;
   // Wide plaza and short counter approaches; no approved shop geometry is changed.
   roads.push(road('plaza-'+town.id,'path',95,[[town.x-850,town.y+95],[town.x+850,town.y+95]]));
   roads.push(road('cross-'+town.id,'path',70,[[town.x,town.y-680],[town.x,town.y+720]]));

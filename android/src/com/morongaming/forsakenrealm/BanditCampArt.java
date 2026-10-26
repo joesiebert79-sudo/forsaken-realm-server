@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import java.io.InputStream;
@@ -21,6 +22,7 @@ final class BanditCampArt {
  private final Rect source=new Rect();
  private final RectF target=new RectF();
  private Bitmap sheet;
+ private Bitmap scene;
 
  void load(Context context,int quality){
   int sample=quality==0?2:1;
@@ -29,25 +31,30 @@ final class BanditCampArt {
    shared=BitmapFactory.decodeStream(in,null,options);sharedSample=sample;
   }catch(Exception ignored){shared=null;}
   sheet=shared;
+  if(scene==null)try(InputStream in=context.getAssets().open("bandit-camp-scene-v2.png")){
+   BitmapFactory.Options options=new BitmapFactory.Options();options.inPreferredConfig=Bitmap.Config.RGB_565;
+   scene=BitmapFactory.decodeStream(in,null,options);
+  }catch(Exception ignored){scene=null;}
  }
 
  static boolean isCamp(JSONObject town){return town!=null&&TOWN.equals(town.optString("id"));}
 
- void ground(Canvas canvas,float x,float y){
-  canvas.save();canvas.translate(x,y);
-  paint.setStyle(Paint.Style.FILL);paint.setColor(0xff504531);
-  canvas.drawOval(-670,-570,670,570,paint);
-  paint.setColor(0xff706044);canvas.drawOval(-615,-515,615,515,paint);
-  // Low palisade segments are decorative; the south gate stays open and walkable.
-  fence(canvas,-590,-510,590,-510);fence(canvas,-590,-510,-590,480);
-  fence(canvas,590,-510,590,480);fence(canvas,-590,480,-125,480);
-  fence(canvas,125,480,590,480);
-  for(int side:new int[]{-1,1})for(int row=0;row<3;row++){
-   float xx=side*(480+row*28),yy=-390+row*65;
-   paint.setColor(0xff2c3026);canvas.drawCircle(xx,yy,58,paint);
-   paint.setColor(0xff3f4932);canvas.drawCircle(xx-12,yy-12,39,paint);
-  }
+ void ground(Canvas canvas,float x,float y,Matrix uniso){
+  if(scene==null)return;
+  canvas.save();canvas.translate(x,y);canvas.concat(uniso);
+  paint.setAlpha(255);paint.setColor(Color.WHITE);paint.setFilterBitmap(true);
+  canvas.drawBitmap(scene,null,new RectF(-836,-470,836,471),paint);
+  label(canvas,"MISSIONS",-530,-220);label(canvas,"PROVISIONER",-55,-282);
+  label(canvas,"BLACKSMITH",365,-250);label(canvas,"CRAFTING & COOKING",565,-55);
+  label(canvas,"WAREHOUSE",330,175);label(canvas,"STABLES",-470,45);
   canvas.restore();
+ }
+
+ private void label(Canvas canvas,String text,float x,float y){
+  paint.setTextSize(20);paint.setTextAlign(Paint.Align.CENTER);float width=paint.measureText(text)+28;
+  paint.setColor(0xdd111411);canvas.drawRoundRect(x-width/2,y-24,x+width/2,y+8,6,6,paint);
+  paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(2);paint.setColor(0xffd4b875);canvas.drawRoundRect(x-width/2,y-24,x+width/2,y+8,6,6,paint);
+  paint.setStyle(Paint.Style.FILL);paint.setColor(Color.WHITE);canvas.drawText(text,x,y,paint);paint.setTextAlign(Paint.Align.LEFT);
  }
 
  private void fence(Canvas canvas,float x,float y,float x2,float y2){
@@ -69,19 +76,6 @@ final class BanditCampArt {
  }
 
  void addObjects(ArrayList<JSONObject> objects,JSONObject town){
-  if(!isCamp(town))return;
-  float x=(float)town.optDouble("x"),y=(float)town.optDouble("y");
-  // All positions are world positions, so props scroll and depth-sort with actors.
-  int[][] positions={
-   {-560,-420,0,210},{560,-420,0,210},{-560,420,0,210},{560,420,0,210},
-   {0,495,2,270},{-180,-180,1,220},{180,-180,1,220},
-   {-270,115,1,210},{260,105,1,210},{-220,340,1,190},
-   {0,40,3,240}
-  };
-  for(int i=0;i<positions.length;i++)try{
-   int[] p=positions[i];JSONObject obj=new JSONObject().put("id","bandit-camp-decor-"+i)
-    .put("x",x+p[0]).put("y",y+p[1]).put("cell",p[2]).put("width",p[3]);
-   objects.add(new JSONObject().put("group","camp-decor").put("object",obj));
-  }catch(Exception ignored){}
+  // The v2 scene is complete. Functional buildings and actors are overlaid by the game.
  }
 }

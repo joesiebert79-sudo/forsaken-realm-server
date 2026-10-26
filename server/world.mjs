@@ -103,6 +103,18 @@ export class Realm {
       const templates=Object.values(createEnemies());for(let i=0;i<180;i++){const x=4300+(i*317)%8800,y=200+(i*641)%12800;if(this.blocks(x,y))continue;const e=structuredClone(templates[i%templates.length]);e.id=`frontier-enemy-${i}`;e.x=e.homeX=x;e.y=e.homeY=y;state.enemies[e.id]=e;}
       state.frontierVersion=1;
     }
+    // Older approved-world saves could retain frontierVersion after being created
+    // with an empty enemy table. Restore a deterministic wilderness population.
+    if(APPROVED_WORLD&&!state.approvedEnemyPopulationV2){
+      const templates=Object.values(createEnemies());let added=0;
+      for(let i=0;i<220;i++){
+        const x=500+(i*977)%12300,y=500+(i*1597)%12300;
+        if(this.blocks(x,y)||(masterEnabled(this)?FACTION_TOWNS:WORLD.safeTowns).some(t=>distance(t,{x,y})<t.radius+450))continue;
+        const id=`approved-enemy-v2-${i}`;if(state.enemies[id])continue;
+        const e=structuredClone(templates[i%templates.length]);e.id=id;e.x=e.homeX=x;e.y=e.homeY=y;state.enemies[id]=e;added++;
+      }
+      state.approvedEnemyPopulationV2={added,at:this.clock()};
+    }
     expandLandscape(state);if(!COMPACT){addHandGathering(state);naturalizeStones(state);}
     if(!state.powderResourcesVersion){for(const v of VILLAGES)for(const [i,kind] of ['sulfur','saltpetre','leadOre'].entries()){const id='powder-'+v.id+'-'+kind;if(state.resources.some(n=>n.id===id))continue;for(let step=0;step<40;step++){const angle=(i*2+step*.17),x=v.x+Math.cos(angle)*(1000+step*12),y=v.y+Math.sin(angle)*(1000+step*12);if(x<30||y<30||x>WORLD.width-30||y>WORLD.height-30||this.blocks(x,y)||nearRoad(x,y,100))continue;state.resources.push({id,x,y,kind,remaining:12,readyAt:0});break;}}state.powderResourcesVersion=1;}
     if(!state.catalogueVersion){const kinds=['clay','limestone','copperOre','tinOre','salt','flaxSeed','barley','oats','peas','cabbage','onion','carrot','apple','berry','herb','mushroom','rawFish','wool','milk','egg','honey','bark'];const used=new Set(state.resources.map(r=>r.id));for(const v of VILLAGES)for(let i=0;i<kinds.length;i++){const angle=i*Math.PI*2/kinds.length,x=v.x+Math.cos(angle)*(780+i%3*90),y=v.y+Math.sin(angle)*(780+i%3*90),id=`gatherable-${v.id}-${i}`;if(x<30||y<30||x>WORLD.width-30||y>WORLD.height-30||this.blocks(x,y)||used.has(id)||nearRoad(x,y,100))continue;state.resources.push({id,x,y,kind:kinds[i],remaining:12,readyAt:0});}state.catalogueVersion=1;}
