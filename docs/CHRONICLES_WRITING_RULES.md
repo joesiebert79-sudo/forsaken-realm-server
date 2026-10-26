@@ -50,3 +50,8 @@ The creator is considering reducing the previously approved **50 Spires of Remem
 
 ## Chapter length amendment — 2026-10-26
 The creator revised the official chapter length to **6–9 pages per chapter**, superseding all earlier 4–7 and 10–15+ page instructions. The overall saga remains expansive, with as many chapters as the story warrants.
+
+## 11. Complete chapter read-aloud and page-count report (2026-10-26)
+- From now on, when presenting a completed chapter to the creator, **read the entire chapter aloud in order**, rather than a synopsis, excerpts, or a page-by-page stop-and-ask flow.
+- At the **end** of the complete chapter reading, state **the exact number of manuscript pages in that chapter**. Chapters should have **6–9 explicitly labeled pages**. Do not claim a count without corresponding page divisions in the saved manuscript.
+- Preserve the chapter text in the shared GitHub manuscript and read from that text, so spoken and written versions match. If a chapter is unfinished, say so and do not call it complete.
