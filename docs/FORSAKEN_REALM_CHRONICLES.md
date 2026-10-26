@@ -221,3 +221,9 @@ The creator-approved text of [Chapter Three — The Names Beneath the Stone](CHR
 ## Chapter Six — The Debt of Seven Kings
 
 [Read Chapter Six](CHRONICLES_CHAPTER_06.md). Page layout pending Work verification.
+
+---
+
+## Chapter Seven — The Bells Below
+
+[Read Chapter Seven](CHRONICLES_CHAPTER_07.md).
