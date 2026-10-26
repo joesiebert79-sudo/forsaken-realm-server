@@ -209,3 +209,9 @@ The creator-approved text of [Chapter Three — The Names Beneath the Stone](CHR
 ## Chapter Four — The Bell That Rang Beneath the Earth
 
 [Read the complete Chapter Four manuscript](CHRONICLES_CHAPTER_04.md). Pagination is pending verification in the Android book.
+
+---
+
+## Chapter Five — The Echoing Names
+
+[Read Chapter Five](CHRONICLES_CHAPTER_05.md). Saved as narrated; pagination and chapter-length review pending.
