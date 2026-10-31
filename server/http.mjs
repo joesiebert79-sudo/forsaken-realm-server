@@ -1,5 +1,6 @@
 import {createPlayerCodeAuth} from './player-code-auth.mjs';
 import {createPhoneDownloads} from './phone-downloads.mjs';
+import {temporaryApk} from './temporary-apk.mjs';
 import {fileURLToPath} from 'node:url';
 import {resolve,dirname} from 'node:path';
 import {startDiscovery} from './discovery.mjs';
@@ -20,7 +21,7 @@ const server=createServer(async(req,res)=>{
  const send=(status,body)=>{if(status===200&&req.headers['x-realm-scene']!==undefined){if(body.state)body={...body,state:sceneTransport(body.state,req.headers['x-realm-scene'])};else if(body.you)body=sceneTransport(body,req.url==='/join'?null:req.headers['x-realm-scene']);}res.writeHead(status);res.end(JSON.stringify(body));};
  if(req.url?.split('?')[0]==='/version.json'&&req.method==='GET')return send(200,RELEASE_INFO);
  if(req.url==='/health'&&req.method==='GET')return send(200,{...RELEASE_INFO,status:'development',players:store.realm.sessions.size,capacity:64});
- try{if(await phoneDownloads(req,res))return;}catch{return send(503,{error:'Phone installer is not ready yet'});}
+ try{if(await temporaryApk(req,res))return;if(await phoneDownloads(req,res))return;}catch{return send(503,{error:'Phone installer is not ready yet'});}
  const id=authenticate(req);if(!id)return send(401,{error:'Unauthorized'});
  try{
   if(req.url==='/join'&&req.method==='POST'){store.transaction(r=>r.join(id));return send(200,store.realm.snapshot(id,true));}
