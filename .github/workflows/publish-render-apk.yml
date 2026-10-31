@@ -1,0 +1,21 @@
+name: Publish Render Android app
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-render-apk.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download and verify the signed Render APK
+        run: |
+          curl --fail --location --retry 5 --retry-delay 5 --output Forsaken-Realm-Render-v0.96.6.apk https://forsaken-realm-server.onrender.com/android/Forsaken-Realm-Render-v0.96.6.apk
+          echo "3b13ae93661fcbe7ff87f5d0aaf32631cb59b22a1cf6a1d03f17ab8dc05e8e1f  Forsaken-Realm-Render-v0.96.6.apk" | sha256sum --check
+      - name: Publish signed APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v0.96.6-render Forsaken-Realm-Render-v0.96.6.apk --repo "$GITHUB_REPOSITORY" --title "Forsaken Realm Render v0.96.6" --notes "Separate Android app for the Render server. Install once alongside the original app."
