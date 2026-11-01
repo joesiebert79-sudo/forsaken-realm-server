@@ -1,14 +1,14 @@
 import {createReadStream,createWriteStream,existsSync,statSync,unlinkSync,renameSync} from 'node:fs';
 import {createHash,timingSafeEqual} from 'node:crypto';
 import {pipeline} from 'node:stream/promises';
-const file='/tmp/forsaken-realm-render-v0966.apk';
-const expected='3b13ae93661fcbe7ff87f5d0aaf32631cb59b22a1cf6a1d03f17ab8dc05e8e1f';
+const file='/tmp/forsaken-realm-render-v0967.apk';
+const expected='06e835ce02500cfc0f5a1d4968d25990a63f79d883c5e6cae3cb3f2ac99a64';
 const max=160*1024*1024;
 export async function temporaryApk(req,res){
  const path=req.url?.split('?')[0];
- if(path==='/android/Forsaken-Realm-Render-v0.96.6.apk'&&req.method==='GET'){
+ if(path==='/android/Forsaken-Realm-Render-v0.96.7.apk'&&req.method==='GET'){
   if(!existsSync(file)){res.writeHead(503,{'Content-Type':'text/plain','Cache-Control':'no-store'});res.end('Installer temporarily unavailable');return true;}
-  res.writeHead(200,{'Content-Type':'application/vnd.android.package-archive','Content-Disposition':'attachment; filename="Forsaken-Realm-Render-v0.96.6.apk"','Content-Length':statSync(file).size,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});
+  res.writeHead(200,{'Content-Type':'application/vnd.android.package-archive','Content-Disposition':'attachment; filename="Forsaken-Realm-Render-v0.96.7.apk"','Content-Length':statSync(file).size,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});
   createReadStream(file).pipe(res);return true;
  }
  if(path!=='/internal/upload-render-apk'||req.method!=='POST')return false;
