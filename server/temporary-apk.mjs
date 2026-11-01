@@ -3,7 +3,7 @@ import {createHash,timingSafeEqual} from 'node:crypto';
 import {pipeline} from 'node:stream/promises';
 import {Transform} from 'node:stream';
 const file='/tmp/forsaken-realm-render-v0967.apk';
-const expected='06e835ce02500cfc0f5a1d4968d25990a63f79d883c5e6cae3cb3f2ac99a64';
+const expected='06e835ce02500cfc0f5f2a1d4968d25990a63f79d883c5e6cae3cb3f2ac99a64';
 const max=160*1024*1024;
 export async function temporaryApk(req,res){
  const path=req.url?.split('?')[0];
