@@ -23,6 +23,6 @@ export async function temporaryApk(req,res){
   for await(const chunk of req){bytes+=chunk.length;if(bytes>max)throw Error('too large');hash.update(chunk);await new Promise((ok,bad)=>{const out=createWriteStream(temp,{flags:bytes===chunk.length?'w':'a'});out.on('error',bad);out.end(chunk,ok);});}
   if(bytes!==length||hash.digest('hex')!==expected)throw Error('checksum mismatch');
   renameSync(temp,file);res.writeHead(201,{'Content-Type':'application/json'});res.end(JSON.stringify({ready:true,bytes}));
- }catch{try{unlinkSync(temp);}catch{}res.writeHead(400);res.end('Invalid installer');}
+ }catch(err){try{unlinkSync(temp);}catch{}console.error('APK upload rejected:',err.message);res.writeHead(400);res.end('Invalid installer: '+err.message);}
  return true;
 }
